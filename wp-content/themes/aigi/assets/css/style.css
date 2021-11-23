@@ -1,0 +1,26 @@
+
+
+
+
+/************************ VARIBLES *************************/
+:root {
+    --wrapper-1245: 1245px;
+}
+@media screen and (max-width: 1400px) {
+    :root {
+
+    }
+}
+@media screen and (max-width: 1300px) {
+    :root {
+        --wrapper-1245: 900px;
+    }
+}
+
+/*************************** WRAPPING STYLES **************************/
+.wrapper-1245 {
+    width: 100%;
+    max-width: var(--wrapper-1245);
+    margin: auto;
+}
+

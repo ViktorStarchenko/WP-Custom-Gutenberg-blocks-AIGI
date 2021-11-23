@@ -1,0 +1,36 @@
+wp-config.php
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
+
+# WP
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-includes/
+wp-content/plugins/
+wp-admin/
+
+.idea/
+#docker/
+node_modules
+
+.DS_Store
+.sass-cache
+npm-debug.log
+
+nginx.conf
+
+phpmyadmin
+.tmb/
+.quarantine/
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+/docker
+
+wp-content/ai1wm-backups
+wp-content/aiowps_backups
+wp-content/bps-backup
