@@ -9,8 +9,13 @@ wp-cli.local.yml
 wp-content/uploads/
 wp-content/cache/
 wp-content/upgrade/
-wp-includes/
 wp-content/plugins/
+
+wp-content/ai1wm-backups
+wp-content/aiowps_backups
+wp-content/bps-backup
+
+wp-includes/
 wp-admin/
 
 .idea/
@@ -26,11 +31,4 @@ nginx.conf
 phpmyadmin
 .tmb/
 .quarantine/
-wp-content/uploads/
-wp-content/cache/
-wp-content/upgrade/
 /docker
-
-wp-content/ai1wm-backups
-wp-content/aiowps_backups
-wp-content/bps-backup
