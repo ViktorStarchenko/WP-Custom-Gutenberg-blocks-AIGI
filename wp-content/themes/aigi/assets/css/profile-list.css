@@ -1,0 +1,33 @@
+
+.profile-list__bio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.profile-list__image {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.profile-list__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profile-list__name {
+
+}
+
+.profile-list__item .rslider__item-header {
+    display: none;
+}
+.profile-list__item .rslider__item-body {
+    padding: 0;
+}
+.profile-list__item .rslider__item-footer {
+    flex-direction: row;
+}
+.profile-list__item .rslider__item-footer:before {
+    display: none;
+}

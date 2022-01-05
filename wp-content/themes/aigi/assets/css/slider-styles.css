@@ -1,0 +1,127 @@
+/*EASYFANCY BOX*/
+#fancybox-wrap {
+    width: 80% !important;
+    max-width: 1130px;
+    padding: 0!important;
+}
+#fancybox-content {
+    width: 100% !important;
+    border: none!important;
+}
+/*SLICK*/
+
+.slider {
+    visibility: hidden
+}
+.slider.slick-initialized {
+    visibility: initial
+}
+.slider.slick-initialized .slide:not(:first-of-type) {
+    display: block
+}
+
+.gallery-wrapper {
+    width: 100%;
+    max-width: 1128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 64px;
+}
+.gallery-inner {
+    width: 100%;
+    max-width: 1008px;
+}
+
+.gallery-for__img {
+    width: 100%;
+    height: 600px;
+}
+.gallery-for__img img {
+    width: 100%;
+    height: 100%;
+}
+.gallery-nav__img {
+    width: auto;
+    height: 65px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.gallery-nav__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+}
+.gallery__title {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+}
+
+/*arrows*/
+.slider-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.slider-arrow {
+    width: 45px;
+    height: 42px;
+    background-color: var(--color-brand-navy-primary);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+    display: block;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: .2;
+}
+.slider-arrow:hover {
+    opacity: 1;
+}
+.slider-arrow.next {
+    background-image: url("/wp-content/themes/aigi/assets/images/path-next-white.svg");
+}
+.slider-arrow.prev {
+    background-image: url("/wp-content/themes/aigi/assets/images/path-prev-white.svg");
+}
+@media (max-width: 1024px) {
+    .gallery-wrapper {
+        padding: 24px 32px;
+    }
+    .gallery-for__img {
+        height: 400px;
+    }
+}
+@media (max-width: 767px) {
+    .gallery-wrapper {
+        padding: 16px 16px;
+    }
+    .gallery-for__img {
+        height: 192px;
+    }
+    .gallery-nav__img {
+        width: auto;
+        margin: 0 5px;
+    }
+    .gallery__navigation {
+        align-items: flex-start;
+    }
+    .slider-arrow {
+        width: 34px;
+        height: 32px;
+        background-size: 15px;
+    }
+}

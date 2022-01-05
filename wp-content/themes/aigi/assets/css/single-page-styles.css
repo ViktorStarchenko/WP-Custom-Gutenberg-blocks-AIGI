@@ -1,0 +1,184 @@
+.content-item {
+    margin: 32px 0;
+}
+
+@media (max-width: 767px) {
+    .content-item {
+        margin: 16px 0;
+    }
+}
+
+
+/*blockquote*/
+.blockquote-body {
+    max-width: 630px;
+    margin: auto;
+    padding: 0 0 0 35px;
+    color: var(--color-p-primary-orange);
+}
+.blockquote-text {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30.35px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
+    margin-bottom: 32px;
+    position: relative;
+}
+.blockquote-text:before,
+.blockquote-text:after {
+    content: '';
+    width: 23px;
+    height: 20px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+.blockquote-text:before {
+    background-image: url("/wp-content/themes/aigi/assets/images/blockquote-open.svg");
+    margin-bottom: 20px;
+    margin-left: -23px;
+}
+.blockquote-text:after {
+    background-image: url("/wp-content/themes/aigi/assets/images/blockquote-close.svg");
+    margin-bottom: -20px;
+    margin-right: -23px;
+}
+.blockquote-author {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19.98px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+.blockquote-author-position {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15.8px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 767px) {
+    /*blockquote*/
+    .blockquote-body {
+        padding: 0;
+    }
+    .blockquote-text {
+        font-size: 22.47px;
+        line-height: 27px;
+    }
+    .blockquote-author {
+        font-size: 15.78px;
+        line-height: 20px;
+    }
+    .blockquote-author-position {
+        font-size: 14.4px;
+        line-height: 19px;
+    }
+    .blockquote-text:before {
+        margin-left: unset;
+        margin-right: -23px;
+    }
+}
+
+
+/****************************** ACCORDION STYLES ************************/
+
+/*basic*/
+.accordion_btn:before {
+    transition-duration: 0.2s;
+}
+.accordion_btn:before {
+    content: '';
+    /*transform: rotate(180deg);*/
+    background-image: url('../images/Triangle-p-blue.svg');
+    right: 8px;
+    top: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 8px;
+    height: 9px;
+    transform: rotate(90deg);
+    position: absolute;
+}
+.accordion_btn.active:before {
+    transform: rotate(-90deg);
+    top: 28px;
+}
+.accordion_panel {
+    /*padding: 0 18px;*/
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+/*custom*/
+
+.accordion_btn {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22.44px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #231F20;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-line-separator);
+    padding: 24px 0;
+    position: relative;
+}
+.accordion_item:first-child .accordion_btn {
+    border-top: 1px solid var(--color-line-separator);
+}
+.accordion_subtitle {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22.44px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-m-blue-primary);
+    margin: 24px 0 8px;
+    display: inline-block;
+}
+.accordion_content {
+    font-family: Proxima Nova;
+    font-size: 16.88px;
+    line-height: 27px;
+    letter-spacing: 0.05em;
+    padding: 16px 32px;
+}
+
+@media (max-width: 767px) {
+    .accordion_btn {
+        padding: 16px 0;
+    }
+    .accordion_btn,
+    .accordion_subtitle {
+        font-size: 17.76px;
+        line-height: 22px;
+    }
+    .accordion_subtitle {
+        margin: 16px 0;
+    }
+    .accordion_content {
+        font-size: 15px;
+        line-height: 24px;
+        padding: 0 0 16px;
+    }
+    .accordion_btn:before {
+        top: 23px;
+    }
+    .accordion_btn.active:before {
+        top: 19px;
+    }
+
+}

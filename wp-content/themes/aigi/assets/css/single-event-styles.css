@@ -1,0 +1,90 @@
+
+.single-event__pricing-title {
+    font-weight: bold;
+    font-size: 10.53px;
+    line-height: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 16px;
+    padding-left: 8px;
+}
+.single-event__pricing-item {
+    padding: 16px 0  16px 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.single-event__pricing-item {
+    border-top: 1px solid var(--color-line-separator);
+}
+.single-event__pricing-item:last-child {
+    /*border-bottom: 1px solid var(--color-line-separator);*/
+}
+.single-event__pricing-type {
+    font-weight: bold;
+    font-size: 15.78px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: var(--color-overlay-bg);
+}
+.single-event__pricing-price {
+    font-size: 15px;
+    line-height: 24px;
+    text-align: right;
+    letter-spacing: 0.03em;
+}
+.single-event__pricing-item .btn-body {
+    width: 100%;
+}
+
+
+/*POST DETAIL*/
+.post-details__item {
+    padding: 16px 0  16px 8px;
+}
+.post-details__heading {
+    font-weight: bold;
+    font-size: 19.98px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 16px;
+}
+.post-details__text {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+}
+.post-details__link {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.7px;
+    text-decoration-line: underline;
+    color: var(--color-brand-m-blue-primary);
+}
+@media (max-width: 767px) {
+    .single-event__pricing-item {
+        padding: 16px 8px;
+    }
+    .single-event__pricing-type {
+        font-weight: bold;
+        font-size: 15.78px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.02em;
+        color: var(--color-overlay-bg);
+    }
+    .single-event__pricing-price {
+        font-size: 15px;
+        line-height: 24px;
+        text-align: right;
+        letter-spacing: 0.03em;
+    }
+}

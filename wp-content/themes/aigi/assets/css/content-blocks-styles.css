@@ -1,0 +1,17 @@
+
+
+/********************************** HEADER BLOCK *******************************/
+
+.header-block__inner {
+    padding: 79px 24px 64px;
+}
+.header-block__content {
+    max-width: 1016px;
+    margin: auto;
+}
+
+@media (max-width: 767px) {
+    .header-block__inner {
+        padding: 40px 0 30px;
+    }
+}

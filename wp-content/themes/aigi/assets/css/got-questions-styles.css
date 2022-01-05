@@ -1,0 +1,54 @@
+
+.got-questions {
+    padding: 74px 0 90px;
+}
+.got-questions .highlighted__title {
+    font-size: 25.28px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+}
+.got-questions .highlighted__short-text,
+.got-questions .highlighted__short-text p {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+}
+.got-questions.bg-texture:before {
+    background-image: url(/wp-content/themes/aigi/assets/images/art-got-questions.svg)!important;
+    background-size: cover!important;
+}
+.got-questions .text-media__content-column {
+    min-height: unset;
+}
+.got-questions .text-media__text-wrapper {
+    margin-bottom: 0;
+}
+.got-questions .text-media__media-wrapper {
+    height: unset;
+}
+
+@media (max-width: 767px) {
+    .got-questions {
+        padding: 50px 0;
+    }
+    .got-questions .highlighted__title {
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        letter-spacing: 0.02em;
+    }
+    .got-questions .highlighted__short-text,
+    .got-questions .highlighted__short-text p {
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 0.3px;
+    }
+    .got-questions .btn-group {
+        margin-top: 20px;
+    }
+    .got-questions .btn-group .btn-body {
+        width: unset;
+    }
+}

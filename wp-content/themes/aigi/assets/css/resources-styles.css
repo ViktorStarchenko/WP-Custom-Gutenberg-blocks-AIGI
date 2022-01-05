@@ -1,0 +1,249 @@
+/************************************** SINGLE RESOURCES *****************************/
+
+.single-resource__container {
+    max-width: 800px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    position: relative;
+    margin: 24px auto;
+    padding-bottom: 24px;
+}
+
+/*resource header background*/
+.single-resource__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 80px;
+    background-image: url(/wp-content/themes/aigi/assets/images/texture-resource.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.single-resource__container.video .single-resource__bg {
+    background-color: var(--color-p-secondary-green);
+}
+.single-resource__container.video {
+    border: 2px solid var(--color-p-secondary-green);
+}
+.single-resource__container.image .single-resource__bg {
+    background-color: var(--color-status-progress);
+}
+.single-resource__container.image {
+    border: 2px solid var(--color-status-progress);
+}
+.single-resource__container.table .single-resource__bg {
+    background-color: var(--color-p-secondary-purple);
+}
+.single-resource__container.table {
+    border: 2px solid var(--color-p-secondary-purple);
+}
+.single-resource__container.tips .single-resource__bg {
+    background-color: var(--color-p-primary-orange);
+}
+.single-resource__container.tips {
+    border: 2px solid var(--color-p-primary-orange);
+}
+.single-resource__container.link .single-resource__bg {
+    background-color: var(--color-h-secondary-blue);
+}
+.single-resource__container.link {
+    border: 2px solid var(--color-h-secondary-blue);
+}
+.single-resource__container.file .single-resource__bg {
+    background-color: var(--color-h-secondary-green);
+}
+.single-resource__container.file {
+    border: 2px solid var(--color-h-secondary-green);
+}
+.single-resource__container.publication .single-resource__bg {
+    background-color: var(--color-brand-navy-primary);
+}
+.single-resource__container.publication {
+    border: 2px solid var(--color-brand-navy-primary);
+}
+
+
+.single-resource__bg.extended {
+    height: 270px;
+}
+
+
+
+.single-resource__inner {
+    max-width: 622px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+.single-resource__header {
+    width: 100%;
+    min-height: 80px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-white);
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22.44px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+}
+.single-resource__title a {
+    color: var(--color-white);
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22.44px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+}
+.single-resource__header:hover,
+.single-resource__header a:hover {
+    color: var(--color-white);
+}
+.single-resource__title {
+    max-width: 553px;
+}
+.single-resource__body {
+    width: 100%;
+}
+.single-resource__body .video-wrap {
+    width: 100%;
+    height: 391px
+}
+.resource-video__wrap,
+.resource-image__wrap {
+    max-width: 622px;
+    width: 100%;
+    height: 391px;
+    overflow: hidden;
+}
+.resource-image__wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.resource__text {
+    font-size: 14.4px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    color: var(--color-main-text);
+    padding: 20px 0;
+}
+
+/*resource icons*/
+.single-resource__icon.video {
+    width: 30px;
+    height: 25px;
+    background-image: url(/wp-content/themes/aigi/assets/images/VideoClip.svg);
+    background-repeat: no-repeat;
+    background-size: 50px 47px;
+    background-position: center;
+}
+.single-resource__icon.link {
+    width: 25px;
+    height: 25px;
+    background-image: url(/wp-content/themes/aigi/assets/images/Link.svg);
+    background-repeat: no-repeat;
+    background-size: 50px 47px;
+    background-position: center;
+}
+.single-resource__icon.table {
+    width: 30px;
+    height: 30px;
+    background-image: url(/wp-content/themes/aigi/assets/images/table.svg);
+    background-repeat: no-repeat;
+    background-size: 35px 47px;
+    background-position: center;
+}
+.single-resource__icon.image {
+    width: 25px;
+    height: 25px;
+    background-image: url(/wp-content/themes/aigi/assets/images/image.svg);
+    background-repeat: no-repeat;
+    background-size: 50px 47px;
+    background-position: center;
+}
+.single-resource__icon.file,
+.single-resource__icon.publication {
+    width: 25px;
+    height: 32px;
+    background-image: url(/wp-content/themes/aigi/assets/images/file.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.single-resource__icon.tips {
+    width: 32px;
+    height: 32px;
+    background-image: url(/wp-content/themes/aigi/assets/images/tips.svg);
+    background-repeat: no-repeat;
+    background-size: center;
+    background-position: center;
+}
+
+.resource-link a {
+    position: relative;
+    word-break: break-all;
+}
+.resource-link.file a:before {
+    background-image: url(/wp-content/themes/aigi/assets/images/download.svg);
+    background-size: contain;
+    width: 19px;
+    height: 15px;
+    margin-bottom: -4px;
+}
+.resource-link a:before {
+    content: '';
+    background-image: url(/wp-content/themes/aigi/assets/images/Path.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 9px;
+    width: 13px;
+    height: 9px;
+    display: inline-block;
+    margin-bottom: -1px;
+}
+
+
+@media (max-width: 1024px) {
+    .single-resource__container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+@media (max-width: 767px) {
+    .single-resource__title {
+        max-width: 270px;
+    }
+    .single-resource__title a {
+        font-size: 17.76px;
+        line-height: 22px;
+    }
+    .single-resource__bg.extended {
+        height: 186px;
+    }
+}
+@media (max-width: 610px) {
+    .resource-video__wrap,
+    .resource-image__wrap{
+        height: 280px
+    }
+}
+@media (max-width: 414px) {
+    .resource-video__wrap,
+    .resource-image__wrap{
+        height: 192px
+    }
+}
+
+

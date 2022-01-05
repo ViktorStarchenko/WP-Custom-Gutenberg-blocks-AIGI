@@ -144,14 +144,141 @@ return $count;
 }
 }
 
+/****
+ *
+ *
+ * START CUSTOM CODE
+ *
+ *
+ ****/
+include 'lib/remove-unwanted-funcs.php';
+include 'lib/custom-post-types.php';
+include 'lib/insert-posts-into-toolkit.php';
+include 'lib/events-post-type.php';
+include 'lib/people-post-type.php';
+include 'lib/partners-post-type.php';
+include 'lib/case-studies-post-type.php';
+include 'lib/news-post-type.php';
+include 'lib/acf.php';
+include 'lib/post-views-counter.php';
+
+function custom_wp_custom_admin_scripts() {
+    wp_enqueue_style('admin-styles', get_theme_file_uri() . '/assets/css/admin-styles.css');
+}
+add_action( 'admin_enqueue_scripts', 'custom_wp_custom_admin_scripts' );
+
 function custom_wp_custom_scripts(){
+
     if (!is_admin()) {
+        wp_enqueue_style('slick-theme', get_theme_file_uri() . '/assets/css/slick/slick-theme.css');
+        wp_enqueue_style('slick', get_theme_file_uri() . '/assets/css/slick/slick.css');
+        wp_enqueue_style('slick', get_theme_file_uri() . '/assets/css/swiper.min.css');
         wp_enqueue_style('styles', get_theme_file_uri() . '/assets/css/style.css');
 
 
+        wp_enqueue_script('slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js', ['jquery'], false, false);
         wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/js/main.js', ['jquery'], false, true);
     }
 }
 
 add_action( 'wp_enqueue_scripts', 'custom_wp_custom_scripts' );
 
+function aigi_get_filename_from_url( $file_url ) {
+    $parts = wp_parse_url( $file_url );
+    if ( isset( $parts['path'] ) ) {
+        return basename( $parts['path'] );
+    }
+}
+
+
+
+
+/*** Header and footer settings code ***/
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title'    => 'Header Settings',
+        'menu_title'    => 'Header Settings',
+        'menu_slug'     => 'header-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+
+    acf_add_options_page(array(
+        'page_title'    => 'Footer Settings',
+        'menu_title'    => 'Footer Settings',
+        'menu_slug'     => 'footer-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+
+}
+
+
+/*** Hide adminbar on frontend ***/
+add_filter( 'show_admin_bar', '__return_false' );
+
+/*** Get total posts count ***/
+function get_total_posts(){
+    $total_posts = 0;
+    $total_posts += (int) wp_count_posts('event')->publish;
+    $total_posts += (int) wp_count_posts('news')->publish;
+    $total_posts += (int) wp_count_posts('resource')->publish;
+    $total_posts += (int) wp_count_posts('toolkit')->publish;
+    return $total_posts;
+}
+
+
+
+/*** Add event, news, resource, toolkit to query if the shortcode template is named "search_page_result" ***/
+// Sort by title if the shortcode template is named "search_page_result"
+add_filter( 'facetwp_query_args', function( $query_args, $class ) {
+    if ( 'search_page_result' == $class->ajax_params['template'] ) {
+        $query_args['post_type'] = ['event', 'news', 'resource', 'toolkit'];
+    }
+    return $query_args;
+}, 10, 2 );
+
+
+
+
+    function setEventType() {
+        $my_posts = get_posts( array(
+            'numberposts' => -1,
+            'post_type'   => 'event',
+        ) );
+        $date = time();
+        foreach( $my_posts as $post ){
+            setup_postdata( $post );
+            $event_date = strtotime(get_field('events_details',$post->ID)['date']);
+            if($event_date < $date) {
+
+                wp_set_object_terms( $post->ID, 'past-events', 'event_type' );
+            } else {
+                wp_set_object_terms( $post->ID, 'upcoming-events', 'event_type' );
+            }
+
+        }
+
+        wp_reset_postdata();
+    }
+
+    add_action('init', 'setEventType');
+
+/*** Custom excerpt ***/
+function get_custom_excerpt($content, $limit, $ellipsis = true){
+
+    $excerpt = $content;
+    $excerpt = preg_replace(" ([.*?])",'',$excerpt);
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt);
+    $excerpt = substr($excerpt, 0, $limit);
+    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+    $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+    $excerpt = $excerpt;
+    if ($ellipsis == true) {
+        $excerpt.= '...';
+    }
+
+    return $excerpt;
+}
