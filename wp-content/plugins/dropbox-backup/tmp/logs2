@@ -1,0 +1,207 @@
+2019-10-09 05:57:43		Create Unique Id wpadm_method__local_backup__5d9d76d7c66e9
+2019-10-09 05:57:43		Start Backup process...
+2019-10-09 05:57:43		Creating Database Dump
+2019-10-09 05:57:43		Optimize Database Tables
+2019-10-09 05:57:43		Optimize Database Tables was started
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_ccf_Fields` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_ccf_Value` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_cf7dbplugin_st` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_cf7dbplugin_submits` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_commentmeta` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_comments` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_links` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_options` was successfully
+2019-10-09 05:57:43		Optimize Table `wp_f64cns_postmeta` was successfully
+2019-10-09 05:57:44		Optimize Table `wp_f64cns_posts` was successfully
+2019-10-09 05:57:44		Optimize Table `wp_f64cns_term_relationships` was successfully
+2019-10-09 05:57:44		Optimize Table `wp_f64cns_term_taxonomy` was successfully
+2019-10-09 05:57:44		Optimize Table `wp_f64cns_termmeta` was successfully
+2019-10-09 05:57:44		Optimize Table `wp_f64cns_terms` was successfully
+2019-10-09 05:57:44		Optimize Table `wp_f64cns_usermeta` was successfully
+2019-10-09 05:57:44		Optimize Table `wp_f64cns_users` was successfully
+2019-10-09 05:57:44		Optimize Database Tables was Finished
+2019-10-09 05:57:44		MySQL of Dump was started
+2019-10-09 05:57:44		Add a table "wp_f64cns_ccf_Fields" in the database dump
+2019-10-09 05:57:44		Add a table rows "wp_f64cns_ccf_Fields" in the database dump from 1 to 1000
+2019-10-09 05:57:44		Add a table "wp_f64cns_ccf_Value" in the database dump
+2019-10-09 05:57:44		Add a table rows "wp_f64cns_ccf_Value" in the database dump from 1 to 1000
+2019-10-09 05:57:44		Add a table "wp_f64cns_cf7dbplugin_st" in the database dump
+2019-10-09 05:57:44		Add a table rows "wp_f64cns_cf7dbplugin_st" in the database dump from 204 to 1000
+2019-10-09 05:57:44		Add a table "wp_f64cns_cf7dbplugin_submits" in the database dump
+2019-10-09 05:57:45		Add a table rows "wp_f64cns_cf7dbplugin_submits" in the database dump from 1000 to 1000
+2019-10-09 05:57:45		Add a table rows "wp_f64cns_cf7dbplugin_submits" in the database dump from 1370 to 1000
+2019-10-09 05:57:45		Add a table "wp_f64cns_commentmeta" in the database dump
+2019-10-09 05:57:45		Add a table "wp_f64cns_comments" in the database dump
+2019-10-09 05:57:45		Add a table "wp_f64cns_links" in the database dump
+2019-10-09 05:57:45		Add a table rows "wp_f64cns_links" in the database dump from 7 to 1000
+2019-10-09 05:57:45		Add a table "wp_f64cns_options" in the database dump
+2019-10-09 05:57:46		Add a table rows "wp_f64cns_options" in the database dump from 262 to 1000
+2019-10-09 05:57:46		Add a table "wp_f64cns_postmeta" in the database dump
+2019-10-09 05:57:47		Add a table rows "wp_f64cns_postmeta" in the database dump from 1000 to 1000
+2019-10-09 05:57:47		Add a table rows "wp_f64cns_postmeta" in the database dump from 2000 to 1000
+2019-10-09 05:57:48		Add a table rows "wp_f64cns_postmeta" in the database dump from 3000 to 1000
+2019-10-09 05:57:49		Add a table rows "wp_f64cns_postmeta" in the database dump from 4000 to 1000
+2019-10-09 05:57:51		Add a table rows "wp_f64cns_postmeta" in the database dump from 5000 to 1000
+2019-10-09 05:57:52		Add a table rows "wp_f64cns_postmeta" in the database dump from 6000 to 1000
+2019-10-09 05:57:53		Add a table rows "wp_f64cns_postmeta" in the database dump from 7000 to 1000
+2019-10-09 05:57:53		Add a table rows "wp_f64cns_postmeta" in the database dump from 7211 to 1000
+2019-10-09 05:57:53		Add a table "wp_f64cns_posts" in the database dump
+2019-10-09 05:57:54		Add a table rows "wp_f64cns_posts" in the database dump from 1000 to 1000
+2019-10-09 05:57:55		Add a table rows "wp_f64cns_posts" in the database dump from 1744 to 1000
+2019-10-09 05:57:55		Add a table "wp_f64cns_term_relationships" in the database dump
+2019-10-09 05:57:56		Add a table rows "wp_f64cns_term_relationships" in the database dump from 999 to 1000
+2019-10-09 05:57:56		Add a table "wp_f64cns_term_taxonomy" in the database dump
+2019-10-09 05:57:56		Add a table rows "wp_f64cns_term_taxonomy" in the database dump from 52 to 1000
+2019-10-09 05:57:56		Add a table "wp_f64cns_termmeta" in the database dump
+2019-10-09 05:57:56		Add a table "wp_f64cns_terms" in the database dump
+2019-10-09 05:57:56		Add a table rows "wp_f64cns_terms" in the database dump from 52 to 1000
+2019-10-09 05:57:56		Add a table "wp_f64cns_usermeta" in the database dump
+2019-10-09 05:57:56		Add a table rows "wp_f64cns_usermeta" in the database dump from 44 to 1000
+2019-10-09 05:57:56		Add a table "wp_f64cns_users" in the database dump
+2019-10-09 05:57:56		Add a table rows "wp_f64cns_users" in the database dump from 2 to 1000
+2019-10-09 05:57:56		MySQL of Dump was finished
+2019-10-09 05:57:56		Database Dump was successfully created ( 4.23 Mb) : /home/aigi/toolkit/wp-content/Dropbox_Backup/mysqldump.sql
+2019-10-09 05:57:56		Skip of Cache-Folder /home/aigi/toolkit/wp-includes/SimplePie/Cache
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2019/07/Strong_Governance_Supporting_Success_Full_Report_Print.pdf Size 11859850
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/7.0-RA-Governance-Toolkit.pdf Size 2324281
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/1.0-RA-Governance-Toolkit.pdf Size 3322286
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/2.0-RA-Governance-Toolkit.pdf Size 2897230
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/4.0-RA-Governance-Toolkit.pdf Size 4411589
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/5.0-RA-Governance-Toolkit.pdf Size 6547967
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/Full-RA-Governance-Toolkit.pdf Size 30433520
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/6.0-RA-Governance-Toolkit.pdf Size 4017177
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/8.0-RA-Governance-Toolkit.pdf Size 2536871
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/9.0-RA-Governance-Toolkit.pdf Size 2631332
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/03/3.0-RA-Governance-Toolkit.pdf Size 1793827
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/02/Resource-5.v-WYDAC-Strategic-Plan.pdf Size 4905295
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/02/untitled.bmp Size 2152134
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/02/RA_Indig_Financial_Capability_WEB.pdf Size 1146359
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/02/ALC_Code-of-Conduct.pdf Size 3335663
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2013/07/OCHRE.png Size 1295870
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/03/test.pdf Size 1324274
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/03/Rec-Aus-Test-1-1.pdf Size 1334951
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/03/sample.avi Size 2336918
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/RA-IGA-Handbook-08-FINAL.pdf Size 6493952
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/Indigenous-Governance-Toolkit-Reconciliation-Australia.pdf Size 2416470
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/PDF-Layout-Reconciliation-Australia.pdf Size 1334951
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/MG-MEETINGS1.jpg Size 5004366
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/Rec-Aus-Test-1-1.pdf Size 1334951
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/5.5-was_main_report_2nd_draft.pdf Size 1193451
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/MG-MEETINGS.jpg Size 5004366
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/Rec-Aus-Test-1-12.pdf Size 1334951
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/Rec-Aus-Test-1-11.pdf Size 1334951
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/04/Handbook-2006.pdf Size 5249573
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/05/Rec-Aus-Test-1-1.pdf Size 1334951
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2012/12/Yiriman-cultural-bosses-with-IGA-Chair-Mick-Dodson-and-judge-Gary-Banks.jpg Size 2876090
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2016/02/OID-2014-cover--768x1097.png Size 1210727
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2016/02/OID-2014-cover-.png Size 1388021
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2016/02/OID-2014-cover--717x1024.png Size 1062710
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/sucuri/sucuri-auditqueue.php Size 0
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/sucuri/sucuri-oldfailedlogins.php Size 117319845
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/7.0-RA-Governance-Toolkit.pdf Size 2324281
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/1.0-RA-Governance-Toolkit.pdf Size 3322286
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/2.0-RA-Governance-Toolkit.pdf Size 2897230
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/4.0-RA-Governance-Toolkit.pdf Size 4411589
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/5.0-RA-Governance-Toolkit.pdf Size 6547967
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/6.0-RA-Governance-Toolkit.pdf Size 4017177
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/8.0-RA-Governance-Toolkit.pdf Size 2536871
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/9.0-RA-Governance-Toolkit.pdf Size 2631332
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/uploads/2014/07/3.0-RA-Governance-Toolkit.pdf Size 1793827
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/plugins/advanced-custom-fields/js/input/_listener.js Size 0
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/plugins/advanced-custom-fields/js/input/_listener.min.js Size 0
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-includes/js/dist/components.js Size 1225766
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-includes/js/dist/editor.js Size 1254501
+2019-10-09 05:57:56		File /home/aigi/toolkit/wp-content/Dropbox_Backup/mysqldump.sql Size 4434483
+2019-10-09 05:57:56		List of Backup-Files was successfully created
+2019-10-09 05:57:56		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-1.zip
+2019-10-09 05:57:57		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-2.zip
+2019-10-09 05:57:57		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-3.zip
+2019-10-09 05:57:57		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-4.zip
+2019-10-09 05:57:58		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-5.zip
+2019-10-09 05:57:58		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-6.zip
+2019-10-09 05:57:58		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-7.zip
+2019-10-09 05:57:58		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-8.zip
+2019-10-09 05:57:59		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-9.zip
+2019-10-09 05:57:59		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-10.zip
+2019-10-09 05:57:59		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-11.zip
+2019-10-09 05:57:59		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-12.zip
+2019-10-09 05:57:59		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-13.zip
+2019-10-09 05:58:00		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-14.zip
+2019-10-09 05:58:02		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-15.zip
+2019-10-09 05:58:02		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-16.zip
+2019-10-09 05:58:02		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-17.zip
+2019-10-09 05:58:03		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-18.zip
+2019-10-09 05:58:03		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-19.zip
+2019-10-09 05:58:03		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-20.zip
+2019-10-09 05:58:03		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-21.zip
+2019-10-09 05:58:03		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-22.zip
+2019-10-09 05:58:04		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-23.zip
+2019-10-09 05:58:04		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-24.zip
+2019-10-09 05:58:04		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-25.zip
+2019-10-09 05:58:04		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-26.zip
+2019-10-09 05:58:04		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-27.zip
+2019-10-09 05:58:04		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-28.zip
+2019-10-09 05:58:04		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-29.zip
+2019-10-09 05:58:05		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-30.zip
+2019-10-09 05:58:05		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-31.zip
+2019-10-09 05:58:05		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-32.zip
+2019-10-09 05:58:05		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-33.zip
+2019-10-09 05:58:05		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-34.zip
+2019-10-09 05:58:05		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-35.zip
+2019-10-09 05:58:05		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-36.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-37.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-38.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-39.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-40.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-41.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-42.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-43.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-44.zip
+2019-10-09 05:58:06		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-45.zip
+2019-10-09 05:58:07		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-46.zip
+2019-10-09 05:58:07		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-47.zip
+2019-10-09 05:58:07		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-48.zip
+2019-10-09 05:58:07		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-49.zip
+2019-10-09 05:58:07		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-50.zip
+2019-10-09 05:58:07		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-51.zip
+2019-10-09 05:58:07		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-52.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-53.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-54.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-55.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-56.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-57.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-58.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-59.zip
+2019-10-09 05:58:08		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-60.zip
+2019-10-09 05:58:09		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-61.zip
+2019-10-09 05:58:09		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-62.zip
+2019-10-09 05:58:15		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-63.zip
+2019-10-09 05:58:15		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-64.zip
+2019-10-09 05:58:16		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-65.zip
+2019-10-09 05:58:17		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-66.zip
+2019-10-09 05:58:18		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-67.zip
+2019-10-09 05:58:20		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-68.zip
+2019-10-09 05:58:21		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-69.zip
+2019-10-09 05:58:21		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-70.zip
+2019-10-09 05:58:22		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-71.zip
+2019-10-09 05:58:22		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-72.zip
+2019-10-09 05:58:23		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-73.zip
+2019-10-09 05:58:24		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-74.zip
+2019-10-09 05:58:24		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-75.zip
+2019-10-09 05:58:24		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-76.zip
+2019-10-09 05:58:24		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-77.zip
+2019-10-09 05:58:25		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-78.zip
+2019-10-09 05:58:25		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-79.zip
+2019-10-09 05:58:26		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-80.zip
+2019-10-09 05:58:26		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-81.zip
+2019-10-09 05:58:27		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-82.zip
+2019-10-09 05:58:27		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-83.zip
+2019-10-09 05:58:27		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-84.zip
+2019-10-09 05:58:28		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-85.zip
+2019-10-09 05:58:28		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-86.zip
+2019-10-09 05:58:28		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-87.zip
+2019-10-09 05:58:29		Create part toolkit_aigi_com_au-full-2019_10_09_15_58-88.zip
+2019-10-09 05:58:29		Backup of Files was started
+2019-10-09 05:58:29		End of File Backup
+2019-10-09 05:58:29		Backup Size 202.94 Mb
+2019-10-09 05:58:29		Backup creation was complete successfully!
