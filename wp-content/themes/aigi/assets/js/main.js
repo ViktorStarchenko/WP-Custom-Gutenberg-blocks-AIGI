@@ -241,7 +241,18 @@ tab();
 // FaceWP post type switch
 jQuery('.global-search-tab-nav').on('click', function (){
     let post_type = jQuery(this).attr('data-post-type')
-    resetFilter()
+    url = new URL(window.location.href);
+
+    if (!url.searchParams.get('_search_bar') && !url.searchParams.get('_content_tags')) {
+        resetFilter()
+    } else if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
+        jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox.checked').removeClass('checked')
+
+        if (post_type == 'all') {
+            jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox').click()
+        }
+    }
+
     setTimeout(checkPostType, 2200, post_type);
 })
 function checkPostType(post_type) {
@@ -272,6 +283,24 @@ jQuery('body').on('click', function(e){
 (function(jQuery) {
     document.addEventListener('facetwp-loaded', function() {
         setTimeout(initSpeakersSlider, 2000);
+
+        if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
+            console.log(FWP.settings.pager.total_rows);
+            // Refresh post types count for search result
+            jQuery('.global-search-tab-nav .posts-count').html(0);
+            let posts = jQuery('.global-search-tab[data-post-type="all"] .facetwp-facet-post_type .facetwp-checkbox');
+            let all_count = 0;
+            posts.each(function(){
+                console.log(jQuery(this).attr('data-value'))
+                let post_type = jQuery(this).attr('data-value');
+                let posts_count = parseInt(jQuery(this).find('.facetwp-counter').html().slice(1).slice(0,-1));
+                all_count+= posts_count;
+                jQuery('.global-search-tab-nav[data-post-type="'+post_type+'"]').find('.posts-count').html(posts_count);
+                jQuery('.global-search-tab-nav[data-post-type="all"]').find('.posts-count').html(all_count);
+            })
+
+
+        }
 
         refreshSearchPageCounter();
         refreshFilterNavArrows();
