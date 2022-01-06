@@ -53,6 +53,15 @@ if (get_field('td_resource_teaser')) {
 
 ?>
 
+<?php
+$bg_image = '';
+if (get_field('add_diagram')) {
+    $bg_image = get_field('add_diagram');
+} else if (get_field('td_resource_image')) {
+    $bg_image = get_field('td_resource_image');
+}
+?>
+
 <div class="post-tile__wrap  <?= $post_type; ?> <?php echo $type;?> post-<?php echo get_the_ID(); ?> <?php echo ($appearance['disable_header_footer_on_mobile'] == false) ? 'mob-style-2' : '' ?>">
     <div class="post-tile__mob-header">
         <div class="post-tile__tags">
@@ -66,9 +75,9 @@ if (get_field('td_resource_teaser')) {
     </div>
     <div class="post-tile__img-box">
         <div class="post-tile__img">
-            <?php if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
+            <?php if (!empty($bg_image)) { ?>
 
-                <img class="post-tile__thumb" src="<?= get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>" alt="<?php the_title(); ?>">
+                <img class="post-tile__thumb" src="<?= $bg_image; ?>" alt="<?php the_title(); ?>">
 
             <?php } else { ?>
 
