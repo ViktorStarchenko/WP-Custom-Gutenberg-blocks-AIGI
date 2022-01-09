@@ -13,10 +13,12 @@
     flex-direction: row-reverse;
 }
 .text-media__content-column {
-    min-height: 339px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+.media-enabled .text-media__content-column  {
+    min-height: 339px;
 }
 .text-media__content-column.start {
     justify-content: flex-start;
