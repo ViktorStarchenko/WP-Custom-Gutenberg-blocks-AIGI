@@ -95,17 +95,26 @@
     <script>
         jQuery(document).ready(function(){
             let post_type = jQuery('.landing__filter-block').attr('data-post-type');
+            let url = new URL(window.location.href);
+            if (url.searchParams.get('_post_type') != post_type) {
+                console.log('НЕ НИМА НИМА НИМА')
+                setTimeout(selectPostType, 500, post_type);
+            }
             function selectPostType(post_type) {
+                console.log('selectPostType')
+
                 jQuery('.facetwp-checkbox[data-value="'+post_type+'"]').click();
                 if (post_type == 'event') {
                     let event_group = jQuery('.landing__filter-block').attr('data-event-group');
 
                     setTimeout(function(){
                         jQuery('.facetwp-facet-events_group .facetwp-radio[data-value="'+event_group+'"]').click();
-                    }, 500, event_group);
+                    }, 200, event_group);
                 }
+
+
             }
-            setTimeout(selectPostType, 500, post_type);
+
         })
 
     </script>
