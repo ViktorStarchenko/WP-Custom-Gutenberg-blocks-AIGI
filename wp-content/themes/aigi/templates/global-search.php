@@ -24,7 +24,8 @@
                     </div>
                     <div class="search-page__sorting">
                         <div class="filter-button">
-                            <img src="/wp-content/themes/aigi/assets/images/filter.svg" alt="filter">
+                            <img class="filter-button__filter filter-button__img" src="/wp-content/themes/aigi/assets/images/filter.svg" alt="filter">
+                            <img class="filter-button__close filter-button__img" src="/wp-content/themes/aigi/assets/images/close-blue.svg" alt="close">
                         </div>
                         <?php echo do_shortcode('[facetwp facet="sort_by_relevance"]'); ?>
 
@@ -303,10 +304,14 @@
         let param = url.searchParams.get('_search_bar');
 
         setTimeout(showSearResultText, 2000, param)
-
+        jQuery('.search-filter__reset').on('click', function(){
+            setTimeout(function(){location.reload();}, 1000);
+        })
     } else {
 console.log('no')
     }
+
+
 
 
 
