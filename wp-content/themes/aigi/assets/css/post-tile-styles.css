@@ -12,8 +12,14 @@
     padding: 42px 0;
     border-top: 1px solid var(--color-field-border);
 }
+.landing-page .post-tile__wrap {
+    padding: 32px 0;
+}
 .post-tile__wrap:last-child {
     border-bottom: 1px solid var(--color-field-border);
+}
+.landing-page .post-tile__wrap:first-child {
+    border-top: none;
 }
 .post-tile__img {
     background-size: cover;
@@ -22,6 +28,8 @@
     align-items: center;
     justify-content: center;
     background-image: url(/wp-content/themes/aigi/assets/images/toolkit-tile.svg);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .search-page .post-tile__img {
@@ -62,6 +70,9 @@
     align-items: flex-start;
     justify-content: space-between;
 }
+.search-page .post-tile__content {
+    min-height: 320px;
+}
 .post-tile__content-header,
 .post-tile__content-body,
 .post-tile__content-footer {
@@ -69,6 +80,12 @@
     width: calc(100% - 112px);
     /*max-width: 490px;*/
     margin: auto;
+}
+.post-tile__content-header {
+    margin-top: 8px;
+}
+.post-tile__content-footer {
+    margin-bottom: 0;
 }
 .post-tile__content-header {
     display: flex;
@@ -175,6 +192,9 @@
     width: 100%;
     margin-bottom: 5px;
 }
+.landing-page .post-tile__content {
+    min-height: 311px;
+}
 .landing-page .post-tile__content-header,
 .landing-page .post-tile__content-body,
 .landing-page .post-tile__content-footer {
@@ -212,7 +232,13 @@
     .search-page .post-tile__content-footer {
         width: calc(100% - 64px);
     }
+    .search-page .post-tile__content {
+        min-height: 180px;
+    }
     /*Post tile panding page*/
+    .landing-page .post-tile__content {
+        min-height: 250px;
+    }
     .landing-page .post-tile__content-header,
     .landing-page .post-tile__content-body,
     .landing-page .post-tile__content-footer {
@@ -248,6 +274,9 @@
     .post-tile__wrap .post-tile__right span:not(:last-child):after,
     .post-tile__wrap .post-tile__left span:not(:last-child):after {
         display: none;
+    }
+    .post-tile__wrap .post-tile__right span:not(:last-child) {
+        margin-right: 22px;
     }
     .post-tile__time:before {
         margin-right: 6px;
@@ -767,6 +796,10 @@
         overflow: hidden;
         padding: 0;
         border: 1px solid var(--color-field-border);
+    }
+    .post-tile__wrap.event:last-child,
+    .post-tile__wrap.mob-style-2:last-child {
+        margin-bottom: 0;
     }
     .post-tile__wrap.event .post-tile__mob-header,
     .post-tile__wrap.event .post-tile__mob-footer {

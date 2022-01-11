@@ -260,6 +260,7 @@ function checkPostType(post_type) {
     jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox[data-value="'+post_type+'"]').click();
 }
 function refreshSearchPageCounter() {
+
     let page = FWP.settings.pager.page;
     let total_rows = FWP.settings.pager.total_rows;
 
@@ -268,6 +269,9 @@ function refreshSearchPageCounter() {
     if (posts_per_page < 10) {
         viewed_posts = total_rows;
     }
+    console.log('page ' + page)
+    console.log('posts_per_page ' + posts_per_page)
+    console.log('viewed_posts ' + viewed_posts)
     jQuery('.search-pagination__per-page').html(viewed_posts);
     jQuery('.search-pagination__total-rows').html(total_rows);
 
@@ -283,7 +287,7 @@ jQuery('body').on('click', function(e){
 (function(jQuery) {
     document.addEventListener('facetwp-loaded', function() {
         setTimeout(initSpeakersSlider, 2000);
-
+        url = new URL(window.location.href);
         if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
             console.log(FWP.settings.pager.total_rows);
             // Refresh post types count for search result
@@ -438,17 +442,14 @@ jQuery('.dropbtn').on('click', function(){
 
 // mobile filter
 jQuery('.filter-button').on('click', function(){
-    // jQuery('.global-search__filter-mobile').addClass('show');
-    // jQuery('body').addClass('hidden');
-    // jQuery('.shadow-screen').addClass('active');
-    // closeButton();
     var panel = document.getElementById('global-search__filter');
-
     console.log(panel)
     if (panel.style.maxHeight) {
+        jQuery(this).removeClass('active');
         panel.style.maxHeight = null;
     } else {
         // panel.style.maxHeight = panel.scrollHeight + "px";
+        jQuery(this).addClass('active');
         panel.style.height = "auto";
         panel.style.maxHeight = "2000px"
     }

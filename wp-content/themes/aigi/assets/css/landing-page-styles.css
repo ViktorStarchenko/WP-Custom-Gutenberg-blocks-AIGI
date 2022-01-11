@@ -1,0 +1,106 @@
+
+.landing__filter-block {
+    height: 238px;
+    background-color: #F8F8F8;
+    padding: 60px 16px;
+    position: relative;
+}
+.landing__filter-inner {
+    max-width: 1125px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+}
+.landing__filter-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 34px;
+    position: relative;
+}
+.landing__filter-heading {
+    font-weight: bold;
+    font-size: 25.28px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: var(--color-text-field-blue);
+}
+.landing__filter-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.landing__filter-item {
+    flex: 1;
+    max-width: 271px;
+}
+.landing__filter-item:not(:last-child) {
+    margin-right: 16px;
+}
+.landing__filter-title {
+    font-weight: bold;
+    font-size: 10.53px;
+    line-height: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-brand-m-blue-primary);
+    margin-bottom: 9px;
+}
+.landing__filter-item.post-type {
+    display: none;
+}
+.page-template-landing-page .search-pagination {
+    max-width: 1130px;
+    margin: auto;
+}
+
+
+.landing__filter-item .fs-wrap {
+    width: 100%;
+}
+.landing__filter-item .fs-label-wrap {
+    width: 100%;
+}
+.landing__filter-item .facetwp-facet select {
+    width: 100%;
+}
+.landing__filter-item .fs-dropdown {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .landing__filter-block {
+        height: auto;
+    }
+    .landing__filter-block {
+        padding: 40px 16px;
+    }
+    .landing__filter-header {
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    .landing__filter-header .filter-button {
+        position: absolute;
+        left: 0;
+    }
+    .landing__filter-heading {
+        font-size: 19.98px;
+        line-height: 25px;
+        letter-spacing: 0.02em;
+    }
+    .landing__filter-list {
+        flex-direction: column;
+        margin-top: 32px;
+    }
+    .landing__filter-title {
+        font-size: 10.53px;
+        line-height: 12px;
+        letter-spacing: 2px;
+    }
+    .landing__filter-item {
+        max-width: unset;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}

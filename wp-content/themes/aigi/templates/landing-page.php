@@ -12,10 +12,7 @@
     <!--            <div class="hero-slider" style="height: 548px; width: 100%; background: var(--color-error)" ></div>-->
     <!--        </div>-->
     <!--    </div>-->
-    <?php if (get_field('header_slider')): ?>
-        <?php get_template_part('template-parts/content-blocks/content', 'header-slider'); ?>
-    <?php endif; ?>
-    <div class="main-inner top-of-hero">
+    <div class="main-inner <?php  echo ((get_field('header_slider')['enable'] == true) ? ' top-of-hero ' :''); ?>">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <?php get_template_part('template-parts/layout', 'page-before-content-blocks'); ?>
 
@@ -30,350 +27,60 @@
             </div>
             <?php get_template_part('template-parts/layout', 'page-after-content-blocks'); ?>
             <div class="wrapper-1245">
+                <div class="content-wrapper wrapper-full-width">
+                    <?php
+                    $post_type = get_field('landing_page')['post_type'];
+                    if ($post_type == 'event') {
+                        $event_group = get_field('landing_page')['event_term'];
+                        $event_group = $event_group->slug;
+                    }
+                    ?>
+                    <div class="landing__filter-block" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>">
+                        <div class="landing__filter-inner">
+                            <div class="landing__filter-header">
+                                <div class="filter-button">
+                                    <img class="filter-button__filter filter-button__img" src="/wp-content/themes/aigi/assets/images/filter.svg" alt="filter">
+                                    <img class="filter-button__close filter-button__img" src="/wp-content/themes/aigi/assets/images/close-blue.svg" alt="close">
+                                </div>
+                                <div class="landing__filter-heading"><?= get_field('landing_page')['heading']; ?></div>
+                            </div>
+                            <div class="landing__filter-list global-search__filter" id="global-search__filter">
+                                <div class="landing__filter-item post-type">
+                                    <div class="landing__filter-title">post type</div>
+                                    <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="post_type"]'); ?></div>
+                                </div>
+                                <?php if (get_field('landing_page')['post_type'] == 'event') : ?>
+                                <div class="landing__filter-item post-type">
+                                    <div class="landing__filter-title">event group</div>
+                                    <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="events_group"]'); ?></div>
+                                </div>
+                                <?php endif ?>
+                                <?php if (get_field('landing_page')['filter_item']) : ?>
+                                <?php foreach (get_field('landing_page')['filter_item'] as $filter_item) : ?>
+                                <div class="landing__filter-item">
+                                    <div class="landing__filter-title"><?= $filter_item['title']; ?></div>
+                                    <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="'. $filter_item['filter_name'] .'"]'); ?></div>
+                                </div>
+                                <?php endforeach ?>
+                                <?php endif ?>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 <div class="content-wrapper wrapper-1245">
-                    <div class="post-tile__list landing-page">
+                    <div class="post-tile__list landing-page search-page__results">
 
+                        <?php echo do_shortcode('[facetwp template="search_page_result"]'); ?>
 
+                    </div>
 
+                    <div class="search-pagination">
 
-
-                        <div class="post-tile__wrap event">
-                            <div class="post-tile__mob-header">
-                                <div class="post-tile__tags">
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">event</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">event</a>
-                                    <!--                                        --><?php //$term_list = wp_get_post_terms( get_the_ID(), 'content_tags', array('fields' => 'all') );
-                                    //
-                                    //                                        foreach ($term_list as $term) :
-                                    //
-                                    //                                            ?>
-                                    <!--                                            <a class="content-tags__item" href="/search-facewp/?_news_categories=--><?php //echo $term->slug ?><!--" data-tem-id="--><?php //echo  $term->term_id ?><!--">--><?php //echo $term->name ?><!--</a>-->
-                                    <!--                                        --><?php //endforeach ?>
-                                </div>
-                                <a href="#" class="add-to-calendar"></a>
-                            </div>
-                            <div class="post-tile__img-box">
-                                <div class="post-tile__img">
-                                    <!--                                --><?php //if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
-
-                                    <img class="post-tile__thumb" src="http://aigi-build/wp-content/uploads/2021/12/66638c04-34a8-39e9-9b87-f7e65fa5f0ac.jpg" alt="<?php the_title(); ?>">
-
-                                    <!--                                --><?php //} else { ?>
-                                    <!--                                    <picture>-->
-                                    <!--                                        <img class="post-tile__type-text" src="/wp-content/themes/aigi/assets/images/news.svg" alt="--><?php //the_title(); ?><!--">-->
-                                    <!--                                    </picture>-->
-                                    <!--                                --><?php //} ?>
-                                </div>
-                                <div class="btn-group f-start m-center">
-                                    <a href="#" target="" class="btn-61b2477e729e7  btn-body  btn-transparent  calendar  after  Between " tabindex="0">
-                                        <span class="btn-inner">Link 2</span>
-                                    </a>
-                                    <a href="#" target="" class="btn-61aa84409fd20  btn-body  btn-h-secondary-blue  triangle  after  Between " tabindex="0">
-                                        <span class="btn-inner">FIND A STORE</span>
-                                    </a>
-                                </div>
-
-                            </div>
-
-
-                            <div class="post-tile__content">
-                                <div class="post-tile__content-header">
-                                    <div class="post-tile__left">
-                                        <span class="post-tile__pub-date">Apr 20, 2021</span>
-                                        <span class="post-tile__location">Brisbane Convention Centre</span>
-                                    </div>
-
-                                    <div class="post-tile__right">
-
-                                    </div>
-                                </div>
-                                <div class="post-tile__content-body">
-                                    <div class="post-tile__tags">
-                                        <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                        <a class="content-tags__item" href="#" data-tem-id="">event</a>
-<!--                                        --><?php //$term_list = wp_get_post_terms( get_the_ID(), 'content_tags', array('fields' => 'all') );
-//
-//                                        foreach ($term_list as $term) :
-//
-//                                            ?>
-<!--                                            <a class="content-tags__item" href="/search-facewp/?_news_categories=--><?php //echo $term->slug ?><!--" data-tem-id="--><?php //echo  $term->term_id ?><!--">--><?php //echo $term->name ?><!--</a>-->
-<!--                                        --><?php //endforeach ?>
-                                    </div>
-
-                                    <div class="post-tile__title">
-                                        <span>CATSI act review final report Highlights AIGI Recommendations</span>
-                                    </div>
-                                    <div class="post-tile__excerpt"><p>AIGI's Advocacy team was chuffed to note their CATSI Act Review submission will form the basis of further training recommendations to ORIC, as outlined in the CATSI Act Review Final Report handed down this month.…</p></div>
-                                </div>
-                                <div class="post-tile__content-footer">
-                                    <div class="post-tile__pricing-block">
-                                        <div class="post-tile__pricing-title">
-                                            Event Pricing
-                                        </div>
-                                        <div class="post-tile__pricing-list">
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Early Bird</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Full Price</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Partner Price</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Date Rate</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="post-tile__slider">
-                                <div class="speakers-slider__heading">
-                                    Speakers
-                                </div>
-                                <?php
-                                $speakers = get_field('speakers', 3157);
-                                ?>
-                                <?php if ($speakers) : ?>
-
-                                <div class="speakers-slider">
-                                    <?php foreach ($speakers as $speaker) : ?>
-                                    <div>
-                                        <div class="speakers-slider__item">
-                                            <div class="speakers-slider__img">
-                                            <?php if (get_the_post_thumbnail_url( $speaker->ID, 'full' )) : ?>
-                                                <img src="<?php echo get_the_post_thumbnail_url( $speaker->ID, 'full' ) ?> " alt="<?= $speaker->post_title ?>">
-                                            <?php endif ?>
-                                            </div>
-                                            <div class="speakers-slider__content">
-                                                <div class="speakers-slider__name">
-                                                    <?= $speaker->post_title ?>
-                                                </div>
-                                                <div class="speakers-slider__position">
-                                                    <?php echo substr(get_the_excerpt( $speaker->ID), 0,25) ?>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <?php endforeach ?>
-
-                                </div>
-                                    <div class="speakers-slider__nav"></div>
-                                <?php endif?>
-                            </div>
-
-                            <div class="post-tile__mob-footer">
-                                <a href="#" target="" class="  btn-body  btn-h-secondary-blue  triangle  after  Between " tabindex="0">
-                                    <span class="btn-inner">FIND A STORE</span>
-                                </a>
-                            </div>
+                        <div class="search-pagination__info">
+                            You've viewed <span class="search-pagination__per-page"><?php echo FWP()->facet->pager_args['per_page']; ?></span> of <span class="search-pagination__total-rows"><?php echo FWP()->facet->pager_args['total_rows']; ?></span> events
                         </div>
-
-                        <div class="post-tile__wrap event">
-                            <div class="post-tile__mob-header">
-                                <div class="post-tile__tags">
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">event</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                    <a class="content-tags__item" href="#" data-tem-id="">event</a>
-                                    <!--                                        --><?php //$term_list = wp_get_post_terms( get_the_ID(), 'content_tags', array('fields' => 'all') );
-                                    //
-                                    //                                        foreach ($term_list as $term) :
-                                    //
-                                    //                                            ?>
-                                    <!--                                            <a class="content-tags__item" href="/search-facewp/?_news_categories=--><?php //echo $term->slug ?><!--" data-tem-id="--><?php //echo  $term->term_id ?><!--">--><?php //echo $term->name ?><!--</a>-->
-                                    <!--                                        --><?php //endforeach ?>
-                                </div>
-                                <a href="#" class="add-to-calendar"></a>
-                            </div>
-                            <div class="post-tile__img-box">
-                                <div class="post-tile__img">
-                                    <!--                                --><?php //if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
-
-                                    <img class="post-tile__thumb" src="http://aigi-build/wp-content/uploads/2021/12/66638c04-34a8-39e9-9b87-f7e65fa5f0ac.jpg" alt="<?php the_title(); ?>">
-
-                                    <!--                                --><?php //} else { ?>
-                                    <!--                                    <picture>-->
-                                    <!--                                        <img class="post-tile__type-text" src="/wp-content/themes/aigi/assets/images/news.svg" alt="--><?php //the_title(); ?><!--">-->
-                                    <!--                                    </picture>-->
-                                    <!--                                --><?php //} ?>
-                                </div>
-                                <div class="btn-group f-start m-center">
-                                    <a href="#" target="" class="btn-61b2477e729e7  btn-body  btn-transparent  calendar  after  Between " tabindex="0">
-                                        <span class="btn-inner">Link 2</span>
-                                    </a>
-                                    <a href="#" target="" class="btn-61aa84409fd20  btn-body  btn-h-secondary-blue  triangle  after  Between " tabindex="0">
-                                        <span class="btn-inner">FIND A STORE</span>
-                                    </a>
-                                </div>
-
-                            </div>
-
-
-                            <div class="post-tile__content">
-                                <div class="post-tile__content-header">
-                                    <div class="post-tile__left">
-                                        <span class="post-tile__pub-date">Apr 20, 2021</span>
-                                        <span class="post-tile__location">Brisbane Convention Centre</span>
-                                    </div>
-
-                                    <div class="post-tile__right">
-
-                                    </div>
-                                </div>
-                                <div class="post-tile__content-body">
-                                    <div class="post-tile__tags">
-                                        <a class="content-tags__item" href="#" data-tem-id="">conference</a>
-                                        <a class="content-tags__item" href="#" data-tem-id="">event</a>
-                                        <!--                                        --><?php //$term_list = wp_get_post_terms( get_the_ID(), 'content_tags', array('fields' => 'all') );
-                                        //
-                                        //                                        foreach ($term_list as $term) :
-                                        //
-                                        //                                            ?>
-                                        <!--                                            <a class="content-tags__item" href="/search-facewp/?_news_categories=--><?php //echo $term->slug ?><!--" data-tem-id="--><?php //echo  $term->term_id ?><!--">--><?php //echo $term->name ?><!--</a>-->
-                                        <!--                                        --><?php //endforeach ?>
-                                    </div>
-
-                                    <div class="post-tile__title">
-                                        <span>CATSI act review final report Highlights AIGI Recommendations</span>
-                                    </div>
-                                    <div class="post-tile__excerpt"><p>AIGI's Advocacy team was chuffed to note their CATSI Act Review submission will form the basis of further training recommendations to ORIC, as outlined in the CATSI Act Review Final Report handed down this month.…</p></div>
-                                </div>
-                                <div class="post-tile__content-footer">
-                                    <div class="post-tile__pricing-block">
-                                        <div class="post-tile__pricing-title">
-                                            Event Pricing
-                                        </div>
-                                        <div class="post-tile__pricing-list">
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Early Bird</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Full Price</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Partner Price</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                            <div class="post-tile__pricing-item">
-                                                <span class="post-tile__pricing-type">Date Rate</span>
-                                                <span class="post-tile__pricing-price">$300.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="post-tile__slider">
-                                <div class="speakers-slider__heading">
-                                    Speakers
-                                </div>
-                                <?php
-                                $speakers = get_field('speakers', 3157);
-                                ?>
-                                <?php if ($speakers) : ?>
-
-                                    <div class="speakers-slider">
-                                        <?php foreach ($speakers as $speaker) : ?>
-                                            <div>
-                                                <div class="speakers-slider__item">
-                                                    <div class="speakers-slider__img">
-                                                        <?php if (get_the_post_thumbnail_url( $speaker->ID, 'full' )) : ?>
-                                                            <img src="<?php echo get_the_post_thumbnail_url( $speaker->ID, 'full' ) ?> " alt="<?= $speaker->post_title ?>">
-                                                        <?php endif ?>
-                                                    </div>
-                                                    <div class="speakers-slider__content">
-                                                        <div class="speakers-slider__name">
-                                                            <?= $speaker->post_title ?>
-                                                        </div>
-                                                        <div class="speakers-slider__position">
-                                                            <?php echo substr(get_the_excerpt( $speaker->ID), 0,25) ?>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        <?php endforeach ?>
-
-                                    </div>
-                                    <div class="speakers-slider__nav"></div>
-                                <?php endif?>
-                            </div>
-
-                            <div class="post-tile__mob-footer">
-                                <a href="#" target="" class="  btn-body  btn-h-secondary-blue  triangle  after  Between " tabindex="0">
-                                    <span class="btn-inner">FIND A STORE</span>
-                                </a>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="post-tile__wrap news">
-                            <div class="post-tile__img">
-                                <?php if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
-
-                                    <img class="post-tile__thumb" src="http://aigi-build/wp-content/uploads/2021/12/66638c04-34a8-39e9-9b87-f7e65fa5f0ac.jpg" alt="<?php the_title(); ?>">
-
-                                <?php } else { ?>
-                                    <picture>
-                                        <img class="post-tile__type-text" src="/wp-content/themes/aigi/assets/images/news.svg" alt="<?php the_title(); ?>">
-                                    </picture>
-                                <?php } ?>
-                            </div>
-
-                            <div class="post-tile__content">
-                                <div class="post-tile__content-header">
-                                    <div class="post-tile__left">
-                                        <div class="post-tile__pub-date"><?php echo get_the_date(); ?></div>
-                                    </div>
-
-                                    <div class="post-tile__right">
-                                        <div class="post-tile__time">
-                                            <span>10 min read</span>
-                                        </div>
-                                        <?php echo do_shortcode('[favorite_button]') ?>
-                                    </div>
-                                </div>
-                                <div class="post-tile__content-body">
-                                    <div class="post-tile__tags">
-                                        <?php $term_list = wp_get_post_terms( get_the_ID(), 'content_tags', array('fields' => 'all') );
-
-                                        foreach ($term_list as $term) :
-
-                                            ?>
-                                            <a class="content-tags__item" href="/search-facewp/?_news_categories=<?php echo $term->slug ?>" data-tem-id="<?php echo  $term->term_id ?>"><?php echo $term->name ?></a>
-                                        <?php endforeach ?>
-                                    </div>
-
-                                    <div class="post-tile__title">
-                                        <span><?php the_title(); ?></span>
-                                    </div>
-                                    <div class="post-tile__excerpt"><p><?php echo substr(get_the_excerpt(), 0,185) ?></p></div>
-                                </div>
-                                <div class="post-tile__content-footer">
-                                    <a href="<?=  get_the_permalink(get_the_ID()) ?>" target="" class="btn-body btn-transparent triangle after Between">
-                                        <span class="btn-inner">READ MORE</span>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
+                        <?php echo do_shortcode('[facetwp facet="pager_"]'); ?>
 
                     </div>
 
@@ -385,4 +92,21 @@
     </div>
 
 </main>
+    <script>
+        jQuery(document).ready(function(){
+            let post_type = jQuery('.landing__filter-block').attr('data-post-type');
+            function selectPostType(post_type) {
+                jQuery('.facetwp-checkbox[data-value="'+post_type+'"]').click();
+                if (post_type == 'event') {
+                    let event_group = jQuery('.landing__filter-block').attr('data-event-group');
+
+                    setTimeout(function(){
+                        jQuery('.facetwp-facet-events_group .facetwp-radio[data-value="'+event_group+'"]').click();
+                    }, 500, event_group);
+                }
+            }
+            setTimeout(selectPostType, 500, post_type);
+        })
+
+    </script>
 <?php get_footer(); ?>
