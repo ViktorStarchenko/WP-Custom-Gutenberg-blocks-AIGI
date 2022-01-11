@@ -559,8 +559,7 @@ strong {
     align-items: center;
     text-align: center;
     letter-spacing: 2px;
-    text-trans
-    : uppercase;
+    text-transform: uppercase;
     color: #000000;
     text-decoration: none;
 }
