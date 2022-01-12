@@ -81,6 +81,9 @@
     /*max-width: 490px;*/
     margin: auto;
 }
+.post-tile__content-body {
+    margin-top: 8px;
+}
 .post-tile__content-footer {
     margin-bottom: 0;
 }
