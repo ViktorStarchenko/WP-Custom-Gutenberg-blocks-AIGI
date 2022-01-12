@@ -81,9 +81,6 @@
     /*max-width: 490px;*/
     margin: auto;
 }
-.post-tile__content-header {
-    margin-top: 8px;
-}
 .post-tile__content-footer {
     margin-bottom: 0;
 }
@@ -91,12 +88,11 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-}
-.post-tile__content-header {
     font-size: 12px;
     line-height: 19px;
     letter-spacing: 0.05em;
-    margin-bottom: 20px;
+    margin-top: 8px;
+    margin-bottom: 0;
 }
 .post-tile__pub-date {
     position: relative;

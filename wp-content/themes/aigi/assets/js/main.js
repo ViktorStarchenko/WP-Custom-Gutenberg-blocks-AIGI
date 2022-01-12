@@ -87,8 +87,10 @@ for (i = 0; i < acc.length; i++) {
         this.classList.toggle("active");
         var panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
+            panel.classList.remove('active');
             panel.style.maxHeight = null;
         } else {
+            panel.classList.add('active');
             panel.style.maxHeight = panel.scrollHeight + "px";
         }
     });
@@ -447,9 +449,12 @@ jQuery('.filter-button').on('click', function(){
     if (panel.style.maxHeight) {
         jQuery(this).removeClass('active');
         panel.style.maxHeight = null;
+        setTimeout(function(){panel.classList.remove('active')},200)
+
     } else {
         // panel.style.maxHeight = panel.scrollHeight + "px";
         jQuery(this).addClass('active');
+        panel.classList.add('active');
         panel.style.height = "auto";
         panel.style.maxHeight = "2000px"
     }
@@ -576,7 +581,7 @@ window.addeventasync = function(){
 
 //  Alignment heigh of similar blocks
 function normalizeHeigh(data) {
-    let data_height = $('[data-height=' +  data + ']')
+    let data_height = jQuery('[data-height=' +  data + ']')
 
     let data_allHeight = [];
     data_height.each(function(elem){
@@ -584,14 +589,22 @@ function normalizeHeigh(data) {
         data_allHeight.push(parseInt($(this).height()));
     })
     slider1_maxHeight = Math.max.apply(Math, data_allHeight);
-    $('[data-height=' +  data + ']').height(slider1_maxHeight)
+    jQuery('[data-height=' +  data + ']').height(slider1_maxHeight)
     // console.log(data_height);
 }
 
-$(document).ready(function() {
+jQuery(document).ready(function() {
     let data_arr = ['Hero2ColText'];
 
     for(i=0; i<=data_arr.length; i++) {
         normalizeHeigh(data_arr[i])
     }
+})
+
+// PRINT BUTTON
+
+jQuery(document).ready(function(){
+    jQuery('.print-button').on('click', function(){
+        window.print();
+    })
 })

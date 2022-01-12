@@ -91,6 +91,8 @@
     }
     .landing__filter-list {
         flex-direction: column;
+    }
+    .landing__filter-list.active {
         margin-top: 32px;
     }
     .landing__filter-title {
