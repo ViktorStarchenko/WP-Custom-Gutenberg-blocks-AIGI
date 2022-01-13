@@ -807,7 +807,21 @@ strong {
 }
 
 /*************************** FORM STYLES ********************************/
-
+/*Gravity forms*/
+.w100 {
+    width: 100%;
+}
+.w49 {
+    width: 49%;
+}
+.w50 {
+    width: calc(50% - 9px);
+}
+body .gform_fields {
+    display: flex!important;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .form-inner {
     width: 100%;
     display: flex;
