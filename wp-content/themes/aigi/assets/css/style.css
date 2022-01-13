@@ -1870,7 +1870,6 @@ input[type="submit"].btn-transparent-white:hover {
 /** 404 page **/
 
 .wrappper_404 {
-    background-image: url(<?= $data['image_desktop']['url'] ?>);
     height: 760px;
     background-size: cover;
 }
@@ -1936,9 +1935,9 @@ input[type="submit"].btn-transparent-white:hover {
         padding: 130px 15px 0 15px;
     }
     .wrappper_404 {
-        background-image: url(<?= $data['image_mob']['url'] ?>);
         text-align: center;
         height: 500px;
+        background-position-y: bottom;
     }
     h1 {
         font-weight: bold;
