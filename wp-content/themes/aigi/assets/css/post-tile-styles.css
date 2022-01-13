@@ -279,7 +279,7 @@
         display: none;
     }
     .post-tile__wrap .post-tile__right span:not(:last-child) {
-        margin-right: 22px;
+        margin-right: 30px;
     }
     .post-tile__time:before {
         margin-right: 6px;
