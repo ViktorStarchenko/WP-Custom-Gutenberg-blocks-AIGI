@@ -1517,7 +1517,17 @@ input[type="submit"].btn-transparent-white:hover {
     /*margin-right: 14px;*/
     object-fit: cover;
 }
-
+/*Centered reusable block with button*/
+.centered-content-wrapper {
+    text-align: center;
+    max-width: 700px;
+}
+@media (max-width: 767px) {
+    .centered-content-section {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
 /************************************ VIDEO BLOCK ******************************/
 .video__wrap {
     height: 828px;
@@ -1874,7 +1884,6 @@ input[type="submit"].btn-transparent-white:hover {
 /** 404 page **/
 
 .wrappper_404 {
-    background-image: url(<?= $data['image_desktop']['url'] ?>);
     height: 760px;
     background-size: cover;
 }
@@ -1916,7 +1925,11 @@ input[type="submit"].btn-transparent-white:hover {
 .subtitle2_404_m {
     display: none;
 }
-
+@media (max-width: 950px) {
+    .wrappper_404 .wrapper-1245 {
+        padding: 260px 15px 0 15px;
+    }
+}
 @media (max-width: 767px) {
     .error404 .wrappper_404 a.btn-body {
         background: transparent;
@@ -1936,9 +1949,9 @@ input[type="submit"].btn-transparent-white:hover {
         padding: 130px 15px 0 15px;
     }
     .wrappper_404 {
-        background-image: url(<?= $data['image_mob']['url'] ?>);
         text-align: center;
         height: 500px;
+        background-position-y: bottom;
     }
     h1 {
         font-weight: bold;

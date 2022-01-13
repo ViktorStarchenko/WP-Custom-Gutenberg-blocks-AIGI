@@ -21,15 +21,10 @@ $data = get_field('404', 'option');
 <style type="text/css">
 	.wrappper_404 {
 		background-image: url(<?= $data['image_desktop']['url'] ?>);
-		height: 760px;
-		background-size: cover;
-
 	}
 	@media (max-width: 767px) {
 		.wrappper_404 {
 			background-image: url(<?= $data['image_mob']['url'] ?>);
-			text-align: center;
-			height: 500px;
 		}
 	}
 </style>
