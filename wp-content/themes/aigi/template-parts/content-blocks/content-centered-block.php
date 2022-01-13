@@ -76,7 +76,7 @@ if ($attributes['background']['background_image']) {
             <p style="color: <?php echo $attributes['background']['text_color']; ?>;"><?php echo $content['heading']; ?></p>
         </div>
         <div class="text-media__text medium-text">
-            <p style="color: <?php echo $attributes['background']['text_color']; ?>;"><?php echo $content['text']; ?></p>
+            <p style="color: <?php echo $attributes['background']['text_color']; ?>;"><?php echo $content['text_centered']; ?></p>
         </div>     
         
         <?php if (get_sub_field('button_group')['buttons']) {
