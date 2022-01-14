@@ -161,6 +161,7 @@ include 'lib/case-studies-post-type.php';
 include 'lib/news-post-type.php';
 include 'lib/acf.php';
 include 'lib/post-views-counter.php';
+include 'lib/custom-facetwp.php';
 
 function custom_wp_custom_admin_scripts() {
     wp_enqueue_style('admin-styles', get_theme_file_uri() . '/assets/css/admin-styles.css');
@@ -227,17 +228,6 @@ function get_total_posts(){
     $total_posts += (int) wp_count_posts('toolkit')->publish;
     return $total_posts;
 }
-
-
-
-/*** Add event, news, resource, toolkit to query if the shortcode template is named "search_page_result" ***/
-// Sort by title if the shortcode template is named "search_page_result"
-add_filter( 'facetwp_query_args', function( $query_args, $class ) {
-    if ( 'search_page_result' == $class->ajax_params['template'] ) {
-        $query_args['post_type'] = ['event', 'news', 'resource', 'toolkit'];
-    }
-    return $query_args;
-}, 10, 2 );
 
 
 

@@ -3,6 +3,7 @@
 * Template Name: Landing page 2
 * Template Post Type: page
 */
+
 ?>
 
 <?php get_header(); ?>
@@ -35,7 +36,7 @@
                         $event_group = $event_group->slug;
                     }
                     ?>
-                    <div class="landing__filter-block" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>">
+                    <div class="landing__filter-block <?php echo $post_type; ?>" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>">
                         <div class="landing__filter-inner">
                             <div class="landing__filter-header">
                                 <div class="filter-button">
@@ -43,6 +44,15 @@
                                     <img class="filter-button__close filter-button__img" src="/wp-content/themes/aigi/assets/images/close-blue.svg" alt="close">
                                 </div>
                                 <div class="landing__filter-heading"><?= get_field('landing_page')['heading']; ?></div>
+
+                            <?php if ($post_type == 'event') { ?>
+                                <div class="landing__filter-heading event-type-filter-mob">
+                                    <div class="landing__filter-input">
+                                        <?php echo do_shortcode('[facetwp facet="landing_event_type"]'); ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
                             </div>
                             <div class="landing__filter-list global-search__filter" id="global-search__filter">
                                 <div class="landing__filter-item post-type">
@@ -57,7 +67,7 @@
                                 <?php endif ?>
                                 <?php if (get_field('landing_page')['filter_item']) : ?>
                                 <?php foreach (get_field('landing_page')['filter_item'] as $filter_item) : ?>
-                                <div class="landing__filter-item">
+                                <div class="landing__filter-item <?php echo $filter_item['filter_name']; ?>">
                                     <div class="landing__filter-title"><?= $filter_item['title']; ?></div>
                                     <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="'. $filter_item['filter_name'] .'"]'); ?></div>
                                 </div>
@@ -71,7 +81,7 @@
                 <div class="content-wrapper wrapper-1245">
                     <div class="post-tile__list landing-page search-page__results">
 
-                        <?php echo do_shortcode('[facetwp template="search_page_result"]'); ?>
+                        <?php echo do_shortcode('[facetwp template="landing_page_result"]'); ?>
 
                     </div>
 
@@ -97,22 +107,20 @@
             let post_type = jQuery('.landing__filter-block').attr('data-post-type');
             let url = new URL(window.location.href);
             if (url.searchParams.get('_post_type') != post_type) {
-                console.log('НЕ НИМА НИМА НИМА')
-                setTimeout(selectPostType, 500, post_type);
+                // setTimeout(selectPostType, 500, post_type);
             }
             function selectPostType(post_type) {
                 console.log('selectPostType')
 
                 jQuery('.facetwp-checkbox[data-value="'+post_type+'"]').click();
                 if (post_type == 'event') {
+
                     let event_group = jQuery('.landing__filter-block').attr('data-event-group');
 
                     setTimeout(function(){
                         jQuery('.facetwp-facet-events_group .facetwp-radio[data-value="'+event_group+'"]').click();
                     }, 200, event_group);
                 }
-
-
             }
 
         })

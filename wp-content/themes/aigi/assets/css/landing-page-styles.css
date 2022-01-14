@@ -26,6 +26,9 @@
     letter-spacing: 0.02em;
     color: var(--color-text-field-blue);
 }
+.landing__filter-block .event-type-filter-mob {
+    display: none;
+}
 .landing__filter-list {
     display: flex;
     flex-direction: row;
@@ -39,6 +42,7 @@
     margin-right: 16px;
 }
 .landing__filter-title {
+    min-height: 12px;
     font-weight: bold;
     font-size: 10.53px;
     line-height: 12px;
@@ -69,16 +73,61 @@
     width: 100%;
 }
 
+.facetwp-facet-landing_event_type {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border: 1px solid var(--color-field-border);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px;
+}
+.facetwp-facet-landing_event_type .facetwp-radio.checked {
+    color: #fff;
+    background-color: var(--color-brand-navy-primary);
+    background-image: none;
+}
+.facetwp-facet-landing_event_type .facetwp-radio {
+    width: 125px;
+    background-image: none;
+    padding: 12px 23px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-brand-navy-primary);
+    margin: 0;
+}
+.facetwp-facet-landing_event_type .facetwp-counter {
+    display: none;
+}
+
 @media (max-width: 767px) {
     .landing__filter-block {
         height: auto;
     }
     .landing__filter-block {
-        padding: 40px 16px;
+        padding: 27px 16px;
     }
     .landing__filter-header {
         justify-content: center;
         margin-bottom: 0;
+    }
+    .landing__filter-block.event .landing__filter-header {
+        justify-content: flex-end;
+    }
+    .landing__filter-block.event .landing__filter-heading.event-type-filter-mob {
+        display: block;
+        width: 100%;
+        max-width: 285px;
+    }
+    .landing__filter-block.event .landing__filter-heading {
+        display: none;
     }
     .landing__filter-header .filter-button {
         position: absolute;
@@ -104,5 +153,8 @@
         max-width: unset;
         width: 100%;
         margin-bottom: 16px;
+    }
+    .landing__filter-block.event .landing__filter-item.landing_event_type {
+        display: none;
     }
 }

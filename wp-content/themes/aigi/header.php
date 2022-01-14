@@ -108,7 +108,7 @@
 <!--                  </form>-->
                    <div class="facetwp__search_bar-wrap">
                        <?php echo do_shortcode('[facetwp facet="search_bar"]');?>
-                       <div style="display:none"><?php echo do_shortcode('[facetwp template="search_page_result"]');?></div>
+                       <div style="display:none"><?php //echo do_shortcode('[facetwp template="search_page_result"]');?></div>
                        <button class="fwp-submit btn-body btn-m-blue" data-href="/search/">Search</button>
                    </div>
                </div>
