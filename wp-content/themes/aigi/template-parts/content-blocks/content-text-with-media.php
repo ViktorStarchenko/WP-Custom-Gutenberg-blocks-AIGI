@@ -37,6 +37,9 @@ endif;
 
 <?php
 $classes = '';
+if ($content['text_color']) {
+    $classes .= ' ' . $content['text_color'] . ' ';
+}
 if ($attributes['wrappers']['section_wrapper']) {
     $classes .= ' ' . $attributes['wrappers']['section_wrapper'] . ' ';
 }

@@ -50,6 +50,11 @@
     letter-spacing: 0.02em;
     color: var(--color-brand-m-blue-primary);
 }
+.text-light .text-media__text.big-heading,
+.text-light .text-media__text.big-heading p {
+    color: #FFF;
+}
+
 .text-media__text.heading,
 .text-media__text.heading p {
     font-weight: bold;
@@ -57,6 +62,10 @@
     line-height: 30px;
     letter-spacing: 0.02em;
     color: var(--color-brand-navy-primary);
+}
+.text-light .text-media__text.heading,
+.text-light .text-media__text.heading p {
+    color: #fff;
 }
 
 .text-media__text.subheading,
@@ -67,6 +76,10 @@
     letter-spacing: 0.02em;
     color: var(--color-brand-navy-primary);
 }
+.text-light .text-media__text.subheading,
+.text-light .text-media__text.subheading p {
+    color: #fff;
+}
 
 .text-media__text.subheading-orange,
 .text-media__text.subheading-orange p {
@@ -76,6 +89,10 @@
     letter-spacing: 0.06em;
     color: var(--color-brand-earth-primary);
 }
+.text-light .text-media__text.subheading-orange,
+.text-light .text-media__text.subheading-orange p {
+    color: #fff;
+}
 
 .text-media__text.medium-text,
 .text-media__text.medium-text p {
@@ -84,6 +101,10 @@
     letter-spacing: 0.05em;
     color: #000000;
 }
+.text-light .text-media__text.medium-text,
+.text-light .text-media__text.medium-text p {
+    color: #fff;
+}
 
 .text-media__text.small-text,
 .text-media__text.small-text p {
@@ -91,6 +112,11 @@
     line-height: 24px;
     letter-spacing: 0.03em;
 }
+.text-media__text.small-text,
+.text-media__text.small-text p {
+    color: #fff;
+}
+
 .text-media__content .btn-group {
     margin-top: 24px;
 }
