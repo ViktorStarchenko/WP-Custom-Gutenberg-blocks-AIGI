@@ -105,6 +105,17 @@
 
                                     <div class="search__filter-item">
                                         <div class="accordion_item">
+                                            <span class="search__filter-title accordion_btn">Events Type</span>
+                                            <div  class="accordion_panel">
+                                                <div class="accordion_content">
+                                                    <?php echo do_shortcode('[facetwp facet="search_event_type"]'); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="search__filter-item">
+                                        <div class="accordion_item">
                                             <span class="search__filter-title accordion_btn">Content Tags</span>
                                             <div  class="accordion_panel">
                                                 <div class="accordion_content">
