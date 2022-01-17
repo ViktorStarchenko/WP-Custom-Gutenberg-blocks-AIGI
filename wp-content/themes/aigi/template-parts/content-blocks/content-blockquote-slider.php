@@ -35,6 +35,18 @@ endif;
 ?>
 
 <?php
+$outter_padding = '';
+if ($attributes['outter_padding']['padding_top']) {
+    $outter_padding .= ' ' . $attributes['outter_padding']['padding_top'] . ' ';
+}
+if ($attributes['outter_padding']['padding_bottom']) {
+    $outter_padding .= ' ' . $attributes['outter_padding']['padding_bottom'] . ' ';
+}
+
+
+?>
+
+<?php
 $classes = '';
 if ($attributes['wrappers']['section_wrapper']) {
     $classes .= ' ' . $attributes['wrappers']['section_wrapper'] . ' ';
@@ -53,6 +65,9 @@ if ($attributes['background']['background_image']) {
 }
 if ($attributes['background']['background_color']) {
     $bg_color =  $attributes['background']['background_color'];
+}
+if ($attributes['background']['outter_background_color']) {
+    $outter_bg_color =  $attributes['background']['outter_background_color'];
 }
 ?>
 
@@ -79,35 +94,38 @@ if ($attributes['background']['background_color']) {
 
 
 
-<section class="blockquote-slider__section acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?><?= $border; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
-    <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
-    <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
+<section class="blockquote-slider__section acf-section-<?php echo $attributes['uniq_id']; ?> wrapper-full-width <?= $outter_padding; ?> <?php echo $classes ;?> <?= $border; ?>" style="<?php  echo ($outter_bg_color ?  'background-color: ' . $outter_bg_color . ';' :''); ?>">
+    <div class="blockquote-slider__inner acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+        <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
+        <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
 
-        <div class="blockquote__wrapper">
-            <div class="blockquote-slider_nav blockquote-slider_nav-<?php echo $attributes['uniq_id'];?> slider-arrows"></div>
-            <div class="slider blockquote-slider blockquote-slider-<?php echo $attributes['uniq_id'];?>">
-                <?php if ($content['blockquote_item']) : ?>
-                <?php foreach ($content['blockquote_item'] as $blockquote) : ?>
-                <div>
-                    <div class="blockquote-body">
-                        <p class="blockquote-text"><?php echo $blockquote['text']; ?></p>
-                        <div class="blockquote-author">
-                            <span><?php echo $blockquote['author']; ?></span>
-                        </div>
-                        <div class="blockquote-author-position">
-                            <span><?php echo $blockquote['author_position']; ?></span>
-                        </div>
-                    </div>
+            <div class="blockquote__wrapper">
+                <div class="blockquote-slider_nav blockquote-slider_nav-<?php echo $attributes['uniq_id'];?> slider-arrows"></div>
+                <div class="slider blockquote-slider blockquote-slider-<?php echo $attributes['uniq_id'];?>">
+                    <?php if ($content['blockquote_item']) : ?>
+                        <?php foreach ($content['blockquote_item'] as $blockquote) : ?>
+                            <div>
+                                <div class="blockquote-body">
+                                    <p class="blockquote-text"><?php echo $blockquote['text']; ?></p>
+                                    <div class="blockquote-author">
+                                        <span><?php echo $blockquote['author']; ?></span>
+                                    </div>
+                                    <div class="blockquote-author-position">
+                                        <span><?php echo $blockquote['author_position']; ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endif ?>
+
+                    <?php wp_reset_postdata(); ?>
                 </div>
-                <?php endforeach ?>
-                <?php endif ?>
-
-                <?php wp_reset_postdata(); ?>
             </div>
-        </div>
 
+        </div>
     </div>
 </section>
+
 
 <script>
     // Sticky to right sliders

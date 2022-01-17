@@ -1,9 +1,9 @@
 
-.blockquote-slider__section {
+.blockquote-slider__inner {
     overflow: hidden;
     padding: 90px 0;
 }
-.blockquote-slider__section.bg-texture:before {
+.blockquote-slider__inner.bg-texture:before {
     background-size: cover;
 }
 .blockquote__wrapper {
@@ -56,7 +56,7 @@
     }
 }
 @media (max-width: 767px) {
-    .blockquote-slider__section {
+    .blockquote-slider__inner {
         padding: 40px 0;
     }
     .blockquote-slider .blockquote-body {
