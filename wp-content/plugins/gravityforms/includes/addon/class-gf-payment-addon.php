@@ -2926,13 +2926,6 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 	public function get_sales_data( $form_id, $search, $state ) {
 		global $wpdb;
 
-		$group          = rgar( $search, 'group' ) ? $search['group'] : rgpost( 'group' );
-		$payment_method = rgar( $search, 'payment_method' ) ? $search['payment_method'] : rgpost( 'payment_method' );
-		$current_page   = rgar( $search, 'paged' ) ? absint( $search['paged'] ) : absint( rgpost( 'paged' ) );
-		if ( empty( $current_page ) ) {
-			$current_page = 1;
-		}
-
 		$data = array(
 			'chart' => array(
 				'hAxis' => array(),
@@ -2956,8 +2949,7 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 		$tz_offset = $this->get_mysql_tz_offset();
 
 		$page_size = 10;
-
-		$group = strtolower( $group );
+		$group     = strtolower( rgpost( 'group' ) );
 		switch ( $group ) {
 
 			case 'weekly' :
@@ -2975,7 +2967,6 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 				$current_period_format = 'o - W';
 				$decrement_period = 'week';
 				$result_period = 'week';
-				$current_date = gmdate( 'Y-m-d' );
 				break;
 
 			case 'monthly' :
@@ -2993,7 +2984,6 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 				$current_period_format = 'n'; // Numeric representation of a month, without leading zeros
 				$decrement_period = 'month';
 				$result_period = 'month';
-				$current_date = gmdate( 'Y-m-01' ); // First day of the month ( to prevent issues with strtotime() when going to previous month )
 				break;
 
 			default : //daily
@@ -3014,7 +3004,6 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 				$current_period_format = 'Y-m-d';
 				$decrement_period = 'day';
 				$result_period = 'date';
-				$current_date = gmdate( 'Y-m-d' );
 				break;
 		}
 
@@ -3031,12 +3020,15 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 			$transaction_date_filter .= $wpdb->prepare( " AND timestampdiff(SECOND, %s, CONVERT_TZ(t.date_created, '+00:00', '" . $tz_offset . "')) <= 0", $search['end_date'] );
 		}
 
+		$payment_method        = rgpost( 'payment_method' );
 		$payment_method_filter = '';
 		if ( ! empty( $payment_method ) ) {
 			$payment_method_filter = $wpdb->prepare( ' AND l.payment_method=%s', $payment_method );
 		}
 
-		$offset           = $page_size * ( $current_page - 1 );
+		$current_page = rgempty( 'paged' ) ? 1 : absint( rgpost( 'paged' ) );
+		$offset       = $page_size * ( $current_page - 1 );
+
 		$entry_table_name = self::get_entry_table_name();
 
 		$sql = $wpdb->prepare(
@@ -3070,6 +3062,8 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 
 		$results = $wpdb->get_results( $sql, ARRAY_A );
 
+		$display_results = array();
+		$current_period = date( $current_period_format );
 
 		if ( isset( $search['start_date'] ) || isset( $search['end_date'] ) ) {
 			foreach ( $results as &$result ) {
@@ -3089,9 +3083,7 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 			$data['rows'] = $results;
 
 		} else {
-			$display_results = array();
-			$current_period = gmdate( $current_period_format );
-
+			$current_date = date( 'Y-m-d' );
 			$current_period_timestamp = strtotime( $current_date );
 			for ( $i = 1;  $i <= 10 ; $i++ ) {
 				$result_for_date = false;
@@ -3105,11 +3097,11 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 				if ( ! $result_for_date ) {
 					$display_result = array(
 						$result_period      => $current_period,
-						'month'              => gmdate( 'm', $current_period_timestamp ),
-						'day'                => gmdate( 'd', $current_period_timestamp ),
-						'day_of_week'        => gmdate( 'l', $current_period_timestamp ),
+						'month'              => date( 'm', $current_period_timestamp ),
+						'day'                => date( 'd', $current_period_timestamp ),
+						'day_of_week'        => date( 'l', $current_period_timestamp ),
 						'month_day'          => '',
-						'year' => gmdate( 'Y', $current_period_timestamp ),
+						'year' => date( 'Y', $current_period_timestamp ),
 						'month_abbrev' => '',
 						'orders'             => '0',
 						'subscriptions'      => '0',
@@ -3132,7 +3124,7 @@ abstract class GFPaymentAddOn extends GFFeedAddOn {
 
 				$current_period_timestamp = strtotime( $decremented_date );
 
-				$current_period = gmdate( $current_period_format, $current_period_timestamp );
+				$current_period = date( $current_period_format, $current_period_timestamp );
 
 			}
 			$data['row_count'] = $page_size;

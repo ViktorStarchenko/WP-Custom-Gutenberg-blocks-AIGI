@@ -1,6 +1,5 @@
 // Utility variables
 var GF_CONDITIONAL_INSTANCE = false;
-var GF_CONDITIONAL_INSTANCES_COLLECTION = [];
 var FOCUSABLE_ELEMENTS      = [ 'a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'iframe', 'object', 'embed', '[contenteditable]', '[tabindex]:not([tabindex^="-"])' ];
 var TAB_KEY                 = 9;
 var ESCAPE_KEY              = 27;
@@ -29,7 +28,7 @@ function setFocusToFirstItem( node, event ) {
  *
  * @param {Element} node The element to search within.
  *
- * @return {Element[]}
+ * @returns {Element[]}
  */
 function getFocusableChildren( node ) {
 	return $$( FOCUSABLE_ELEMENTS.join( ',' ), node ).filter( function( child ) {
@@ -83,7 +82,7 @@ function $$( selector, context ) {
  * @param {object}  config    An object representing key/value pairs to use for token replacement.
  * @param {bool}    echo      Whether to echo the resulting markup - will return the markup if set to false.
  *
- * @return {boolean|string}
+ * @returns {boolean|string}
  */
 function renderView( html, container, config, echo ) {
 	FOCUSED_BEFORE_RENDER = document.activeElement;
@@ -120,7 +119,7 @@ function renderView( html, container, config, echo ) {
  *
  *
  * @param fieldId
- * @return {boolean|*|T}
+ * @returns {boolean|*|T}
  */
 function getFieldById( fieldId ) {
 	var found = this.form.fields.filter( function( field ) {
@@ -135,43 +134,12 @@ function getFieldById( fieldId ) {
 }
 
 /**
- * Get the correct field ID to use as a default value when adding a new rule:
- *
- * - If the field has no child inputs, return the field ID
- * - If the field has child inputs, but all are set to be hidden, return field ID
- * - Otherwise, return the ID of the first non-hidden child input.
- *
- * @param {object} field The field being rendered.
- *
- * @return {string|integer}
- */
-function getCorrectDefaultFieldId( field ) {
-	if ( ! field ) {
-		return null;
-	}
-
-	if ( field.type === 'checkbox' || field.type === 'radio' || ! field.inputs || ! field.inputs.length ) {
-		return field.id;
-	}
-
-	var options = field.inputs.filter( function( input ) {
-		return ! input.isHidden;
-	} );
-
-	if ( ! options.length ) {
-		return field.id;
-	}
-
-	return options[0].id;
-}
-
-/**
  * Get the available options for a given select field.
  *
  * @param {object} field The field being rendered.
  * @param {mixed}  value The currently-selected value.
  *
- * @return {[]}
+ * @returns {[]}
  */
 function getOptionsFromSelect( field, value ) {
 	var options = [];
@@ -188,7 +156,10 @@ function getOptionsFromSelect( field, value ) {
 		selected: '' === value ? 'selected="selected"' : '',
 	};
 
-	options.push( emptyChoiceConfig );
+	if ( GetInputType( field ) === 'multiselect' ) {
+		options.push( emptyChoiceConfig );
+	}
+
 
 	for ( var i = 0; i < field.choices.length; i++ ) {
 		var choice = field.choices[ i ];
@@ -211,7 +182,7 @@ function getOptionsFromSelect( field, value ) {
  * @param {object} field The field being rendered.
  * @param {mixed}  value The currently-selected value.
  *
- * @return {[]}
+ * @returns {[]}
  */
 function getCategoryOptions( field, value ) {
 	var cats    = gf_vars.conditionalLogic.categories;
@@ -238,7 +209,7 @@ function getCategoryOptions( field, value ) {
  * @param {string} inputId The inputId of the current field.
  * @param {mixed}  value   The currently-selected value.
  *
- * @return {[]}
+ * @returns {[]}
  */
 function getAddressOptions( field, inputId, value ) {
 	var options        = [];
@@ -299,21 +270,12 @@ function getAddressOptions( field, inputId, value ) {
  * @param {string} objectType The object type of the current field.
  */
 function generateGFConditionalLogic( fieldId, objectType ) {
-	if ( GF_CONDITIONAL_INSTANCE && GF_CONDITIONAL_INSTANCE.fieldId != fieldId  ) {
-		GF_CONDITIONAL_INSTANCES_COLLECTION.forEach( function( instance, instanceIndex ) {
-			instance.hideFlyout();
-			instance.removeEventListeners();
-			instance.deactivated = true;
-		});
+	if ( objectType !== 'page' && GF_CONDITIONAL_INSTANCE ) {
+		GF_CONDITIONAL_INSTANCE.hideFlyout();
+		GF_CONDITIONAL_INSTANCE.removeEventListeners();
 	}
 
 	GF_CONDITIONAL_INSTANCE = new GFConditionalLogic( fieldId, objectType );
-
-	GF_CONDITIONAL_INSTANCES_COLLECTION = GF_CONDITIONAL_INSTANCES_COLLECTION.filter( function( instance ) {
-		return instance.deactivated !== true;
-	});
-
-	GF_CONDITIONAL_INSTANCES_COLLECTION.push( GF_CONDITIONAL_INSTANCE );
 }
 
 /**
@@ -554,7 +516,7 @@ GFConditionalLogic.prototype.renderFieldOptions = function( rule ) {
  *
  * @param {object} rule The rule data to render.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.renderOperatorOptions = function( rule ) {
 	var html      = '';
@@ -590,7 +552,7 @@ GFConditionalLogic.prototype.renderOperatorOptions = function( rule ) {
  *
  * @param {object} rule The rule data to render.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.renderValueOptions = function( rule, idx ) {
 	var field    = getFieldById( rule.fieldId );
@@ -600,7 +562,7 @@ GFConditionalLogic.prototype.renderValueOptions = function( rule, idx ) {
 
 	// Field is actually a sub-field (such as the First Name or Country field), get the correct field from its ID.
 	if ( rule.fieldId.toString().indexOf( '.' ) !== -1 ) {
-		var parts   = rule.fieldId.toString().split( '.' );
+		var parts   = rule.fieldId.split( '.' );
 		var fieldId = parts[ 0 ];
 		field       = getFieldById( fieldId );
 	}
@@ -639,7 +601,7 @@ GFConditionalLogic.prototype.renderValueOptions = function( rule, idx ) {
  * @param {object} rule The rule data to render.
  * @param {int}    idx  The index of the rule.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.renderInput = function( rule, idx ) {
 	var config = {
@@ -658,7 +620,7 @@ GFConditionalLogic.prototype.renderInput = function( rule, idx ) {
  * @param {object} rule The rule data to render.
  * @param {int}    idx  The index of the rule.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.renderSelect = function( rule, idx ) {
 	var config = {
@@ -677,7 +639,7 @@ GFConditionalLogic.prototype.renderSelect = function( rule, idx ) {
  * @param {object} rule The rule data to render.
  * @param {int}    idx  The index of the rule.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.renderRuleValue = function( rule, idx ) {
 	var fieldValueOptions = this.renderValueOptions( rule, idx );
@@ -712,7 +674,7 @@ GFConditionalLogic.prototype.renderRuleValue = function( rule, idx ) {
  * @param {object} rule The rule data to render.
  * @param {int}    idx  The index of the rule.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.renderRule = function( rule, idx ) {
 	var field = getFieldById( rule.fieldId );
@@ -742,10 +704,10 @@ GFConditionalLogic.prototype.renderRule = function( rule, idx ) {
 /**
  * Render a list of rules.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.renderRules = function() {
-	var container = this.els.flyouts[ this.objectType ].querySelector( '.conditional_logic_flyout__logic' );
+	var container = document.querySelector( '.conditional_logic_flyout__logic' );
 
 	var html = '';
 	for ( var i = 0; i < this.state.rules.length; i++ ) {
@@ -758,7 +720,7 @@ GFConditionalLogic.prototype.renderRules = function() {
 /**
  * Gather an object populated with the DOM elements we'll be interacting with.
  *
- * @return {object}
+ * @returns {object}
  */
 GFConditionalLogic.prototype.gatherElements = function() {
 	return {
@@ -776,24 +738,25 @@ GFConditionalLogic.prototype.gatherElements = function() {
 /**
  * Get the default rule to show if none exist.
  *
- * @return {{value: string, operator: string, fieldId: number}}
+ * @returns {{value: string, operator: string, fieldId: number}}
  */
 GFConditionalLogic.prototype.getDefaultRule = function() {
 	var fieldId = GetFirstRuleField();
-	var field   = GetFieldById( fieldId );
-	var fieldId = getCorrectDefaultFieldId( field );
+	var field = GetFieldById( fieldId );
+
+	var value = field && field.choices && field.choices.length ? field.choices[0].value : '';
 
 	return {
-		fieldId: fieldId,
+		fieldId: GetFirstRuleField(),
 		operator: 'is',
-		value: '',
+		value: value,
 	};
 };
 
 /**
  * Get the default state for a new field.
  *
- * @return {{actionType: string, logicType: string, rules: [*], enabled: boolean}}
+ * @returns {{actionType: string, logicType: string, rules: [*], enabled: boolean}}
  */
 GFConditionalLogic.prototype.getDefaultState = function() {
 	return {
@@ -811,7 +774,7 @@ GFConditionalLogic.prototype.getDefaultState = function() {
  *
  * @param {int} fieldId The ID of the field for which the state should be gathered.
  *
- * @return {obj}
+ * @returns {obj}
  */
 GFConditionalLogic.prototype.getStateForField = function( fieldId ) {
 	var field = getFieldById( fieldId );
@@ -837,7 +800,7 @@ GFConditionalLogic.prototype.getStateForField = function( fieldId ) {
 /**
  * Determine whether the current conditional logic is enabled for this field.
  *
- * @return {boolean}
+ * @returns {boolean}
  */
 GFConditionalLogic.prototype.isEnabled = function() {
 	return this.state.enabled && GetFirstRuleField() > 0;
@@ -863,7 +826,7 @@ GFConditionalLogic.prototype.getAccordionTitle = function() {
 /**
  * Get the correctly-translated text for the object type.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.getObjectTypeText = function() {
 	switch ( this.objectType ) {
@@ -885,7 +848,7 @@ GFConditionalLogic.prototype.getObjectTypeText = function() {
 /**
  * Get the correctly-translated text for the show text.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.getObjectShowText = function() {
 	if ( this.objectType === "next_button" ) {
@@ -898,7 +861,7 @@ GFConditionalLogic.prototype.getObjectShowText = function() {
 /**
  * Get the correctly-translated text for the hide text.
  *
- * @return {string}
+ * @returns {string}
  */
 GFConditionalLogic.prototype.getObjectHideText = function() {
 	if ( this.objectType === "next_button" ) {

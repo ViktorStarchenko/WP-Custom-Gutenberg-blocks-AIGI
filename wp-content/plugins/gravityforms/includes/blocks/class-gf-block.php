@@ -31,36 +31,12 @@ class GF_Block {
 	public $type = '';
 
 	/**
-	 * Handle of primary block editor script.
+	 * Handle of primary block script.
 	 *
 	 * @since 2.4.10
 	 * @var   string
 	 */
 	public $script_handle = '';
-
-	/**
-	 * Handle of primary block editor style.
-	 *
-	 * @since 2.5.6
-	 * @var   string
-	 */
-	public $style_handle = '';
-
-	/**
-	 * Handle of primary block FE script.
-	 *
-	 * @since 2.4.10
-	 * @var   string
-	 */
-	public $fe_script_handle = '';
-
-	/**
-	 * Handle of primary block FE style.
-	 *
-	 * @since 2.5.6
-	 * @var   string
-	 */
-	public $fe_style_handle = '';
 
 	/**
 	 * Block attributes.
@@ -82,7 +58,7 @@ class GF_Block {
 
 		$this->register_block_type();
 
-		$this->register_block_assets();
+		add_filter( 'allowed_block_types', array( $this, 'check_allowed_blocks' ), 9999 );
 
 		add_action( 'gform_post_enqueue_scripts', array( $this, 'post_enqueue_scripts' ), 10, 3 );
 
@@ -113,46 +89,20 @@ class GF_Block {
 	 * @since  2.4.10
 	 */
 	public function register_block_type() {
-		register_block_type( $this->get_type(), $this->get_block_properties() );
-	}
 
-	/**
-	 * Get an array representing the properties for this block. Can be overriden by inheriting
-	 * classes in order to provide more/fewer/different properties.
-	 *
-	 * @since 2.5.6
-	 *
-	 * @return array
-	 */
-	protected function get_block_properties() {
-		return array(
+		register_block_type( $this->get_type(), array(
 			'render_callback' => array( $this, 'render_block' ),
 			'editor_script'   => $this->script_handle,
-			'editor_style'    => $this->style_handle,
 			'attributes'      => $this->attributes,
-			'script'          => $this->fe_script_handle,
-			'style'           => $this->fe_style_handle,
-		);
+		) );
+
 	}
 
-	/**
-	 * Enqueue/register the block's assets upon init
-	 *
-	 * @since 2.5.6
-	 *
-	 * @return void
-	 */
-	public function register_block_assets() {
-		add_action( 'enqueue_block_editor_assets', array( $this, 'register_scripts' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'register_styles' ) );
-	}
 
 	/**
 	 * Checks allowed blocks for Gravity forms blocks to only enqueue block editor assets when necessary.
 	 *
 	 * @since  2.4.18
-	 *
-	 * @deprecated since 2.5.6. See GF_Block::register_block_assets()
 	 *
 	 * @param bool|array $allowed_block_types Array of block type slugs, or boolean to enable/disable all.
 	 *
@@ -162,8 +112,8 @@ class GF_Block {
 
 		// Only enqueue block editor assets if all blocks are allowed or if the current block type is an allowed block.
 		if ( $allowed_block_types === true || ( is_array( $allowed_block_types ) && in_array( $this->get_type(), $allowed_block_types ) ) ) {
-			add_action( 'enqueue_block_editor_assets', array( $this, 'register_scripts' ) );
-			add_action( 'enqueue_block_editor_assets', array( $this, 'register_styles' ) );
+			add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_scripts' ) );
+			add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_styles' ) );
 		}
 
 		return $allowed_block_types;
@@ -181,7 +131,7 @@ class GF_Block {
 	 *
 	 * @uses   GF_Block::scripts()
 	 */
-	public function register_scripts() {
+	public function enqueue_scripts() {
 
 		// Get registered scripts.
 		$scripts = $this->scripts();
@@ -201,13 +151,7 @@ class GF_Block {
 			$in_footer = isset( $script['in_footer'] ) ? $script['in_footer'] : false;
 
 			// Enqueue script.
-			if ( $this->script_handle === $script['handle'] ) {
-				// Support for the editor_style property, if a style_handle is defined. No need to enqueue.
-				wp_register_script( $script['handle'], $src, $deps, $version, $in_footer );
-			} else {
-				// style_handle isn't defined, or this is an additional style. Enqueue it manually.
-				wp_enqueue_script( $script['handle'], $src, $deps, $version, $in_footer );
-			}
+			wp_enqueue_script( $script['handle'], $src, $deps, $version, $in_footer );
 
 			// Localize script.
 			if ( rgar( $script, 'strings' ) ) {
@@ -218,19 +162,9 @@ class GF_Block {
 			if ( rgar( $script, 'callback' ) && is_callable( $script['callback'] ) ) {
 				call_user_func( $script['callback'], $script );
 			}
+
 		}
 
-	}
-
-	/**
-	 * Enqueue scripts
-	 *
-	 * @depecated since 2.5.6. Use ::register_scripts() instead.
-	 *
-	 * @return void
-	 */
-	public function enqueue_scripts() {
-		$this->register_scripts();
 	}
 
 	/**
@@ -278,7 +212,7 @@ class GF_Block {
 	 *
 	 * @since  2.4.10
 	 */
-	public function register_styles() {
+	public function enqueue_styles() {
 
 		// Get registered styles.
 		$styles = $this->styles();
@@ -297,26 +231,11 @@ class GF_Block {
 			$version = isset( $style['version'] ) ? $style['version'] : false;
 			$media   = isset( $style['media'] ) ? $style['media'] : 'all';
 
-			if ( $this->style_handle === $style['handle'] ) {
-				// Support for the editor_style property, if a style_handle is defined. No need to enqueue.
-				wp_register_style( $style['handle'], $src, $deps, $version, $media );
-			} else {
-				// style_handle isn't defined, or this is an additional style. Enqueue it manually.
-				wp_enqueue_style( $style['handle'], $src, $deps, $version, $media );
-			}
+			// Enqueue style.
+			wp_enqueue_style( $style['handle'], $src, $deps, $version, $media );
+
 		}
 
-	}
-
-	/**
-	 * Enqueue styles
-	 *
-	 * @depecated since 2.5.6. Use ::register_styles() instead.
-	 *
-	 * @return void
-	 */
-	public function enqueue_styles() {
-		$this->register_styles();
 	}
 
 	/**

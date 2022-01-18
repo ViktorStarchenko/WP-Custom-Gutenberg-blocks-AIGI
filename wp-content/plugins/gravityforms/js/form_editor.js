@@ -131,6 +131,24 @@ jQuery( document ).ready( function() {
 	} );
 	ResetFieldAccordions();
 
+	jQuery( '.gform-editor-notices__notice--ready-classes .gform-editor-notice__dismiss' ).on( 'click', function ( e ) {
+		jQuery( '.gform-editor-notices__notice--ready-classes' ).hide();
+
+		// Set a cookie to not show this message again for 24 hours.
+		var date = new Date();
+		date.setDate( date.getDate() + 1 );
+
+		// Check if cookie already exists.
+		var existingCookie = check_cookie( 'gformHideReadyClassMessage' );
+		if ( null !== existingCookie ) {
+			var cookieValue = existingCookie + ',' + form.id;
+		} else {
+			cookieValue = form.id;
+		}
+
+		document.cookie='gformHideReadyClassMessage=' + cookieValue + '; expires=' + date.toGMTString();
+	} );
+
 	// Loop keypresses in the field settings area through them, or focus back on the active fields
 	// settings trigger if esc is used.
 
@@ -138,6 +156,7 @@ jQuery( document ).ready( function() {
 		// esc key, refocus the settings trigger in the editor preview for the active field
 		if ( e.keyCode === 27 ) {
 			jQuery( '.gfield.field_selected .gfield-edit').focus();
+			console.log( 'hi' );
 			return;
 		}
 		// not tab key, exit
@@ -165,6 +184,19 @@ jQuery( document ).ready( function() {
 		}
 	} );
 } );
+
+function check_cookie( name ) {
+	var cookieArr = document.cookie.split( ";" );
+
+	for( var i = 0; i < cookieArr.length; i++ ) {
+		var cookiePair = cookieArr[i].split( "=" );
+		if( name == cookiePair[0].trim() ) {
+			return decodeURIComponent( cookiePair[1] );
+		}
+	}
+
+	return null;
+}
 
 function handleStatus() {
 
@@ -635,16 +667,12 @@ function InitializeForm(form){
 }
 
 function LoadFieldSettings(){
-    // Loads settings
+	// Remove all the accessibility warning.
+	ResetFieldAccessibilityWarning();
+
+    //loads settings
     field = GetSelectedField();
     var inputType = GetInputType(field);
-
-	// Reset accessibility warnings
-	resetAllFieldAccessibilityWarnings();
-	// Reset errors
-	resetAllFieldErrors();
-	// Reset deprecated ready class notice
-	resetDeprecatedReadyClassNotice();
 
     jQuery("#field_label").val(field.label);
     if(field.type == "html"){
@@ -677,8 +705,8 @@ function LoadFieldSettings(){
     jQuery("#field_name_format").val(field.nameFormat);
     jQuery('#field_force_ssl').prop('checked', field.forceSSL ? true : false);
 
-	if( '' !== field.cssClass ) {
-		CheckDeprecatedReadyClass( field );
+    if( '' !== field.cssClass ) {
+    	CheckDeprecatedReadyClass( field );
 	}
 
 	if (field.useRichTextEditor){
@@ -3386,7 +3414,7 @@ function SetDateInputType(type){
 	if ( type === 'datepicker' ) {
 		SetFieldAccessibilityWarning( 'date_input_type_setting', 'above' );
 	} else {
-		resetAllFieldAccessibilityWarnings();
+		ResetFieldAccessibilityWarning();
 	}
 
     field.dateType = type;
@@ -3701,7 +3729,7 @@ function SetFieldEnhancedUI( checked ) {
 	if ( checked ) {
 		SetFieldAccessibilityWarning( 'enable_enhanced_ui_setting', 'below' );
 	} else {
-		resetAllFieldAccessibilityWarnings();
+		ResetFieldAccessibilityWarning();
 	}
 }
 
@@ -3726,11 +3754,10 @@ function SetFieldLabelPlacement(labelPlacement){
 	if ( field.labelPlacement == 'hidden_label' ) {
 		SetFieldAccessibilityWarning( 'label_placement_setting', 'above' );
 	} else {
-		resetAllFieldAccessibilityWarnings();
+		ResetFieldAccessibilityWarning(  );
 	}
 
     SetFieldProperty("labelPlacement", labelPlacement);
-	SetFieldRequired(field.isRequired);
     RefreshSelectedFieldPreview();
 }
 
@@ -3913,26 +3940,14 @@ function SetCardType(elem, value) {
 function SetFieldRequired( isRequired ) {
 	var required = gform_form_strings.requiredIndicator;
 	var requiredSelector = '.field_selected .gfield_required';
-	var appendRequired = false;
-
-	if ( field.type === 'consent' ) {
-		jQuery( requiredSelector ).remove();
-		if ( isRequired ) {
-			appendRequired = true;
-		}
-	} else if ( jQuery( requiredSelector ).length > 0 ) {
+	if ( jQuery( requiredSelector ).length > 0 ) {
 		if ( isRequired ) {
 			jQuery( requiredSelector ).html( required );
 		} else {
 			jQuery( requiredSelector ).remove();
 		}
 	} else if ( isRequired ) {
-		appendRequired = true;
-	}
-
-	if ( appendRequired ) {
-		var labelSelector = field.type === 'consent' && field.labelPlacement === 'hidden_label' ? '.gfield_consent_label' : '.gfield_label';
-		jQuery( '.field_selected ' + labelSelector ).append( '<span class="gfield_required">' + required + '</span>' );
+		jQuery( '.field_selected .gfield_label' ).append( '<span class="gfield_required">' + required + '</span>' );
 	}
 
 	SetFieldProperty( 'isRequired', isRequired );
@@ -4351,26 +4366,17 @@ function IsValidFormula(formula) {
 }
 
 /**
- * Reset the field accessibility warning for a field setting.
+ * Reset all or specified field accessibility warnings.
  *
  * @param string [fieldSetting] The field setting class.
  */
 function ResetFieldAccessibilityWarning( fieldSetting ) {
 	if ( typeof fieldSetting !== 'undefined' ) {
 		jQuery( '.' + fieldSetting )
-			.nextAll( '.gform-alert--accessibility' ).remove()
-			.prevAll( '.gform-alert--accessibility' ).remove();
-	}
-}
-
-/**
- * Reset the field errors for all field settings.
- *
- * @since 2.5.8
- */
-function resetAllFieldAccessibilityWarnings() {
-	if ( jQuery('.editor-sidebar').find('.gform-alert--accessibility').length ) {
-		jQuery('.editor-sidebar').find('.gform-alert--accessibility').remove();
+			.nextAll( '.gform-accessibility-warning' ).remove()
+			.prevAll( '.gform-accessibility-warning' ).remove();
+	} else {
+		jQuery('.gform-accessibility-warning').remove();
 	}
 }
 
@@ -4424,25 +4430,27 @@ function setFieldError( fieldSetting, position, message ) {
 		message = getFieldErrorMessage( fieldSetting );
 	}
 
-	var errorDiv = '<div class="gform-alert gform-alert--error gform-alert--inline">';
-		errorDiv += '<span class="gform-alert__icon gform-icon gform-icon--circle-close" aria-hidden="true"></span>';
-		errorDiv += '<div class="gform-alert__message-wrap">' + message + '</div>';
-		errorDiv += '</div>';
+	var errorDiv = '<div class="field_error field_setting">\n' +
+		'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+			'<circle cx="8" cy="8" r="8" fill="#DD301D"/>\n' +
+			'<rect x="7.11133" y="3.55469" width="1.77778" height="5.33333" rx="0.888889" fill="white"/>\n' +
+			'<ellipse cx="8.00028" cy="11.5579" rx="1.15556" ry="1.15556" fill="white"/>\n' +
+		'</svg><p>' + message + '</p></div>';
 
 	// Display the error message.
 	var fieldSetting = jQuery( '.' + fieldSetting );
 	fieldSetting.addClass( 'error' );
 	if ( position === 'above' ) {
-		fieldSetting.prevAll( '.gform-alert--error' ).remove();
+		fieldSetting.prevAll( '.field_error' ).remove();
 		fieldSetting.before( errorDiv );
 	} else {
-		fieldSetting.nextAll( '.gform-alert--error' ).remove();
+		fieldSetting.nextAll( '.field_error' ).remove();
 		fieldSetting.after( errorDiv );
 	}
 }
 
 /**
- * Reset the field error for a field setting.
+ * Reset the field error for a field settings.
  *
  * @since 2.5
  *
@@ -4454,8 +4462,8 @@ function resetFieldError( fieldSetting ) {
 
 	if ( typeof fieldSetting !== 'undefined' ) {
 		jQuery( '.' + fieldSetting )
-			.nextAll( '.gform-alert--error' ).remove()
-			.prevAll( '.gform-alert--error' ).remove();
+			.nextAll( '.field_error' ).remove()
+			.prevAll( '.field_error' ).remove();
 
 		jQuery( '.' + fieldSetting ).removeClass( 'error' );
 
@@ -4471,28 +4479,6 @@ function resetFieldError( fieldSetting ) {
 	}
 
 	SetFieldProperty( 'errors', errorProperties );
-}
-
-/**
- * Reset the field errors for all field settings.
- *
- * @since 2.5.8
- */
-function resetAllFieldErrors() {
-	if ( ! jQuery( '.field_setting' ).hasClass( 'error' ) ) {
-		return;
-	}
-
-	jQuery('.editor-sidebar .gform-alert--error').remove();
-	jQuery('.field_setting').filter('.error').removeClass( 'error' );
-
-	if ( form.fields.length > 0 ) {
-		form.fields.forEach( function( field ) {
-			if( field.hasOwnProperty( 'errors' ) && field.errors.length > 0 ) {
-				field.errors = [];
-			}
-		} );
-	}
 }
 
 /**

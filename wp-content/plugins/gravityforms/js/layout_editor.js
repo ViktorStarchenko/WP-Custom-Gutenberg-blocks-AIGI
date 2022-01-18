@@ -148,6 +148,13 @@
 			isNoFieldsDrop = true;
 			$( this ).removeClass( 'hovering' );
 			$noFieldsDropzone.removeClass( 'hovering' );
+			if ( $editorContainer.hasClass( 'form_editor_fields_no_fields' ) ) {
+				gform.simplebar.initializeInstance( $editorContainer[ 0 ] );
+				setTimeout( function() {
+					$noFieldsDropzone.hide();
+					$editorContainer.removeClass( 'form_editor_fields_no_fields' );
+				}, 200 );
+			}
 		},
 		deactivate: function () {
 			$( this ).removeClass( 'ready' );
@@ -178,18 +185,6 @@
 			$elem.remove();
 			$elem = null;
 
-		}
-
-		// editor is receiving first field, cleanup placeholders and no fields class, maybe init simplebar
-		if ( $editorContainer.hasClass( 'form_editor_fields_no_fields' ) ) {
-			// we dont run simplebar in noconflict mode
-			if ( ! $editorContainer.hasClass( 'form_editor_no_conflict' ) ) {
-				gform.simplebar.initializeInstance( $editorContainer[ 0 ] );
-			}
-			setTimeout( function() {
-				$noFieldsDropzone.hide();
-				$editorContainer.removeClass( 'form_editor_fields_no_fields' );
-			}, 200 );
 		}
 
 		$indicator().remove();

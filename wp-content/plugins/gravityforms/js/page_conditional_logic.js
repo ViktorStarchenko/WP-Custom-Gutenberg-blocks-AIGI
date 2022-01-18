@@ -60,8 +60,7 @@ var GFPageConditionalLogic = function (args) {
                 self.showPage(page, stepNumber);
             }
 
-            // check if the page is visible and
-	        // available as a step after evaluation.
+            // check if the page is visible after evaluation.
             isVisible = self.isPageVisible(page);
             if (isVisible) {
                 visibleStepNumber++;
@@ -72,6 +71,9 @@ var GFPageConditionalLogic = function (args) {
                     currentPage = visibleStepNumber;
                     $(self.formWrapper + ' .gf_step_current_page').html(currentPage);
                 }
+
+                // Reset the button.
+                self.resetButton( page );
             }
 
         }
@@ -90,20 +92,12 @@ var GFPageConditionalLogic = function (args) {
             $(self.formWrapper + ' .gf_progressbar_percentage').removeClass('percentbar_' + self.originalProgress).addClass('percentbar_' + progress).css('width', progressPercent);
         }
 
-        // Update the form button based on progress
         if ( progress === 100 ) {
-            // Treat the current page as the last one.
-            self.updateButtonToSubmitText( self.originalCurrentPage - 1 );
+            // If the progress is 100% after evaluation, treat the current page as the last one.
+            self.updateNextButton( self.originalCurrentPage - 1 );
         } else {
-	        // Update the button on the current page.
-	        $( '[id^=gform_next_button_' + self.options.formId + '_]' ).each( function ( e, element ) {
-		        if ( $( element ).is(':visible') ) {
-			        self.updateButtonToNextText( self.options.pages[ e ] );
-		        }
-	        });
-
-            // Update the button on the last page.
-            self.updateButtonToSubmitText();
+            // Else, just update the button on the last page.
+            self.updateNextButton();
         }
 
         /**
@@ -221,52 +215,17 @@ var GFPageConditionalLogic = function (args) {
     };
 
 	/**
-	 * The lastPageIndex might get miscalculated at some point during the flow. If it's outside the bounds of
-	 * the page numbers, this resets it to the last natural page.
+	 * Updates the text of the next button on a paginated form.
 	 *
-	 * @since 2.5.3
-	 *
-	 * @param {number|undefined} lastPageIndex The calculated last page of the form.
-	 * @return {number} The calculated last page number.
-	 */
-	self.getValidatedLastPageIndex = function( lastPageIndex ) {
-		if ( lastPageIndex === undefined ||  lastPageIndex < 0 || lastPageIndex >= self.options.pages.length ) {
-			return self.options.pages.length - 1;
-		}
-
-		return lastPageIndex;
-	};
-
-	/**
-	 * Checks whether the page the user is on is also considered to be the last page.
-	 *
-	 * Without conditional logic, forms have cardinal page numbers: 1, 2, 3, 4, 5, 6.
-	 * With conditional logic, a "last page" of a form might not be the last page. e.g., 4 is the "submit" page.
-	 *
-	 * @since 2.5.3
-	 *
-	 * @param {number|string} targetPageNumber Next page to be shown.
-	 * @param {number|string} lastPageNumber Actual last page of the form without conditional logic.
-	 * @param {number|undefined} lastPageIndex In the scenario above, lastPageIndex is 4.
-	 * @return {boolean} True or false whether the current page is the last calculated page.
-	 */
-	self.currentPageIsLastPage = function( targetPageNumber, lastPageNumber, lastPageIndex ) {
-		return targetPageNumber === lastPageNumber || lastPageIndex !== undefined;
-	};
-
-	/**
-	 * Updates the text of the next button to be submit text on a paginated form.
-	 *
-	 * This method changes the text of the next button to the text of
-	 * the submit button on the form if the user is on the page
-	 * determined to be the last page of the form.
+	 * This method changes the text of the next button to the text of the submit button on the form if the user
+	 * is on the page determined to be the last page of the form.
 	 *
 	 * @since Unknown
 	 *
 	 * @param {number|undefined} lastPageIndex The calculated last page of the form.
 	 * @return {void}
 	 */
-	self.updateButtonToSubmitText = function ( lastPageIndex ) {
+	self.updateNextButton = function ( lastPageIndex ) {
 		var targetPageNumber = parseInt($('#gform_target_page_number_' + self.options.formId).val(), 10),
 			lastPageNumber = self.options.pages.length + 1;
 
@@ -296,23 +255,45 @@ var GFPageConditionalLogic = function (args) {
 			// Set a mark on the page, so later on we can reset the button when evaluating pages.
 			self.options.pages[ calculatedLastPageIndex ].isUpdated = true;
 		} else {
-			self.updateButtonToNextText( lastPageField );
+			self.resetButton( lastPageField );
 		}
     };
 
 	/**
-	 * Updates the text of the submit button to be next text on a paginated form.
+	 * The lastPageIndex might get miscalculated at some point during the flow. If it's outside the bounds of
+	 * the page numbers, this resets it to the last natural page.
 	 *
-	 * This method changes the text of the submit button to the text of
-	 * the next button on the form if the user is on the page
-	 * determined to not be the last page of the form.
+	 * @since 2.5.3
 	 *
-	 * @since Unknown
-	 *
-	 * @param {number|undefined} page The current page of the form.
-	 * @return {void}
+	 * @param {number|undefined} lastPageIndex The calculated last page of the form.
+	 * @return {number} The calculated last page number.
 	 */
-	self.updateButtonToNextText = function ( page ) {
+	self.getValidatedLastPageIndex = function( lastPageIndex ) {
+		if ( lastPageIndex === undefined ||  lastPageIndex < 0 || lastPageIndex >= self.options.pages.length ) {
+			return self.options.pages.length - 1;
+		}
+
+		return lastPageIndex;
+	};
+
+	/**
+	 * Checks whether the page the user is on is also considered to be the last page.
+	 *
+	 * Without conditional logic, forms have cardinal page numbers: 1, 2, 3, 4, 5, 6.
+	 * With conditional logic, a "last page" of a form might not be the last page. e.g., 4 is the "submit" page.
+	 *
+	 * @since 2.5.3
+	 *
+	 * @param {number|string} targetPageNumber Next page to be shown.
+	 * @param {number|string} lastPageNumber Actual last page of the form without conditional logic.
+	 * @param {number|undefined} lastPageIndex In the scenario above, lastPageIndex is 4.
+	 * @return {boolean} True or false whether the current page is the last calculated page.
+	 */
+    self.currentPageIsLastPage = function( targetPageNumber, lastPageNumber, lastPageIndex ) {
+		return targetPageNumber === lastPageNumber || lastPageIndex !== undefined;
+    };
+
+	self.resetButton = function ( page ) {
 		// No need to reset if the button hasn't been updated.
 		if ( ! page.hasOwnProperty( 'isUpdated' ) ) {
 			return;

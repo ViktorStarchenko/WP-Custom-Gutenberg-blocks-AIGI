@@ -9,15 +9,6 @@ class GF_Field_HiddenProduct extends GF_Field {
 
 	public $type = 'hiddenproduct';
 
-	/**
-	 * Indicates if this field supports state validation.
-	 *
-	 * @since 2.5.11
-	 *
-	 * @var bool
-	 */
-	protected $_supports_state_validation = true;
-
 	function get_form_editor_field_settings() {
 		return array(
 			'base_price_setting',

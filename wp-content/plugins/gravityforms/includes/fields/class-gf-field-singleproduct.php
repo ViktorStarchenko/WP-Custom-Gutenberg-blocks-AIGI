@@ -9,15 +9,6 @@ class GF_Field_SingleProduct extends GF_Field {
 
 	public $type = 'singleproduct';
 
-	/**
-	 * Indicates if this field supports state validation.
-	 *
-	 * @since 2.5.11
-	 *
-	 * @var bool
-	 */
-	protected $_supports_state_validation = true;
-
 	function get_form_editor_field_settings() {
 		return array(
 			'base_price_setting',
@@ -91,8 +82,6 @@ class GF_Field_SingleProduct extends GF_Field {
 			$price = 0;
 		}
 
-		$price = GFCommon::to_money( $price );
-
 		$has_quantity = sizeof( GFCommon::get_product_fields_by_type( $form, array( 'quantity' ), $this->id ) ) > 0;
 		if ( $has_quantity ) {
 			$this->disableQuantity = true;
@@ -141,7 +130,7 @@ class GF_Field_SingleProduct extends GF_Field {
 					<input type='hidden' name='input_{$id}.1' value='{$product_name}' class='gform_hidden' />
 					$wrapper_open
 						<label for='ginput_price_{$form_id}_{$this->id}_2' class='ginput_product_price_label'>" . gf_apply_filters( array( 'gform_product_price', $form_id, $this->id ), esc_html__( 'Price', 'gravityforms' ), $form_id ) . ":</label>
-						<input type='text' readonly name='input_{$id}.2' class='ginput_product_price' id='ginput_base_price_{$form_id}_{$this->id}' value='" . esc_attr( $price ) . "' />
+						<input readonly name='input_{$id}.2' class='ginput_product_price' id='ginput_base_price_{$form_id}_{$this->id}' value='" . esc_attr( $price ) . "' />
 					$wrapper_close
 					{$quantity_field}
 				</div>";
@@ -150,7 +139,7 @@ class GF_Field_SingleProduct extends GF_Field {
 					<input type='hidden' name='input_{$id}.1' value='{$product_name}' class='gform_hidden' />
 					$wrapper_open
 						<span class='ginput_product_price_label'>" . gf_apply_filters( array( 'gform_product_price', $form_id, $this->id ), esc_html__( 'Price', 'gravityforms' ), $form_id ) . ":</span>
-						<input type='text' readonly class='ginput_product_price gform-text-input-reset' name='input_{$id}.2' id='ginput_base_price_{$form_id}_{$this->id}' class='gform_hidden' value='" . esc_attr( $price ) . "'/>
+						<input readonly class='ginput_product_price gform-text-input-reset' name='input_{$id}.2' id='ginput_base_price_{$form_id}_{$this->id}' class='gform_hidden' value='" . esc_attr( $price ) . "'/>
 					$wrapper_close
 					{$quantity_field}
 				</div>";
@@ -186,12 +175,12 @@ class GF_Field_SingleProduct extends GF_Field {
 		}
 
 		if ( $this->disableQuantity || ! $force_frontend_label ) {
-			$label = esc_html( $field_label );
-		} else {
-			$product_quantity_sub_label = $this->get_product_quantity_label( $this->formId );
-			$label                      = '<span class="gfield_label_product">' . esc_html( $field_label ) . '</span>' . ' <span class="screen-reader-text">' . $product_quantity_sub_label . '</span>';
+			return $field_label;
 		}
-		return $label;
+
+		$product_quantity_sub_label = $this->get_product_quantity_label( $this->formId );
+
+		return '<span class="gfield_label_product">' . esc_html( $field_label ) . '</span>' . ' <span class="screen-reader-text">' . $product_quantity_sub_label . '</span>';
 	}
 
 	public function get_value_entry_detail( $value, $currency = '', $use_text = false, $format = 'html', $media = 'screen' ) {

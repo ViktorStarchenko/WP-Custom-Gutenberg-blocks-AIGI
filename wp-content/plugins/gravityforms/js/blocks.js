@@ -118,9 +118,9 @@ const { Component, Fragment } = wp.element;
 const { __ } = wp.i18n;
 const { addQueryArgs } = wp.url;
 
-let { ServerSideRender } = wp.components;
+const { ServerSideRender } = wp.components;
 if (wp.hasOwnProperty('serverSideRender')) {
-	ServerSideRender = wp.serverSideRender;
+	const { serverSideRender: ServerSideRender } = wp;
 }
 
 /**
