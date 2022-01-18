@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <main id="content" role="main">
 <article id="post-0" class="post not-found">
-<div class="entry-content wrappper_404" itemprop="mainContentOfPage" >
+<div class="entry-content wrappper_404 test" itemprop="mainContentOfPage" >
 <?php 
 $data = get_field('404', 'option');
 ?>
