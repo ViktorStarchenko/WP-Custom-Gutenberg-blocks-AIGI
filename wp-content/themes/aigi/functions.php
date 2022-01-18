@@ -240,7 +240,7 @@ function get_total_posts(){
         $date = time();
         foreach( $my_posts as $post ){
             setup_postdata( $post );
-            $event_date = strtotime(get_field('events_details',$post->ID)['date']);
+            $event_date = strtotime(get_field('events_details',$post->ID)['start_date']);
             if($event_date < $date) {
 
                 wp_set_object_terms( $post->ID, 'past-events', 'event_type' );
@@ -271,4 +271,54 @@ function get_custom_excerpt($content, $limit, $ellipsis = true){
     }
 
     return $excerpt;
+}
+
+/*** Link for Add to Google calendar button ***/
+function googleCalendarLink( $post_id = null )
+{
+    $post = get_post($post_id);
+    $start_date = strtotime(get_field('events_details', $post->ID)['start_date']);
+    $end_date = strtotime(get_field('events_details', $post->ID)['end_date']);
+
+    $dates = date('Ymd', $start_date) . 'T' . date('Hi00', $start_date) . '/' . date('Ymd', $end_date) . 'T' . date('Hi00', $end_date);
+
+
+    $location = get_field('location', $post->ID)['address']['address'];
+
+    $event_details = $post->post_excerpt;
+    $event_details = str_replace('</p>', '</p> ', $event_details);
+    $event_details = strip_tags($event_details);
+    if (strlen($event_details) > 996) {
+
+        $event_url = get_permalink($post->ID);
+        $event_details = substr($event_details, 0, 996);
+
+        //Only add the permalink if it's shorter than 900 characters, so we don't exceed the browser's URL limits
+        if (strlen($event_url) < 900) {
+            $event_details .= sprintf(esc_html__(' (View Full %1$s Description Here: %2$s)', 'the-events-calendar'), $event_url);
+        }
+    }
+
+    $params = [
+        'action' => 'TEMPLATE',
+        'text' => urlencode(strip_tags($post->post_title)),
+        'dates' => $dates,
+        'details' => urlencode($event_details),
+        'location' => urlencode($location),
+        'trp' => 'false',
+        'sprop' => 'website:' . home_url(),
+    ];
+
+    if ( get_field('events_details', $post->ID)['timezone'] ) {
+        $params['ctz'] = urlencode( get_field('events_details', $post->ID)['timezone'] );
+    }
+
+
+    $params = apply_filters('tribe_google_calendar_parameters', $params, $post->ID);
+
+    $base_url = 'https://www.google.com/calendar/event';
+    $url = add_query_arg($params, $base_url);
+
+
+    return $url;
 }

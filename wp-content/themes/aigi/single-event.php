@@ -82,10 +82,10 @@
                                 <div class="post-details__item">
                                     <div class="post-details__heading">Events details</div>
                                     <div class="post-details__text">
-                                        <div><?= get_field('events_details')['date']; ?></div>
-                                        <div><?= get_field('events_details')['event_start']; ?> - <?= get_field('events_details')['event_end']; ?></div>
+                                        <div><?= get_field('events_details')['start_date']; ?> - <?= get_field('events_details')['end_date']; ?></div>
                                     </div>
-                                    <a href="#" class="post-details__link">Add to calendar</a>
+                                    <?php $googleCalendarLink = googleCalendarLink() ?>
+                                    <a href="<?= $googleCalendarLink ?>" target="_blank" class="post-details__link">Add to calendar</a>
                                 </div>
                                 <div class="post-details__item">
                                     <div class="post-details__heading">Location</div>
@@ -93,6 +93,62 @@
                                     <a href="https://maps.google.com/?q=<?php echo get_field('location')['address']['lat'];?>,<?php echo get_field('location')['address']['lng'];?>" target="_blank" class="post-details__link">View on map</a>
                                 </div>
                             </div>
+
+                            <?php if (get_field('social_links')): ?>
+                            <div class="post-details__item">
+                                <div class="social-links__heading ">Event's Social Links:</div>
+                                <div class="social-links">
+                                    <?php foreach (get_field('social_links') as $social_links) : ?>
+                                        <div class="social-links__item">
+                                            <a class="social-links__item-link" href="<?= $social_links['link'] ?>">
+                                                <i class="<?= $social_links['icon'] ?>"></i>
+                                            </a>
+                                        </div>
+                                    <?php endforeach ?>
+                                </div>
+                            </div>
+                            <?php endif ?>
+
+                            <?php if (get_field('share_download')) : ?>
+                            <div class="post-technical-block bordered content-item post-details__item">
+                                <?php if (get_field('share_download')['enable_share']) : ?>
+                                <div class="post-technical__item">
+                                    <div class="post-technical__title">SHARE</div>
+                                    <a class="post-technical__button fancybox-inline show-modal" href="#share-block">
+                                        <img src="/wp-content/themes/aigi/assets/images/share.svg" alt="share">
+                                    </a>
+
+                                </div>
+                                <?php endif ?>
+                                <?php if (get_field('share_download')['enable_print']) : ?>
+                                <div class="post-technical__item">
+                                    <div class="post-technical__title">Print</div>
+                                    <a class="post-technical__button print-button" href="#">
+                                        <img src="/wp-content/themes/aigi/assets/images/print.svg" alt="print">
+                                    </a>
+                                </div>
+                                <?php endif ?>
+                                <?php if (get_field('share_download')['enable_download']) : ?>
+                                <div class="post-technical__item">
+                                    <div class="post-technical__title">Download</div>
+                                    <a class="post-technical__button" href="<?php echo get_field('share_download')['download_file']['url']?>"  target="_blank">
+                                        <img src="/wp-content/themes/aigi/assets/images/download-big.svg" alt="download">
+                                    </a>
+                                </div>
+                                <?php endif ?>
+                                <?php if (get_field('share_download')['enable_save']) : ?>
+                                    <div class="post-technical__item">
+                                        <div class="post-technical__title">Save</div>
+                                        <a class="post-technical__button" href="">
+                                            <img src="/wp-content/themes/aigi/assets/images/star-review.svg" alt="save">
+                                        </a>
+                                    </div>
+                                <?php endif ?>
+
+                            </div>
+                            <?php endif ?>
+
+
                         </div>
                     </div>
                     <div class="col-content">
@@ -143,6 +199,164 @@
                                 </div>
                             </div>
 
+                        <!--Event info tab-->
+                            <div class="single-event__info-tabs">
+                                <div class="nav">
+                                    <div class="tabs__nav tabs-nav">
+                                        <div class="tabs-nav__item global-search-tab-nav is-active text-left" data-tab-name="tab-program"  data-post-type="program">Program</div>
+                                        <div class="tabs-nav__item global-search-tab-nav text-left" data-tab-name="tab-venue-details" data-post-type="venue-details">Venue details</div>
+                                        <div class="tabs-nav__item global-search-tab-nav text-left" data-tab-name="tab-map" data-post-type="map">Map</div>
+                                        <div class="tabs-nav__item global-search-tab-nav text-left" data-tab-name="tab-faqs" data-post-type="faqs">FAQS</div>
+
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="tabs__content" id="global-search__filter">
+                                        <!--Program-->
+                                        <div class="tab tab-program global-search-tab is-active" data-post-type="program">
+                                            <div class="tab-heading">Program</div>
+                                            <div class="tab-content-wrapper">
+                                                <?php if (get_field('program')) : ?>
+                                                    <div class="accordion_wrapper">
+                                                        <?php foreach (get_field('program') as $program) : ?>
+                                                            <div class="accordion_item">
+                                                                <?php if($program['action_time']): ?>
+                                                                    <span class="title-h4 nav_list-title accordion_btn"><?= $program['action_time']; ?> - <?= $program['action_title'] ?></span>
+                                                                <?php endif ?>
+                                                                <div  class="accordion_panel">
+                                                                    <div class="accordion_content"><?= $program['action_description']?></div>
+                                                                </div>
+                                                            </div>
+                                                        <?php endforeach; ?>
+                                                        <?php wp_reset_postdata(); ?>
+                                                    </div>
+                                                <?php endif ?>
+                                            </div>
+
+                                        </div>
+
+                                        <!--Venue details-->
+                                        <div class="tab tab-venue-details global-search-tab" data-post-type="venue-details">
+                                            <div class="tab-heading">Venue details</div>
+                                            <div class="tab-content-wrapper">
+
+                                            <?php if (get_field('venue_details')['catered'] == 'yes') : ?>
+                                                <div class="post-details__item">
+                                                    <div class="post-details__heading">Catered</div>
+                                                    <div class="post-details__text">
+                                                        Catered - <?php echo get_field('venue_details')['catered']; ?>
+                                                    </div>
+                                                    <div class="post-details__text">
+                                                        Details: <?= get_field('venue_details')['catered_details']; ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif ?>
+
+                                            <?php if (get_field('venue_details')['accessibility_options']) : ?>
+                                                <div class="post-details__item">
+                                                    <div class="post-details__heading">Accessibility Options</div>
+                                                    <div class="post-details__text">
+                                                        <?php foreach (get_field('venue_details')['accessibility_options'] as $accessibility_options) : ?>
+                                                        <?php echo $accessibility_options ?>,
+                                                        <?php endforeach ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif ?>
+
+                                            <?php if (get_field('venue_details')['carparking_options']): ?>
+                                                <div class="post-details__item">
+                                                    <div class="post-details__heading">Carparking Options</div>
+                                                    <div class="post-details__text">
+                                                        <?php foreach (get_field('venue_details')['carparking_options'] as $carparking_options) : ?>
+                                                            <?php echo $carparking_options ?>,
+                                                        <?php endforeach ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif ?>
+
+                                            <?php if (get_field('venue_details')['other_transport_options']): ?>
+                                                <div class="post-details__item">
+                                                    <div class="post-details__heading">Other Transport Options</div>
+                                                    <div class="post-details__text">
+                                                        <?= get_field('venue_details')['other_transport_options']; ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif ?>
+
+                                            <?php if (get_field('venue_details')['covid_safe_plan']): ?>
+                                                <div class="post-details__item">
+                                                    <div class="post-details__heading">COVID safe plan</div>
+                                                    <div class="post-details__text">
+                                                    </div>
+                                                    <a href="<?php echo get_field('venue_details')['covid_safe_plan']['url']; ?>" class="post-details__link">safe plan</a>
+                                                </div>
+                                            <?php endif ?>
+
+
+                                            </div>
+                                        </div>
+
+                                        <!--Map-->
+                                        <div class="tab tab-map global-search-tab " data-post-type="map">
+                                            <div class="tab-heading">Map</div>
+                                            <div class="tab-content-wrapper">
+                                                <?php if (get_field('location')['address']) : ?>
+                                                <div class="map-wrapper">
+                                                    <iframe src="https://maps.google.com/maps?q=<?php echo get_field('location')['address']['lat'];?>,<?php echo get_field('location')['address']['lng'];?>&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                                                </div>
+                                                <?php endif ?>
+                                            </div>
+
+
+                                        </div>
+
+                                        <!--FAQS-->
+                                        <div class="tab tab-faqs global-search-tab " data-post-type="faqs">
+                                            <div class="tab-heading">FAQS</div>
+                                            <div class="tab-content-wrapper">
+                                                <?php if (get_field('faqs')) : ?>
+                                                    <div class="accordion_wrapper">
+                                                        <?php foreach (get_field('faqs') as $faqs) : ?>
+                                                            <div class="accordion_item">
+                                                                <?php if($faqs['question']): ?>
+                                                                    <span class="title-h4 nav_list-title accordion_btn"><?= $faqs['question']; ?></span>
+                                                                <?php endif ?>
+                                                                <div  class="accordion_panel">
+                                                                    <div class="accordion_content"><?= $faqs['answer']?></div>
+                                                                </div>
+                                                            </div>
+                                                        <?php endforeach; ?>
+                                                        <?php wp_reset_postdata(); ?>
+                                                    </div>
+                                                <?php endif ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <?php if (get_field('event_subscribe_form')['enable'] == true) : ?>
+                            <div class="subscribe-event-form post-content-form">
+                                <div class="subscribe-event-form__wrapper">
+                                    <div class="form-heading">
+                                    <div class="form-heading">
+                                        <?php if (get_field('event_subscribe_form')['heading']) : ?>
+                                        <div class="form-title"><?php echo get_field('event_subscribe_form')['heading']; ?></div>
+                                        <?php endif ?>
+                                        <?php if (get_field('event_subscribe_form')['description']) : ?>
+                                        <div class="form-desc"><?php echo get_field('event_subscribe_form')['description']; ?></div>
+                                        <?php endif ?>
+                                    </div>
+
+                                        <?php if (get_field('event_subscribe_form')['form_id']) : ?>
+                                    <div class=""><?php echo do_shortcode('[gravityform id="'. get_field('event_subscribe_form')['form_id'] .'" title="false" description="false" ajax="true" tabindex="49"]');?></div>
+                                        <?php endif ?>
+                                </div>
+                            </div>
+                            <?php endif ?>
 
 
                         </div>
@@ -152,9 +366,22 @@
 
 
             </div>
-            <?php get_template_part('template-parts/layout', 'page-after-content-blocks'); ?>
-        </div>
 
+<!--            <div class="post-content-blocks">-->
+<!--                --><?php //if (get_field('lates_news_block')['enable']) : ?>
+<!--                    --><?php //$latest_news = get_field('lates_news_block'); ?>
+<!--                    --><?php //get_template_part('template-parts/content-single-post/single-post', 'news-slider', $latest_news); ?>
+<!--                --><?php //endif ?>
+<!---->
+<!--                --><?php //if (get_field('blockquote_slider_block')['enable']) : ?>
+<!--                    --><?php //$blockquote_slider = get_field('blockquote_slider_block'); ?>
+<!--                    --><?php //get_template_part('template-parts/content-single-post/single-post', 'blockquote-slider', $blockquote_slider); ?>
+<!--                --><?php //endif ?>
+<!--            </div>-->
+
+
+        </div>
+            <?php get_template_part('template-parts/layout', 'page-after-content-blocks'); ?>
     <?php endwhile; endif; ?>
     <footer class="footer">
 

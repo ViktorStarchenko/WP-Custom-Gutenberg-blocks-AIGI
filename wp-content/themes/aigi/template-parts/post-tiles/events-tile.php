@@ -27,7 +27,8 @@ $appearance = get_field('appearance');
         </div>
 
         <div class="btn-group f-start m-center">
-            <a href="#" target="" class="btn-body  btn-transparent  calendar  after  Between " tabindex="0">
+            <?php $googleCalendarLink = googleCalendarLink() ?>
+            <a href="<?php echo $googleCalendarLink ?>" target="_blank" class="btn-body  btn-transparent  calendar  after  Between " tabindex="0">
                 <span class="btn-inner">Add to Calendar</span>
             </a>
             <a href="<?=  get_the_permalink(get_the_ID()) ?>" target="" class="btn-body btn-h-secondary-blue triangle after Between" tabindex="0">
@@ -45,8 +46,8 @@ $appearance = get_field('appearance');
     <div class="post-tile__content">
         <div class="post-tile__content-header">
             <div class="post-tile__left">
-                <?php if (get_field('events_details')['date']) : ?>
-                    <span class="post-tile__pub-date"><?php echo get_field('events_details')['date']?></span>
+                <?php if (get_field('events_details')['start_date']) : ?>
+                    <span class="post-tile__pub-date"><?php echo date("M d Y", strtotime(get_field('events_details')['start_date']))?></span>
                 <?php endif ?>
 
                 <?php if (get_field('location')['address']): ?>

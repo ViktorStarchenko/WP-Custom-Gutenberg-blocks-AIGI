@@ -1,7 +1,9 @@
 .content-item {
     margin: 32px 0;
 }
-
+.content-item:last-child {
+    margin-bottom: 0;
+}
 @media (max-width: 767px) {
     .content-item {
         margin: 16px 0;

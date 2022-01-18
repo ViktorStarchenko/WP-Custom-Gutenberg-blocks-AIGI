@@ -52,10 +52,17 @@
 .content-item .profile-list__item {
     margin-bottom: 22px;
 }
+.content-item .profile-list__item:last-child {
+    margin-bottom: 0;
+}
 .content-item .profile-list {
     padding: 32px 0;
     position: relative;
 }
+.content-item .speakers__bio {
+    margin-bottom: 12px;
+}
+
 @media (max-width: 767px) {
     .profile-list {
         padding: 60px 0 44px;

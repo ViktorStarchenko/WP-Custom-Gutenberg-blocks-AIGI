@@ -495,6 +495,7 @@ strong {
     .has-sidebar.sidebar-left  .col-content {
         border-left: none;
         border-right: none;
+        padding-bottom: 24px;
     }
     .has-sidebar,
     .has-sidebar.sidebar-left {
@@ -512,7 +513,7 @@ strong {
     .col-sidebar {
         max-width: unset;
         width: 100%;
-        padding: 40px 0;
+        padding: 32px 0;
     }
     .col-content {
         padding-top: 16px;
@@ -817,6 +818,56 @@ strong {
 .w50 {
     width: calc(50% - 9px);
 }
+.gfield textarea,
+.gfield input[type="text"],
+.gfield input[type="button"],
+.gfield input[type="submit"],
+.gfield input[type="reset"],
+.gfield input[type="search"],
+.gfield input[type="password"] {
+    height: 48px;
+    background-color: #fff;
+}
+.gfield textarea:focus,
+.gfield input[type="text"]:focus,
+.gfield input[type="button"]:focus,
+.gfield input[type="submit"]:focus,
+.gfield input[type="reset"]:focus,
+.gfield input[type="search"]:focus,
+.gfield input[type="password"]:focus {
+    outline: none;
+}
+
+.form-heading {
+    margin-bottom: 32px;
+}
+.form-title {
+    font-weight: bold;
+    font-size: 19.98px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 10px;
+}
+.form-desc {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.08em;
+}
+@media (max-width: 767px) {
+    .form-heading {
+        margin-bottom: 10px;
+    }
+    .w49 {
+        width: 100%;
+    }
+    .w50 {
+        width: 100%;
+    }
+}
+
+
+/*Contact Form 7*/
 body .gform_fields {
     display: flex!important;
     flex-direction: row;
