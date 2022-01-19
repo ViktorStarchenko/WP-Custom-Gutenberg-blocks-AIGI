@@ -159,6 +159,7 @@ include 'lib/people-post-type.php';
 include 'lib/partners-post-type.php';
 include 'lib/case-studies-post-type.php';
 include 'lib/news-post-type.php';
+include 'lib/staff-post-type.php';
 include 'lib/acf.php';
 include 'lib/post-views-counter.php';
 include 'lib/custom-facetwp.php';
