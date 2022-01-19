@@ -1,5 +1,6 @@
 
 
+
 <?php if (get_sub_field('content')) :
     $content = get_sub_field('content');
 endif ?>
@@ -26,15 +27,6 @@ endif;
 ?>
 
 <?php
-$border = '';
-if ($attributes['border']) :
-    foreach ($attributes['border'] as $key=>$value) {
-        $border .=' ' . strval($value) . ' ';
-    }
-endif;
-?>
-
-<?php
 $classes = '';
 if ($attributes['wrappers']['section_wrapper']) {
     $classes .= ' ' . $attributes['wrappers']['section_wrapper'] . ' ';
@@ -51,16 +43,16 @@ if ($attributes['margin']['margin_bottom']) {
 if ($attributes['background']['background_image']) {
     $classes.= '  bg-image ';
 }
-if ($attributes['background']['background_color']) {
-    $bg_color =  $attributes['background']['background_color'];
-}
 ?>
 
 <?php if ($attributes) : ?>
     <style>
         .acf-section-<?php echo $attributes['uniq_id']; ?> {
         <?php if ($attributes['background']['background_color']) : ?>
-            /*background-color: */<?php //echo $attributes['background']['background_color']; ?>/*;*/
+            background-color: <?php echo $attributes['background']['background_color']; ?>;
+        <?php endif ?>
+        <?php if ($attributes['background']['background_image']) : ?>
+            background-image: url(<?php echo $attributes['background_image']['url']; ?>);
         <?php endif ?>
         <?php if ($attributes['section_height']['height_numbers']) : ?>
             height: <?php echo $attributes['section_height']['height_numbers']; ?><?php echo $attributes['section_height']['height_value']; ?>
@@ -77,31 +69,21 @@ if ($attributes['background']['background_color']) {
     </style>
 <?php endif // end padding styles ?>
 
-
-
-<section class="blockquote-single acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?><?= $border; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
-    <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
-    <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
-
-        <div class="blockquote__wrapper">
-            <div class="blockquote-slider_nav blockquote-slider_nav-<?php echo $attributes['uniq_id'];?> slider-arrows"></div>
-            <div class="blockquote-body">
-                <p class="blockquote-text"><?php echo $content['form_title']; ?></p>
-                <div class="blockquote-author">
-                    <span><?php echo $content['author']; ?></span>
-                </div>
-                <div class="blockquote-author-position">
-                    <span><?php echo $content['author_position']; ?></span>
-                </div>
-            </div>
-                <?php wp_reset_postdata(); ?>
-            </div>
+<section class="form-block-section acf-section-<?php echo get_row_index() . ' '; ?> acf-section-<?php echo $attributes['uniq_id']. ' '; ?> <?php echo $classes ?> <?= $background_texture; ?><?= $padding; ?>" id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> color: <?php echo $attributes['background']['text_color']; ?>; ">
+    <div class="form-block-wrapper content-wrapper <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
+        <div class="text-media__text heading">
+            <p style="color: <?php echo $attributes['background']['text_color']; ?>;"><?php echo $content['heading']; ?></p>
         </div>
+        <div class="text-media__text medium-text">
+            <p style="color: <?php echo $attributes['background']['text_color']; ?>;"><?php echo $content['text_centered']; ?></p>
+        </div>     
+        <div class="form-wrapper">
+            <?php $formid = $content['form_id']; ?>
+            <?php gravity_form( $formid, false, false, false, '', true, 12 ); ?>
+        </div>
+        <?php if (get_sub_field('button_group')['buttons']) {
+            get_template_part('template-parts/content-blocks/content', 'button-group');
+        } ?>
 
     </div>
 </section>
-
-
-
-
-
