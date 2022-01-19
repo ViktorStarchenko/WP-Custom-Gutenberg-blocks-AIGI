@@ -58,7 +58,7 @@ $bg_image = '';
 if (get_field('add_diagram')) {
     $bg_image = get_field('add_diagram');
 } else if (get_field('td_resource_image')) {
-    $bg_image = get_field('td_resource_image');
+    $bg_image = get_field('td_resource_image')['url'];
 }
 ?>
 
