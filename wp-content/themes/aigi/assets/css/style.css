@@ -2119,6 +2119,11 @@ input[type="submit"].btn-transparent-white:hover {
     background-size: auto;
     background-position: center bottom;
  }
+  @media (max-width: 767px) {
+    .form-block-wrapper .text-media__text.heading p {
+        color: var(--color-brand-navy-primary);
+    }
+ }
  @media only screen and (max-width: 641px) {
     .form-block-wrapper .form-wrapper .gform_wrapper.gravity-theme input:not([type=radio]):not([type=checkbox]):not([type=image]):not([type=file]) {
         line-height: 1;
