@@ -92,6 +92,12 @@ if( have_rows('after_content_blocks') ): ?>
 
         <?php endif; // end get_row_layout (centered_block) if ?>
 
+        <?php if(get_row_layout() == 'form_block'): ?>
+
+            <?php get_template_part('template-parts/content-blocks/content', 'form-block'); ?>
+
+        <?php endif; // end get_row_layout (form_block) if ?>
+
     <?php endwhile; // end have_rows while ?>
 
 <?php endif; // end have_rows if ?>
