@@ -126,8 +126,8 @@ $data_video_suf = '';
 
 
             <?php if(get_field('td_resource_download')['file']): ?> <!--publication -->
-                <div class="resource-link">
-                    <a target="_blank" href="<?php echo get_field('td_resource_download')['file']['url']; ?>"><?php echo get_field('td_resource_download')['link_text']; ?></a>
+                <div class="resource-link file">
+                    <a target="_blank" href="<?php echo get_field('td_resource_download')['file']; ?>"><?php echo get_field('td_resource_download')['link_text']; ?></a>
                 </div>
             <?php endif; ?>
 
