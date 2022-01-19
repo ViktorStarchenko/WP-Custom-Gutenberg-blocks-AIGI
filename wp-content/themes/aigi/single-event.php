@@ -9,6 +9,11 @@
 <main id="content" role="main">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <div class="main-inner  <?php  echo ((get_field('header_slider')['enable'] == true) ? ' top-of-hero ' :''); ?>">
+
+            <?php
+            $event_group =  wp_get_post_terms( get_the_ID(), 'event_group');
+            if ($event_group[0]->slug == 'event' || $event_group[0]->slug== 'webinar' || $event_group[0]->slug == 'masterclass') {
+            ?>
             <div class="wrapper-1245 content-wrapper">
 
                 <div class="has-sidebar  sidebar-right">
@@ -383,6 +388,8 @@
 
 
         </div>
+            <?php } ?>
+
             <?php get_template_part('template-parts/layout', 'page-after-content-blocks'); ?>
     <?php endwhile; endif; ?>
     <footer class="footer">
