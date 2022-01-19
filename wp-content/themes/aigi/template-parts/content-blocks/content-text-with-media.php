@@ -102,7 +102,7 @@ if ($attributes['background']['background_color']) {
         <div class="text-media__media-wrapper text-media__content-column" data-height="<?php echo $attributes['uniq_id']; ?>">
             <?php if ($content['media']['type'] == 'image') : ?>
 
-                <div class="text-media__media <?= $content['media']['type'] ?>">
+                <div class="text-media__media <?= $content['media']['type'] ?> <?= $content['media']['image_size'] ?>">
                     <img src="<?php echo $content['media']['image']['url'] ?>" alt="<?php echo $content['media']['image']['title'] ?>">
                 </div>
 

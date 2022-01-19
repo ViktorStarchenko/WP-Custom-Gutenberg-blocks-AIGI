@@ -136,6 +136,12 @@
     height: 100%;
     object-fit: cover;
 }
+.text-media__media-wrapper .cover img {
+    object-fit: cover;
+}
+.text-media__media-wrapper .contain img {
+    object-fit: contain;
+}
 .text-media__media-wrapper .online__video-wrap {
 
 }
