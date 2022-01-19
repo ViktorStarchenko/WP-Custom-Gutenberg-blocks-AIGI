@@ -100,7 +100,7 @@
                                 <div class="social-links">
                                     <?php foreach (get_field('social_links') as $social_links) : ?>
                                         <div class="social-links__item">
-                                            <a class="social-links__item-link" href="<?= $social_links['link'] ?>">
+                                            <a class="social-links__item-link" href="<?= $social_links['link'] ?>" target="_blank">
                                                 <i class="<?= $social_links['icon'] ?>"></i>
                                             </a>
                                         </div>
@@ -161,6 +161,7 @@
 
                             <?php $speakers = get_field('speakers'); ?>
 
+                            <?php if ($speakers) : ?>
                             <div class="content-item profile-list">
                                 <div class="rslider__header">
                                     <div class="rslider__header-top">
@@ -168,7 +169,7 @@
                                     </div>
                                 </div>
                                 <div class="profile-list__wrapper">
-                                    <?php if ($speakers) : ?>
+
                                         <?php foreach($speakers as $post) : ?>
                                             <div class="profile-list__item">
                                                 <div class="rslider__item-header">
@@ -194,10 +195,11 @@
                                             </div>
                                         <?php endforeach ?>
                                         <?php wp_reset_postdata(); ?>
-                                    <?php endif ?>
+
 
                                 </div>
                             </div>
+                        <?php endif ?>
 
                         <!--Event info tab-->
                             <div class="single-event__info-tabs">
