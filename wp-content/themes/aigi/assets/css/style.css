@@ -2129,3 +2129,27 @@ input[type="submit"].btn-transparent-white:hover {
         line-height: 1;
     }
  }
+
+/***Upcoming events Block title fix***/
+
+ .event-block-wrapper .post-tile__wrap {
+    border: unset;
+ }
+ .event-block-title {
+    max-width: 803px;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22.44px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 22px;
+ }
+ .event-block-subtitle {
+    max-width: 803px;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.1em;
+    color: var(--color-main-text);
+ }
