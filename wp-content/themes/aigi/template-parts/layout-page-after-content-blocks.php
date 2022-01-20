@@ -104,6 +104,18 @@ if( have_rows('after_content_blocks') ): ?>
 
         <?php endif; // end get_row_layout (event_block) if ?>
 
+        <?php if(get_row_layout() == 'accordion_block'): ?>
+
+            <?php get_template_part('template-parts/content-blocks/content', 'accordion-block'); ?>
+
+        <?php endif; // end get_row_layout (accordion_block) if ?>
+
+        <?php if(get_row_layout() == 'sponsor_block'): ?>
+
+            <?php get_template_part('template-parts/content-blocks/content', 'sponsor-block'); ?>
+
+        <?php endif; // end get_row_layout (sponsor_block) if ?>
+
     <?php endwhile; // end have_rows while ?>
 
 <?php endif; // end have_rows if ?>
