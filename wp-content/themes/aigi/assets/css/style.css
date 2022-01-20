@@ -2130,7 +2130,7 @@ input[type="submit"].btn-transparent-white:hover {
     }
  }
 
-/***Upcoming events Block title fix***/
+ /***Upcoming events Block***/
 
  .event-block-wrapper .post-tile__wrap {
     border: unset;
@@ -2153,3 +2153,13 @@ input[type="submit"].btn-transparent-white:hover {
     letter-spacing: 0.1em;
     color: var(--color-main-text);
  }
+.event-block-wrapper .post-tile__wrap.event .post-tile__content {
+    min-height: 355px;
+}
+.event-block-wrapper .post-tile__img-box {
+    width: 49%;
+    max-width: 319px;
+}
+.event-block-wrapper .post-tile__wrap.event .post-tile__content-header {
+    margin-bottom: 32px;
+}

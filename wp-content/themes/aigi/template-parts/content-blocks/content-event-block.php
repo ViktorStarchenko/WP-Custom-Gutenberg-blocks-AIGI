@@ -93,7 +93,7 @@ $post_type = get_post_type( get_the_ID() );
 $event_group =  wp_get_post_terms( get_the_ID(), 'event_group');
 $appearance = get_field('appearance');
 ?>
-<div class="wrapper-1245 content-wrapper">
+<div class="wrapper-1245 content-wrapper landing-page">
 <div class="post-tile__wrap <?= $post_type; ?> post-<?php echo get_the_ID(); ?>">
     <div class="post-tile__mob-header">
         <div class="post-tile__tags">
