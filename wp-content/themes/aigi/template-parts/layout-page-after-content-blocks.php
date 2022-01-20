@@ -98,7 +98,7 @@ if( have_rows('after_content_blocks') ): ?>
 
         <?php endif; // end get_row_layout (form_block) if ?>
 
-        <?php if(get_row_layout() == 'event_block'): ?>
+        <?php if(get_row_layout() == 'upcoming_event'): ?>
 
             <?php get_template_part('template-parts/content-blocks/content', 'event-block'); ?>
 
