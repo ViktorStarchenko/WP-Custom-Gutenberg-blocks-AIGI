@@ -70,6 +70,7 @@
     padding-right: 22px;
 }
 .rslider__date {
+    height: 19px;
     font-weight: bold;
     font-size: 11.85px;
     line-height: 19px;
@@ -239,6 +240,11 @@
     letter-spacing: 0.05em;
     text-decoration-line: underline;
     color: #000;
+}
+
+/*Conference*/
+.rslider__item.conference .rslider__item-header {
+    background-image: url(/wp-content/themes/aigi/assets/images/elements-conference.svg);
 }
 @media (max-width: 1300px) {
     .rslider__item {

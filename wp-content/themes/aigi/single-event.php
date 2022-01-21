@@ -12,10 +12,10 @@
 
             <?php
             $event_group =  wp_get_post_terms( get_the_ID(), 'event_group');
-            if ($event_group[0]->slug == 'event' || $event_group[0]->slug== 'webinar' || $event_group[0]->slug == 'masterclass') {
+//            if ($event_group[0]->slug == 'event' || $event_group[0]->slug== 'webinar' || $event_group[0]->slug == 'masterclass') {
+            if (get_field('enable_event_info') == true) {
             ?>
             <div class="wrapper-1245 content-wrapper">
-
                 <div class="has-sidebar  sidebar-right">
                     <div class="col-sidebar">
                         <div class="col-sidebar__inner">
