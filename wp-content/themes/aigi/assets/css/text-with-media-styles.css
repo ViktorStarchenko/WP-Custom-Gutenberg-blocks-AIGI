@@ -243,6 +243,7 @@
     }
     .text-media__content-column {
         min-height: unset;
+        width: 100%;
     }
     .text-media__content .btn-group .btn-body {
         width: 100%;
