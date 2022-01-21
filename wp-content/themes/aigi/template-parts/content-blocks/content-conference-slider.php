@@ -136,12 +136,24 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                             <div class="rslider__item rslider__resource-item  conference">
                                 <div class="rslider__item-header">
                                     <div class="rslider__date">
-                                        <?php if (get_field('events_details')['start_date']) : ?>
-                                        <?= date("M d Y", strtotime(get_field('events_details')['start_date'])); ?> -
-                                        <?php endif ?>
-                                        <?php if (get_field('events_details')['end_date']) : ?>
-                                         <?= date("M d Y", strtotime(get_field('events_details')['end_date'])); ?>
-                                        <?php endif ?>
+                                        <?php
+                                        if (get_field('events_details')['start_date'] && get_field('events_details')['end_date']) {
+//                                        var_dump(strtotime(get_field('events_details')['start_date']));
+//                                        echo '<br>';
+//                                        var_dump(strtotime(get_field('events_details')['end_date']));
+//                                        echo '<br>';
+                                            if (date("M d Y", strtotime(get_field('events_details')['start_date'])) == date("M d Y", strtotime(get_field('events_details')['end_date']))) {
+                                                echo date("M d Y", strtotime(get_field('events_details')['start_date']));
+                                            } else {
+                                                echo date("M d Y", strtotime(get_field('events_details')['start_date'])) . ' - ' .  date("M d Y", strtotime(get_field('events_details')['end_date']));
+                                            }?>
+
+
+                                        <?php } else if (get_field('events_details')['start_date'] && !get_field('events_details')['end_date'] ) {
+
+                                            echo date("M d Y", strtotime(get_field('events_details')['start_date']));
+                                        } ?>
+
                                     </div>
 
                                     <div class="rslider__type content-tags__item">conference</div>
