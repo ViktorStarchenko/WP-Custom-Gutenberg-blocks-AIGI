@@ -32,6 +32,9 @@
     .got-questions {
         padding: 50px 0;
     }
+    .got-questions.bg-texture:before {
+        background-image: url(/wp-content/themes/aigi/assets/images/art-got-questions-mob.svg)!important;
+    }
     .got-questions .highlighted__title {
         font-size: 18px;
         line-height: 22px;
