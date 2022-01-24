@@ -4,6 +4,7 @@
 $post_type = get_post_type( get_the_ID() );
 $event_group =  wp_get_post_terms( get_the_ID(), 'event_group');
 $appearance = get_field('appearance');
+$googleCalendarLink = googleCalendarLink()
 ?>
 
 <div class="post-tile__wrap <?= $post_type; ?> post-<?php echo get_the_ID(); ?>">
@@ -15,7 +16,7 @@ $appearance = get_field('appearance');
                 <a class="content-tags__item" href="/search?/?_content_tags=<?php echo $term->slug ?>" data-tem-id="<?php echo  $term->term_id ?>"><?php echo $term->name ?></a>
             <?php endforeach ?>
         </div>
-        <a href="#" class="add-to-calendar"></a>
+        <a href="<?php echo $googleCalendarLink ?>" class="add-to-calendar" target="_blank"></a>
     </div>
     <div class="post-tile__img-box">
         <div class="post-tile__img">
@@ -27,7 +28,6 @@ $appearance = get_field('appearance');
         </div>
 
         <div class="btn-group f-start m-center">
-            <?php $googleCalendarLink = googleCalendarLink() ?>
             <a href="<?php echo $googleCalendarLink ?>" target="_blank" class="btn-body  btn-transparent  calendar  after  Between " tabindex="0">
                 <span class="btn-inner">Add to Calendar</span>
             </a>

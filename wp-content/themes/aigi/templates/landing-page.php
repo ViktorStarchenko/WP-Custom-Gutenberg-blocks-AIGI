@@ -26,9 +26,17 @@
                     </article>
                 </div>
             </div>
-            <?php get_template_part('template-parts/layout', 'page-after-content-blocks'); ?>
+<!--            <div class="wrapper-full-width">-->
+<!--                <div class="landing__filter-map" style="height: 650px; background-color: red; margin: 79px 0 -79px;">-->
+<!--                    --><?php //echo facetwp_display( 'facet', 'landing_location_map' ) ?>
+<!--                </div>-->
+<!--            </div>-->
+
             <div class="wrapper-1245">
                 <div class="content-wrapper wrapper-full-width">
+
+
+                    </div>
                     <?php
                     $post_type = get_field('landing_page')['post_type'];
                     if ($post_type == 'event') {
@@ -96,7 +104,7 @@
 
                 </div>
             </div>
-
+            <?php get_template_part('template-parts/layout', 'page-after-content-blocks'); ?>
 
         <?php endwhile; endif; ?>
     </div>

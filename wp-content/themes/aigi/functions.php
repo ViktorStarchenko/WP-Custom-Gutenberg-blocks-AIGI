@@ -231,31 +231,6 @@ function get_total_posts(){
 }
 
 
-
-
-    function setEventType() {
-        $my_posts = get_posts( array(
-            'numberposts' => -1,
-            'post_type'   => 'event',
-        ) );
-        $date = time();
-        foreach( $my_posts as $post ){
-            setup_postdata( $post );
-            $event_date = strtotime(get_field('events_details',$post->ID)['start_date']);
-            if($event_date < $date) {
-
-                wp_set_object_terms( $post->ID, 'past-events', 'event_type' );
-            } else {
-                wp_set_object_terms( $post->ID, 'upcoming-events', 'event_type' );
-            }
-
-        }
-
-        wp_reset_postdata();
-    }
-
-    add_action('init', 'setEventType');
-
 /*** Custom excerpt ***/
 function get_custom_excerpt($content, $limit, $ellipsis = true){
 
@@ -323,3 +298,4 @@ function googleCalendarLink( $post_id = null )
 
     return $url;
 }
+

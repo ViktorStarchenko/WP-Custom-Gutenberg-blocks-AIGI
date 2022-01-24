@@ -51,7 +51,7 @@ $appearance = get_field('appearance');
             </div>
 
             <div class="post-tile__title">
-                <span><?php the_title(); ?></span>
+                <span><?php the_title(); ?>   ( <?php echo get_post_meta( get_the_ID(), 'post_views_count', true ); ?> )</span>
             </div>
             <div class="post-tile__excerpt"><p><?php echo get_custom_excerpt(get_the_excerpt(), 213, true) ?></p></div>
         </div>
