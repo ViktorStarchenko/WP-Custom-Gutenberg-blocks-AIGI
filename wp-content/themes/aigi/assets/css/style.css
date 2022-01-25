@@ -2174,6 +2174,11 @@ input[type="submit"].btn-transparent-white:hover {
 .accordion-block-wrapper .accordion_content {
     font-size: 14px;
 }
+@media (max-width: 767px) {
+    .accordion-block-wrapper .accordion_panel.active {
+        padding: 15px 18px;
+    }
+}
 
 /***Sponsor block***/
 
