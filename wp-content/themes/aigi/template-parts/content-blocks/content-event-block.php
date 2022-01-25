@@ -103,7 +103,8 @@ $appearance = get_field('appearance');
                 <a class="content-tags__item" href="/search?/?_content_tags=<?php echo $term->slug ?>" data-tem-id="<?php echo  $term->term_id ?>"><?php echo $term->name ?></a>
             <?php endforeach ?>
         </div>
-        <a href="#" class="add-to-calendar"></a>
+        <?php $googleCalendarLink = googleCalendarLink() ?>
+        <a href="<?php echo $googleCalendarLink ?>" target="_blank" class="add-to-calendar"></a>
     </div>
     <div class="post-tile__img-box">
         <div class="post-tile__img">
@@ -115,7 +116,7 @@ $appearance = get_field('appearance');
         </div>
 
         <div class="btn-group f-start m-center">
-            <?php $googleCalendarLink = googleCalendarLink() ?>
+            
             <a href="<?php echo $googleCalendarLink ?>" target="_blank" class="btn-body  btn-transparent  calendar  after  Between " tabindex="0">
                 <span class="btn-inner">Add to Calendar</span>
             </a>
@@ -134,12 +135,12 @@ $appearance = get_field('appearance');
     <div class="post-tile__content">
         <div class="post-tile__content-header">
             <div class="post-tile__left">
-                <?php if (get_field('events_details')['start_date']) : ?>
-                    <span class="post-tile__pub-date"><?php echo date("M d Y", strtotime(get_field('events_details')['start_date']))?></span>
-                <?php endif ?>
-
                 <?php if (get_field('location')['address']): ?>
                     <span class="post-tile__location"><a href="https://maps.google.com/?q=<?php echo get_field('location')['address']['lat'];?>,<?php echo get_field('location')['address']['lng'];?>" target="_blank"><?php echo get_field('location')['address']['address']?></a></span>
+                <?php endif ?>
+
+                <?php if (get_field('events_details')['start_date']) : ?>
+                    <span class="post-tile__pub-date"><?php echo date("M d Y", strtotime(get_field('events_details')['start_date']))?></span>
                 <?php endif ?>
             </div>
 
