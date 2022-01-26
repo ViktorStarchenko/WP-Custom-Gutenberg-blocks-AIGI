@@ -2203,6 +2203,9 @@ input[type="submit"].btn-transparent-white:hover {
 .accordion-block-wrapper .accordion_content {
     font-size: 14px;
 }
+.accordion-block-wrapper.content-wrapper.wrapper-1245 {
+    max-width: 901px;
+}
 @media (max-width: 767px) {
     .accordion-block-wrapper .accordion_panel.active {
         padding: 15px 18px;
