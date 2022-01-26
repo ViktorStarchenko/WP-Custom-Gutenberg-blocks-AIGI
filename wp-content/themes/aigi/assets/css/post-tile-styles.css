@@ -686,6 +686,9 @@
     color: var(--color-text-field-blue);
     margin-bottom: 8px;
 }
+.speakers-slider__position {
+    max-width: 238px;
+}
 .speakers-slider__nav {
     width: 100%;
     display: flex;
@@ -971,6 +974,9 @@
     .speakers-slider__name,
     .speakers-slider__position {
         margin-bottom: 0;
+    }
+    .speakers-slider__position {
+        max-width: 190px;
     }
     .speakers-slider__heading {
         margin-bottom: 8px;

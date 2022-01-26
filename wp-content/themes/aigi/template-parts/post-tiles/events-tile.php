@@ -141,14 +141,14 @@ $googleCalendarLink = googleCalendarLink()
                                     <?= $speaker->post_title ?>
                                 </div>
                                 <div class="speakers-slider__position">
-                                    <?php echo substr(get_the_excerpt( $speaker->ID), 0,25) ?>
+                                    <?php echo get_custom_excerpt(get_the_excerpt( $speaker->ID), 54, true); ?>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 <?php endforeach ?>
-
+                <?php wp_reset_postdata(); ?>
             </div>
             <div class="speakers-slider__nav"></div>
         <?php endif?>
