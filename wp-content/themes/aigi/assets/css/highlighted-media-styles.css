@@ -58,6 +58,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 56px;
 }
 .highlighted-img__wrap {
     height: 100%;
@@ -89,7 +90,7 @@
     .highlighted-media {
         min-height: 554px;
     }
-    
+
 }
 @media (max-width: 1300px) {
     .highlighted-img {
@@ -105,6 +106,7 @@
     .highlighted-text {
         max-width: 65%;
         padding-right: 16px;
+        padding-left: 32px;
     }
     .highlighted-text .btn-group {
         margin-top: 32px;

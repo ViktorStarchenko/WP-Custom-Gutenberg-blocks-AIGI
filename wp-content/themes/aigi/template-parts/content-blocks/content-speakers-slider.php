@@ -151,7 +151,7 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                                     <?php
                                     $excerpt = '';
                                     ?>
-                                    <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_content, 234, true) ?></div>
+                                    <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_excerpt, 234, true) ?></div>
 <!--                                    <div class="rslider__excerpt">--><?php //echo substr($post->post_content, 234) ?><!--</div>-->
 
                                 </div>
