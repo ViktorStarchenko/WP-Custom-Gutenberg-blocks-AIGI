@@ -1,4 +1,6 @@
-
+.blockquote-slider__section {
+    position: relative;
+}
 .blockquote-slider__inner {
     overflow: hidden;
     padding: 90px 0;

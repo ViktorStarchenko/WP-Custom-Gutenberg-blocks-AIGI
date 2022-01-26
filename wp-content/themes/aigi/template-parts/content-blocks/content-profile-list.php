@@ -85,7 +85,8 @@ if ($attributes['background']['background_color']) {
 <?php endif // end padding styles ?>
 
 
-<section class="profile-list acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?><?= $border; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+<section class="profile-list acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+    <div class="border-container wrapper-1245 <?= $border; ?>"></div>
     <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
     <div class="wrapper-1245 content-wrapper">
         <div class="rslider__header">
@@ -118,7 +119,7 @@ if ($attributes['background']['background_color']) {
                             <?php
                             $excerpt = '';
                             ?>
-                            <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_content, 450, true) ?></div>
+                            <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_excerpt, 450, true) ?></div>
                             <!--                                    <div class="rslider__excerpt">--><?php //echo substr($post->post_content, 234) ?><!--</div>-->
 
                         </div>

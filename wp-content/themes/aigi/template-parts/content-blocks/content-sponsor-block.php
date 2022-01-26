@@ -27,13 +27,22 @@ endif;
 ?>
 
 <?php
+$border = '';
+if ($attributes['border']) :
+    foreach ($attributes['border'] as $key=>$value) {
+        $border .=' ' . strval($value) . ' ';
+    }
+endif;
+?>
+
+<?php
 $classes = '';
 if ($attributes['wrappers']['section_wrapper']) {
     $classes .= ' ' . $attributes['wrappers']['section_wrapper'] . ' ';
 }
-if ($attributes['section_class']) {
-    $classes .= ' ' . $attributes['section_class'] . ' ';
-}
+//if ($attributes['section_class']) {
+//    $classes .= ' ' . $attributes['section_class'] . ' ';
+//}
 if ($attributes['margin']['margin_top']) {
     $classes.= ' ' . $attributes['margin']['margin_top'] . ' ';
 }
@@ -43,17 +52,15 @@ if ($attributes['margin']['margin_bottom']) {
 if ($attributes['background']['background_image']) {
     $classes.= '  bg-image ';
 }
+$bg_color = '';
+if ($attributes['background']['background_color']) {
+    $bg_color =  $attributes['background']['background_color'];
+}
 ?>
 
 <?php if ($attributes) : ?>
     <style>
         .acf-section-<?php echo $attributes['uniq_id']; ?> {
-        <?php if ($attributes['background']['background_color']) : ?>
-            background-color: <?php echo $attributes['background']['background_color']; ?>;
-        <?php endif ?>
-        <?php if ($attributes['background']['background_image']) : ?>
-            background-image: url(<?php echo $attributes['background_image']['url']; ?>);
-        <?php endif ?>
         <?php if ($attributes['section_height']['height_numbers']) : ?>
             height: <?php echo $attributes['section_height']['height_numbers']; ?><?php echo $attributes['section_height']['height_value']; ?>
         <?php endif ?>
@@ -69,7 +76,8 @@ if ($attributes['background']['background_image']) {
     </style>
 <?php endif // end padding styles ?>
 
-<section class="sponsor-block-section acf-section-<?php echo get_row_index() . ' '; ?> acf-section-<?php echo $attributes['uniq_id']. ' '; ?> <?php echo $classes ?> <?= $background_texture; ?><?= $padding; ?>" id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> color: <?php echo $attributes['background']['text_color']; ?>; ">
+<section class="sponsor-block-section pos-relative acf-section-<?php echo get_row_index() . ' '; ?> acf-section-<?php echo $attributes['uniq_id']. ' '; ?> <?php echo $classes ?> <?= $background_texture; ?><?= $padding; ?>" id="" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+    <div class="border-container wrapper-1245 <?= $border; ?>"></div>
     <div class="sponsor-block-wrapper content-wrapper <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
 
         <div class="sponsor-block-logo">

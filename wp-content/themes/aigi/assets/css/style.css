@@ -443,6 +443,12 @@ strong {
 }
 
 /*************************** LAYOUT STYLES ****************************/
+.pos-relative {
+    position: relative;
+}
+.centered-content-section {
+    position: relative;
+}
 .has-sidebar {
     background-color: #fff;
     display: flex;
@@ -761,6 +767,14 @@ strong {
 }
 
 /****************************** BORDER STYLES ****************************/
+.border-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+.border-container.wrapper-1245 {
+    left: calc((100% - 1245px)/2);
+}
 .border-all {
     border: 1px solid var(--color-field-border);
     box-sizing: border-box;
@@ -781,6 +795,31 @@ strong {
 .border-right {
     border-right: 1px solid var(--color-field-border);
     box-sizing: border-box;
+}
+
+@media (min-width: 1920px)  {
+
+}
+@media (max-width: 1300px) {
+    .border-container.wrapper-1245 {
+        left: calc((100% - 1144px)/2);
+    }
+}
+@media (max-width: 1144px) {
+    .border-container.wrapper-1245 {
+        left: calc((100% - 1024px)/2);
+    }
+}
+@media (max-width: 1024px) {
+    .border-container.wrapper-1245 {
+        left: calc((100% - 910px)/2);
+    }
+}
+@media (max-width: 910px)  {
+    .border-container.wrapper-1245 {
+        left: 16px;
+        width: calc(100% - 32px);
+    }
 }
 /*************************** BACKGROUND STYLES **************************/
 .bg-texture {
