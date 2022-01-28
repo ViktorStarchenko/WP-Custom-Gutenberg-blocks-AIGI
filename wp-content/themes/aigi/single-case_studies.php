@@ -18,7 +18,7 @@
                         <div class="post-details">
 
                             <?php if (get_field('author')) : ?>
-                                <div class="post-details__item">
+                                <div class="post-details__item author">
                                     <div class="post-details__heading">Written by</div>
                                     <?php foreach (get_field('author') as $author) : ?>
                                     <div class="post-details__text">
@@ -27,18 +27,54 @@
                                         <p><?php  echo get_field('author_title', $author->ID) ; ?></p>
                                         <?php endif ?>
                                     </div>
-                                    <div class="post-details__text"></div>
-                                    <a href="<?php echo get_the_permalink($author->ID) ?>" target="_blank" class="post-details__link">About the writter</a>
+                                    <a class="post-details__link fancybox-inline show-modal" href="#author-<?php echo $author->ID ?>">About the writter</a>
+
+                                        <!--Author modal-->
+                                        <div style="display:none" class="fancybox-hidden">
+                                            <div class="social-share__block" id="author-<?php echo $author->ID ?>">
+                                                <div class="social-share__wrapper modal pt-xl pb-xl pl-xl pr-xl">
+                                                    <div class="social-share__header">
+                                                        <div class="social-share__title">
+                                                            Author
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal__author-container">
+                                                        <div class="author__photo">
+                                                            <img src="<?= get_the_post_thumbnail_url( $author->ID, 'full' ); ?>" alt="">
+                                                        </div>
+                                                        <div class="author__name"><?php echo $author->post_title; ?></div>
+                                                        <div class="author__title"><?php  echo get_field('author_title', $author->ID) ; ?></div>
+                                                        <div class="author__description"><?php echo $author->post_content; ?></div>
+
+                                                        <?php if (get_field('social_links', $author->ID)): ?>
+                                                        <div class="author__social">
+                                                            <div class="social-links__heading ">Authors's Social Links:</div>
+                                                            <div class="social-links">
+                                                                <?php foreach (get_field('social_links', $author->ID) as $social_links) : ?>
+                                                                    <div class="social-links__item">
+                                                                        <a class="social-links__item-link" href="<?= $social_links['link'] ?>" target="_blank">
+                                                                            <i class="<?= $social_links['icon'] ?>"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                <?php endforeach ?>
+                                                            </div>
+                                                        </div>
+                                                        <?php endif ?>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <?php endforeach; ?>
                                     <?php wp_reset_postdata(); ?>
                                 </div>
                             <?php endif ?>
 
-                            <?php if (get_field('location')['address']) : ?>
+                            <?php if (get_field('c_studies_locationtion')['address']) : ?>
                             <div class="post-details__item">
                                 <div class="post-details__heading">Location</div>
-                                <div class="post-details__text"><?= get_field('location')['address']['address']; ?></div>
-                                <a href="https://maps.google.com/?q=<?php echo get_field('location')['address']['lat'];?>,<?php echo get_field('location')['address']['lng'];?>" target="_blank" class="post-details__link">View on map</a>
+                                <div class="post-details__text"><?= get_field('c_studies_locationtion')['address']['address']; ?></div>
+                                <a href="https://maps.google.com/?q=<?php echo get_field('c_studies_locationtion')['address']['lat'];?>,<?php echo get_field('c_studies_locationtion')['address']['lng'];?>" target="_blank" class="post-details__link">View on map</a>
                             </div>
                             <?php endif ?>
                         </div>

@@ -195,6 +195,10 @@
     position: relative;
     word-break: break-all;
 }
+.resource-link:not(:last-child) a {
+    margin-bottom: 16px;
+    display: inline-block;
+}
 .resource-link.file a:before {
     background-image: url(/wp-content/themes/aigi/assets/images/download.svg);
     background-size: contain;
