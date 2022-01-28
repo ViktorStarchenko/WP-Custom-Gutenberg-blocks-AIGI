@@ -87,5 +87,7 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
     </div>
 </div>
 
+<!--partner popup-->
+<div id="partner-popup-main-wrapper"></div>
 </body>
 </html>
