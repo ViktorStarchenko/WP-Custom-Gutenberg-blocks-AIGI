@@ -63,6 +63,9 @@
 .post-details__text:not(:last-child) {
     margin-bottom: 16px;
 }
+.post-details__item.author .post-details__text:not(:last-child) {
+    margin-bottom: 5px;
+}
 .post-details__link {
     font-weight: bold;
     font-size: 14px;
@@ -70,8 +73,11 @@
     letter-spacing: 0.7px;
     text-decoration-line: underline;
     color: var(--color-brand-m-blue-primary);
+    display: inline-block;
 }
-
+.post-details__item.author .post-details__link {
+    margin-bottom: 16px;
+}
 .single-event .accordion_btn {
     font-size: 15.78px;
     line-height: 20px;

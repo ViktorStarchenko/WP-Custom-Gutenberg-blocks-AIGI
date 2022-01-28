@@ -7,13 +7,21 @@
 ?>
 
 <?php get_header(); ?>
+
+<?php
+$post_type = get_field('landing_page')['post_type'];
+if ($post_type == 'event') {
+    $event_group = get_field('landing_page')['event_term'];
+    $event_group = $event_group->slug;
+}
+?>
 <main id="content" role="main">
     <!--    <div class="section">-->
     <!--        <div class="wrapper">-->
     <!--            <div class="hero-slider" style="height: 548px; width: 100%; background: var(--color-error)" ></div>-->
     <!--        </div>-->
     <!--    </div>-->
-    <div class="main-inner <?php  echo ((get_field('header_slider')['enable'] == true) ? ' top-of-hero ' :''); ?>">
+    <div class="main-inner <?php  echo ((get_field('header_slider')['enable'] == true) ? ' top-of-hero ' :''); ?> <?php echo ($post_type == 'case_studies') ? 'map-enable' : ''; ?>">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <?php get_template_part('template-parts/layout', 'page-before-content-blocks'); ?>
 
@@ -26,25 +34,11 @@
                     </article>
                 </div>
             </div>
-<!--            <div class="wrapper-full-width">-->
-<!--                <div class="landing__filter-map" style="height: 650px; background-color: red; margin: 79px 0 -79px;">-->
-<!--                    --><?php //echo facetwp_display( 'facet', 'landing_location_map' ) ?>
-<!--                </div>-->
-<!--            </div>-->
+
 
             <div class="wrapper-1245">
-                <div class="content-wrapper wrapper-full-width">
 
-
-                    </div>
-                    <?php
-                    $post_type = get_field('landing_page')['post_type'];
-                    if ($post_type == 'event') {
-                        $event_group = get_field('landing_page')['event_term'];
-                        $event_group = $event_group->slug;
-                    }
-                    ?>
-                    <div class="landing__filter-block <?php echo $post_type; ?>" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>">
+                <div class="landing__filter-block <?php echo $post_type; ?>" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>">
                         <div class="landing__filter-inner">
                             <div class="landing__filter-header">
                                 <div class="filter-button">
@@ -86,6 +80,16 @@
                         </div>
                     </div>
                 </div>
+
+            <?php if ($post_type == 'case_studies') : ?>
+                <?php $map_filter =  get_field('landing_page')['map_filter'] ?>
+                <div class="wrapper-full-width">
+                    <div class="landing__filter-map">
+                        <?php echo do_shortcode('[facetwp facet="'.$map_filter.'"]'); ?>
+                    </div>
+                </div>
+            <?php endif ?>
+
                 <div class="content-wrapper wrapper-1245">
                     <div class="post-tile__list landing-page search-page__results">
 

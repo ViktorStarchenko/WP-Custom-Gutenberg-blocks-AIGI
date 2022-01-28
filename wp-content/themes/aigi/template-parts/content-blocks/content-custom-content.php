@@ -322,10 +322,12 @@
                                     <?= $content_item['file_block']['file_text']; ?>
                                 </div>
 
-                            <?php if($content_item['file_block']['file']): ?>
+                            <?php if($content_item['file_block']['files']): ?>
+                            <?php foreach ($content_item['file_block']['files'] as $file): ?>
                                 <div class="resource-link file">
-                                    <a href="<?php echo $content_item['file_block']['file']['url']; ?>" download><?php echo $content_item['file_block']['file']['title']; ?></a>
+                                    <a href="<?php echo $file['file']['url']; ?>" download><?php echo $file['file']['title']; ?></a>
                                 </div>
+                            <?php endforeach; ?>
                             <?php endif; ?>
 
                         </div>
