@@ -300,3 +300,13 @@ function googleCalendarLink( $post_id = null )
     return $url;
 }
 
+
+/*** Enqueue Font Awesome. ***/
+
+add_action( 'wp_enqueue_scripts', 'custom_load_font_awesome' );
+
+function custom_load_font_awesome() {
+
+    wp_enqueue_style( 'font-awesome-free', '//use.fontawesome.com/releases/v5.2.0/css/all.css' );
+
+}
