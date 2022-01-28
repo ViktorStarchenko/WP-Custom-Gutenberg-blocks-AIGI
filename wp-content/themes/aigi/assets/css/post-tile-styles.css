@@ -320,11 +320,11 @@
 
 
     .post-tile__wrap {
-        max-width: 440px;
+        max-width: 100%;
         margin: 16px auto;
     }
     .post-tile__wrap.mob-bordered {
-        max-width: 440px;
+        max-width: 100%;
         margin: 16px auto;
         flex-direction: column;
         border-radius: 5px;
@@ -814,7 +814,7 @@
     /*Post tile global search page*/
     .post-tile__wrap.event,
     .post-tile__wrap.mob-style-2 {
-        max-width: 440px;
+        max-width: 100%;
         margin: 16px auto;
         flex-direction: column;
         border-radius: 5px;

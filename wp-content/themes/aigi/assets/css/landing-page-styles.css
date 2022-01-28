@@ -135,6 +135,14 @@
         padding: 12px 12px;
         font-size: 12px;
     }
+    .landing__filter-map {
+        height: 522px;
+        margin: 0;
+        overflow: hidden;
+    }
+    .map-enable .post-tile__list.landing-page {
+        padding: 0;
+    }
 }
 @media (max-width: 767px) {
     .landing__filter-block {
@@ -153,7 +161,7 @@
     .landing__filter-block.event .landing__filter-heading.event-type-filter-mob {
         display: block;
         width: calc(100% - 58px);
-        /*max-width: 285px;*/
+        max-width: 285px;
     }
     .facetwp-facet-landing_event_type .facetwp-radio {
         padding: 12px 23px;
@@ -190,13 +198,8 @@
     .landing__filter-block.event .landing__filter-item.landing_event_type {
         display: none;
     }
-    .map-enable .post-tile__list.landing-page {
-        padding: 0;
-    }
     /*Map*/
     .landing__filter-map {
         height: 522px;
-        margin: 0;
-        overflow: hidden;
     }
 }
