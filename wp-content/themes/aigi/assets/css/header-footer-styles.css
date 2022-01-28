@@ -519,7 +519,7 @@ p.image_description {
 	    margin: unset;
 	    background: white;
 	    margin-left: -16px;
-	    height: calc(100vh - 172px);
+	    height: calc(100% - 172px);
 	    bottom: 0px;
 	    overflow-y: scroll;
 	    z-index: 999;
