@@ -70,23 +70,6 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
 </div>
 <?php wp_footer(); ?>
 
-
-<!--Social share modal-->
-<div style="display:none" class="fancybox-hidden">
-    <div class="social-share__block" id="share-block">
-        <div class="social-share__wrapper modal pt-xl pb-xl pl-xl pr-xl">
-            <div class="social-share__header">
-                <div class="social-share__title">
-                    Share
-                </div>
-            </div>
-            <div class="social-share__container">
-                <?php echo do_shortcode('[Sassy_Social_Share]'); ?>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--partner popup-->
 <div id="partner-popup-main-wrapper"></div>
 </body>
