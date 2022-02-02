@@ -85,6 +85,22 @@
 .popup_content_wrapper.gallery {
     padding: 0;
 }
+
+
+/*author */
+.popup_content_wrapper.author .author__content {
+    width: 65%;
+    padding-left: 35px;
+}
+.author__image {
+    width: 240px;
+}
+.author__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media (max-width:  767px) {
     .item_popup_header {
         flex-wrap: wrap;
@@ -99,6 +115,18 @@
         overflow-y: scroll;
         overflow-x: hidden;
     }
+
+
+
+    /*author */
+    .popup_content_wrapper.author {
+       padding: 60px 20px 20px;
+   }
+    .popup_content_wrapper.author .author__content {
+        width: 100%;
+        padding: 32px 0;
+    }
+
 
 }
 @media (max-width: 580px) {

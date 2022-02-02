@@ -280,4 +280,11 @@
     .post-technical-block {
         justify-content: space-around;
     }
+
+    .modal .social-links {
+        justify-content: center;
+    }
+    .modal .social-links__item {
+        margin: 0 10px;
+    }
 }
