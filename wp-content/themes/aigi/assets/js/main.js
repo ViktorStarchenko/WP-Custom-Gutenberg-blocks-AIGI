@@ -608,3 +608,13 @@ jQuery(document).ready(function(){
         window.print();
     })
 })
+
+//////////////////////////////// Popup
+
+jQuery('.popup_button').on('click', function () {
+    jQuery(this).siblings(".popup-main-wrapper").addClass('popup_opened');
+});
+
+jQuery(document).on('click', '#popup_close_button', function () {
+    jQuery(".popup-main-wrapper").removeClass('popup_opened');
+});

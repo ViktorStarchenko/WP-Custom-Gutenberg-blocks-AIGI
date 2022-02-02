@@ -143,107 +143,11 @@
                                     <figure class="">
                                         <img src="<?php echo $content_item['gallery_block']['add_gallery']['0']['url'];?>" alt="<?php echo $content_item['image_block']['add_image']['0']['url'] ;?>">
                                     </figure>
+
                                 </div>
 
                                 <!-- Modal -->
-                                <div style="display:none" class="fancybox-hidden">
-                                    <div class="modal-gallery" id="popup-<?php echo $content_item['block_id'];?>">
-                                        <?php if ($gallery) : ?>
-                                            <div class="gallery-wrapper pt-m pb-m pl-xl pr-xl">
-                                                <div class="gallery-inner">
-                                                    <div class="slider gallery-for-<?php echo $content_item['block_id'];?>">
-                                                        <?php foreach ($gallery as $key=>$item_for) : ?>
-                                                            <div>
-                                                                <div class="gallery-for__item">
-                                                                    <div class="gallery-for__img">
-                                                                        <picture>
-                                                                            <img src="<?php echo $item_for['url']?>" alt="<?php echo $item_for['title']?>">
-                                                                        </picture>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <?php endforeach ?>
-                                                        <?php wp_reset_postdata(); ?>
-                                                    </div>
-                                                    <div class="gallery__navigation">
-                                                        <div class="gallery__info">
-                                                            <div class="gallery__slide-num">
-                                                                <span> of <?php echo count($gallery) ?></span>
 
-                                                            </div>
-                                                            <div class="gallery__title">
-                                                                <span><?php echo $content_item['gallery_block']['title'];?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="slider-arrows">
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="slider gallery-nav-<?php echo $content_item['block_id'];?>">
-                                                        <?php foreach ($gallery as $item_nav) : ?>
-                                                            <div>
-                                                                <div class="gallery-nav__item">
-                                                                    <div class="gallery-nav__img">
-                                                                        <picture>
-                                                                            <img src="<?php echo $item_nav['url']?>" alt="<?php echo $item_nav['title']?>">
-                                                                        </picture>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <?php endforeach ?>
-                                                        <?php wp_reset_postdata(); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-                                            <script>
-                                                jQuery('.gallery-for-<?php echo $content_item['block_id'];?>').slick({
-                                                    infinite: true,
-                                                    slidesToShow: 1,
-                                                    slidesToScroll: 1,
-                                                    arrows: true,
-                                                    fade: true,
-                                                    asNavFor: '.gallery-nav-<?php echo $content_item['block_id'];?>',
-                                                    appendArrows:'#popup-<?php echo $content_item['block_id'];?> .slider-arrows',
-                                                    prevArrow:'<span class="slider-arrow prev"></span>',
-                                                    nextArrow:'<span class="slider-arrow next"></span>'
-
-                                                });
-                                                jQuery('.gallery-nav-<?php echo $content_item['block_id'];?>').slick({
-                                                    slidesToShow: 7,
-                                                    slidesToScroll: 7,
-                                                    asNavFor: '.gallery-for-<?php echo $content_item['block_id'];?>',
-                                                    dots: false,
-                                                    centerMode: true,
-                                                    focusOnSelect: true,
-                                                    responsive: [
-                                                        {
-                                                            breakpoint: 1024,
-                                                            settings: {
-                                                                slidesToShow: 3,
-                                                                slidesToScroll: 1,
-                                                                infinite: true,
-                                                                dots: true
-                                                            }
-                                                        },
-                                                        {
-                                                            breakpoint: 600,
-                                                            settings: {
-                                                                slidesToShow: 2,
-                                                                slidesToScroll: 1
-                                                            }
-                                                        },
-                                                        // You can unslick at a given breakpoint now by adding:
-                                                        // settings: "unslick"
-                                                        // instead of a settings object
-                                                    ]
-                                                });
-                                            </script>
-                                        <?php endif ?>
-                                    </div>
-                                </div>
                             <?php endif ?>
                             <?php if($content_item['gallery_block']['add_text']) : ?>
                                 <div class="resource__text">
@@ -252,7 +156,124 @@
                             <?php endif; ?>
 
                             <div class="resource__text">
-                                <a href="#popup-<?php echo $content_item['block_id'];?>" class="btn-body btn-m-blue fancybox-inline show-modal full-width"><span class="btn-inner">VIew event gallery</span></a>
+                                <div class="popup_item_wrapper" data-popup="">
+                                    <div class="btn-body btn-m-blue full-width popup_button">
+                                        <span class="btn-inner">VIew event gallery</span>
+                                    </div>
+                                    <div class="popup-main-wrapper" id="popup-<?php echo $content_item['block_id'];?>">
+                                        <div class="item_popup_wrapper">
+                                            <div class="popup_overlay"></div>
+                                            <div class="popup_content_wrapper gallery">
+                                                <div class="item_popup_content_inner">
+                                                    <div id="popup_close_button"></div>
+                                                    <?php if ($gallery) : ?>
+                                                        <div class="gallery-wrapper pt-m pb-m pl-xl pr-xl">
+                                                            <div class="gallery-inner">
+                                                                <div class="slider gallery-for-<?php echo $content_item['block_id'];?>">
+                                                                    <?php foreach ($gallery as $key=>$item_for) : ?>
+                                                                        <div>
+                                                                            <div class="gallery-for__item">
+                                                                                <div class="gallery-for__img">
+                                                                                    <picture>
+                                                                                        <img src="<?php echo $item_for['url']?>" alt="<?php echo $item_for['title']?>">
+                                                                                    </picture>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php endforeach ?>
+                                                                    <?php wp_reset_postdata(); ?>
+                                                                </div>
+                                                                <div class="gallery__navigation">
+                                                                    <div class="gallery__info">
+                                                                        <div class="gallery__slide-num">
+                                                                            <span> <span class="current-slide" ></span> of <?php echo count($gallery) ?></span>
+                                                                            <script>
+                                                                                jQuery('.gallery-for-<?php echo $content_item['block_id'];?> ').on('afterChange', function(event, slick, currentSlide, nextSlide){
+                                                                                    let current_slide = parseInt(currentSlide) + 1;
+                                                                                    jQuery('#popup-<?php echo $content_item['block_id'];?> .current-slide').text(current_slide);
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                                                                        <div class="gallery__title">
+                                                                            <span><?php echo $content_item['gallery_block']['title'];?></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="slider-arrows">
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="slider gallery-nav-<?php echo $content_item['block_id'];?>">
+                                                                    <?php foreach ($gallery as $item_nav) : ?>
+                                                                        <div>
+                                                                            <div class="gallery-nav__item">
+                                                                                <div class="gallery-nav__img">
+                                                                                    <picture>
+                                                                                        <img src="<?php echo $item_nav['url']?>" alt="<?php echo $item_nav['title']?>">
+                                                                                    </picture>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php endforeach ?>
+                                                                    <?php wp_reset_postdata(); ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+                                                        <script>
+                                                            jQuery('.gallery-for-<?php echo $content_item['block_id'];?>').slick({
+                                                                infinite: true,
+                                                                slidesToShow: 1,
+                                                                slidesToScroll: 1,
+                                                                arrows: true,
+                                                                fade: true,
+                                                                autoplay: true,
+                                                                autoplaySpeed: 2000,
+                                                                asNavFor: '.gallery-nav-<?php echo $content_item['block_id'];?>',
+                                                                appendArrows:'#popup-<?php echo $content_item['block_id'];?> .slider-arrows',
+                                                                prevArrow:'<span class="slider-arrow prev"></span>',
+                                                                nextArrow:'<span class="slider-arrow next"></span>'
+
+                                                            });
+                                                            jQuery('.gallery-nav-<?php echo $content_item['block_id'];?>').slick({
+                                                                slidesToShow: 7,
+                                                                slidesToScroll: 7,
+                                                                asNavFor: '.gallery-for-<?php echo $content_item['block_id'];?>',
+                                                                dots: false,
+                                                                centerMode: true,
+                                                                focusOnSelect: true,
+                                                                autoplay: true,
+                                                                autoplaySpeed: 2000,
+                                                                responsive: [
+                                                                    {
+                                                                        breakpoint: 1024,
+                                                                        settings: {
+                                                                            slidesToShow: 3,
+                                                                            slidesToScroll: 1,
+                                                                            infinite: true,
+                                                                            dots: true
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        breakpoint: 600,
+                                                                        settings: {
+                                                                            slidesToShow: 2,
+                                                                            slidesToScroll: 1
+                                                                        }
+                                                                    },
+                                                                    // You can unslick at a given breakpoint now by adding:
+                                                                    // settings: "unslick"
+                                                                    // instead of a settings object
+                                                                ]
+                                                            });
+                                                        </script>
+                                                    <?php endif ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="single-resource__footer"></div>

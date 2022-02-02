@@ -27,44 +27,99 @@
                                         <p><?php  echo get_field('author_title', $author->ID) ; ?></p>
                                         <?php endif ?>
                                     </div>
-                                    <a class="post-details__link fancybox-inline show-modal" href="#author-<?php echo $author->ID ?>">About the writter</a>
+<!--                                    <a class="post-details__link fancybox-inline show-modal" href="#author---><?php //echo $author->ID ?><!--">About the writter</a>-->
+                                        <div class="popup_item_wrapper post-details__link" data-popup="">
+                                            <div href="" class="popup_button">
+                                                About the writter
+                                            </div>
 
-                                        <!--Author modal-->
-                                        <div style="display:none" class="fancybox-hidden">
-                                            <div class="social-share__block" id="author-<?php echo $author->ID ?>">
-                                                <div class="social-share__wrapper modal pt-xl pb-xl pl-xl pr-xl">
-                                                    <div class="social-share__header">
-                                                        <div class="social-share__title">
-                                                            Author
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal__author-container">
-                                                        <div class="author__photo">
-                                                            <img src="<?= get_the_post_thumbnail_url( $author->ID, 'full' ); ?>" alt="">
-                                                        </div>
-                                                        <div class="author__name"><?php echo $author->post_title; ?></div>
-                                                        <div class="author__title"><?php  echo get_field('author_title', $author->ID) ; ?></div>
-                                                        <div class="author__description"><?php echo $author->post_content; ?></div>
-
-                                                        <?php if (get_field('social_links', $author->ID)): ?>
-                                                        <div class="author__social">
-                                                            <div class="social-links__heading ">Authors's Social Links:</div>
-                                                            <div class="social-links">
-                                                                <?php foreach (get_field('social_links', $author->ID) as $social_links) : ?>
-                                                                    <div class="social-links__item">
-                                                                        <a class="social-links__item-link" href="<?= $social_links['link'] ?>" target="_blank">
-                                                                            <i class="<?= $social_links['icon'] ?>"></i>
-                                                                        </a>
+                                            <div class="popup-main-wrapper" id="popup-main-wrapper">
+                                                <div class="item_popup_wrapper">
+                                                    <div class="popup_overlay"></div>
+                                                    <div class="popup_content_wrapper threatment">
+                                                        <div class="item_popup_content_inner">
+                                                            <div id="popup_close_button"></div>
+                                                            <div class="social-share__wrapper modal pt-xl pb-xl pl-xl pr-xl">
+                                                                <div class="social-share__header">
+                                                                    <div class="social-share__title">
+                                                                        Author
                                                                     </div>
-                                                                <?php endforeach ?>
+                                                                </div>
+                                                                <div class="modal__author-container">
+                                                                    <div class="author__photo">
+                                                                        <img src="<?= get_the_post_thumbnail_url( $author->ID, 'full' ); ?>" alt="">
+                                                                    </div>
+                                                                    <div class="author__name"><?php echo $author->post_title; ?></div>
+                                                                    <div class="author__title"><?php  echo get_field('author_title', $author->ID) ; ?></div>
+                                                                    <div class="author__description"><?php echo $author->post_content; ?></div>
+
+                                                                    <?php if (get_field('social_links', $author->ID)): ?>
+                                                                        <div class="author__social">
+                                                                            <div class="social-links__heading ">Authors's Social Links:</div>
+                                                                            <div class="social-links">
+                                                                                <?php foreach (get_field('social_links', $author->ID) as $social_links) : ?>
+                                                                                    <div class="social-links__item">
+                                                                                        <a class="social-links__item-link" href="<?= $social_links['link'] ?>" target="_blank">
+                                                                                            <i class="<?= $social_links['icon'] ?>"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                <?php endforeach ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    <?php endif ?>
+
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <?php endif ?>
 
+                                                        <!--                                        <script src="/app/themes/quitclinics-child/assets/js/main.js"></script>-->
+                                                        <script>
+                                                            initAccordion()
+                                                        </script>
                                                     </div>
+
+
                                                 </div>
                                             </div>
+
                                         </div>
+
+                                        <!--Author modal-->
+<!--                                        <div style="display:none" class="fancybox-hidden">-->
+<!--                                            <div class="social-share__block" id="author---><?php //echo $author->ID ?><!--">-->
+<!--                                                <div class="social-share__wrapper modal pt-xl pb-xl pl-xl pr-xl">-->
+<!--                                                    <div class="social-share__header">-->
+<!--                                                        <div class="social-share__title">-->
+<!--                                                            Author-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="modal__author-container">-->
+<!--                                                        <div class="author__photo">-->
+<!--                                                            <img src="--><?//= get_the_post_thumbnail_url( $author->ID, 'full' ); ?><!--" alt="">-->
+<!--                                                        </div>-->
+<!--                                                        <div class="author__name">--><?php //echo $author->post_title; ?><!--</div>-->
+<!--                                                        <div class="author__title">--><?php // echo get_field('author_title', $author->ID) ; ?><!--</div>-->
+<!--                                                        <div class="author__description">--><?php //echo $author->post_content; ?><!--</div>-->
+<!---->
+<!--                                                        --><?php //if (get_field('social_links', $author->ID)): ?>
+<!--                                                        <div class="author__social">-->
+<!--                                                            <div class="social-links__heading ">Authors's Social Links:</div>-->
+<!--                                                            <div class="social-links">-->
+<!--                                                                --><?php //foreach (get_field('social_links', $author->ID) as $social_links) : ?>
+<!--                                                                    <div class="social-links__item">-->
+<!--                                                                        <a class="social-links__item-link" href="--><?//= $social_links['link'] ?><!--" target="_blank">-->
+<!--                                                                            <i class="--><?//= $social_links['icon'] ?><!--"></i>-->
+<!--                                                                        </a>-->
+<!--                                                                    </div>-->
+<!--                                                                --><?php //endforeach ?>
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                        --><?php //endif ?>
+<!---->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
                                     <?php endforeach; ?>
                                     <?php wp_reset_postdata(); ?>
                                 </div>
