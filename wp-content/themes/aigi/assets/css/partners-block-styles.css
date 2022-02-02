@@ -1,0 +1,179 @@
+.partners_item {
+    width: 270px;
+    height: 133px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    position: relative;
+    cursor: pointer;
+}
+.partners_item img {
+    max-width: 100%;
+}
+.partners_item_popup_wrapper {
+    display: none;
+}
+.partners-block-section .content-wrapper.wrapper-1245 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.partners-block-section .partners_item:after {
+    content: '';
+    background-image: url(../images/Information_Icon.svg);
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 9px;
+    right: 9px;
+}
+#popup_close_button {
+    width: 16px;
+    height: 16px;
+    background-image: url(../images/close-blue.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+.partners_item_popup_content_wrapper {
+    position: absolute;
+    background: white;
+    z-index: 10000000000000000000000000000000000000000000000000001;
+    max-width: 1130px;
+    padding: 60px;
+    margin: 20px;
+    border-radius: 5px;
+    max-height: 90%;
+}
+
+.partners_item_popup_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(19, 16, 50, 0.8);
+    z-index: 1000000000000000000000000000000000000000000000000000;
+}
+.partners_item_popup_wrapper, #partner-popup-main-wrapper {
+    display: none;
+}
+#partner-popup-main-wrapper.popup_opened {
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+#partner-popup-main-wrapper.popup_opened .partners_item_popup_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+    height: 100%;
+}
+.popup-social i {
+    color: black;
+}
+.popup-social {
+    display: flex;
+}
+.partners-block-section {
+    max-width: 1246px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.partners-block-section .rslider .slick-slide {
+    margin: 0 16px;
+}
+.partners_item_popup_logo img {
+    max-width: 100%;
+}
+.partners_item_popup_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #DFDFDF;
+    margin-bottom: 30px;
+}
+.partners_item_popup_text {
+    width: 65%;
+    margin-left: 20px;
+}
+.partners_item_popup_text p, .partners_item_popup_text div {
+    max-width: 270px;
+    font-size: 15px;
+    line-height: 160%;
+}
+.partners_item_popup_headline {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.popup-email a, .popup-web a {
+    font-size: 14px;
+    line-height: 160%;
+    color: #0762A4;8
+    letter-spacing: 0.7px;
+    font-weight: bold;
+}
+.popup-phone span {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.popup-address, .popup-web {
+    margin-bottom: 30px;
+}
+.popup-phone {
+    margin-bottom: 20px;
+}
+.partners_item_popup_content_inner h4 {
+    color: var(--color-brand-navy-primary);
+    letter-spacing: 0.02em;
+    line-height: 110%;
+    padding-bottom: 15px;
+}
+.popup-social p {
+    margin-right: 20px;
+}
+@media (max-width:  767px) {
+    .partners_item_popup_header {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .partners_item_popup_text {
+        width: 100%;
+        margin-left: unset;
+    }
+    .partners_item_popup_content_wrapper {
+        padding: 20px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .partners-block-section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .popup-social {
+        justify-content: center;
+    }
+    .popup-social p {
+        margin: 0 15px;
+    }
+}
+@media (max-width: 580px) {
+    .partners_item_wrapper.slick-slide.slick-current.slick-active {
+        width: 270px!important;
+    }
+}
