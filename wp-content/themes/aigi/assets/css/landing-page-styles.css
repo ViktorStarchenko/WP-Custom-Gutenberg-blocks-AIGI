@@ -130,6 +130,25 @@
     letter-spacing: 0.3px;
     color: #131032;
 }
+.map-marker__location {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.map-marker__location-icon {
+    width: 19px;
+    height: 23px;
+    background-image: url(/wp-content/themes/aigi/assets/images/location-store-locator.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+.map-marker__location-text {
+    font-size: 12px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+}
 @media (max-width: 992px) {
     .facetwp-facet-landing_event_type .facetwp-radio {
         padding: 12px 12px;

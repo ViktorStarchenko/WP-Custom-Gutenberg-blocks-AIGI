@@ -121,7 +121,7 @@ function register_taxonomy_content_tags() {
         'query_var' => true
     );
 
-    register_taxonomy( 'content_tags', array('news', 'event', 'resource'), $args );
+    register_taxonomy( 'content_tags', array('news', 'event', 'resource', 'case_studies'), $args );
 
 }
 

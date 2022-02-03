@@ -28,7 +28,7 @@ function register_cpt_case_studies() {
         'hierarchical' => false,
 
         'supports' => array( 'title', 'editor', 'custom-fields', 'thumbnail', 'excerpt' ),
-        'taxonomies' => array('news_categories', 'post_tag'),
+        'taxonomies' => array('news_categories', 'post_tag', 'content_tags'),
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
