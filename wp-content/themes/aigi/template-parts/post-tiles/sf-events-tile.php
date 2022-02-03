@@ -53,11 +53,9 @@ $posts = $query_news->posts;
                             <span class="post-tile__pub-date"><?php echo get_field('events_details')['date']?></span>
                         <?php endif ?>
 
-						<?php if ($event_group[0]->slug != 'webinar'): ?>
 							<?php if (get_field('location')['address']): ?>
 								<span class="post-tile__location"><a href="https://maps.google.com/?q=<?php echo get_field('location')['address']['lat'];?>,<?php echo get_field('location')['address']['lng'];?>" target="_blank"><?php echo get_field('location')['address']['address']?></a></span>
 							<?php endif ?>
-						<?php endif ?>
                     </div>
 
                     <div class="post-tile__right">

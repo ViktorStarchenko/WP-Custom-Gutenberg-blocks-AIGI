@@ -46,11 +46,9 @@ $googleCalendarLink = googleCalendarLink()
     <div class="post-tile__content">
         <div class="post-tile__content-header">
             <div class="post-tile__left">
-				<?php if ($event_group[0]->slug != 'webinar'): ?>
 					<?php if (get_field('location')['address']): ?>
 						<span class="post-tile__location"><a href="https://maps.google.com/?q=<?php echo get_field('location')['address']['lat'];?>,<?php echo get_field('location')['address']['lng'];?>" target="_blank"><?php echo get_field('location')['address']['address']?></a></span>
 					<?php endif ?>
-				<?php endif ?>
 
                 <?php if (get_field('events_details')['start_date']) : ?>
                     <span class="post-tile__pub-date"><?php echo date("M d Y", strtotime(get_field('events_details')['start_date']))?></span>
