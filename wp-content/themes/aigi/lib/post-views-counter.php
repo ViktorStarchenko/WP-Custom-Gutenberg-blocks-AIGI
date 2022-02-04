@@ -14,7 +14,7 @@ function gt_set_post_view() {
     $post_id = $post->ID;
     $visited_post = 'visited-post-' . $post_id;
 
-    if ((isset($_SESSION[$visited_post]) && (time() - $_SESSION[$visited_post]['registered']) > (60)) || !isset($_SESSION[$visited_post])) {
+    if ((isset($_SESSION[$visited_post]) && (time() - $_SESSION[$visited_post]['registered']) > (3600)) || !isset($_SESSION[$visited_post])) {
         unset($_SESSION[$visited_post]);
         $count = (int) get_post_meta( $post_id, $key, true );
         $count++;

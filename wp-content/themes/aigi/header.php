@@ -7,7 +7,7 @@
    </head>
    <?php
    if ( is_single() ) {
-       gt_set_post_view();
+//       gt_set_post_view();
    }
 
 
