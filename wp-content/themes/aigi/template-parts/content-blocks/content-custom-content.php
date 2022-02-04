@@ -310,7 +310,7 @@
                     <div class="accordion_wrapper">
                         <?php foreach ($content_item['accordion_block'] as $accordion_item) : ?>
                             <div class="accordion_item">
-                                <?php if($accordion_item['title']): ?>
+                                <?php if($accordion_item['content']): ?>
                                     <span class="title-h4 nav_list-title accordion_btn"><?php echo $accordion_item['title']?></span>
                                 <?php endif ?>
                                 <div  class="accordion_panel">
@@ -427,7 +427,7 @@
                                     <?php
                                     $excerpt = '';
                                     ?>
-                                    <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_content, 450, true) ?></div>
+                                    <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_excerpt, 450, true) ?></div>
 
                                 </div>
 

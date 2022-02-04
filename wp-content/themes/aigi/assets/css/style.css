@@ -1581,8 +1581,14 @@ input[type="submit"].btn-transparent-white:hover {
 .tabs-nav__item.text-left {
     text-align: left;
 }
+.tabs-nav__item:first-child {
+    border-color: var(--color-brand-m-blue-primary);
+}
 .tabs-nav__item.is-active {
     border-color: var(--color-brand-m-blue-primary);
+}
+.tabs-nav__item.inactive {
+    border-color: transparent;
 }
 
 .tab {

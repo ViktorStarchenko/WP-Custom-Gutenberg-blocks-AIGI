@@ -23,7 +23,7 @@
                             $term_list = wp_get_post_terms( get_the_ID(), 'event_group', array('fields' => 'all') );
                             ?>
                             <div class="single-event__pricing-block">
-                                <?php if ($term_list[0]->slug == 'event') { ?>
+                                <?php if ($term_list[0]->slug == 'event' || $term_list[0]->slug == 'masterclass') { ?>
 
                                     <div class="single-event__pricing-title">
                                         Tickets
@@ -187,7 +187,7 @@
                                                     <?php
                                                     $excerpt = '';
                                                     ?>
-                                                    <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_content, 450, true) ?></div>
+                                                    <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_excerpt, 450, true); ?></div>
 
                                                 </div>
 
@@ -204,40 +204,56 @@
                             <div class="single-event__info-tabs">
                                 <div class="nav">
                                     <div class="tabs__nav tabs-nav">
-                                        <div class="tabs-nav__item global-search-tab-nav is-active text-left" data-tab-name="tab-program"  data-post-type="program">Program</div>
-                                        <div class="tabs-nav__item global-search-tab-nav text-left" data-tab-name="tab-venue-details" data-post-type="venue-details">Venue details</div>
-                                        <div class="tabs-nav__item global-search-tab-nav text-left" data-tab-name="tab-map" data-post-type="map">Map</div>
-                                        <div class="tabs-nav__item global-search-tab-nav text-left" data-tab-name="tab-faqs" data-post-type="faqs">FAQS</div>
+                                        <?php $is_active_nav = 0; ?>
+                                    <?php if (get_field('program')) : ?>
+                                    <?php $is_active_nav++; ?>
+                                        <div class="tabs-nav__item global-search-tab-nav text-left <?php echo ($is_active_nav == 1) ? 'is-active' : ''; ?>" data-tab-name="tab-program"  data-post-type="program">Program</div>
+                                    <?php endif ?>
+                                    <?php if(get_field('venue_details')['catered'] == 'yes' || get_field('venue_details')['accessibility_options'] || get_field('venue_details')['carparking_options'] || get_field('venue_details')['other_transport_options'] || get_field('venue_details')['covid_safe_plan']) : ?>
+                                    <?php $is_active_nav++; ?>
+                                        <div class="tabs-nav__item global-search-tab-nav text-left <?php echo ($is_active_nav == 1) ? 'is-active' : ''; ?>" data-tab-name="tab-venue-details" data-post-type="venue-details">Venue details</div>
+                                    <?php endif ?>
+                                    <?php if (get_field('location')['address']) : ?>
+                                        <?php $is_active_nav++; ?>
+                                        <div class="tabs-nav__item global-search-tab-nav text-left <?php echo ($is_active_nav == 1) ? 'is-active' : ''; ?>" data-tab-name="tab-map" data-post-type="map">Map</div>
+                                    <?php endif ?>
+                                    <?php if (get_field('faqs')) : ?>
+                                        <?php $is_active_nav++; ?>
+                                        <div class="tabs-nav__item global-search-tab-nav text-left <?php echo ($is_active_nav == 1) ? 'is-active' : ''; ?>" data-tab-name="tab-faqs" data-post-type="faqs">FAQS</div>
+                                    <?php endif ?>
 
                                     </div>
                                 </div>
                                 <div class="content">
                                     <div class="tabs__content" id="global-search__filter">
+                                        <?php $is_active_cont = 0; ?>
                                         <!--Program-->
-                                        <div class="tab tab-program global-search-tab is-active" data-post-type="program">
+                                        <?php if (get_field('program')) : ?>
+                                            <?php $is_active_cont++; ?>
+                                        <div class="tab tab-program global-search-tab <?php echo ($is_active_cont == 1) ? 'is-active' : ''; ?>" data-post-type="program">
                                             <div class="tab-heading">Program</div>
                                             <div class="tab-content-wrapper">
-                                                <?php if (get_field('program')) : ?>
-                                                    <div class="accordion_wrapper">
-                                                        <?php foreach (get_field('program') as $program) : ?>
-                                                            <div class="accordion_item">
-                                                                <?php if($program['action_time']): ?>
-                                                                    <span class="title-h4 nav_list-title accordion_btn"><?= $program['action_time']; ?> - <?= $program['action_title'] ?></span>
-                                                                <?php endif ?>
-                                                                <div  class="accordion_panel">
-                                                                    <div class="accordion_content"><?= $program['action_description']?></div>
-                                                                </div>
+                                                <div class="accordion_wrapper">
+                                                    <?php foreach (get_field('program') as $program) : ?>
+                                                        <div class="accordion_item">
+                                                            <?php if($program['action_description']): ?>
+                                                                <span class="title-h4 nav_list-title accordion_btn"><?= $program['action_time']; ?> - <?= $program['action_title'] ?></span>
+                                                            <?php endif ?>
+                                                            <div  class="accordion_panel">
+                                                                <div class="accordion_content"><?= $program['action_description']?></div>
                                                             </div>
-                                                        <?php endforeach; ?>
-                                                        <?php wp_reset_postdata(); ?>
-                                                    </div>
-                                                <?php endif ?>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                    <?php wp_reset_postdata(); ?>
+                                                </div>
                                             </div>
-
                                         </div>
+                                        <?php endif ?>
 
                                         <!--Venue details-->
-                                        <div class="tab tab-venue-details global-search-tab" data-post-type="venue-details">
+                                        <?php if(get_field('venue_details')['catered'] == 'yes' || get_field('venue_details')['accessibility_options'] || get_field('venue_details')['carparking_options'] || get_field('venue_details')['other_transport_options'] || get_field('venue_details')['covid_safe_plan']) : ?>
+                                            <?php $is_active_cont++; ?>
+                                        <div class="tab tab-venue-details global-search-tab <?php echo ($is_active_cont == 1) ? 'is-active' : ''; ?>" data-post-type="venue-details">
                                             <div class="tab-heading">Venue details</div>
                                             <div class="tab-content-wrapper">
 
@@ -296,24 +312,27 @@
 
                                             </div>
                                         </div>
+                                        <?php endif ?>
 
                                         <!--Map-->
-                                        <div class="tab tab-map global-search-tab " data-post-type="map">
+                                        <?php if (get_field('location')['address']) : ?>
+                                            <?php $is_active_cont++; ?>
+                                        <div class="tab tab-map global-search-tab  <?php echo ($is_active_cont == 1) ? 'is-active' : ''; ?>" data-post-type="map">
                                             <div class="tab-heading">Map</div>
                                             <div class="tab-content-wrapper">
                                                 <?php if (get_field('location')['address']) : ?>
                                                 <div class="map-wrapper">
                                                     <iframe src="https://maps.google.com/maps?q=<?php echo get_field('location')['address']['lat'];?>,<?php echo get_field('location')['address']['lng'];?>&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
                                                 </div>
                                                 <?php endif ?>
                                             </div>
-
-
                                         </div>
+                                        <?php endif ?>
 
                                         <!--FAQS-->
-                                        <div class="tab tab-faqs global-search-tab " data-post-type="faqs">
+                                        <?php if (get_field('faqs')) : ?>
+                                            <?php $is_active_cont++; ?>
+                                        <div class="tab tab-faqs global-search-tab  <?php echo ($is_active_cont == 1) ? 'is-active' : ''; ?>" data-post-type="faqs">
                                             <div class="tab-heading">FAQS</div>
                                             <div class="tab-content-wrapper">
                                                 <?php if (get_field('faqs')) : ?>
@@ -333,6 +352,7 @@
                                                 <?php endif ?>
                                             </div>
                                         </div>
+                                        <?php endif ?>
 
                                     </div>
                                 </div>
