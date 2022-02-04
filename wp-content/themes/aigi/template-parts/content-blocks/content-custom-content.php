@@ -29,7 +29,7 @@
         <?php endif ?>
 
 
-        <!--                            Video-->
+        <!--Video-->
         <?php if ($content_item['item_type'] == 'Video') : ?>
             <?php $data_video_suf = $content_item['block_id']; ?>
             <div class="content-item video-block">
@@ -69,6 +69,12 @@
                                         </div>
                                     </div>
                                 <?php endif ?>
+
+                            <?php elseif ($content_item['video_block']['video_source_type'] == 'vimeo-link') :  ?>
+
+                                <div class="resource-video__wrap vimeo">
+                                    <?php echo $content_item['video_block']['vimeo_link']; ?>
+                                </div>
 
                             <?php endif ?>
 

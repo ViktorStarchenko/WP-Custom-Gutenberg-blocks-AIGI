@@ -127,6 +127,22 @@
     height: 391px;
     overflow: hidden;
 }
+.resource-video__wrap.vimeo {
+    height: unset;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    padding-top: 56.25%;
+}
+.resource-video__wrap.vimeo iframe,
+.resource-video__wrap.vimeo object,
+.resource-video__wrap.vimeo embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 .resource-image__wrap img {
     width: 100%;
     height: 100%;
