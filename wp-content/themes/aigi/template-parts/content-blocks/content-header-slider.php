@@ -153,6 +153,8 @@ if ($slider): ?>
                     $terms =  get_the_terms( $post->ID, 'content_tags');
                 } else if ($post->post_type == 'post') {
                     $terms =  get_the_terms( $post->ID, 'category');
+                } else if ($post->post_type == 'case_studies') {
+                    $terms =  get_the_terms( $post->ID, 'content_tags');
                 }
             }
 
