@@ -128,6 +128,12 @@ if( have_rows('after_content_blocks') ): ?>
 
         <?php endif; // end get_row_layout (partners_block) if ?>
 
+        <?php if(get_row_layout() == 'testimonials_slider'): ?>
+
+            <?php get_template_part('template-parts/content-blocks/content', 'testimonials-slider'); ?>
+
+        <?php endif; // end get_row_layout (testimonials_slider) if ?>
+
     <?php endwhile; // end have_rows while ?>
 
 <?php endif; // end have_rows if ?>

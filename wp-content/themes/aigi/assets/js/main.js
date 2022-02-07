@@ -220,8 +220,11 @@ let tab = function () {
 
         tabNav.forEach(item => {
             item.classList.remove('is-active');
+            item.classList.add('inactive');
         });
+        this.classList.remove('inactive');
         this.classList.add('is-active');
+
         tabName = this.getAttribute('data-tab-name');
 
         selectTabContent(tabName);
