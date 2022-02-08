@@ -84,7 +84,7 @@
 .popup-social {
     display: flex;
 }
-.partners-block-section {
+.partners-block-section.resources-slider {
     max-width: 1246px;
     margin: 0 auto;
     margin-top: 50px;
