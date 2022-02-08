@@ -106,7 +106,9 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                         <div>
                             <div class="rslider__item rslider__testimonials-item  <?php echo $post_type; ?> <?php  echo $terms[0];  ?>">
                                 <div class="testimonial__image">
+                                    <?php if ($testimonials['image']) : ?>
                                     <img src="<?php echo $testimonials['image']['url']; ?>" alt="<?php echo $testimonials['image']['title']; ?>">
+                                    <?php endif ?>
                                 </div>
                                 <div class="testimonial__author-name"><?php echo $testimonials['author']; ?></div>
                                 <div class="testimonial__author-title"><?php echo $testimonials['author_title']; ?></div>
