@@ -1178,6 +1178,7 @@ input[type="submit"].btn-body {
     box-sizing: border-box;
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
 }
 .btn-inner {
     display: inline-block;
