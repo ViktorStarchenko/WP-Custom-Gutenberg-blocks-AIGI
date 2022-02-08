@@ -197,7 +197,7 @@
         margin: auto;
     }
     .timeline__text-wrapper {
-        padding: 48px 22px 32px;
+        padding: 40px 22px;
     }
 }
 @media (max-width: 767px) {
@@ -273,6 +273,25 @@
         border-left: 12px solid transparent;
         top: 2px;
         left: -12px;
+    }
+
+    .timeline__date {
+        font-size: 32.44px;
+        line-height: 36px;
+    }
+    .timeline__subheads {
+        font-size: 17.76px;
+        line-height: 22px;
+        margin-bottom: 20px;
+    }
+    .timeline__text {
+        font-size: 15px;
+        line-height: 24px;
+    }
+    .timeline__link {
+        font-size: 15px;
+        line-height: 18px;
+        text-align: center;
     }
 
 }
