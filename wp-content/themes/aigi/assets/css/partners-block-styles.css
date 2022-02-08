@@ -89,6 +89,7 @@
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
+    border-radius: 5px;
 }
 .partners-block-section .rslider .slick-slide {
     margin: 0 16px;
