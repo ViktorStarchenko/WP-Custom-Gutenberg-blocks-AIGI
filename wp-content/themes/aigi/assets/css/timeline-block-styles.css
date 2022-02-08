@@ -1,6 +1,7 @@
 
 .timeline__section {
     padding: 64px 0;
+    position: relative;
 }
 .timeline__section .heading-block {
     text-align: center;
