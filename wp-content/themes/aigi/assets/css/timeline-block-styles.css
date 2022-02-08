@@ -201,6 +201,9 @@
     }
 }
 @media (max-width: 767px) {
+    .timeline__section {
+        padding: 32px 0;
+    }
     .timeline__item-col {
         width: 100%;
         padding: 0;
