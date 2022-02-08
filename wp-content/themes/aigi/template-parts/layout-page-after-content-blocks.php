@@ -134,6 +134,12 @@ if( have_rows('after_content_blocks') ): ?>
 
         <?php endif; // end get_row_layout (testimonials_slider) if ?>
 
+        <?php if(get_row_layout() == 'timeline_block'): ?>
+
+            <?php get_template_part('template-parts/content-blocks/content', 'timeline-block'); ?>
+
+        <?php endif; // end get_row_layout (timeline_block) if ?>
+
     <?php endwhile; // end have_rows while ?>
 
 <?php endif; // end have_rows if ?>
