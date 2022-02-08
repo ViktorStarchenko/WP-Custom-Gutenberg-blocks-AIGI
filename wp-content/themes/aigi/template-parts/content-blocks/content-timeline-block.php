@@ -1,5 +1,4 @@
 
-<h1>HISTORY BLOCK</h1>
 <?php if (get_sub_field('content')) :
     $content = get_sub_field('content');
 
