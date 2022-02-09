@@ -61,9 +61,8 @@
     padding-left: 0;
     padding-right: 30px;
 }
-.timeline__item:nth-child(even) .timeline__text-block {
-    padding-right: 30px;
-    padding-left: 0;
+.timeline__item:last-child .timeline__text-block {
+    padding-bottom: 0;
 }
 .timeline__text-block:before {
     content: '';
@@ -223,6 +222,9 @@
     .timeline__item:nth-child(even) .timeline__text-block {
         padding: 0;
         padding-bottom: 50px;
+    }
+    .timeline__item:last-child .timeline__text-block {
+        padding-bottom: 0;
     }
     .timeline__text-block:before,
     .timeline__item:nth-child(even) .timeline__text-block:before {
