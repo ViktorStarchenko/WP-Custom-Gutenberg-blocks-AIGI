@@ -96,13 +96,46 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 
-// Header Slider
-jQuery(document).ready(function(){
-    let header_slider = jQuery('.header-slider');
-    console.log();
-    let slider_init = jQuery(header_slider).attr('data-init')
 
-    if (slider_init == 'true') {
+// Check if element in view
+function elementInViewport2(el) {
+    var top = el.offsetTop;
+    var left = el.offsetLeft;
+    var width = el.offsetWidth;
+    var height = el.offsetHeight;
+
+    while(el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+    }
+
+    return (
+        top < (window.pageYOffset + window.innerHeight) &&
+        left < (window.pageXOffset + window.innerWidth) &&
+        (top + height) > window.pageYOffset &&
+        (left + width) > window.pageXOffset
+    );
+}
+
+
+
+////////////////////////  Header Slider
+jQuery(document).ready(function(){
+
+    let header_slider__el = document.getElementById('header-slider');
+
+    if (header_slider__el) {
+        let header_slider = jQuery('.header-slider');
+        $header_slider = jQuery('.header-slider');
+
+
+        var reinitSlick = function(header_slider) {
+            console.log('reinitSlick')
+            // jQuery(header_slider).slick('slickSetOption', 'autoplay', false);
+            jQuery(header_slider).slick('slickPause');
+        }
+
         jQuery(header_slider).slick({
             autoplay: true,
             adaptiveHeight: true,
@@ -113,10 +146,56 @@ jQuery(document).ready(function(){
             appendArrows:'.gallery-nav',
             prevArrow:'<span class="slider-arrow prev"></span>',
             nextArrow:'<span class="slider-arrow next"></span>'
-        })
+        }).slick('slickPause');
         // .on('setPosition', function (event, slick) {
         //     slick.$slides.css('height', slick.$slideTrack.height() + 'px');
         // });
+
+        // A function that start autoplay when entering the viewport
+        function triggerScroll(targetObj) {
+            let targetName = targetObj.attr("id"); //for console.log
+            let targetFlag = false;
+            let scrollTop = jQuery(window).scrollTop();
+            let scrollBottom = scrollTop + $(window).height();
+            let targetTop = targetObj.offset().top;
+            let targetBottom = targetTop + targetObj.height();
+            // while loading
+            if (scrollBottom > targetTop && scrollTop < targetBottom) {
+                if (!targetFlag) {
+                    console.log(targetName + ' is in sight'); //for console.log
+                    targetObj.slick('slickPlay');
+                    targetFlag = true;
+                }
+            } else {
+                console.log(targetName + ' is not in sight'); //for console.log
+                targetObj.slick('slickPause');
+                targetFlag = false;
+            }
+
+            jQuery(window).on('scroll', function () {
+                scrollTop = jQuery(window).scrollTop();
+                scrollBottom = scrollTop + $(window).height();
+                targetTop = targetObj.offset().top;
+                targetBottom = targetTop + targetObj.height();
+                if (scrollBottom > targetTop && scrollTop < targetBottom) {
+                    // Start autoplay when entering the viewport
+                    if (!targetFlag) {
+                        console.log(targetName + ' is in sight');//確認用
+                        targetObj.slick('slickPlay');
+                        targetFlag = true;
+                    }
+                } else {
+                    // Stop autoplay when you get out of the viewport
+                    if (targetFlag) {
+                        console.log(targetName + ' is not in sight');//for console.log
+                        targetObj.slick('slickPause');
+                        targetFlag = false;
+                    }
+                }
+            });
+        }
+        // Execute function
+        triggerScroll(jQuery('#header-slider'));
     }
 
 

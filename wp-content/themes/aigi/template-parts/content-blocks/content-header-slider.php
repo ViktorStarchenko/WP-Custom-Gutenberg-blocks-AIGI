@@ -16,7 +16,7 @@ if ($slider): ?>
 <div class="header-slider__section">
 
 
-    <div class="header-slider slider" data-init="true">
+    <div class="header-slider slider" id="header-slider" data-init="true">
         <?php foreach ($slider as $key=>$slide) :
 
             //set slide content
