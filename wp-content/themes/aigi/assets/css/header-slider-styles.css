@@ -63,7 +63,8 @@
     line-height: 45px;
     letter-spacing: 0.02em;
     color: #fff;
-    margin-bottom: 32px;
+    /*margin-bottom: 32px;*/
+    margin-bottom: 16px;
 }
 .header-slider__short-text {
     margin-bottom: 16px;
@@ -112,10 +113,16 @@
     margin: unset;
 }
 .header-slider .btn-group {
-    margin-bottom: 32px;
+    /*margin-bottom: 32px;*/
+    margin-bottom: 22px;
 }
 .header-slider .highlighted-text .btn-group {
-    margin-top: 32px;
+    /*margin-top: 32px;*/
+    margin-top: 6px;
+}
+
+.header-slider .content-tags {
+    margin: -4px -4px 16px;
 }
 
 /*progress bar*/

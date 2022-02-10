@@ -240,7 +240,7 @@ function get_custom_excerpt($content, $limit, $ellipsis = true){
     $excerpt = strip_shortcodes($excerpt);
     $excerpt = strip_tags($excerpt);
     $excerpt = substr($excerpt, 0, $limit);
-    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+//    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
     $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
     $excerpt = $excerpt;
     if ($ellipsis == true) {
