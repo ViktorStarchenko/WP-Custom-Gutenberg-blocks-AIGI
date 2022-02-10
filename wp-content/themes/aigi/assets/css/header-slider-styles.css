@@ -100,12 +100,11 @@
     align-items: flex-end;
 }
 .header-slider .highlighted-img {
-    width: 100%;
-    max-width: 339px;
+    width: 339px;
+    height: 339px;
     margin-right: 82px;
     margin-top: 0;
     border-radius: 50%;
-    height: 339px;
     margin-bottom: -8px;
     overflow: hidden;
 }
