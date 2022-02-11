@@ -25,6 +25,31 @@
     position: relative;
     padding-top: 86px;
 }
+
+.header-slider__item.navy {
+    background-color: #131032;
+}
+.header-slider__item.yelow {
+    background-color: #DC9C50;
+}
+.header-slider__item.orange {
+    background-color: #C45726;
+}
+.header-slider__item.purple {
+    background-color: #7B367C;
+}
+.header-slider__item.blue {
+    background-color: #138DCD;
+}
+.header-slider__item.m-blue {
+    background-color: #0762A4;
+}
+.header-slider__item.green {
+    background-color: #97A93E;
+}
+.header-slider__item.turquoise {
+    background-color: #00AF90;
+}
 /*.bg-overlay {*/
 /*    position: absolute;*/
 /*    width: 100%;*/

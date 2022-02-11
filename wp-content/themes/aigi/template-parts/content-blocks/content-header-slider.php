@@ -29,6 +29,7 @@ if ($slider): ?>
             $button_group = '';
             $classes = '';
             $bg_color = '';
+            $bg_color_preset = '';
             $bg_texture = '';
             $terms = NULL;
             $enable_overlay = false;
@@ -49,6 +50,9 @@ if ($slider): ?>
             }
             if ($slide['background']['background_color']) {
                 $bg_color = $slide['background']['background_color'];
+            }
+            if ($slide['background']['bg_color_preset']) {
+                $bg_color_preset = $slide['background']['bg_color_preset'];
             }
 //            if ($slide['section_class']) {
 //                $classes .= ' ' . $slide['section_class'] . ' ';
@@ -110,6 +114,7 @@ if ($slider): ?>
                 $button_group = '';
                 $classes = '';
                 $bg_color = '';
+                $bg_color_preset = '';
                 $bg_texture = '';
                 $terms = NULL;
                 $enable_overlay = false;
@@ -126,6 +131,9 @@ if ($slider): ?>
                 }
                 if ($data['category_slider']['background']['background_color']) {
                     $bg_color = $data['category_slider']['background']['background_color'];
+                }
+                if ($data['category_slider']['background']['bg_color_preset']) {
+                    $bg_color_preset = $data['category_slider']['background']['bg_color_preset'];
                 }
 //                if ($data['category_slider']['section_class']) {
 //                    $classes .= ' ' . $data['category_slider']['section_class'] . ' ';
@@ -162,7 +170,7 @@ if ($slider): ?>
              ?>
 
         <div>
-            <div class="header-slider__item <?= $bg_texture; ?> slide-<?php echo $key+1?> <?php echo $content_type_class; ?> <?php echo $classes ;?>" style="background-image: url(<?php echo $bg_image['url']?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+            <div class="header-slider__item <?= $bg_texture; ?> <?= $bg_color_preset; ?> slide-<?php echo $key+1?> <?php echo $content_type_class; ?> <?php echo $classes ;?>" style="background-image: url(<?php echo $bg_image['url']?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
                 <div class="bg-overlay <?php  echo ($enable_overlay == true ?  ' active ' : ''); ?>"></div>
                 <div class="content-wrapper wrapper-1245 highlighted-content">
                     <div class="highlighted-text">
