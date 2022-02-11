@@ -12,7 +12,38 @@
 
 
    ?>
-   <body <?php body_class(); ?> style="background-color: <?php  echo (get_field('body_background') ?  ' ' . get_field('body_background')  . ' '  :''); ?>"">
+   <body <?php body_class(); ?> style="background-color: <?php  echo (get_field('body_background') ?  ' ' . get_field('body_background')  . ' '  :''); ?>">
+      <div id="aigi-preloader"><img class="preloader-logo" src="/wp-content/themes/aigi/assets/images/aigi-preloader-logo.svg" alt=""></div>
+      <style type="text/css">
+         #aigi-preloader
+            {
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100vh;
+               background: #fff;
+               z-index: 9999;
+               text-align: center;
+            }
+         .preloader-logo
+            {
+             position: relative;
+             top: 45%;
+             margin-top: -75px;
+             width: 150px;
+             border-radius: 50%;
+             animation: rotation 1.5s infinite;
+            }
+            @-webkit-keyframes rotation {
+                  from {
+                        -webkit-transform: rotate(0deg);
+                  }
+                  to {
+                        -webkit-transform: rotate(359deg);
+                  }
+            }
+      </style>
       <?php wp_body_open(); ?>
       <div id="wrapper" class="hfeed">
       <?php 

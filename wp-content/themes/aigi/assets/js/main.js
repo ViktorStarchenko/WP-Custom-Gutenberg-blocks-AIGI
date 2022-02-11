@@ -700,3 +700,10 @@ jQuery('.popup_button').on('click', function () {
 jQuery(document).on('click', '#popup_close_button', function () {
     jQuery(".popup-main-wrapper").removeClass('popup_opened');
 });
+
+
+///////////////// Preloader
+
+jQuery(document).ready(function(){
+    jQuery("#aigi-preloader").hide();
+});
