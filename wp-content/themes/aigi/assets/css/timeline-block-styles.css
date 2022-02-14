@@ -171,13 +171,37 @@
     color: var(--color-text-field-blue);
     margin-bottom: 16px;
 }
-.timeline__text,
-.timeline__quotes {
+.timeline__text {
     font-weight: normal;
     font-size: 15px;
     line-height: 24px;
     letter-spacing: 0.03em;
     margin-bottom: 14px;
+}
+.timeline__quotes .blockquote-text {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    margin: 14px 0;
+}
+.timeline__quotes {
+    margin-bottom: 16px;
+}
+.timeline__quotes .blockquote-text:before,
+.timeline__quotes .blockquote-text:after {
+    width: 14px;
+}
+.timeline__quotes .blockquote-text:before {
+    margin-left: -14px;
+}
+.timeline__quotes .blockquote-author {
+    font-size: 14px;
+    line-height: 15px;
+}
+.timeline__quotes .blockquote-author-position {
+    font-size: 12px;
+    line-height: 13px;
 }
 .timeline__link {
     font-weight: bold;
@@ -297,6 +321,11 @@
         font-size: 15px;
         line-height: 18px;
         text-align: center;
+    }
+
+    .timeline__quotes .blockquote-text:before {
+        margin-right: -14px;
+        margin-bottom: 14px;
     }
 
 }

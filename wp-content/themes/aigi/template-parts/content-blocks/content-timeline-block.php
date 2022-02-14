@@ -111,7 +111,21 @@ if ($attributes['background']['background_color']) {
                                 <div class="timeline__date"><?php echo $testimonials['date'] ?></div>
                                 <div class="timeline__subheads"><?php echo $testimonials['subheads'] ?></div>
                                 <div class="timeline__text"><?php echo $testimonials['text'] ?></div>
-                                <div class="timeline__quotes"><?php echo $testimonials['quotes'] ?></div>
+                                <?php if ($testimonials['quotes']) : ?>
+                                <div class="timeline__quotes">
+                                    <div class="blockquote-body">
+                                        <?php if ($testimonials['quotes']['text']) { ?>
+                                        <p class="blockquote-text"><?php echo $testimonials['quotes']['text']; ?></p>
+                                        <?php } ?>
+                                        <div class="blockquote-author">
+                                            <span><?php echo $testimonials['quotes']['author']; ?></span>
+                                        </div>
+                                        <div class="blockquote-author-position">
+                                            <span><?php echo $testimonials['quotes']['position']; ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endif ?>
                                 <?php if ( $testimonials['link'] ): ?>
                                 <div class="timeline__btn-group">
                                     <a href="<?php echo $testimonials['link']['url']; ?>" class="timeline__link">Read More</a>
