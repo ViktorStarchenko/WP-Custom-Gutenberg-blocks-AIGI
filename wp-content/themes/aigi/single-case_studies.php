@@ -169,6 +169,10 @@
                         <?php $content_items = get_field('content_items'); ?>
                         <?php get_template_part('template-parts/content-blocks/content', 'custom-content', $content_items); ?>
 
+                        <div class="footones_custom_wrapper">
+                            <ul class="footones_custom_list"></ul>
+                        </div>
+
                         <?php get_template_part( 'nav', 'below-single' ); ?>
 
                     </div>

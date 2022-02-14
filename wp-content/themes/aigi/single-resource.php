@@ -15,6 +15,11 @@
                     <div class="col-content">
                         <div class="has-sidebar__inner">
                             <?php get_template_part('template-parts/resource-templates/resource', 'template'); ?>
+
+                            <div class="footones_custom_wrapper">
+                                <ul class="footones_custom_list"></ul>
+                            </div>
+
                             <?php get_template_part( 'nav', 'below-single' ); ?>
                         </div>
 

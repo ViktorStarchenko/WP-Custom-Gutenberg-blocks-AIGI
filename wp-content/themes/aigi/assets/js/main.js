@@ -707,3 +707,39 @@ jQuery(document).on('click', '#popup_close_button', function () {
 jQuery(document).ready(function(){
     jQuery("#aigi-preloader").hide();
 });
+
+///////////////// Footnotes
+function isValidHttpUrl(string) {
+    let url;
+    try {
+        url = new URL(string);
+    } catch (_) {
+        return false;
+    }
+    return url.protocol === "http:" || url.protocol === "https:";
+}
+
+jQuery(document).ready(function(){
+    let footnotes = jQuery('.modern-footnotes-footnote__note');
+
+    footnotes.each(function(elem){
+
+        let footnote = jQuery(this).get(0)
+
+        let footnotes_text = '<div>Ref:  '+jQuery(this).html()+'</div>'
+        let footnotes_number = '<span data-mfn="'+jQuery(this).attr('data-mfn')+'" class="footones_custom_prefix">['+jQuery(this).attr('data-mfn')+']</span>';
+
+        // console.log(footnotes_text);
+        // console.log(footnotes_number);
+        jQuery('.footones_custom_list').append('<li>'+footnotes_number+''+footnotes_text+'</li>');
+    })
+
+    jQuery('.footones_custom_prefix').on('click', function(){
+        let footnote_mfh = jQuery(this).attr('data-mfn');
+
+        let footnote_top = jQuery('.modern-footnotes-footnote[data-mfn="'+footnote_mfh+'"]').offset().top;
+
+        jQuery('body,html').animate({scrollTop: footnote_top-80}, 200);
+
+    })
+})

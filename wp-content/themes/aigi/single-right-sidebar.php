@@ -32,6 +32,9 @@
 
         <?php endwhile; endif; ?>
         <footer class="footer">
+            <div class="footones_custom_wrapper">
+                <ul class="footones_custom_list"></ul>
+            </div>
             <?php get_template_part( 'nav', 'below-single' ); ?>
         </footer>
     </main>

@@ -2017,3 +2017,31 @@ input[type="submit"].btn-transparent-white:hover {
         padding: 15px 18px;
     }
 }
+
+
+/************************ Footnotes *********************/
+.footones_custom_wrapper {
+    padding: 16px 0;
+    margin-top: 24px;
+    border-top: 1px solid #DFDFDF;
+}
+.footones_custom_list {
+    padding-left: 0;
+}
+.footones_custom_list li {
+    font-weight: normal;
+    font-size: 14.4px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    color: var(--color-brand-m-blue-primary);
+
+    display: flex;
+    align-items: flex-start;
+}
+.footones_custom_list li:before {
+    display: none;
+}
+.footones_custom_prefix {
+    margin-right: 10px;
+    cursor: pointer;
+}
