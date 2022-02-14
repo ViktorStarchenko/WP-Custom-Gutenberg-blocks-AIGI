@@ -84,6 +84,15 @@
     .form-block-wrapper .text-media__text.heading p {
         color: var(--color-brand-navy-primary);
     }
+    .form-block-wrapper.wrapper-1245 {
+        text-align: left;
+    }
+    .form-block-wrapper .text-media__text.medium-text p {
+        text-align: left;
+    }
+    .form-block-wrapper .form-wrapper {
+        margin-top: 19px;
+    }
  }
  @media only screen and (max-width: 641px) {
     .form-block-wrapper .form-wrapper .gform_wrapper.gravity-theme input:not([type=radio]):not([type=checkbox]):not([type=image]):not([type=file]) {
