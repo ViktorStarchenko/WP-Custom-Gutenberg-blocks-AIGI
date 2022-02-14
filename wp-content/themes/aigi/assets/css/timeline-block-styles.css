@@ -179,7 +179,7 @@
     margin-bottom: 14px;
 }
 .timeline__quotes .blockquote-text {
-    font-weight: normal;
+    font-weight: bold;
     font-size: 15px;
     line-height: 24px;
     letter-spacing: 0.03em;
