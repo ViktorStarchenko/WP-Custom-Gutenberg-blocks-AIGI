@@ -26,6 +26,7 @@
 @import 'partners-block-styles.css';
 @import 'testimonials-styles.css';
 @import 'timeline-block-styles.css';
+@import 'fullwidth-slider-styles.css';
 
 
 
@@ -675,6 +676,32 @@ strong {
     }
 }
 
+/*************************** BG COLOR Background Color *************************/
+.bg_color_navy {
+    background-color: var(--color-brand-navy-primary);
+}
+.bg_color_yelow {
+    background-color: var(--color-status-progress);
+}
+.bg_color_orange {
+    background-color: var(--color-p-primary-orange);
+}
+.bg_color_purple {
+    background-color: var(--color-p-secondary-purple);
+}
+.bg_color_blue {
+    background-color: var(--color-h-secondary-blue);
+;
+}
+.bg_color_m-blue {
+    background-color: var(--color-brand-m-blue-primary);
+}
+.bg_color_green {
+    background-color: var(--color-h-secondary-green);
+}
+.bg_color_turquoise {
+    background-color: var(--color-p-secondary-green);
+}
 /*************************** Content Tags ******************************/
 .content-tags {
     margin-bottom: 28px;
