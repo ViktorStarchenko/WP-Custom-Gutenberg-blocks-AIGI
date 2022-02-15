@@ -178,7 +178,10 @@
     background-image: url(/wp-content/themes/aigi/assets/images/elements-resource.svg);
 }
 
-
+/*Case Studies*/
+.rslider__item.case_studies .rslider__item-header {
+    background-image: url(/wp-content/themes/aigi/assets/images/elements-resource.svg);
+}
 /*News*/
 .rslider__item.news .rslider__item-header {
     background-image: url(/wp-content/themes/aigi/assets/images/elements-news.svg);
