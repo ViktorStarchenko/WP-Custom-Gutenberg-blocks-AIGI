@@ -54,6 +54,11 @@ if ($attributes['background']['background_image']) {
 if ($attributes['background']['background_color']) {
     $bg_color =  $attributes['background']['background_color'];
 }
+
+$bg_color_preset = '';
+if ($attributes['background']['bg_color_preset']) {
+    $bg_color_preset =  $attributes['background']['bg_color_preset'];
+}
 ?>
 
 
@@ -84,7 +89,7 @@ if ($attributes['background']['background_color']) {
 
 <section
         class="how-to-use resources-slider wrapper-full-width acf-section-<?php echo get_row_index() . ' '; ?>
-acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= $background_texture; ?><?= $padding; ?><?= $border; ?> " id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= $background_texture; ?><?= $padding; ?><?= $border; ?> <?= $bg_color_preset; ?>" id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
     <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
     <div class="wrapper-1245 content-wrapper">
         <div class="rslider__header">

@@ -59,6 +59,11 @@ $bg_color = '';
 if ($attributes['background']['background_color']) {
     $bg_color =  $attributes['background']['background_color'];
 }
+
+$bg_color_preset = '';
+if ($attributes['background']['bg_color_preset']) {
+    $bg_color_preset =  $attributes['background']['bg_color_preset'];
+}
 ?>
 
 <?php if ($attributes) : ?>
@@ -84,7 +89,7 @@ if ($attributes['background']['background_color']) {
 
 
 
-<section class="text-media__section acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+<section class="text-media__section acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?> <?= $bg_color_preset; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
     <div class="border-container wrapper-1245 <?= $border; ?>"></div>
     <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
     <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?> text-media__content <?php echo $content['content_direction']; ?> <?php echo ($content['media']['enable'] == true) ? ' media-enabled ' : '' ?>">

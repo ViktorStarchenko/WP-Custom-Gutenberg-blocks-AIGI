@@ -691,7 +691,6 @@ strong {
 }
 .bg_color_blue {
     background-color: var(--color-h-secondary-blue);
-;
 }
 .bg_color_m-blue {
     background-color: var(--color-brand-m-blue-primary);
@@ -701,6 +700,9 @@ strong {
 }
 .bg_color_turquoise {
     background-color: var(--color-p-secondary-green);
+}
+.bg_primary_grey {
+    background-color: var(--color-primary-bg);
 }
 /*************************** Content Tags ******************************/
 .content-tags {
