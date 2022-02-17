@@ -87,6 +87,34 @@
 .single-event .accordion_btn:before {
     top: 25px;
 }
+.location_item {
+    display: flex;
+    align-items: flex-start;
+}
+.post-details__icon {
+    width: 19px;
+    margin: 2px 12px 0 8px;
+}
+.post-details__icon img {
+    width: 100%;
+    height: auto;
+}
+.phone-type {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.post-details__link {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.08em;
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
 .single-event .accordion_content {
     font-size: 14px;
     line-height: 22px;

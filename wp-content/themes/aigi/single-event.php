@@ -363,7 +363,6 @@
                             <div class="subscribe-event-form post-content-form">
                                 <div class="subscribe-event-form__wrapper">
                                     <div class="form-heading">
-                                    <div class="form-heading">
                                         <?php if (get_field('event_subscribe_form')['heading']) : ?>
                                         <div class="form-title"><?php echo get_field('event_subscribe_form')['heading']; ?></div>
                                         <?php endif ?>
