@@ -93,6 +93,7 @@
 }
 .post-details__icon {
     width: 19px;
+    min-width: 19px;
     margin: 2px 12px 0 8px;
 }
 .post-details__icon img {
