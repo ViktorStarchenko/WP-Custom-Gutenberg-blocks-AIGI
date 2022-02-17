@@ -109,6 +109,14 @@
                                 <a href="https://maps.google.com/?q=<?php echo get_field('c_studies_locationtion')['address']['lat'];?>,<?php echo get_field('c_studies_locationtion')['address']['lng'];?>" target="_blank" class="post-details__link">View on map</a>
                             </div>
                             <?php endif ?>
+
+                            <?php if (get_field('organization')) : ?>
+                                <div class="post-details__item">
+                                    <div class="post-details__heading">Organization</div>
+                                    <div class="post-details__text"><?= get_field('organization'); ?></div>
+                                </div>
+                            <?php endif ?>
+
                         </div>
 
                         <?php if (get_field('social_links')): ?>
