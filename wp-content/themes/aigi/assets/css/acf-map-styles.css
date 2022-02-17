@@ -1,0 +1,15 @@
+
+.acf-map {
+    height: 473px;
+    width: 100%;
+    border: #ccc solid 1px;
+}
+.acf-map img {
+    max-width: inherit !important;
+}
+
+@media (max-width: 767px) {
+    .acf-map {
+        height: 544px;
+    }
+}
