@@ -676,12 +676,25 @@ function normalizeHeigh(data) {
 }
 
 jQuery(document).ready(function() {
-    let data_arr = ['Hero2ColText', 'pageSidebarCol'];
+    let data_arr = ['Hero2ColText'];
 
     for(i=0; i<=data_arr.length; i++) {
         normalizeHeigh(data_arr[i])
     }
 })
+
+jQuery( window ).on('load resize', function() {
+    if (jQuery(window).width() > 768) {
+        let data_arr = ['pageSidebarCol'];
+
+        for(i=0; i<=data_arr.length; i++) {
+            normalizeHeigh(data_arr[i])
+        }
+    }
+
+})
+
+
 
 // PRINT BUTTON
 
@@ -743,3 +756,4 @@ jQuery(document).ready(function(){
 
     })
 })
+

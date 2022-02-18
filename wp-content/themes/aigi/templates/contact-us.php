@@ -71,7 +71,7 @@
 
                             <?php if (get_field('social_links')): ?>
                                 <div class="post-details__item">
-                                    <div class="social-links__heading ">Event's Social Links:</div>
+                                    <div class="social-links__heading ">Social channels</div>
                                     <div class="social-links">
                                         <?php foreach (get_field('social_links') as $social_links) : ?>
                                             <div class="social-links__item">

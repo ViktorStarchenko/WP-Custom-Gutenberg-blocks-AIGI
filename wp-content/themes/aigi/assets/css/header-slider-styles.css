@@ -314,6 +314,10 @@
         align-items: center;
         text-align: center;
     }
+    .page-template-contact-us .header-slider .header-slider__item.custom-content .highlighted-text {
+        align-items: flex-start;
+        text-align: left;
+    }
     .header-slider .header-slider__item.post-content .highlighted-text {
         align-items: flex-start;
         text-align: left;
