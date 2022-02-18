@@ -18,7 +18,6 @@ if ($slider): ?>
 
     <div class="header-slider slider" id="header-slider" data-init="true">
         <?php foreach ($slider as $key=>$slide) :
-
             //set slide content
             if ( $data['header_type'] == 'custom_slider' ) {
             $slides_counter = 1;
@@ -33,6 +32,7 @@ if ($slider): ?>
             $bg_texture = '';
             $terms = NULL;
             $enable_overlay = false;
+                $tags = '';
 //            if ($slide['section_class']) {
 //                $classes .= ' ' . $slide['section_class'] . ' ';
 //            }
@@ -77,6 +77,9 @@ if ($slider): ?>
                     if ($slide['content']['short_text']) {
                         $short_text = $slide['content']['short_text'];
                     }
+                    if ($slide['content']['tags']) {
+                        $tags = $slide['content']['tags'];
+                    }
                     if ($slide['button_group']) {
                         $button_group = $slide['button_group'];
                     }
@@ -118,6 +121,7 @@ if ($slider): ?>
                 $bg_texture = '';
                 $terms = NULL;
                 $enable_overlay = false;
+                $tags = '';
                 if ($data['category_slider']['background']['background_image']) {
                     $classes.= ' bg-image ';
                 }
@@ -175,15 +179,28 @@ if ($slider): ?>
                 <div class="content-wrapper wrapper-1245 highlighted-content">
                     <div class="highlighted-text">
                         <?php
-                        if($terms): ?>
+                        if($tags): ?>
                         <div class="content-tags">
-                            <?php foreach ($terms as $cur_term) : ?>
-                            <div class="content-tags__item">
-                                <span href="<?php echo get_term_link( $cur_term->term_id, $cur_term->taxonomy ) ?>"><?php echo $cur_term->name; ?></span>
-                            </div>
+                            <?php foreach ($tags as $tag) : ?>
+                                <div class="content-tags__item">
+                                    <span><?php echo $tag['tag']; ?></span>
+                                </div>
                             <?php endforeach ?>
                         </div>
                         <?php endif ?>
+
+                        <?php if($terms): ?>
+                            <div class="content-tags">
+                                <?php foreach ($terms as $cur_term) : ?>
+                                    <div class="content-tags__item">
+                                        <span href="<?php echo get_term_link( $cur_term->term_id, $cur_term->taxonomy ) ?>"><?php echo $cur_term->name; ?></span>
+                                    </div>
+                                <?php endforeach ?>
+                            </div>
+                        <?php endif ?>
+
+
+
                         <?php if ($title): ?>
                             <div class="header-slider__title">
                                 <p><?php echo $title ?></p>
@@ -192,7 +209,7 @@ if ($slider): ?>
 
                         <?php if ($short_text): ?>
                             <div class="header-slider__short-text">
-                                <p><?php echo substr($short_text, 0,315) ?>...</p>
+                                <p><?php echo get_custom_excerpt($short_text, 315, true) ?></p>
                             </div>
                         <?php endif ?>
 

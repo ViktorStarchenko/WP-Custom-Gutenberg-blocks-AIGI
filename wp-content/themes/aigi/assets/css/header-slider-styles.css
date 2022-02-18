@@ -114,6 +114,7 @@
 }
 .header-slider .highlighted-text {
     max-width: 672px;
+    min-height: 343px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -146,7 +147,7 @@
 }
 
 .header-slider .content-tags {
-    margin: -4px -4px 16px;
+    margin: -4px -4px 24px;
 }
 
 /*progress bar*/
