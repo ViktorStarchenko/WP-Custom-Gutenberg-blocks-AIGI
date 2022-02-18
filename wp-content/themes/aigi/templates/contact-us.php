@@ -12,7 +12,7 @@
             <div class="wrapper-1245 content-wrapper">
 
                 <div class="has-sidebar sidebar-right">
-                    <div class="col-sidebar">
+                    <div class="col-sidebar"  data-height="pageSidebarCol">
                         <div class="col-sidebar__inner">
 
                             <div class="post-details">
@@ -119,33 +119,33 @@
 
                         </div>
                     </div>
-                    <div class="col-content">
-            <div class="has-sidebar__inner">
-                <?php the_content() ?>
-                <?php $content_items = get_field('content_items'); ?>
-                <?php get_template_part('template-parts/content-blocks/content', 'custom-content', $content_items); ?>
+                    <div class="col-content"  data-height="pageSidebarCol">
+                        <div class="has-sidebar__inner">
+                            <?php the_content() ?>
+                            <?php $content_items = get_field('content_items'); ?>
+                            <?php get_template_part('template-parts/content-blocks/content', 'custom-content', $content_items); ?>
 
-                <?php if (get_field('form')['enable'] == true) : ?>
-                    <div class="contact-us-form post-content-form">
-                        <div class="contact-us__form-wrapper">
-                            <div class="form-heading">
-                                <?php if (get_field('form')['heading']) : ?>
-                                    <div class="form-title"><?php echo get_field('form')['heading']; ?></div>
-                                <?php endif ?>
-                                <?php if (get_field('form')['description']) : ?>
-                                    <div class="form-desc"><?php echo get_field('form')['description']; ?></div>
-                                <?php endif ?>
-                            </div>
+                            <?php if (get_field('form')['enable'] == true) : ?>
+                                <div class="contact-us-form post-content-form">
+                                    <div class="contact-us__form-wrapper">
+                                        <div class="form-heading">
+                                            <?php if (get_field('form')['heading']) : ?>
+                                                <div class="form-title"><?php echo get_field('form')['heading']; ?></div>
+                                            <?php endif ?>
+                                            <?php if (get_field('form')['description']) : ?>
+                                                <div class="form-desc"><?php echo get_field('form')['description']; ?></div>
+                                            <?php endif ?>
+                                        </div>
 
-                            <?php if (get_field('form')['form_id']) : ?>
-                                <div class=""><?php echo do_shortcode('[gravityform id="'. get_field('form')['form_id'] .'" title="false" description="false" ajax="true" tabindex="49"]');?></div>
+                                        <?php if (get_field('form')['form_id']) : ?>
+                                            <div class=""><?php echo do_shortcode('[gravityform id="'. get_field('form')['form_id'] .'" title="false" description="false" ajax="true" tabindex="49"]');?></div>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
                             <?php endif ?>
+
                         </div>
                     </div>
-                <?php endif ?>
-
-            </div>
-        </div>
                 </div>
 
             </div>
