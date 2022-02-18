@@ -52,8 +52,14 @@ if ($attributes['margin']['margin_bottom']) {
 if ($attributes['background']['background_image']) {
     $classes.= '  bg-image ';
 }
+$bg_color= '';
 if ($attributes['background']['background_color']) {
     $bg_color =  $attributes['background']['background_color'];
+}
+
+$bg_color_preset = '';
+if ($attributes['background']['bg_color_preset']) {
+    $bg_color_preset =  $attributes['background']['bg_color_preset'];
 }
 ?>
 
@@ -85,7 +91,7 @@ if ($attributes['background']['background_color']) {
 
 <section
     class="rslider-section testimonials-slider wrapper-full-width acf-section-<?php echo get_row_index() . ' '; ?>
-acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= $background_texture; ?><?= $padding; ?><?= $border; ?> " id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= $background_texture; ?><?= $padding; ?><?= $border; ?> <?= $bg_color_preset; ?>" id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
     <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
     <div class="wrapper-1245 content-wrapper">
         <div class="rslider__header">
@@ -104,7 +110,7 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                     <?php foreach( $content['testimonials'] as $testimonials ) : ?>
 
                         <div>
-                            <div class="rslider__item rslider__testimonials-item  <?php echo $post_type; ?> <?php  echo $terms[0];  ?>">
+                            <div class="rslider__item rslider__testimonials-item">
                                 <div class="testimonial__image">
                                     <?php if ($testimonials['image']) : ?>
                                     <img src="<?php echo $testimonials['image']['url']; ?>" alt="<?php echo $testimonials['image']['title']; ?>">

@@ -63,6 +63,7 @@ if ($attributes['margin']['margin_bottom']) {
 if ($attributes['background']['background_image']) {
     $classes.= '  bg-image ';
 }
+$bg_color = '';
 if ($attributes['background']['background_color']) {
     $bg_color =  $attributes['background']['background_color'];
 }

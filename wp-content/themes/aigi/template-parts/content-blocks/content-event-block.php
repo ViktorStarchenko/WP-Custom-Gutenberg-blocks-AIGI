@@ -43,6 +43,16 @@ if ($attributes['margin']['margin_bottom']) {
 if ($attributes['background']['background_image']) {
     $classes.= '  bg-image ';
 }
+$bg_color = '';
+if ($attributes['background']['background_color']) {
+    $bg_color =  $attributes['background']['background_color'];
+}
+
+
+$bg_color_preset = '';
+if ($attributes['background']['bg_color_preset']) {
+    $bg_color_preset =  $attributes['background']['bg_color_preset'];
+}
 ?>
 
 <?php if ($attributes) : ?>
@@ -69,7 +79,7 @@ if ($attributes['background']['background_image']) {
     </style>
 <?php endif // end padding styles ?>
 
-<section class="event-block-section acf-section-<?php echo get_row_index() . ' '; ?> acf-section-<?php echo $attributes['uniq_id']. ' '; ?> <?php echo $classes ?> <?= $background_texture; ?><?= $padding; ?>" id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> color: <?php echo $attributes['background']['text_color']; ?>; ">
+<section class="event-block-section acf-section-<?php echo get_row_index() . ' '; ?> acf-section-<?php echo $attributes['uniq_id']. ' '; ?> <?php echo $classes ?> <?= $background_texture; ?><?= $padding; ?> <?= $bg_color_preset; ?>" id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> color: <?php echo $attributes['background']['text_color']; ?>; ">
     <div class="event-block-wrapper content-wrapper <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
 <div class="wrapper-1245 content-wrapper">
     <div class="event-heading-wrapper">

@@ -1,5 +1,7 @@
 
-<?php if (get_sub_field('content')) :
+<?php
+$content = NULL;
+    if (get_sub_field('content')) :
     $content = get_sub_field('content');
 
 endif ?>
@@ -58,6 +60,11 @@ $bg_color = '';
 if ($attributes['background']['background_color']) {
     $bg_color =  $attributes['background']['background_color'];
 }
+
+$bg_color_preset = '';
+if ($attributes['background']['bg_color_preset']) {
+    $bg_color_preset =  $attributes['background']['bg_color_preset'];
+}
 ?>
 
 <?php if ($attributes) : ?>
@@ -83,7 +90,7 @@ if ($attributes['background']['background_color']) {
 
 
 
-<section class="timeline__section acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
+<section class="timeline__section acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?> <?= $bg_color_preset; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
     <div class="border-container wrapper-1245 <?= $border; ?>"></div>
     <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
     <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
@@ -137,72 +144,6 @@ if ($attributes['background']['background_color']) {
                 <?php endforeach ?>
             <?php endif ?>
 
-<!--            <div class="timeline__item">-->
-<!--                <div class="timeline__image-block timeline__item-col">-->
-<!--                    <div class="timeline__image">-->
-<!--                        <img src="/wp-content/uploads/2022/01/Photo-8.jpg" alt="">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="timeline__text-block timeline__item-col">-->
-<!--                    <div class="timeline__text-wrapper">-->
-<!--                        <div class="triangle">-->
-<!--                            <div class="inner-triangle"></div>-->
-<!--                        </div>-->
-<!--                        <div class="timeline__date">2001</div>-->
-<!--                        <div class="timeline__subheads">The indigenous governance forum</div>-->
-<!--                        <div class="timeline__text">In 2001, Reconciliation Australia hosted an international “Indigenous Governance Conference” in Canberra. The aim was to discuss what works in building effective governance on the ground, what doesn’t work and why.-->
-<!--                            The forum recommended that detailed research into the conditions ... </div>-->
-<!--                        <div class="timeline__quotes">In 2001, Reconciliation Australia hosted an international</div>-->
-<!--                        <div class="timeline__btn-group">-->
-<!--                            <a href="" class="timeline__link">Read More</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="timeline__item">-->
-<!--                <div class="timeline__image-block timeline__item-col">-->
-<!--                    <div class="timeline__image">-->
-<!--                        <img src="/wp-content/uploads/2022/01/Photo-8.jpg" alt="">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="timeline__text-block timeline__item-col">-->
-<!--                    <div class="timeline__text-wrapper">-->
-<!--                        <div class="triangle">-->
-<!--                            <div class="inner-triangle"></div>-->
-<!--                        </div>-->
-<!--                        <div class="timeline__date">2001</div>-->
-<!--                        <div class="timeline__subheads">The indigenous governance forum</div>-->
-<!--                        <div class="timeline__text">In 2001, Reconciliation Australia hosted an international “Indigenous Governance Conference” in Canberra. The aim was to discuss what works in building effective governance on the ground, what doesn’t work and why.-->
-<!--                            The forum recommended that detailed research into the conditions ... </div>-->
-<!--                        <div class="timeline__quotes">In 2001, Reconciliation Australia hosted an international</div>-->
-<!--                        <div class="timeline__btn-group">-->
-<!--                            <a href="" class="timeline__link">Read More</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="timeline__item">-->
-<!--                <div class="timeline__image-block timeline__item-col">-->
-<!--                    <div class="timeline__image">-->
-<!--                        <img src="/wp-content/uploads/2022/01/Photo-8.jpg" alt="">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="timeline__text-block timeline__item-col">-->
-<!--                    <div class="timeline__text-wrapper">-->
-<!--                        <div class="triangle">-->
-<!--                            <div class="inner-triangle"></div>-->
-<!--                        </div>-->
-<!--                        <div class="timeline__date">2001</div>-->
-<!--                        <div class="timeline__subheads">The indigenous governance forum</div>-->
-<!--                        <div class="timeline__text">In 2001, Reconciliation Australia hosted an international “Indigenous Governance Conference” in Canberra. The aim was to discuss what works in building effective governance on the ground, what doesn’t work and why.-->
-<!--                            The forum recommended that detailed research into the conditions ... </div>-->
-<!--                        <div class="timeline__quotes">In 2001, Reconciliation Australia hosted an international</div>-->
-<!--                        <div class="timeline__btn-group">-->
-<!--                            <a href="" class="timeline__link">Read More</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
 
     </div>

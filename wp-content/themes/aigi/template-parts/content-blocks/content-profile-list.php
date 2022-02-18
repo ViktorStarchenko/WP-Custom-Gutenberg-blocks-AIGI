@@ -54,6 +54,7 @@ if ($attributes['margin']['margin_bottom']) {
 if ($attributes['background']['background_image']) {
     $classes.= '  bg-image ';
 }
+$bg_color= '';
 if ($attributes['background']['background_color']) {
     $bg_color =  $attributes['background']['background_color'];
 }
@@ -102,7 +103,7 @@ if ($attributes['background']['bg_color_preset']) {
             <div class="rslider__desc"><?= $content['description'] ?></div>
         </div>
     </div>
-    <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?> highlighted-content <?php echo $content['content_direction']; ?>">
+    <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?> highlighted-content">
 
         <div class="profile-list__wrapper">
             <?php if ($posts) : ?>

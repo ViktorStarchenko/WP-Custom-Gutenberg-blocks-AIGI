@@ -1,7 +1,8 @@
 
 
-
-<?php if (get_sub_field('content')) :
+<?php
+$content = NULL;
+if (get_sub_field('content')) :
     $content = get_sub_field('content');
 endif ?>
 
@@ -75,7 +76,7 @@ if ($attributes['background']['bg_color_preset']) {
 
         }
         @media (max-width: 767px) {
-            .acf-section-<?php echo $$attributes['uniq_id']; ?> {
+            .acf-section-<?php echo $attributes['uniq_id']; ?> {
             <?php if ($attributes['section_height']['height_numbers_mobile']) : ?>
                 height: <?php echo $attributes['section_height']['height_numbers_mobile']; ?><?php echo $attributes['section_height']['height_value_mobile']; ?>
             <?php endif ?>
