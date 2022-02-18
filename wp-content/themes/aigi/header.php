@@ -9,10 +9,17 @@
    if ( is_single() ) {
 //       gt_set_post_view();
    }
-
+   $bg_color_preset = '';
+   if (get_field('bg_color_preset')) {
+       $bg_color_preset =  get_field('bg_color_preset');
+   }
+   $bg_color = '';
+   if (get_field('body_background')) {
+       $bg_color =  get_field('body_background');
+   }
 
    ?>
-   <body <?php body_class(); ?> style="background-color: <?php  echo (get_field('body_background') ?  ' ' . get_field('body_background')  . ' '  :''); ?>">
+   <body <?php body_class(array( $bg_color_preset )); ?> style="background-color: <?php  echo ($bg_color) ?  ' ' . $bg_color  . ' '  :''; ?>">
       <div id="aigi-preloader"><img class="preloader-logo" src="/wp-content/themes/aigi/assets/images/aigi-preloader-logo.svg" alt=""></div>
       <style type="text/css">
          #aigi-preloader
