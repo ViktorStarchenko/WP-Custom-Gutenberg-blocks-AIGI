@@ -690,6 +690,8 @@ jQuery( window ).on('load resize', function() {
         for(i=0; i<=data_arr.length; i++) {
             normalizeHeigh(data_arr[i])
         }
+    } else {
+        jQuery('[data-height=pageSidebarCol]').css('min-height', 'unset');
     }
 
 })
