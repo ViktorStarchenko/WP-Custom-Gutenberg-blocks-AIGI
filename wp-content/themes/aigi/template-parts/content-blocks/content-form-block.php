@@ -93,9 +93,6 @@ if ($attributes['background']['bg_color_preset']) {
             <?php $formid = $content['form_id']; ?>
             <?php gravity_form( $formid, false, false, false, '', true, 12 ); ?>
         </div>
-        <?php if (get_sub_field('button_group')['buttons']) {
-            get_template_part('template-parts/content-blocks/content', 'button-group');
-        } ?>
 
     </div>
 </section>

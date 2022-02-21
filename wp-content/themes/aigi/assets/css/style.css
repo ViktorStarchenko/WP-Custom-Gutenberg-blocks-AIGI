@@ -1081,6 +1081,26 @@ body .gfield textarea,
 body .gform_wrapper.gravity-theme .gfield textarea,
 body .gform_wrapper.gravity-theme .gfield textarea.large {
     height: 146px;
+    position: relative;
+}
+body .ginput_container_textarea {
+    position: relative;
+}
+body .ginput_container_textarea:before,
+body .ginput_container_textarea:before,
+body .ginput_container_textarea:before {
+    content: 'Characters Count: 200';
+    font-weight: normal;
+    font-size: 13.33px;
+    line-height: 18px;
+    text-align: right;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    z-index: 10;
+
 }
 
 input[type="submit"].gform_button {

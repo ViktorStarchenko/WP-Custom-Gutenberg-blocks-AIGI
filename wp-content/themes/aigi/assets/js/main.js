@@ -667,12 +667,12 @@ function normalizeHeigh(data) {
 
     let data_allHeight = [];
     data_height.each(function(elem){
-        // console.log($(this).height())
-        data_allHeight.push(parseInt($(this).height()));
+        // console.log($(this).outerHeight())
+        data_allHeight.push(parseInt($(this).outerHeight()));
     })
     slider1_maxHeight = Math.max.apply(Math, data_allHeight);
-    jQuery('[data-height=' +  data + ']').height(slider1_maxHeight)
-    // console.log(data_height);
+    jQuery('[data-height=' +  data + ']').css('min-height', slider1_maxHeight + 'px')
+    // console.log(slider1_maxHeight);
 }
 
 jQuery(document).ready(function() {
