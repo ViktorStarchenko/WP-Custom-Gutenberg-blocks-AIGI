@@ -24,8 +24,6 @@
 
             </div>
 
-
-
             <?php get_template_part('template-parts/layout', 'page-after-content-blocks'); ?>
         </div>
 
