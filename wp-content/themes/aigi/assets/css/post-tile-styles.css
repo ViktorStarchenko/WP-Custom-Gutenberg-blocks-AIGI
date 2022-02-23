@@ -808,7 +808,8 @@
         max-width: 310px;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: auto;
+        margin: -5px auto;
+
     }
     .search-page .post-tile__pricing-item {
         height: 60px;
@@ -945,7 +946,7 @@
         max-width: 310px;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: auto;
+        margin: -5px auto;
     }
     .post-tile__pricing-item {
         height: 60px;

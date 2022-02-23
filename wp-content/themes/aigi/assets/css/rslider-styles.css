@@ -35,6 +35,17 @@
     display: flex;
     align-items: flex-start;
 }
+.heading-block {
+    margin-bottom: 50px;
+}
+.heading-block a {
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 15.78px;
+    line-height: 125%;
+    letter-spacing: 0.02em;
+    color: var(--color-h-secondary-blue);
+}
 .rslider__heading {
     max-width: 803px;
     font-family: Proxima Nova;
@@ -52,7 +63,6 @@
     line-height: 26px;
     letter-spacing: 0.1em;
     color: var(--color-main-text);
-    margin-bottom: 50px;
 }
 .rslider_nav {
     margin-right: 48px;

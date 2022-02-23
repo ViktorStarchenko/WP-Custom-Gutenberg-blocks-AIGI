@@ -1,0 +1,146 @@
+
+.vacancies__section {
+    padding: 90px 0;
+}
+.vacancies__section .heading-block {
+    max-width: 1016px;
+    margin: 0 auto 22px;
+}
+.vacancies__section .rslider__heading {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto 22px;
+}
+.vacancies__list {
+    width: 100%;
+    max-width: 1016px;
+    margin: auto;
+}
+.vacancies__item {
+    width: 100%;
+    max-width: 1016px;
+    background: #FFFFFF;
+    border: 1px solid var(--color-field-border);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 32px;
+    margin-bottom: 20px;
+}
+.vacancies__item:last-child {
+    margin-bottom: 0;
+}
+.vacancies__item-header {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.vacancies__item-share {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.vacancies__item-share .post-tile__pricing-title {
+    margin-bottom: 12px;
+}
+.vacancies__item-share-icons .heateor_sss_svg {
+    background-color: transparent!important;
+    width: 16px!important;
+    height: 16px!important;
+}
+.vacancies__item-share-icons svg path {
+    fill: #000000;
+}
+.vacancies__item-share-icons .heateor_sss_more {
+    display: none!important;
+    width: 0;
+}
+
+
+.vacancies__item-body {
+    padding: 24px 0;
+}
+
+.vacancies__item-title {
+    font-weight: bold;
+    font-size: 19.98px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 16px;
+}
+.vacancies__item-description {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+}
+
+.vacancies__item-footer {
+    padding-top: 24px;
+    border-top: 1px solid var(--color-field-border);
+}
+.vacancies__item-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.vacancies__item-info .post-tile__pricing-item {
+    padding: 0 12px
+}
+.vacancies__item-info .post-tile__pricing-item:first-child {
+    padding-left: 0;
+}
+.vacancies__item-info .post-tile__pricing-item:last-child {
+    padding-right: 0;
+}
+
+@media (max-width: 992px) {
+    .vacancies__item-info {
+        align-items: flex-end;
+    }
+    .vacancies__item {
+        padding: 24px 16px;
+    }
+    .vacancies__item-info .post-tile__pricing-item,
+    .vacancies__item-info .post-tile__pricing-item:first-child,
+    .vacancies__item-info .post-tile__pricing-item:last-child {
+        padding: 10px 6px;
+    }
+    .vacancies__item-info .post-tile__pricing-list {
+        max-width: 50%;
+        margin: -5px 0;
+    }
+    .vacancies__item-info .post-tile__pricing-price {
+        text-align: center;
+    }
+}
+@media (max-width: 767px) {
+    .vacancies__section {
+        padding: 40px 0;
+    }
+    .vacancies__section .rslider__heading {
+        font-size: 22.47px;
+        line-height: 27px;
+        text-align: center;
+        letter-spacing: 0.02em;
+        margin-bottom: 16px;
+    }
+    .vacancies__item-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .vacancies__item-info .post-tile__pricing-list {
+        max-width: 100%;
+        margin-bottom: 24px;
+    }
+    .vacancies__item-info .btn-group {
+        width: 100%;
+    }
+    .vacancies__item-info .btn-group .btn-body {
+        width: 100%;
+        margin: 4px 0;
+    }
+}
