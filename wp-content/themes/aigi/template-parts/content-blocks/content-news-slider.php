@@ -161,9 +161,6 @@ if ($attributes['background']['bg_color_preset']) {
                     <?php wp_reset_postdata(); ?>
                 </div>
             </div>
-            <?php if (get_sub_field('button_group')['buttons']) {
-                get_template_part('template-parts/content-blocks/content', 'button-group');
-            } ?>
 
         </div>
     </div>

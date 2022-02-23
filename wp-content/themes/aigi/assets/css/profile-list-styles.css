@@ -73,6 +73,7 @@
     }
     .profile-list__item .speakers__image {
         width: 46px;
+        min-width: 46px;
         height: 46px;
         margin-bottom: 16px;
     }
