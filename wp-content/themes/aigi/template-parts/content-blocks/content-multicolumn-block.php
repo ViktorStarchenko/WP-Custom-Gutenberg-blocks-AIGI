@@ -117,20 +117,87 @@ if($content['multicolumn_list_bg_color']) {
             <?php if ($content['multicolumn_list']) : ?>
                 <?php foreach ($content['multicolumn_list'] as $multicolumn_list) : ?>
 
-                    <div class="multicolumn__item <?php echo $multicolumn_list['text_color']; ?> <?php echo $columns_per_row_desk; ?> <?php echo $columns_per_row_tablet; ?>">
-                        <?php foreach ($multicolumn_list['multicolumn_item'] as $content_item) : ?>
+                    <div class="multicolumn__item <?php echo $multicolumn_list['text_color']; ?> <?php echo $columns_per_row_desk; ?> <?php echo $columns_per_row_tablet; ?>" >
+                        <div class="multicolumn__item-inner" data-height="multicolumnItem">
+                            <?php foreach ($multicolumn_list['multicolumn_item'] as $content_item) : ?>
 
                                 <?php if ($content_item['content_type'] == 'text') : ?>
                                     <div class="text_item <?php echo $content_item['type'] ?> <?php echo $content_item['alighnment']; ?>">
                                         <?php echo $content_item['text'] ?>
                                     </div>
                                 <?php elseif ($content_item['content_type'] == 'image') : ?>
-                                    <div class="header-block__content-item text_item image <?php echo $content_item['alighnment']; ?>">
+                                    <?php
+                                    $image_width = '';
+                                    $image_height = '';
+                                    $custom_width = '';
+                                    if ($content_item['image_width']) {
+                                        $image_width = $content_item['image_width'];
+                                        $custom_width = 'custom-width';
+                                    }
+                                    if ($content_item['rounded_image'] == true) {
+                                        $image_height = $content_item['image_width'];
+                                    }
+                                    ?>
+                                    <div class="header-block__content-item text_item image <?php echo $custom_width; ?> <?php echo $content_item['alighnment']; ?> <?php echo ($content_item['rounded_image'] == true ) ? 'rounded' : '' ?>" style="width: <?php echo $image_width; ?>; height: <?php echo $image_height; ?>">
                                         <img src="<?php echo $content_item['image']['url'] ?>" alt="<?php echo $content_item['image']['title'] ?>">
                                     </div>
-                                <?php endif ?>
+                                <?php elseif ($content_item['content_type'] == 'button_group') : ?>
 
-                        <?php endforeach ?>
+                                <?php
+                                    $button_group = $content_item['button_group'];
+                                    $button_group_classes = '';
+                                    if ($button_group['alignment']['desktop']) {
+                                    $button_group_classes .= ' ' . $button_group['alignment']['desktop'] . ' ';
+                                    }
+                                    if ($button_group['alignment']['mobile']) {
+                                    $button_group_classes .= ' ' . $button_group['alignment']['mobile'] . ' ';
+                                    }
+
+                                    if ($button_group['margin']['margin_top']) {
+                                    $button_group_classes .= ' ' . $button_group['margin']['margin_top'] . ' ';
+                                    }
+                                    if ($button_group['margin']['margin_bottom']) {
+                                    $button_group_classes .= ' ' . $button_group['margin']['margin_bottom'] . ' ';
+                                    }
+
+                                    ?>
+
+
+
+                                    <?php if($button_group['buttons']) : ?>
+                                        <div class="btn-group <?php echo $button_group_classes ; ?>">
+                                            <?php foreach($button_group['buttons'] as $button) : ?>
+
+                                                <?php
+                                                $classes = '';
+                                                if ($button['styling']['color']) {
+                                                    $classes .= ' ' . $button['styling']['color'] . ' ';
+                                                }
+                                                if ($button['styling']['icon']) {
+                                                    $classes .= ' ' . $button['styling']['icon'] . ' ';
+                                                }
+                                                if ($button['styling']['icon_position']) {
+                                                    $classes .= ' ' . $button['styling']['icon_position'] . ' ';
+                                                }
+                                                if ($button['styling']['alignment']) {
+                                                    $classes .= ' ' . $button['styling']['alignment'] . ' ';
+                                                }
+                                                if ($button['anchor'] == true) {
+                                                    $classes .= ' ' . 'crane' . ' ';
+                                                }
+
+                                                ?>
+                                                <a href="<?php echo $button['button']['url'] ;?>" target="<?= $button['button']['target'] ?>" class="btn-<?php echo $button['id']; ?>  btn-body <?php echo $classes ?>">
+                                                    <span class="btn-inner"><?php echo $button['button']['title'] ;?></span>
+                                                </a>
+                                            <?php endforeach; ?>
+                                            <?php wp_reset_postdata(); ?>
+                                        </div>
+                                    <?php endif; //edif buttons ?>
+
+                                <?php endif ?>
+                            <?php endforeach ?>
+                        </div>
                     </div>
 
                 <?php endforeach ?>

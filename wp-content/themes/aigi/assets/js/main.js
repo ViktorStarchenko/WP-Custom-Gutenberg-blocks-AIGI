@@ -676,7 +676,7 @@ function normalizeHeigh(data) {
 }
 
 jQuery(document).ready(function() {
-    let data_arr = ['Hero2ColText'];
+    let data_arr = ['Hero2ColText',];
 
     for(i=0; i<=data_arr.length; i++) {
         normalizeHeigh(data_arr[i])
@@ -685,7 +685,7 @@ jQuery(document).ready(function() {
 
 jQuery( window ).on('load resize', function() {
     if (jQuery(window).width() > 768) {
-        let data_arr = ['pageSidebarCol'];
+        let data_arr = ['pageSidebarCol', 'multicolumnItem'];
 
         for(i=0; i<=data_arr.length; i++) {
             normalizeHeigh(data_arr[i])
