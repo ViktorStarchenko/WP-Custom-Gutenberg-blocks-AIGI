@@ -795,6 +795,9 @@ strong {
     color: #000000;
     text-decoration: none;
 }
+.single-news .content-tags__item {
+    padding: 4px 10px;
+}
 @media (max-width: 767px) {
     .content-tags {
         margin-bottom: 16px;
@@ -1459,6 +1462,7 @@ input.wpcf7-not-valid {
     .post-navigation {
         border: none;
         padding: 0;
+        margin: 16px 0;
     }
     .nav-links {
         flex-direction: column;
@@ -2395,5 +2399,25 @@ input[type="submit"].btn-transparent-white:hover {
     cursor: pointer;
 }
 
+/*SASSY ICONS*/
+.social-share__container .heateor_sss_svg {
+    background-color: transparent!important;
+    width: 40px!important;
+    height: 40px!important;
+}
+.social-share__container svg path {
+    fill: #000000;
+}
+.social-share__container .heateor_sss_more svg circle,
+.social-share__container .heateor_sss_more svg path{
+    fill: #000000;
+    stroke: #000;
+}
 
+@media (max-width: 767px) {
+    .social-share__container .heateor_sss_svg {
+        width: 30px!important;
+        height: 30px!important;
+    }
+}
 /*Heading block*/

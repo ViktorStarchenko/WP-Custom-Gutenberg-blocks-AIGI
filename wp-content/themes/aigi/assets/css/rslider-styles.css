@@ -34,6 +34,7 @@
     justify-content: space-between;
     display: flex;
     align-items: flex-start;
+    margin-bottom: 22px;
 }
 .heading-block {
     margin-bottom: 50px;
