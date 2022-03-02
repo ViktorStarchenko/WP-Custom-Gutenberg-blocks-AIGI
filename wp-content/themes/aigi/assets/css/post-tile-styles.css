@@ -187,7 +187,11 @@
     max-width: 319px;
     height: 311px;
 }
-.landing-page .post-tile__img-box {
+.landing-page .post-tile__wrap .post-tile__img-box {
+    width: 49%;
+    max-width: 319px;
+}
+.landing-page .post-tile__wrap.event .post-tile__img-box {
     width: 49%;
     max-width: 268px;
 }
