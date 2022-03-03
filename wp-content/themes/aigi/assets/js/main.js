@@ -676,7 +676,7 @@ function normalizeHeigh(data) {
 }
 
 jQuery(document).ready(function() {
-    let data_arr = ['Hero2ColText',];
+    let data_arr = ['Hero2ColText', 'teamMemberName', 'teamMemberPosition'];
 
     for(i=0; i<=data_arr.length; i++) {
         normalizeHeigh(data_arr[i])

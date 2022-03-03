@@ -30,6 +30,7 @@
 @import 'acf-map-styles.css';
 @import 'multicolumn-block-styles.css';
 @import 'vacancies-block-styles.css';
+@import 'team-block-styles.css';
 
 
 
@@ -640,7 +641,9 @@ strong {
     max-width: 1016px;
     margin: auto;
 }
-
+.single-column__inner.wrapper-1125 {
+    max-width: 1125px;
+}
 .col-content {
     width: 100%;
     padding: 80px 0 46px;
