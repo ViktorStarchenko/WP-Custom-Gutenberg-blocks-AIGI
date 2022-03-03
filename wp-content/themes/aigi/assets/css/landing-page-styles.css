@@ -39,7 +39,8 @@
 .landing__filter-item {
     flex: 1;
     /*max-width: 271px;*/
-    max-width: 25%;
+
+    /*max-width: 25%;*/
 }
 .landing__filter-item:not(:last-child) {
     margin-right: 16px;
@@ -80,7 +81,8 @@
     height: 52px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    justify-content: space-around;
     background: #FFFFFF;
     border: 1px solid var(--color-field-border);
     box-sizing: border-box;
@@ -93,7 +95,7 @@
     background-image: none;
 }
 .facetwp-facet-landing_event_type .facetwp-radio {
-    width: 125px;
+    /*width: 125px;*/
     background-image: none;
     padding: 12px 23px;
     border-radius: 6px;
