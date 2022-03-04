@@ -326,6 +326,9 @@
     .header-slider__title {
         margin-bottom: 16px;
     }
+    .single-aigi_staff .header-slider .highlighted-text {
+        min-height: 150px;
+    }
     .header-slider .btn-group {
         margin-bottom: 16px;
     }

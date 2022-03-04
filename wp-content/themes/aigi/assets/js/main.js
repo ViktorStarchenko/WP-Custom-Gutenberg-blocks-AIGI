@@ -746,6 +746,7 @@ jQuery(document).ready(function(){
 
         // console.log(footnotes_text);
         // console.log(footnotes_number);
+        jQuery('.footones_custom_wrapper').addClass('visible');
         jQuery('.footones_custom_list').append('<li>'+footnotes_number+''+footnotes_text+'</li>');
     })
 
