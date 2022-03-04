@@ -32,7 +32,8 @@ if ($slider): ?>
             $bg_texture = '';
             $terms = NULL;
             $enable_overlay = false;
-                $tags = '';
+            $tags = '';
+            $add_ellipsis = true;
 //            if ($slide['section_class']) {
 //                $classes .= ' ' . $slide['section_class'] . ' ';
 //            }
@@ -77,6 +78,9 @@ if ($slider): ?>
                     if ($slide['content']['short_text']) {
                         $short_text = $slide['content']['short_text'];
                     }
+
+                    $add_ellipsis = $slide['content']['add_ellipsis'];
+
                     if ($slide['content']['tags']) {
                         $tags = $slide['content']['tags'];
                     }
@@ -209,7 +213,7 @@ if ($slider): ?>
 
                         <?php if ($short_text): ?>
                             <div class="header-slider__short-text">
-                                <p><?php echo get_custom_excerpt($short_text, 315, true) ?></p>
+                                <p><?php echo get_custom_excerpt($short_text, 315, $add_ellipsis) ?></p>
                             </div>
                         <?php endif ?>
 
