@@ -26,6 +26,9 @@
 .text-media__content-column.between {
     justify-content: space-between;
 }
+.text-media__content-column.center {
+    justify-content: center;
+}
 .text-media__content-column.end {
     justify-content: flex-end;
 }
