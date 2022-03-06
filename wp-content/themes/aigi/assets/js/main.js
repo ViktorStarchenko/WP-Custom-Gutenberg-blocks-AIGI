@@ -685,7 +685,7 @@ jQuery(document).ready(function() {
 
 jQuery( window ).on('load resize', function() {
     if (jQuery(window).width() > 768) {
-        let data_arr = ['pageSidebarCol', 'multicolumnItem'];
+        let data_arr = ['pageSidebarCol', 'multicolumnItem', 'partnersImage', 'partnersTitle', 'partnersDescription'];
 
         for(i=0; i<=data_arr.length; i++) {
             normalizeHeigh(data_arr[i])

@@ -58,12 +58,18 @@
     color: var(--color-brand-navy-primary);
     margin-bottom: 22px;
 }
+.rslider__heading.fullwidth {
+    max-width: 100%;
+}
 .rslider__desc {
     max-width: 803px;
     font-size: 16px;
     line-height: 26px;
     letter-spacing: 0.1em;
     color: var(--color-main-text);
+}
+.rslider__desc.fullwidth {
+    max-width: 100%;
 }
 .rslider_nav {
     margin-right: 48px;

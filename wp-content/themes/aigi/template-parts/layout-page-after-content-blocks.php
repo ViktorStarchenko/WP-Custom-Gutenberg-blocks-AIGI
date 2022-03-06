@@ -177,6 +177,12 @@ if( have_rows('after_content_blocks') ): ?>
 
         <?php endif; // end get_row_layout (vacancies_block) if ?>
 
+        <?php if(get_row_layout() == 'partners_tiles'): ?>
+
+            <?php get_template_part('template-parts/content-blocks/content', 'partners-tiles'); ?>
+
+        <?php endif; // end get_row_layout (partners_tiles) if ?>
+
 
     <?php endwhile; // end have_rows while ?>
 
