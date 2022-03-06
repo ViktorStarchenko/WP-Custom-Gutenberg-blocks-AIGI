@@ -138,6 +138,7 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                 </div>
             </div>
             <?php endforeach ?>
+            <?php wp_reset_postdata(); ?>
         </div>
         <?php endif ?>
 
