@@ -19,7 +19,7 @@
                 )
             )
         ) );
-    } else if ($content['slider_type'] == 'Manually') {
+    } else if ($content['source_type'] == 'Manually') {
         if ($content['partners']) {
             $posts = $content['partners'];
 

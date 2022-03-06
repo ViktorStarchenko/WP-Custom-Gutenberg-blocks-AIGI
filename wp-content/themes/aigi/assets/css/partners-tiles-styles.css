@@ -30,7 +30,7 @@
 .partners-tiles__img img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
 }
 .partners-tiles__title {
     font-weight: bold;
