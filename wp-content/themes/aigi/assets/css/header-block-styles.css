@@ -16,6 +16,10 @@
 .text_item.text-center {
     text-align: center;
 }
+.text_item.text-center li {
+    width: fit-content;
+    margin: 8px auto;
+}
 .text_item.text-right {
     text-align: right;
 }
