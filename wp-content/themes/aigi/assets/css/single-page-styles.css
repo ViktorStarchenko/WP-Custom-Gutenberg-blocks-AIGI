@@ -1,6 +1,14 @@
 .content-item {
     margin: 32px 0;
 }
+.content-item.text-block h1,
+.content-item.text-block h2,
+.content-item.text-block h3,
+.content-item.text-block h4,
+.content-item.text-block h5,
+.content-item.text-block h6 {
+    color: var(--color-brand-navy-primary);
+}
 .content-item:first-child {
     margin-top: 0;
 }
