@@ -454,6 +454,11 @@ strong {
         letter-spacing: 0.02em;
         color: var(--color-brand-m-blue-primary);
     }
+    .content-item.text_item.heading,
+    .content-item.text_item.heading p {
+        color: var(--color-brand-navy-primary);
+    }
+
     .variety-section  .text_item.heading,
     .variety-section  .text_item.heading p {
         color: var(--color-brand-navy-primary);

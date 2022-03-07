@@ -28,6 +28,27 @@
 
         <?php endif ?>
 
+        <!--                            Heading-->
+        <?php if ($content_item['item_type'] == 'Heading') : ?>
+            <div class="content-item text-block text_item heading">
+                <?php echo $content_item['heading_block']['content']; ?>
+            </div>
+        <?php endif ?>
+
+        <!--                            Subheading-->
+        <?php if ($content_item['item_type'] == 'Subheading') : ?>
+            <div class="content-item text-block text_item subheading">
+                <?php echo $content_item['subheading_block']['content']; ?>
+            </div>
+        <?php endif ?>
+
+        <!--                            Small Text Block-->
+        <?php if ($content_item['item_type'] == 'Small Text') : ?>
+            <div class="content-item text-block text_item small-text">
+                <?php echo $content_item['small_text_block']['content']; ?>
+            </div>
+        <?php endif ?>
+
 
         <!--Video-->
         <?php if ($content_item['item_type'] == 'Video') : ?>
