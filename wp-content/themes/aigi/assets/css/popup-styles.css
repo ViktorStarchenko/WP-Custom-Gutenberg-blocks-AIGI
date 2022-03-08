@@ -30,7 +30,8 @@
     top: 9px;
     right: 9px;
 }
-#popup_close_button {
+#popup_close_button,
+.popup_close_button {
     width: 16px;
     height: 16px;
     background-image: url(../images/close-blue.svg);
@@ -42,16 +43,35 @@
     cursor: pointer;
 }
 .popup_content_wrapper {
+    width: 100%;
+    max-width: 782px;
     position: absolute;
     background: white;
     z-index: 10000000000000000000000000000000000000000000000000001;
-    max-width: 1130px;
+    /*max-width: 1130px;*/
     padding: 60px;
     margin: 20px;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     max-height: 90%;
-}
 
+    /*padding: 60px 0 0;*/
+    /*min-width: 800px;*/
+
+    position: relative;
+}
+.popup_content_wrapper:before,
+.partners_item_popup_content_wrapper:before {
+    content: '';
+    width: 100%;
+    height: 50px;
+    margin-bottom: 6px;
+    background-color: #000;
+    background-image: url(/wp-content/themes/aigi/assets/images/group.svg);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+
+}
 .popup_overlay {
     position: absolute;
     width: 100%;
@@ -79,6 +99,14 @@
     height: 100%;
 }
 
+.popup_content_footer {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 6px;
+    background-color: #000;
+    background-image: url(/wp-content/themes/aigi/assets/images/group.svg);
+}
+
 
 
 /*Gallery*/
@@ -100,6 +128,9 @@
     height: 100%;
     object-fit: cover;
 }
+
+
+
 
 @media (max-width:  767px) {
     .item_popup_header {

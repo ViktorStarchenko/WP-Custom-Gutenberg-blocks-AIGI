@@ -38,7 +38,7 @@
                                                     <div class="popup_overlay"></div>
                                                     <div class="popup_content_wrapper author">
                                                         <div class="item_popup_content_inner">
-                                                            <div id="popup_close_button"></div>
+                                                            <div class="popup_close_button"></div>
                                                             <div class="social-share__wrapper modal">
 
 

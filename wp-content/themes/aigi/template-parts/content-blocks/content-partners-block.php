@@ -121,7 +121,8 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                                 <div class="partners_item_popup_overlay"></div>
                                 <div class="partners_item_popup_content_wrapper">
                                     <div class="partners_item_popup_content_inner">
-                                        <div id="popup_close_button"></div>
+                                        <div class="popup_close_button"></div>
+<!--                                        <div id="popup_close_button"></div>-->
                                         <div class="partners_item_popup_header">
                                             <div class="partners_item_popup_logo">
                                                 <img alt="<?php $title = get_the_title( $featured_post->ID ); ?>" src="<?php echo $partner_info['logo']['url']; ?>">
@@ -249,7 +250,7 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
             jQuery("#partner-popup-main-wrapper").addClass('popup_opened');
         });
 
-    jQuery(document).on('click', '#popup_close_button', function () {
+    jQuery(document).on('click', '#popup_close_button, .popup_close_button', function () {
         jQuery("#partner-popup-main-wrapper").removeClass('popup_opened');
             
     });

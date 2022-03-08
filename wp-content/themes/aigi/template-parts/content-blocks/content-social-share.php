@@ -12,7 +12,7 @@
                 <div class="popup_overlay"></div>
                 <div class="popup_content_wrapper threatment">
                     <div class="item_popup_content_inner">
-                        <div id="popup_close_button"></div>
+                        <div class="popup_close_button"></div>
                         <div class="social-share__wrapper modal p-m">
                             <div class="social-share__header">
                                 <div class="social-share__title">
