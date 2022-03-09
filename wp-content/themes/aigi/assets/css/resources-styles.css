@@ -127,6 +127,10 @@
     height: 391px;
     overflow: hidden;
 }
+.resource-image__wrap figure {
+    height: 100%;
+    width: 100%;
+}
 .resource-video__wrap.vimeo {
     height: unset;
     width: 100%;

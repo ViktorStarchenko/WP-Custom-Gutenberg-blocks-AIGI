@@ -194,7 +194,7 @@
                                                 <div class="item_popup_content_inner">
                                                     <div id="popup_close_button"></div>
                                                     <?php if ($gallery) : ?>
-                                                        <div class="gallery-wrapper pt-m pb-m pl-xl pr-xl">
+                                                        <div class="gallery-wrapper">
                                                             <div class="gallery-inner">
                                                                 <div class="slider gallery-for-<?php echo $content_item['block_id'];?>">
                                                                     <?php foreach ($gallery as $key=>$item_for) : ?>

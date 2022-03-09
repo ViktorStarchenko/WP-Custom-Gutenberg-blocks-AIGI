@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px 64px;
+    padding: 24px 64px 64px;
 }
 .gallery-inner {
     width: 100%;
@@ -35,7 +35,7 @@
 
 .gallery-for__img {
     width: 100%;
-    height: 600px;
+    height: 400px;
 }
 .gallery-for__img img {
     width: 100%;
@@ -100,16 +100,13 @@
 }
 @media (max-width: 1024px) {
     .gallery-wrapper {
-        padding: 24px 32px;
+        padding: 24px 16px 64px;
     }
     .gallery-for__img {
-        height: 400px;
+        height: 320px;
     }
 }
 @media (max-width: 767px) {
-    .gallery-wrapper {
-        padding: 16px 16px;
-    }
     .gallery-for__img {
         height: 192px;
     }

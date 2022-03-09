@@ -41,6 +41,7 @@
     top: 30px;
     right: 30px;
     cursor: pointer;
+    z-index: 10;
 }
 .partners_item_popup_content_wrapper {
     position: absolute;
