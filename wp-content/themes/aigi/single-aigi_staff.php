@@ -57,7 +57,7 @@
 
                         <?php if (get_field('staff_info')['topics_of_expertise']) : ?>
                             <div class="post-details__item border-top">
-                                <div class="post-details__heading">topics of expertise:</div>
+                                <div class="post-details__heading topics_of_expertise">topics of expertise:</div>
                                 <div class="post-details__text">
 
                                     <div class="post-tile__tags">

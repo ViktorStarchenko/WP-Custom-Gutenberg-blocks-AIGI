@@ -214,6 +214,20 @@
 .header-slider__section .slider-arrow.prev {
     left: 32px;
 }
+
+
+/*Staff Display Page*/
+.single-aigi_staff .header-slider__title {
+    font-size: 32.44px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
+}
+.single-aigi_staff .header-slider__short-text p {
+    font-weight: bold;
+    font-size: 19.98px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+}
 @media (min-width: 1921px) {
     .header-slider__item {
         min-height: 740px;
@@ -314,6 +328,10 @@
         align-items: center;
         text-align: center;
     }
+    .single-aigi_staff .header-slider .header-slider__item.custom-content .highlighted-text {
+        align-items: flex-start;
+        text-align: left;
+    }
     .page-template-contact-us .header-slider .header-slider__item.custom-content .highlighted-text {
         align-items: flex-start;
         text-align: left;
@@ -346,5 +364,12 @@
     }
     .slider__progress-bar.wrapper-1245 {
         bottom: 64px;
+    }
+
+    /*Staff Display Page*/
+    .single-aigi_staff .header-slider__short-text p {
+        font-size: 15.78px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
     }
 }

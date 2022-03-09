@@ -270,6 +270,13 @@
     margin: 8px;
 }
 
+
+/*AIGI STAFF DISPLAY PAGE*/
+.post-details__heading.topics_of_expertise {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+}
 @media (max-width: 767px) {
     .subscribe-event-form {
         width: 100vw;
@@ -315,5 +322,12 @@
     }
     .modal .social-links__item {
         margin: 0 10px;
+    }
+
+    /*AIGI STAFF DISPLAY PAGE*/
+    .post-details__heading.topics_of_expertise {
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.3px;
     }
 }
