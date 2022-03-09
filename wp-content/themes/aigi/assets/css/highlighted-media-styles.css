@@ -73,6 +73,10 @@
     border-radius: 50%;
     margin-bottom: -13px;
     overflow: hidden;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .highlighted-img img {
     width: 100%;

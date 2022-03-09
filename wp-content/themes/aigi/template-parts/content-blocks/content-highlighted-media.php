@@ -118,8 +118,7 @@ if ($attributes['background']['bg_color_preset']) {
 
         <div class="highlighted-img__wrap">
             <?php if ($content['small_image']) : ?>
-                <div class="highlighted-img">
-                    <img src="<?php echo $content['small_image']['url']; ?>" alt="<?php echo $content['small_image']['title']; ?>">
+                <div class="highlighted-img" style="background-image: url(<?php echo $content['small_image']['url']; ?>);">
                 </div>
             <?php endif ?>
         </div>

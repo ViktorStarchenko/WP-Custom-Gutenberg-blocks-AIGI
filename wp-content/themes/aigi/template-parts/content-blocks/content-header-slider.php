@@ -284,8 +284,8 @@ if ($slider): ?>
 
                     <div class="highlighted-img__wrap">
                         <?php if ($small_image) : ?>
-                        <div class="highlighted-img">
-                            <img src="<?php echo $small_image['url']; ?>" alt="<?php echo $small_image['title']; ?>">
+                        <div class="highlighted-img" style="background-image: url(<?php echo $small_image['url']; ?>);">
+<!--                            <img src="--><?php //echo $small_image['url']; ?><!--" alt="--><?php //echo $small_image['title']; ?><!--">-->
                         </div>
                         <?php endif ?>
                     </div>

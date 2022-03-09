@@ -133,6 +133,10 @@
     border-radius: 50%;
     margin-bottom: -8px;
     overflow: hidden;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .header-slider .highlighted-img img {
     margin: unset;
