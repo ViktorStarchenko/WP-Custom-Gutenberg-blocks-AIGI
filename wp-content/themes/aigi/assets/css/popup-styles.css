@@ -170,7 +170,7 @@
         margin-left: unset;
     }
     .popup_content_wrapper {
-        padding: 20px;
+        padding: 20px 0 0;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -179,11 +179,11 @@
 
     /*author */
     .popup_content_wrapper.author {
-       padding: 60px 20px 20px;
+       padding: 60px 0 0 ;
    }
     .popup_content_wrapper.author .author__content {
         width: 100%;
-        padding: 32px 0;
+        padding: 32px 16px;
     }
 
 
