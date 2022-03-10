@@ -13,6 +13,10 @@
 .text_item.text-left {
     text-align: left;
 }
+.text_item.text-left li {
+    width: fit-content;
+    margin: 8px auto 8px 0;
+}
 .text_item.text-center {
     text-align: center;
 }
@@ -22,6 +26,10 @@
 }
 .text_item.text-right {
     text-align: right;
+}
+.text_item.text-right li {
+    width: fit-content;
+    margin: 8px 0 8px auto;
 }
 .header-block__content-item.image {
     width: 100%;
@@ -110,12 +118,36 @@
     }
 
 
-    .text_item.text-center li {
-        text-align: left;
-    }
+
 
     .header-block__content-item:not(:last-child) {
         margin-bottom: 16px;
+    }
+
+
+    .text_item.text-center li {
+        text-align: left;
+    }
+    .text_item.text-left-mob {
+        text-align: left;
+    }
+    .text_item.text-left-mob li {
+        width: fit-content;
+        margin: 8px auto 8px 0;
+    }
+    .text_item.text-center-mob {
+        text-align: center;
+    }
+    .text_item.text-center-mob li {
+        width: fit-content;
+        margin: 8px auto;
+    }
+    .text_item.text-right-mob {
+        text-align: right;
+    }
+    .text_item.text-right-mob li {
+        width: fit-content;
+        margin: 8px 0 8px auto;
     }
 
 }

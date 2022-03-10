@@ -95,11 +95,11 @@ if ($attributes['background']['bg_color_preset']) {
                 <?php if ($content) : ?>
                 <?php foreach ($content as $content_item) : ?>
                     <?php if ($content_item['content_type'] == 'text') : ?>
-                <div class="text_item <?php echo $content_item['type'] ?> <?php echo $content_item['alighnment']; ?>">
+                <div class="text_item <?php echo $content_item['type'] ?> <?php echo $content_item['alighnment']; ?>  <?php echo $content_item['alighnment_mobile']; ?>">
                     <?php echo $content_item['text'] ?>
                 </div>
                     <?php elseif ($content_item['content_type'] == 'image') : ?>
-                            <div class="header-block__content-item text_item image <?php echo $content_item['alighnment']; ?>">
+                            <div class="header-block__content-item text_item image <?php echo $content_item['alighnment']; ?> <?php echo $content_item['alighnment_mobile']; ?>">
                                 <img src="<?php echo $content_item['image']['url'] ?>" alt="<?php echo $content_item['image']['title'] ?>">
                             </div>
                     <?php endif ?>
