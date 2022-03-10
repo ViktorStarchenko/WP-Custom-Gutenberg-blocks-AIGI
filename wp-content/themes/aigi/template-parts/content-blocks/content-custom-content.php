@@ -246,6 +246,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    <div class="popup_content_footer"></div>
 
                                                         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
                                                         <script>

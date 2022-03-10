@@ -39,7 +39,7 @@
                                                     <div class="popup_content_wrapper author">
                                                         <div class="item_popup_content_inner">
                                                             <div class="popup_close_button"></div>
-                                                            <div class="social-share__wrapper modal">
+                                                            <div class="social-share__wrapper modal modal-content">
 
 
                                                                 <div class="partners_item_popup_header">
@@ -87,6 +87,7 @@
                                                                 </div>
 
                                                             </div>
+                                                            <div class="popup_content_footer"></div>
                                                         </div>
 
                                                     </div>

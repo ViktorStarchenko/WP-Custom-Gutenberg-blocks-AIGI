@@ -13,7 +13,7 @@
                 <div class="popup_content_wrapper threatment">
                     <div class="item_popup_content_inner">
                         <div class="popup_close_button"></div>
-                        <div class="social-share__wrapper modal p-m">
+                        <div class="social-share__wrapper modal modal-content p-m">
                             <div class="social-share__header">
                                 <div class="social-share__title">
                                     Share
@@ -23,6 +23,7 @@
                                 <?php echo do_shortcode('[Sassy_Social_Share]'); ?>
                             </div>
                         </div>
+                        <div class="popup_content_footer"></div>
                     </div>
                 </div>
             </div>

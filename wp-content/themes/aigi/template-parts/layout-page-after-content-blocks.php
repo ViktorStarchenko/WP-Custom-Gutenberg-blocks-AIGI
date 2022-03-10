@@ -183,6 +183,12 @@ if( have_rows('after_content_blocks') ): ?>
 
         <?php endif; // end get_row_layout (partners_tiles) if ?>
 
+        <?php if(get_row_layout() == 'scholarships_open'): ?>
+
+            <?php get_template_part('template-parts/content-blocks/content', 'scholarships-open'); ?>
+
+        <?php endif; // end get_row_layout (scholarships_open) if ?>
+
 
     <?php endwhile; // end have_rows while ?>
 

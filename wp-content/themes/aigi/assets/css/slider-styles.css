@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px 64px 64px;
+    padding: 24px 64px;
 }
 .gallery-inner {
     width: 100%;
@@ -100,7 +100,7 @@
 }
 @media (max-width: 1024px) {
     .gallery-wrapper {
-        padding: 24px 16px 64px;
+        padding: 24px 16px;
     }
     .gallery-for__img {
         height: 320px;

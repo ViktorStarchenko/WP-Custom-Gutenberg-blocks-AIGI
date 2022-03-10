@@ -1237,6 +1237,10 @@ body .gform_footer::after {
     top: 30px;
 }
 
+body .gfieldset ul {
+    padding: 0;
+}
+
 /* Contact us form */
 .contact-us__form-wrapper input[type="submit"].gform_button {
     color: #FFFFFF;

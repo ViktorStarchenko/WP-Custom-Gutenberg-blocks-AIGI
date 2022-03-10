@@ -1,3 +1,6 @@
+.partners-block-section {
+    padding: 64px 32px 64px 64px;
+}
 .partners_item {
     width: 270px;
     height: 133px;
@@ -52,6 +55,7 @@
     margin: 20px;
     border-radius: 5px;
     max-height: 90%;
+    overflow: auto;
 }
 
 .partners_item_popup_overlay {

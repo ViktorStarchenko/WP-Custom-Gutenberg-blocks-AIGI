@@ -50,17 +50,22 @@
     background: white;
     z-index: 10000000000000000000000000000000000000000000000000001;
     /*max-width: 1130px;*/
-    padding: 60px;
+    padding: 60px 0 0;
     margin: 20px;
     /*border-radius: 5px;*/
     max-height: 90%;
-
+    overflow-y: auto;
+    overflow-x: hidden;
     /*padding: 60px 0 0;*/
     /*min-width: 800px;*/
 
     position: relative;
 }
-.popup_content_wrapper:before {
+
+.popup_content_wrapper.w-1016 {
+    max-width: 1016px;
+}
+.item_popup_wrapper:before {
     content: '';
     width: 100%;
     height: 50px;
@@ -99,16 +104,39 @@
     height: 100%;
 }
 
+.modal-content {
+    max-width: 558px;
+    margin: auto;
+}
+
 .popup_content_footer {
     width: 100%;
     height: 50px;
     margin-bottom: 6px;
     background-color: #000;
+    /*background-image: url(/wp-content/themes/aigi/assets/images/group.svg);*/
+    position: relative;
+}
+.popup_content_footer img {
+    display: none;
+}
+.popup_content_footer:before {
+    content: '';
+    width: 100%;
+    height: 100%;
     background-image: url(/wp-content/themes/aigi/assets/images/group.svg);
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    position: absolute;
 }
 
 
 
+/*Scholarship*/
+.scholarship-open__wrapper.modal-content {
+    max-width: 786px;
+}
 /*Gallery*/
 .popup_content_wrapper.gallery {
     padding: 0;
@@ -143,7 +171,7 @@
     }
     .popup_content_wrapper {
         padding: 20px;
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
     }
 
