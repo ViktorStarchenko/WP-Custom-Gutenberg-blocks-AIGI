@@ -333,6 +333,7 @@
         text-align: center;
     }
     .single-aigi_staff .header-slider .header-slider__item.custom-content .highlighted-text {
+        width: 100%;
         align-items: flex-start;
         text-align: left;
     }
