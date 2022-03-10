@@ -110,7 +110,9 @@
     }
 
 
-
+    .text_item.text-center li {
+        text-align: left;
+    }
 
     .header-block__content-item:not(:last-child) {
         margin-bottom: 16px;

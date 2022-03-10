@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-content: flex-start;
 }
-.media-enabled .text-media__content-column  {
+.media-enabled .text-media__content-column.text  {
     min-height: 339px;
 }
 .text-media__content-column.start {
@@ -179,6 +179,9 @@
     .text-media__content-column {
         min-height: 280px;
     }
+    .media-enabled .text-media__content-column.text {
+        min-height: 280px;
+    }
     .text-media__text-wrapper {
         padding-right: 32px;
         padding-left: 32px;
@@ -191,19 +194,48 @@
     .text-media__content {
         flex-direction: column;
     }
-    .text-media__content.reverse {
+    .text-media__content.normal-mob {
+        flex-direction: column;
+    }
+    .text-media__content.reverse-mob {
         flex-direction: column-reverse;
     }
     .text-media__text-wrapper {
         padding-right: 0px;
         padding-left: 0;
+    }
+
+    /*.text-media__content.reverse .text-media__text-wrapper {*/
+    /*    padding: 0;*/
+    /*    margin-bottom: 0px;*/
+    /*}*/
+    .media-enabled .text-media__content-column.text {
+        min-height: 150px;
+    }
+    .text-media__media {
+        height: 190px;
+    }
+
+
+    .text-media__content.reverse .text-media__media-wrapper,
+    .text-media__content.normal .text-media__media-wrapper,
+    .text-media__content.noraml-mob .text-media__media-wrapper,
+    .text-media__content.reverse-mob .text-media__media-wrapper
+    .text-media__content.reverse .text-media__text-wrapper,
+    .text-media__content.normal .text-media__text-wrapper,
+    .text-media__content.noraml-mob .text-media__text-wrapper,
+    .text-media__content.reverse-mob .text-media__text-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .text-media__content.reverse-mob .text-media__media-wrapper {
+        padding-right: 0px;
+        padding-left: 0;
         margin-bottom: 32px;
     }
-    .text-media__content.reverse .text-media__text-wrapper {
-        padding: 0;
-        margin-bottom: 0px;
-    }
-    .text-media__content.reverse .text-media__media-wrapper {
+
+    .text-media__content.normal-mob .text-media__text-wrapper {
         padding-right: 0px;
         padding-left: 0;
         margin-bottom: 32px;
@@ -258,7 +290,7 @@
         height: 203px;
     }
     .text-media__content-column {
-        min-height: unset;
+        min-height: 150px;
         width: 100%;
     }
     .text-media__content .btn-group .btn-body {

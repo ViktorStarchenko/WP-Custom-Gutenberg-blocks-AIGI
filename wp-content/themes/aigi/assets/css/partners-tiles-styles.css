@@ -5,6 +5,12 @@
 .partners-tiles__section .rslider__header {
     align-items: center;
 }
+.partners-tiles__section .rslider__heading {
+    font-size: 30.35px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
 .partners-tiles__list {
     margin-top: unset;
     display: grid;
@@ -60,6 +66,12 @@
 @media (max-width: 767px) {
     .partners-tiles__section {
         padding: 40px 0;
+    }
+    .partners-tiles__section .rslider__heading {
+        font-size: 22.47px;
+        line-height: 27px;
+        text-align: center;
+        letter-spacing: 0.02em;
     }
     .partners-tiles__list {
         grid-template-columns: repeat(1, 343px);
