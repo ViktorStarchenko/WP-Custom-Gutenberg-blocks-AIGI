@@ -42,8 +42,6 @@ if ($attributes['outter_padding']['padding_top']) {
 if ($attributes['outter_padding']['padding_bottom']) {
     $outter_padding .= ' ' . $attributes['outter_padding']['padding_bottom'] . ' ';
 }
-
-
 ?>
 
 <?php
