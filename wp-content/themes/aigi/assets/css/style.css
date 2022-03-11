@@ -32,6 +32,7 @@
 @import 'vacancies-block-styles.css';
 @import 'team-block-styles.css';
 @import 'partners-tiles-styles.css';
+@import 'scholarship-open-styles.css';
 
 
 
@@ -220,7 +221,7 @@ li:before {
 }
 .rounded-list li:before {
     border-radius: 50%;
-    background-color: #4D4D4D;
+    background-color: var(--color-main-text);
     background-image: unset;
     top: 9px;
     width: 4px;
@@ -315,7 +316,7 @@ strong {
 
 .variety-section .text_item.medium-text,
 .variety-section .text_item.medium-text p {
-    color: #4D4D4D;
+    color: var(--color-main-text);
 }
 
 .text_item.big-heading,
@@ -1117,17 +1118,23 @@ strong {
 .w50 {
     width: calc(50% - 9px);
 }
-.gfield textarea,
-.gfield input[type="text"],
-.gfield input[type="button"],
-.gfield input[type="email"],
-.gfield input[type="tel"],
-.gfield input[type="submit"],
-.gfield input[type="reset"],
-.gfield input[type="search"],
-.gfield input[type="password"] {
+body .gfield textarea,
+body .gfield input[type="text"],
+body .gfield input[type="button"],
+body .gfield input[type="email"],
+body .gfield input[type="tel"],
+body .gfield input[type="submit"],
+body .gfield input[type="reset"],
+body .gfield input[type="search"],
+body .gfield input[type="password"] {
     height: 48px;
     background-color: #fff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px!important;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
 }
 .gfield textarea:focus,
 .gfield input[type="text"]:focus,
@@ -1239,6 +1246,35 @@ body .gform_footer::after {
 
 body .gfieldset ul {
     padding: 0;
+}
+
+body .gform_wrapper.gravity-theme .ginput_container_date input {
+    width: 100%;
+}
+body .gform_wrapper.gravity-theme .ginput_container_date {
+    position: relative;
+}
+body .gform_wrapper.gravity-theme .ginput_container_date:before {
+    content: 'DD/MM/YYYY';
+    position: absolute;
+    right: 10px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
+}
+
+body .gfieldset-legend {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 16px;
 }
 
 /* Contact us form */

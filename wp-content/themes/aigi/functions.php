@@ -164,7 +164,7 @@ include 'lib/author-post-type.php';
 include 'lib/acf.php';
 include 'lib/post-views-counter.php';
 include 'lib/custom-facetwp.php';
-include 'lib/gf-minimum-characters.php';
+include 'lib/gf.php';
 
 function custom_wp_custom_admin_scripts() {
     wp_enqueue_style('admin-styles', get_theme_file_uri() . '/assets/css/admin-styles.css');
@@ -311,4 +311,6 @@ function custom_load_font_awesome() {
     wp_enqueue_style( 'font-awesome-free', '//use.fontawesome.com/releases/v5.2.0/css/all.css' );
 
 }
+
+
 
