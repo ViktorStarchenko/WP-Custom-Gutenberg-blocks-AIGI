@@ -164,3 +164,16 @@ if ($attributes['background']['bg_color_preset']) {
 
 <?php wp_reset_postdata(); ?>
 
+<script>
+
+    jQuery( window ).on('load resize', function() {
+        if (jQuery(window).width() > 768) {
+            jQuery('.scholarship-open__wrapper .gform_button').val('Start your application today');
+        } else {
+            jQuery('.scholarship-open__wrapper .gform_button').val('Start your application');
+        }
+
+    })
+
+</script>
+
