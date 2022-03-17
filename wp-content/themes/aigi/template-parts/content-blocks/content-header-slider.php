@@ -155,7 +155,9 @@ if ($slider): ?>
                 if ($data['category_slider']['background']['image_credit']) {
                     $image_credit = $data['category_slider']['background']['image_credit'];
                 }
-
+                if($data['category_slider']['slider_button']){
+                    $check_button = $data['category_slider']['slider_button'];
+                }
 
                 $title = $post->post_title;
                 $short_text = get_the_excerpt($post);
@@ -218,13 +220,15 @@ if ($slider): ?>
                         <?php endif ?>
 
                         <?php if ($data['header_type'] == 'category_slider') : ?>
-                            <div class="btn-group f-start m-center">
+                            <?php if($check_button) :?>
+                                <div class="btn-group f-start m-center">
 
-                                <a href="<?php echo get_the_permalink($post->ID) ;?>" class="btn-body btn-body btn-m-blue Between ">
-                                    <span class="btn-inner">Read More</span>
-                                </a>
+                                    <a href="<?php echo get_the_permalink($post->ID) ;?>" class="btn-body btn-body btn-m-blue Between ">
+                                        <span class="btn-inner">Read More</span>
+                                    </a>
 
-                            </div>
+                                </div>
+                            <?php endif ?>
                         <?php endif ?>
 
                         <?php if ($button_group) : ?>
@@ -304,5 +308,3 @@ if ($slider): ?>
 </div>
 <?php endif ?>
 <?php wp_reset_postdata(); ?>
-
-
