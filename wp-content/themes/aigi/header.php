@@ -9,6 +9,7 @@
    if ( is_single() ) {
 //       gt_set_post_view();
    }
+
    $bg_color_preset = '';
    if (get_field('bg_color_preset')) {
        $bg_color_preset =  get_field('bg_color_preset');
@@ -77,6 +78,49 @@
                      </a>
                   </div>
                </div>
+
+
+                <div id="mobile_login-menu" class="mobile_login-menu">
+                    <?php if (is_user_logged_in()) : ?>
+                        <?php  $current_user = wp_get_current_user();
+
+                        if( $current_user->exists() ){ ?>
+
+                            <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['logged'])) : ?>
+
+                                <?php foreach($bottom_menu['header_bottom_menu_right_copy']['logged'] as $item) : ?>
+                                    <div class="main_menu_item">
+                                        <div class="main_menu_icon">
+                                            <?php if (!empty($item['icon'])) : ?>
+                                                <img class="header_bottom_menu_icon" src="<?= $item['icon']['url'] ?>" alt="<?= $item['link']['title'] ?>">
+                                            <?php endif; ?>
+                                        </div>
+
+                                        <a class="main_menu_top" href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
+                                    </div>
+                                <?php endforeach; endif; ?>
+
+                        <?php  } ?>
+
+                    <?php else : ?>
+
+                        <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['unlogged'])) :
+                            foreach($bottom_menu['header_bottom_menu_right_copy']['unlogged'] as $item) : ?>
+                                <div class="main_menu_item">
+                                    <div class="main_menu_icon">
+                                        <?php if (!empty($item['icon'])) : ?>
+                                            <img class="header_bottom_menu_icon" src="<?= $item['icon']['url'] ?>" alt="<?= $item['link']['title'] ?>">
+                                        <?php endif; ?>
+                                    </div>
+                                    <a class="main_menu_top" href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
+                                </div>
+                            <?php endforeach; endif; ?>
+
+
+                    <?php endif ?>
+                </div>
+
+
                <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
                   <?php if (!empty($main_menu)) : ?>
                   <?php foreach($main_menu as $item) : ?>
@@ -154,15 +198,48 @@
                    </div>
                </div>
                <div class="header_bottom_menu" id="header_login_menu">
-                  <?php if (!empty($bottom_menu['header_bottom_menu_right'])) : 
-                     foreach($bottom_menu['header_bottom_menu_right'] as $item) : ?>
-                  <div class="header_bottom_menu_item">
-                     <?php if (!empty($item['icon'])) : ?>
-                     <img class="header_bottom_menu_icon" src="<?= $item['icon']['url'] ?>" alt="<?= $item['link']['title'] ?>">
-                     <?php endif; ?>
-                     <a class="header_bottom_link" href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
-                  </div>
-                  <?php endforeach; endif; ?>
+<!--                  --><?php //if (!empty($bottom_menu['header_bottom_menu_right'])) :
+//                     foreach($bottom_menu['header_bottom_menu_right'] as $item) : ?>
+<!--                  <div class="header_bottom_menu_item">-->
+<!--                     --><?php //if (!empty($item['icon'])) : ?>
+<!--                     <img class="header_bottom_menu_icon" src="--><?//= $item['icon']['url'] ?><!--" alt="--><?//= $item['link']['title'] ?><!--">-->
+<!--                     --><?php //endif; ?>
+<!--                     <a class="header_bottom_link" href="--><?//= $item['link']['url'] ?><!--">--><?//= $item['link']['title'] ?><!--</a>-->
+<!--                  </div>-->
+<!--                  --><?php //endforeach; endif; ?>
+
+                   <?php if (is_user_logged_in()) : ?>
+                       <?php  $current_user = wp_get_current_user();
+
+                       if( $current_user->exists() ){ ?>
+
+                     <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['logged'])) : ?>
+
+                     <?php foreach($bottom_menu['header_bottom_menu_right_copy']['logged'] as $item) : ?>
+                         <div class="header_bottom_menu_item">
+                            <?php if (!empty($item['icon'])) : ?>
+                            <img class="header_bottom_menu_icon" src="<?= $item['icon']['url'] ?>" alt="<?= $item['link']['title'] ?>">
+                            <?php endif; ?>
+                            <a class="header_bottom_link" href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
+                         </div>
+                     <?php endforeach; endif; ?>
+
+                       <?php  } ?>
+
+                   <?php else : ?>
+
+                       <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['unlogged'])) :
+                           foreach($bottom_menu['header_bottom_menu_right_copy']['unlogged'] as $item) : ?>
+                               <div class="header_bottom_menu_item">
+                                   <?php if (!empty($item['icon'])) : ?>
+                                       <img class="header_bottom_menu_icon" src="<?= $item['icon']['url'] ?>" alt="<?= $item['link']['title'] ?>">
+                                   <?php endif; ?>
+                                   <a class="header_bottom_link" href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
+                               </div>
+                           <?php endforeach; endif; ?>
+
+
+                   <?php endif ?>
                </div>
             </div>
          </div>

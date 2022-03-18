@@ -1,0 +1,290 @@
+.login-page__wrapper {
+    height: 100vh;
+    /*max-height: 850px;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.login-page__bg-block {
+    width: 100%;
+    position: relative;
+}
+.login-page__bg-block.bg-texture.hero:before {
+    background-image: url(/wp-content/themes/aigi/assets/images/art-login.svg);
+}
+.login-page__form-header {
+    width: 100%;
+    max-width: 354px;
+    margin: 0 auto 16px;
+}
+.login-page__form-heading {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.44px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    color: var(--color-h-primary-blue);
+    margin-bottom: 16px;
+}
+.login-page__form-description {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: #636363;
+}
+
+.login-page__form-block {
+    width: 100%;
+    max-width: 513px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.login-page__form {
+    width: 100%;
+    max-width: 354px;
+
+}
+
+.login-page__image {
+    width: 271px;
+    height: 271px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 10;
+}
+.login-page__image.image1 {
+    top: 15%;
+    left: 11%;
+}
+.login-page__image.image2 {
+    right: 8%;
+    top: 21%;
+}
+.login-page__image.image3 {
+    bottom: 15%;
+    left: 33%;
+}
+body .um-form-field:before {
+    content: '*';
+
+}
+@media (max-width: 1300px) {
+    .login-page__form-block {
+        max-width: 445px;
+    }
+    .login-page__form {
+        margin: 0 auto;
+    }
+    .login-page__form-block {
+        padding: 48px 16px;
+    }
+    .login-page__image {
+        width: 227px;
+        height: 227px;
+    }
+}
+
+
+
+/*USer Member Form */
+body .um .um-form input[type=text],
+body .um .um-form input[type=search],
+body .um .um-form input[type=tel],
+body .um .um-form input[type=number],
+body .um .um-form input[type=password],
+body .um .um-form textarea,
+body .um .upload-progress,
+body .select2-container .select2-choice,
+body .select2-drop,
+body .select2-container-multi .select2-choices,
+body .select2-drop-active,
+body .select2-drop.select2-drop-above {
+    height: 50px!important;
+    border: 1px solid var(--color-field-border)!important;
+    box-sizing: border-box!important;
+    border-radius: 5px;
+
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
+}
+body .login-page__form .um-col-alt {
+    width: 100%;
+}
+body .login-page__form .um-col-alt .um-half {
+    width: 100%;
+    margin-bottom: 12px;
+}
+body .login-page__form .um-col-alt-b {
+    padding-top: 0;
+}
+body .login-page__form .um input[type=submit].um-button {
+    width: 100%!important;
+    background: #0762A4;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 800!important;
+    font-size: 15px;
+    line-height: 14px!important;
+    /* identical to box height, or 93% */
+
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase!important;
+
+    /* Grayscale / 06-White */
+
+    color: #FFFFFF;
+}
+
+body .um-field-block {
+    display: none;
+}
+body .um-field-label {
+    display: none;
+}
+body .um-field {
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+/*Login page*/
+body .login-page__wrapper.login .um-field-password {
+    position: relative;
+}
+body .login-page__wrapper.login .um-link-alt {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline;
+    color: var(--color-brand-m-blue-primary) !important;
+}
+body .login-page__wrapper.login .um-right.um-half .um-button {
+    font-style: normal;
+    font-weight: 700!important;
+    font-size: 15px!important;
+    line-height: 18px!important;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline!important;
+    color: var(--color-brand-m-blue-primary) !important;
+    background: no-repeat;
+    border: none!important;
+    box-shadow: unset;
+    padding: 8px 20px !important;
+}
+
+/*Registration*/
+body .login-page__wrapper.registration .um-right.um-half .um-button {
+    font-style: normal;
+    font-weight: 700!important;
+    font-size: 15px!important;
+    line-height: 18px!important;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline!important;
+    color: var(--color-brand-m-blue-primary) !important;
+    background: no-repeat;
+    border: none!important;
+    box-shadow: unset;
+    padding: 8px 20px !important;
+}
+
+/*Password*/
+.return-to-login {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline;
+    color: var(--color-brand-m-blue-primary);
+    text-decoration: none;
+    position: relative;
+}
+.return-to-login:before {
+    content: '';
+    background-image: url('/wp-content/themes/aigi/assets/images/path-prev-blue.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 9px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+
+@media (max-width: 992px) {
+    .login-page__image {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin: 32px;
+    }
+    .login-page__image.image1,
+    .login-page__image.image2,
+    .login-page__image.image3 {
+        top: unset;
+        left: unset;
+        right: unset;
+        bottom: unset;
+    }
+
+
+}
+@media (max-width: 767px) {
+    .login-page__image {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 520px) {
+    .login-page__wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .login-page__bg-block {
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 16px;
+    }
+    .login-page__form-block {
+        padding: 64px 16px;
+    }
+    .login-page__image.image1,
+    .login-page__image.image3 {
+        display: none;
+    }
+    .login-page__image.image2 {
+        margin: 0;
+    }
+}

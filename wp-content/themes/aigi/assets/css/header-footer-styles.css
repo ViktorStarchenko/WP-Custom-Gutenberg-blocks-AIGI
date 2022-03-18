@@ -442,9 +442,41 @@ p.image_description {
 	letter-spacing: 0.05em;
 }
 
-
-
-
+/*Mobile login menu*/
+.mobile_login-menu {
+	position: absolute;
+	width: 100%;
+	margin: unset;
+	background: var(--color-brand-navy-primary);;
+	margin-left: -16px;
+	height: calc(100% - 172px);
+	bottom: 50px;
+	overflow-y: scroll;
+	z-index: 999;
+	display: none;
+}
+.mobile_login-menu.menu_mobile_visible {
+	display: block;
+}
+.mobile_login-menu .main_menu_icon {
+	width: 40px;
+}
+.mobile_login-menu .main_menu_item {
+	display: flex;
+}
+.mobile_login-menu a {
+	font-weight: 700;
+	font-size: 13.33px;
+	text-transform: uppercase;
+	padding: 0;
+	position: relative;
+}
+#mobile_user_icon.burger_opened {
+	background: url(/wp-content/themes/aigi/assets/images/close.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
  @media (min-width: 1350px) {
 	.submenu_items_wrapper .submenu_item_blocks_wrapper .submenu_item_block:nth-child(-n+4) {
 		border-bottom: 1px solid #DFDFDF;
