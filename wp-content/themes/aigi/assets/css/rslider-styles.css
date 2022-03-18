@@ -28,6 +28,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 .rslider__header-top {
     width: 100%;
@@ -269,10 +270,10 @@
 }
 @media (max-width: 1300px) {
     .rslider__item {
-         width: 100%;
-         /*max-width: 343px;*/
-         margin: auto;
-     }
+        width: 100%;
+        /*max-width: 343px;*/
+        margin: auto;
+    }
 }
 @media (max-width: 1024px) {
     .rslider_nav {
@@ -347,6 +348,9 @@
     }
     .rslider__speakers-item .rslider__item-footer {
         padding: 10px 16px 32px 16px;
+    }
+    .rslider__header{
+        margin-bottom: 0;
     }
 
 }
