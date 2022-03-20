@@ -1,5 +1,5 @@
 .login-page__wrapper {
-    height: 100vh;
+    min-height: 100vh;
     /*max-height: 850px;*/
     display: flex;
     flex-direction: row;
@@ -226,6 +226,7 @@ body .login-page__wrapper.registration .um-right.um-half .um-button {
     color: var(--color-brand-m-blue-primary);
     text-decoration: none;
     position: relative;
+    display: none;
 }
 .return-to-login:before {
     content: '';
@@ -237,7 +238,9 @@ body .login-page__wrapper.registration .um-right.um-half .um-button {
     margin-right: 8px;
     display: inline-block;
 }
-
+.login-page__wrapper.reset-password .return-to-login {
+    display: inline-block;
+}
 
 @media (max-width: 992px) {
     .login-page__image {
