@@ -14,6 +14,10 @@ if ($post_type == 'event') {
     $event_group = get_field('landing_page')['event_term'];
     $event_group = $event_group->slug;
 }
+if ($post_type == 'news') {
+    $news_group = get_field('landing_page')['news_term'];
+    $news_group = $news_group->slug;
+}
 ?>
 <main id="content" role="main">
     <!--    <div class="section">-->
@@ -37,8 +41,8 @@ if ($post_type == 'event') {
 
 
             <div class="wrapper-1245">
-
-                <div class="landing__filter-block <?php echo $post_type; ?>" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>">
+<?php var_dump($news_group); ?>
+                <div class="landing__filter-block <?php echo $post_type; ?>" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>" data-news-group="<?php echo (isset($news_group)) ? $news_group : '' ?>">
                         <div class="landing__filter-inner">
                             <div class="landing__filter-header">
                                 <div class="filter-button">
@@ -61,12 +65,24 @@ if ($post_type == 'event') {
                                     <div class="landing__filter-title">post type</div>
                                     <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="post_type"]'); ?></div>
                                 </div>
+
+
                                 <?php if (get_field('landing_page')['post_type'] == 'event') : ?>
+                                    <!--Add Enents group-->
                                 <div class="landing__filter-item post-type">
                                     <div class="landing__filter-title">event group</div>
                                     <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="events_group"]'); ?></div>
                                 </div>
                                 <?php endif ?>
+
+                                <?php if (get_field('landing_page')['post_type'] == 'news') : ?>
+                                    <!--Add News group-->
+                                <div class="landing__filter-item post-type">
+                                    <div class="landing__filter-title">news group</div>
+                                    <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="news_group"]'); ?></div>
+                                </div>
+                                <?php endif ?>
+
                                 <?php if (get_field('landing_page')['filter_item']) : ?>
                                 <?php foreach (get_field('landing_page')['filter_item'] as $filter_item) : ?>
                                 <div class="landing__filter-item <?php echo $filter_item['filter_name']; ?>">
@@ -114,28 +130,35 @@ if ($post_type == 'event') {
     </div>
 
 </main>
-    <script>
-        jQuery(document).ready(function(){
-            let post_type = jQuery('.landing__filter-block').attr('data-post-type');
-            let url = new URL(window.location.href);
-            if (url.searchParams.get('_post_type') != post_type) {
-                // setTimeout(selectPostType, 500, post_type);
-            }
-            function selectPostType(post_type) {
-                console.log('selectPostType')
-
-                jQuery('.facetwp-checkbox[data-value="'+post_type+'"]').click();
-                if (post_type == 'event') {
-
-                    let event_group = jQuery('.landing__filter-block').attr('data-event-group');
-
-                    setTimeout(function(){
-                        jQuery('.facetwp-facet-events_group .facetwp-radio[data-value="'+event_group+'"]').click();
-                    }, 200, event_group);
-                }
-            }
-
-        })
-
-    </script>
+<!--    <script>-->
+<!--        jQuery(document).ready(function(){-->
+<!--            let post_type = jQuery('.landing__filter-block').attr('data-post-type');-->
+<!--            let url = new URL(window.location.href);-->
+<!--            if (url.searchParams.get('_post_type') != post_type) {-->
+<!--            }-->
+<!--            function selectPostType(post_type) {-->
+<!--                console.log('selectPostType')-->
+<!---->
+<!--                jQuery('.facetwp-checkbox[data-value="'+post_type+'"]').click();-->
+<!--                if (post_type == 'event') {-->
+<!---->
+<!--                    let event_group = jQuery('.landing__filter-block').attr('data-event-group');-->
+<!---->
+<!--                    setTimeout(function(){-->
+<!--                        jQuery('.facetwp-facet-events_group .facetwp-radio[data-value="'+event_group+'"]').click();-->
+<!--                    }, 200, event_group);-->
+<!--                }-->
+<!--                if (post_type == 'news') {-->
+<!---->
+<!--                    let news_group = jQuery('.landing__filter-block').attr('data-news-group');-->
+<!---->
+<!--                    setTimeout(function(){-->
+<!--                        jQuery('.facetwp-facet-news_group .facetwp-radio[data-value="'+news_group+'"]').click();-->
+<!--                    }, 200, news_group);-->
+<!--                }-->
+<!--            }-->
+<!---->
+<!--        })-->
+<!---->
+<!--    </script>-->
 <?php get_footer(); ?>

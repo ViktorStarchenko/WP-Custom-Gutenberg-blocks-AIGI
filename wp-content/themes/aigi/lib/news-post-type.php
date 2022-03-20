@@ -126,3 +126,43 @@ function register_taxonomy_content_tags() {
 }
 
 
+add_action( 'init', 'register_taxonomy_news_group' );
+
+function register_taxonomy_news_group() {
+
+    $labels = array(
+        'name' => _x( 'News Group', 'news_group' ),
+        'singular_name' => _x( 'News Group', 'news_group' ),
+        'search_items' => _x( 'Search News Group', 'news_group' ),
+        'popular_items' => _x( 'Popular News Group', 'news_group' ),
+        'all_items' => _x( 'All News Group', 'news_group' ),
+        'parent_item' => _x( 'Parent News Group', 'news_group' ),
+        'parent_item_colon' => _x( 'Parent News Group:', 'news_group' ),
+        'edit_item' => _x( 'Edit News Group', 'news_group' ),
+        'update_item' => _x( 'Update News Group', 'news_group' ),
+        'add_new_item' => _x( 'Add New News Group', 'news_group' ),
+        'new_item_name' => _x( 'New News Group Name', 'news_group' ),
+        'separate_items_with_commas' => _x( 'Separate News Group types with commas', 'news_group' ),
+        'add_or_remove_items' => _x( 'Add or remove News Group', 'news_group' ),
+        'choose_from_most_used' => _x( 'Choose from the most used News Group', 'news_group' ),
+        'menu_name' => _x( 'News Group', 'news_group' ),
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_in_nav_menus' => true,
+        'show_ui' => true,
+        'show_tagcloud' => true,
+        'hierarchical' => true,
+        'show_in_quick_edit' => true,
+        'show_admin_column' => true,
+        'rewrite' => array( 'slug' => 'news_group' ),
+        'query_var' => true
+    );
+
+    register_taxonomy( 'news_group', array('news'), $args );
+
+}
+
+
