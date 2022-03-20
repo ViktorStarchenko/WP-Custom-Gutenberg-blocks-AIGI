@@ -10,13 +10,21 @@
 
 <?php
 $post_type = get_field('landing_page')['post_type'];
+$event_group = '';
 if ($post_type == 'event') {
-    $event_group = get_field('landing_page')['event_term'];
-    $event_group = $event_group->slug;
+    if (get_field('landing_page')['event_term']) {
+        $event_group = get_field('landing_page')['event_term'];
+        $event_group = $event_group->slug;
+    }
+
 }
+$news_group = '';
 if ($post_type == 'news') {
-    $news_group = get_field('landing_page')['news_term'];
-    $news_group = $news_group->slug;
+    if (get_field('landing_page')['news_term']) {
+        $news_group = get_field('landing_page')['news_term'];
+        $news_group = $news_group->slug;
+    }
+
 }
 ?>
 <main id="content" role="main">
@@ -41,7 +49,6 @@ if ($post_type == 'news') {
 
 
             <div class="wrapper-1245">
-<?php var_dump($news_group); ?>
                 <div class="landing__filter-block <?php echo $post_type; ?>" id="" data-post-type="<?php echo $post_type; ?>" data-event-group="<?php echo (isset($event_group)) ? $event_group : '' ?>" data-news-group="<?php echo (isset($news_group)) ? $news_group : '' ?>">
                         <div class="landing__filter-inner">
                             <div class="landing__filter-header">
