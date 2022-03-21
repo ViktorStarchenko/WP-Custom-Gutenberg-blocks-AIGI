@@ -220,7 +220,7 @@ if ($slider): ?>
                         <?php endif ?>
 
                         <?php if ($data['header_type'] == 'category_slider') : ?>
-                            <?php if($check_button) :?>
+                            <?php if($data['category_slider']['slider_button']) :?>
                                 <div class="btn-group f-start m-center">
 
                                     <a href="<?php echo get_the_permalink($post->ID) ;?>" class="btn-body btn-body btn-m-blue Between ">
