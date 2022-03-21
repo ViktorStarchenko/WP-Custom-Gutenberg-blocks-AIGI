@@ -126,6 +126,7 @@ if ($slider): ?>
                 $terms = NULL;
                 $enable_overlay = false;
                 $tags = '';
+                $add_ellipsis = true;
                 if ($data['category_slider']['background']['background_image']) {
                     $classes.= ' bg-image ';
                 }
@@ -158,6 +159,8 @@ if ($slider): ?>
                 if($data['category_slider']['slider_button']){
                     $check_button = $data['category_slider']['slider_button'];
                 }
+
+                $add_ellipsis = $slide['content']['add_ellipsis'];
 
                 $title = $post->post_title;
                 $short_text = get_the_excerpt($post);
