@@ -126,6 +126,7 @@ if ($slider): ?>
                 $terms = NULL;
                 $enable_overlay = false;
                 $tags = '';
+                $add_ellipsis = true;
                 if ($data['category_slider']['background']['background_image']) {
                     $classes.= ' bg-image ';
                 }
