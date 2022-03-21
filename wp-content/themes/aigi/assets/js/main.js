@@ -256,6 +256,15 @@ jQuery(window).on("load resize", function() {
             jQuery(this).parents(".submenu_opened").removeClass("submenu_opened").addClass("has_sub_mobile");
             jQuery(this).closest(".main_menu_submenu_overlay").hide();
         })
+
+        // Login menu
+        jQuery("#mobile_user_icon").click(function() {
+            jQuery("#mobile_login-menu").toggleClass("menu_mobile_visible");
+            jQuery(this).toggleClass("burger_opened");
+            jQuery("body").toggleClass("fixed-position");
+        });
+
+
     } else {
 
         jQuery(".main_menu_item.has_sub").hover(function() {

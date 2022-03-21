@@ -33,6 +33,7 @@
 @import 'team-block-styles.css';
 @import 'partners-tiles-styles.css';
 @import 'scholarship-open-styles.css';
+@import 'login-page-styles.css';
 
 
 
@@ -1311,7 +1312,6 @@ body .gfieldset-legend {
         max-width: 100%;
     }
 }
-
 
 /*Contact Form 7*/
 body .gform_fields {

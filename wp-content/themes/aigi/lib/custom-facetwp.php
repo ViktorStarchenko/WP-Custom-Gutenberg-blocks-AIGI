@@ -44,13 +44,21 @@ if (!is_admin()) {
 
             if ( $post_type == 'event' ) {
                 $event_group = get_field('landing_page', $post->ID)['event_term'];
-
-                $url_vars['events_group'] = [$event_group->slug];
+                if (!empty($event_group)) {
+                    $url_vars['events_group'] = [$event_group->slug];
+                }
 
                 if ( empty( $url_vars['landing_event_type'] ) ) {
 //                    $url_vars['landing_event_type'] = [ 'past-events' ];
 //                    $url_vars['landing_event_type'] = [ 'upcoming-events' ];
                 }
+            } else if ( $post_type == 'news' ) {
+                $news_group = get_field('landing_page', $post->ID)['news_term'];
+                if (!empty($news_group)) {
+                    $url_vars['news_group'] = [$news_group->slug];
+                }
+
+
             }
             return $url_vars;
 

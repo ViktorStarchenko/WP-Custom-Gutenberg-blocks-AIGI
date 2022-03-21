@@ -27,7 +27,9 @@
 }
 
 .scholarship-open__section .form-heading {
-    margin-bottom: 16px;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 44px;
+    margin-bottom: 44px;
 }
 .scholarship-open__section .form-title {
     font-style: normal;
@@ -43,9 +45,18 @@
     letter-spacing: 0.05em;
 }
 
+.gform_ajax_spinner {
+    width: 16px!important;
+    height: 16px!important;
+}
+
 @media (max-width: 767px) {
     .scholarship-open__section {
         padding: 40px 0;
+    }
+    .scholarship-open__section .form-heading {
+        padding-bottom: 22px;
+        margin-bottom: 22px;
     }
     .scholarship-open__section .form-title {
         font-size: 28px;
