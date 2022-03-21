@@ -126,6 +126,7 @@ if ($slider): ?>
                 $terms = NULL;
                 $enable_overlay = false;
                 $tags = '';
+                $check_button = '';
                 if ($data['category_slider']['background']['background_image']) {
                     $classes.= ' bg-image ';
                 }
@@ -220,7 +221,7 @@ if ($slider): ?>
                         <?php endif ?>
 
                         <?php if ($data['header_type'] == 'category_slider') : ?>
-                            <?php if($data['category_slider']['slider_button']) :?>
+                            <?php if($check_button) :?>
                                 <div class="btn-group f-start m-center">
 
                                     <a href="<?php echo get_the_permalink($post->ID) ;?>" class="btn-body btn-body btn-m-blue Between ">
