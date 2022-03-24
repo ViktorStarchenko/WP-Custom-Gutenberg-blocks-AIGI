@@ -116,6 +116,9 @@
 .post-tile__location {
     position: relative;
 }
+.post-tile__location{
+    max-width: 83%;
+}
 .post-tile__time:before,
 .post-tile__location:before {
     content: '';
@@ -287,6 +290,9 @@
     }
     .post-tile__time:before {
         margin-right: 6px;
+    }
+    .post-tile__location{
+        max-width: 100%;
     }
 }
 @media (max-width: 1024px) {
