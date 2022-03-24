@@ -32,7 +32,7 @@ $googleCalendarLink = googleCalendarLink()
                 <span class="btn-inner">Add to Calendar</span>
             </a>
             <a href="<?=  get_the_permalink(get_the_ID()) ?>" target="" class="btn-body btn-h-secondary-blue triangle after Between" tabindex="0">
-                <?php if ($event_group[0]->slug == 'event') { ?>
+                <?php if ($event_group[0]->slug == 'event' || $event_group[0]->slug == 'masterclass') { ?>
                     <span class="btn-inner">View Details</span>
                 <?php } else if ($event_group[0]->slug == 'webinar') { ?>
                     <span class="btn-inner">Watch the webinar</span>
