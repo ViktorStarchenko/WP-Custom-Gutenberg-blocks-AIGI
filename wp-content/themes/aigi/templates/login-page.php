@@ -55,7 +55,7 @@ if ($content['form_type']) {
                 <div class="content-wrapper wrapper-1245">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <div class="entry-content" itemprop="mainContentOfPage">
-                            <?php the_content(); ?>
+                            <?php //the_content(); ?>
                         </div>
                     </article>
                 </div>
@@ -96,7 +96,16 @@ if ($content['form_type']) {
                             <div class="login-page__form">
                                 <?php $form_shortcode = $content['shortcode']; ?>
                                 <?php echo do_shortcode(' '. $form_shortcode .' '); ?>
-                                <a class="return-to-login" href="">Return back to login</a>
+                                <?php if (get_field('content')['return_to_login']) { ?>
+                                    <a class="return-to-login login-page__additional-link" href="<?php echo get_field('content')['return_to_login']['url'];?>"><?php echo get_field('content')['return_to_login']['title'];?></a>
+                                <?php } ?>
+                                <?php if (get_field('content')['already_have_an_account']) { ?>
+                                    <a class="request-an-account login-page__additional-link" href="<?php echo get_field('content')['already_have_an_account']['url'];?>"><?php echo get_field('content')['already_have_an_account']['title'];?></a>
+                                <?php } ?>
+
+                                <?php if (get_field('content')['request_an_account']) { ?>
+                                <a class="request-an-account login-page__additional-link" href="<?php echo get_field('content')['request_an_account']['url'] ?>"><?php echo get_field('content')['request_an_account']['title'] ?></a>
+                                <?php } ?>
                             </div>
 
                         <?php endif ?>
@@ -110,21 +119,53 @@ if ($content['form_type']) {
         </div>
 
     </main>
+<!--    <script>-->
+<!--        jQuery(document).ready(function(){-->
+<!--            // login-->
+<!--            jQuery('.login-page__wrapper.login input[type="text"]').attr('placeholder', 'Email Address');-->
+<!--            jQuery('.login-page__wrapper.login input[type="password"]').attr('placeholder', 'Password');-->
+<!---->
+<!--            jQuery(jQuery(".login-page__wrapper.login .um-link-alt").detach()).appendTo(".login-page__wrapper.login .um-field-password");-->
+<!--            jQuery(".login-page__wrapper.login .um-link-alt").html('I Forgot');-->
+<!--            jQuery(".login-page__wrapper.login .um-right.um-half .um-button").html('Request an Account');-->
+<!---->
+<!--            // Registration-->
+<!--            jQuery(".login-page__wrapper.registration input[type=submit]").attr('value', 'Submit');-->
+<!---->
+<!--            // Password-->
+<!--            jQuery(".login-page__wrapper.reset-password input[type=submit]").attr('value', 'Reset Password');-->
+<!--        })-->
+<!--    </script>-->
+
     <script>
+        function styleRequiredInput() {
+            let input_required = jQuery('input[required]');
+            input_required.each(function(elem){
+                let placeholder = jQuery(this).attr('placeholder');
+                placeholder = '*' + placeholder.slice(0,-1);
+                console.log(placeholder)
+                jQuery(this).attr('placeholder', placeholder);
+            })
+        }
+        setTimeout(styleRequiredInput, 300);
         jQuery(document).ready(function(){
+
+
             // login
             jQuery('.login-page__wrapper.login input[type="text"]').attr('placeholder', 'Email Address');
             jQuery('.login-page__wrapper.login input[type="password"]').attr('placeholder', 'Password');
 
-            jQuery(jQuery(".login-page__wrapper.login .um-link-alt").detach()).appendTo(".login-page__wrapper.login .um-field-password");
-            jQuery(".login-page__wrapper.login .um-link-alt").html('I Forgot');
+            jQuery(jQuery(".login-page__wrapper.login .rm_forgot_pass").detach()).insertAfter(".login-page__wrapper.login #rm_login_form_1-element-2");
+            // jQuery(".login-page__wrapper.login .rm_forgot_pass a").html('I Forgot');
             jQuery(".login-page__wrapper.login .um-right.um-half .um-button").html('Request an Account');
 
             // Registration
             jQuery(".login-page__wrapper.registration input[type=submit]").attr('value', 'Submit');
 
             // Password
-            jQuery(".login-page__wrapper.reset-password input[type=submit]").attr('value', 'Reset Password');
+            jQuery(".login-page__wrapper.reset-password #rm_recovery_form-element-0").attr('placeholder', 'Type your email');
+            jQuery(".login-page__wrapper.reset-password #rm_reset_password_form-element-0").attr('placeholder', 'Enter your password');
+            jQuery(".login-page__wrapper.reset-password #rm_reset_password_form-element-1").attr('placeholder', 'Confirm Password');
         })
     </script>
 
