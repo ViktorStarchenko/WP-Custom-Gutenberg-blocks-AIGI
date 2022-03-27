@@ -106,6 +106,10 @@ if ($content['form_type']) {
                                 <?php if (get_field('content')['request_an_account']) { ?>
                                 <a class="request-an-account login-page__additional-link" href="<?php echo get_field('content')['request_an_account']['url'] ?>"><?php echo get_field('content')['request_an_account']['title'] ?></a>
                                 <?php } ?>
+
+                                <?php if (get_field('content')['reset_password']) { ?>
+                                <a class="reset-password login-page__additional-link" href="<?php echo get_field('content')['reset_password']['url'] ?>"><?php echo get_field('content')['reset_password']['title'] ?></a>
+                                <?php } ?>
                             </div>
 
                         <?php endif ?>
@@ -155,7 +159,9 @@ if ($content['form_type']) {
             jQuery('.login-page__wrapper.login input[type="text"]').attr('placeholder', 'Email Address');
             jQuery('.login-page__wrapper.login input[type="password"]').attr('placeholder', 'Password');
 
-            jQuery(jQuery(".login-page__wrapper.login .rm_forgot_pass").detach()).insertAfter(".login-page__wrapper.login #rm_login_form_1-element-2");
+            jQuery('.login-page__wrapper.login .login-submit input[type="submit"]').attr('value','Sign In')
+
+            jQuery(jQuery(".login-page__wrapper.login .reset-password.login-page__additional-link").detach()).insertAfter(".login-page__wrapper.login #user_pass");
             // jQuery(".login-page__wrapper.login .rm_forgot_pass a").html('I Forgot');
             jQuery(".login-page__wrapper.login .um-right.um-half .um-button").html('Request an Account');
 

@@ -235,6 +235,13 @@ body .login-page__wrapper.registration .um-right.um-half .um-button {
     position: relative;
     display: none;
 }
+.login-page__wrapper.login .reset-password {
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: auto!important;
+}
 .return-to-login:before {
     content: '';
     background-image: url('/wp-content/themes/aigi/assets/images/path-prev-blue.svg');
@@ -377,27 +384,6 @@ body .rmagic .buttonarea input[type='submit'] {
     flex-direction: column;
 }
 
-@media (max-width: 992px) {
-    .login-page__image {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        margin: 32px;
-    }
-    .login-page__image.image1,
-    .login-page__image.image2,
-    .login-page__image.image3 {
-        top: unset;
-        left: unset;
-        right: unset;
-        bottom: unset;
-    }
-
-
-}
-
-
-
 /*************PROFILEPRESS*************/
 .wppb-user-forms input:not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="file"]):not([value="agree"]),
 .wppb-user-forms select, .wppb-user-forms textarea {
@@ -412,7 +398,7 @@ body .rmagic .buttonarea input[type='submit'] {
     line-height: 18px;
     letter-spacing: 0.05em;
     color: var(--color-text-field-grey);
-    padding: 15px;
+    padding: 15px!important;
     margin: 0;
 }
 .wppb-user-forms ul li:before {
@@ -442,6 +428,72 @@ body .wppb-user-forms input[type='submit'] {
     border-radius: 5px;
     cursor: pointer;
 }
+.wppb-user-forms .form-submit {
+    padding-bottom: 14px;
+}
+.wppb-user-forms p,
+.wppb-alert {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
+}
+.wppb-success {
+    border: none;
+    background: #D9EACD;
+    border-radius: 2px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 160%;
+    letter-spacing: 0.03em;
+    color: #1F4274;
+    padding: 12px;
+}
+.wppb-register-user .wppb-field-error,
+.wppb-edit-user .wppb-field-error,
+#wppb-recover-password .wppb-field-error,
+body .wppb-error,
+body .wppb-warning {
+    background: #FACFBF!important;
+    border-radius: 2px!important;
+    border: none!important;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 160%;
+    letter-spacing: 0.03em;
+    color: #1F4274!important;
+    padding: 12px!important;
+}
+
+
+@media (max-width: 992px) {
+    .login-page__image {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin: 32px;
+    }
+    .login-page__image.image1,
+    .login-page__image.image2,
+    .login-page__image.image3 {
+        top: unset;
+        left: unset;
+        right: unset;
+        bottom: unset;
+    }
+
+
+}
+
+
+
 
 @media (max-width: 767px) {
     .login-page__image {

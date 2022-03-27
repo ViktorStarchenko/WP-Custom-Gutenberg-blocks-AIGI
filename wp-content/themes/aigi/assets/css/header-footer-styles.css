@@ -326,7 +326,7 @@ p.image_description {
 	background: #FFFFFF;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 	border-radius: 4px;
-	z-index: 1;
+	z-index: 11;
 	padding: 32px;
 	text-align: center;
 	display: none;
