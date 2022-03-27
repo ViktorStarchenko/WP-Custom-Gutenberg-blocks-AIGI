@@ -39,6 +39,7 @@
 	padding: 0 16px;
 	align-items: center;
 	display: flex;
+	position: relative;
 }
 #header .header_bottom_wrap #header_bottom_buttons .header_bottom_menu_item:first-child .header_bottom_menu_icon {
 	padding-left: 0;
@@ -316,6 +317,105 @@ p.image_description {
  }
 
 
+/*Account Dropdown*/
+.account-dropdown {
+	width: 385px;
+	left: -92px;
+	position: absolute;
+	top: calc(100% + 13px);
+	background: #FFFFFF;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+	border-radius: 4px;
+	z-index: 1;
+	padding: 32px;
+	text-align: center;
+	display: none;
+}
+.account-dropdown.open {
+	display: block;
+}
+.account-dropdown.open:before {
+	content: '';
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #fff;
+	position: absolute;
+	top: -10px;
+}
+.account-dropdown__link {
+	position: relative;
+}
+#header a.account-dropdown__link.open {
+	color: var(--color-h-secondary-blue);
+}
+.account-dropdown__link:before {
+	content: '';
+	width: 34px;
+	height: 21px;
+	background-image: url(/wp-content/themes/aigi/assets/images/account.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: -6px;
+	display: inline-block;
+}
+.account-dropdown__link.open:before {
+	background-image: url(/wp-content/themes/aigi/assets/images/account-blue.svg);
+}
+.account-dropdown__link:after {
+	content: '';
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+
+	border-top: 4px solid #fff;
+	display: inline-block;
+
+	margin-left: 5px;
+	margin-bottom: 3px;
+	transition: all .3s;
+}
+.account-dropdown__link.open:after {
+	transform: rotate(180deg);
+	border-top: 4px solid var(--color-h-secondary-blue);
+}
+#header a
+#header .account-dropdown .btn-group {
+	width: 100%;
+}
+#header .account-dropdown a.btn-body {
+	width: 100%;
+	max-height: 45px;
+}
+#header a.btn-transparent {
+	color: var(--color-brand-m-blue-primary);
+}
+#header a.btn-transparent:hover {
+	color: #fff;
+}
+.account-dropdown__username {
+	font-family: 'Proxima Nova';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+	/* identical to box height */
+	text-align: center;
+	letter-spacing: 0.02em;
+	color: var(--color-brand-navy-primary);
+	margin-bottom: 8px;
+}
+.account-dropdown__useremail {
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 24px;
+	text-align: center;
+	letter-spacing: 0.03em;
+	margin-bottom: 24px;
+}
  /**** FOOTER *****/
 
  #footer {

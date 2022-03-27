@@ -274,6 +274,12 @@ jQuery(window).on("load resize", function() {
             jQuery(this).children(".main_menu_submenu_overlay").hide();
             jQuery(this).removeClass("submenu_opened");
         });
+
+        jQuery('.account-dropdown__link').on('click', function() {
+            jQuery(this).toggleClass('open');
+            jQuery('.account-dropdown').toggleClass('open');
+            return false;
+        });
     }
 
 

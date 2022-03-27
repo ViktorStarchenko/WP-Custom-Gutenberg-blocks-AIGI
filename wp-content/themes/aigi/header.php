@@ -212,6 +212,26 @@
                        <?php  $current_user = wp_get_current_user();
 
                        if( $current_user->exists() ){ ?>
+                            <?php $current_user = wp_get_current_user(); ?>
+                           <div class="header_bottom_menu_item">
+                               <a class="header_bottom_link account-dropdown__link" href=""><?php echo $current_user->user_login; ?></a>
+
+                               <div class="account-dropdown">
+                                   <div class="account-dropdown__username"><?php echo $current_user->user_firstname; ?> <?php echo $current_user->user_lastname; ?></div>
+                                   <div class="account-dropdown__useremail"><?php echo $current_user->user_email; ?></div>
+                                   <div class="btn-group f-center m-center">
+
+                                       <a href="<?php echo $bottom_menu['useraccount_link']['link']['url']; ?>" target="" class="btn-body  btn-transparent  Between " tabindex="0">
+                                           <span class="btn-inner"><?php echo $bottom_menu['useraccount_link']['link']['title']; ?></span>
+                                       </a>
+                                       <a href="<?php echo wp_logout_url('/'); ?>" target="" class="btn-body  btn-m-blue  Between " tabindex="0">
+                                           <span class="btn-inner">Logout</span>
+                                       </a>
+                                   </div>
+
+
+                               </div>
+                           </div>
 
                      <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['logged'])) : ?>
 

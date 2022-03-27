@@ -46,6 +46,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    padding: 64px 16px;
 }
 .login-page__form {
     width: 100%;
@@ -168,6 +169,12 @@ body .um-field {
 }
 
 /*Login page*/
+body .rmagic .rmcontent.rm-login-wrapper {
+    width: 100%;
+}
+body .rmagic .rmcontent form fieldset {
+    padding: 0;
+}
 body .login-page__wrapper.login .um-field-password {
     position: relative;
 }
@@ -215,7 +222,7 @@ body .login-page__wrapper.registration .um-right.um-half .um-button {
 }
 
 /*Password*/
-.return-to-login {
+.login-page__additional-link {
     font-family: 'Proxima Nova';
     font-style: normal;
     font-weight: 700;
@@ -224,7 +231,7 @@ body .login-page__wrapper.registration .um-right.um-half .um-button {
     letter-spacing: 0.05em;
     text-decoration-line: underline;
     color: var(--color-brand-m-blue-primary);
-    text-decoration: none;
+    text-decoration: underline;
     position: relative;
     display: none;
 }
@@ -239,7 +246,135 @@ body .login-page__wrapper.registration .um-right.um-half .um-button {
     display: inline-block;
 }
 .login-page__wrapper.reset-password .return-to-login {
+    display: block;
+}
+
+.request-an-account {
+    display: block;
+    text-align: center;
+}
+
+/*RegistrationMagic*/
+.rmagic .rmrow .rminput input[type="text"],
+.rmagic .rmrow .rminput input[type="password"],
+.rmagic .rmrow .rminput input[type="email"],
+.rmagic .rmrow .rminput input[type="url"],
+.rmagic .rmrow .rminput input[type="number"],
+.rmagic .rmrow .rminput textarea {
+    height: 50px!important;
+    border: 1px solid var(--color-field-border)!important;
+    box-sizing: border-box!important;
+    border-radius: 5px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
+    padding: 15px;
+    margin: 0;
+}
+.rmagic .rmrow .rminput input[type="text"]:focus,
+.rmagic .rmrow .rminput input[type="password"]:focus,
+.rmagic .rmrow .rminput input[type="email"]:focus,
+.rmagic .rmrow .rminput input[type="url"]:focus,
+.rmagic .rmrow .rminput input[type="number"]:focus,
+.rmagic .rmrow .rminput textarea:focus {
+    outline: none;
+    border: none;
+}
+
+
+.rmagic .rmagic-row .rmagic-field .rminput input[type="text"],
+.rmagic .rmagic-row .rmagic-field .rminput input[type="password"],
+.rmagic .rmagic-row .rmagic-field .rminput input[type="email"],
+.rmagic .rmagic-row .rmagic-field .rminput input[type="url"],
+.rmagic .rmagic-row .rmagic-field .rminput input[type="number"],
+.rmagic .rmagic-row .rmagic-field .rminput textarea {
+    height: 50px!important;
+    border: 1px solid var(--color-field-border)!important;
+    box-sizing: border-box!important;
+    border-radius: 5px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
+    padding: 15px;
+    margin: 0;
+}
+.rmagic .rmagic-row .rmagic-field .rminput input[type="text"]:focus,
+.rmagic .rmagic-row .rmagic-field .rminput input[type="password"]:focus,
+.rmagic .rmagic-row .rmagic-field .rminput input[type="email"]:focus,
+.rmagic .rmagic-row .rmagic-field .rminput input[type="url"]:focus,
+.rmagic .rmagic-row .rmagic-field .rminput input[type="number"]:focus,
+.rmagic .rmagic-row .rmagic-field .rminput textarea:focus {
+    outline: none;
+    border: none;
+}
+body .rmagic .rmagic-row {
     display: inline-block;
+    width: 100%;
+}
+body .rmagic .rmagic-row .rmagic-fields-wrap .rmagic-col {
+    width: 100%;
+    display: inline-block;
+}
+.rmagic .rmagic-row .rmagic-col.rmagic-col-12:nth-child(2) {
+    margin-top: 14px;
+}
+.rmagic .rmfield {
+    display: none;
+}
+body .rmagic .buttonarea {
+    margin: 0;
+}
+body .rmagic .buttonarea input[type='button'],
+body .rmagic .buttonarea input[type='submit'] {
+    width: 100%!important;
+    background: #0762A4;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 800!important;
+    font-size: 15px;
+    line-height: 14px!important;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase!important;
+    color: #FFFFFF;
+    border: unset;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.rminput {
+    position: relative;
+}
+.rm_forgot_pass a {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline;
+    color: var(--color-brand-m-blue-primary) !important;
+}
+.rm_forgot_pass {
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    width: auto!important;
+}
+
+/*register page*/
+.login-page__wrapper.registration .rmagic-fields-wrap {
+    flex-direction: column;
 }
 
 @media (max-width: 992px) {
@@ -260,6 +395,54 @@ body .login-page__wrapper.registration .um-right.um-half .um-button {
 
 
 }
+
+
+
+/*************PROFILEPRESS*************/
+.wppb-user-forms input:not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="file"]):not([value="agree"]),
+.wppb-user-forms select, .wppb-user-forms textarea {
+    height: 50px!important;
+    border: 1px solid var(--color-field-border)!important;
+    box-sizing: border-box!important;
+    border-radius: 5px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-field-grey);
+    padding: 15px;
+    margin: 0;
+}
+.wppb-user-forms ul li:before {
+    display: none;
+}
+.wppb-send-credentials-checkbox {
+    display: none;
+}
+body .wppb-user-forms input[type='button'],
+body .wppb-user-forms input[type='submit'] {
+    width: 100%!important;
+    height: 50px;
+    background: #0762A4;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 800!important;
+    font-size: 15px;
+    line-height: 14px!important;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase!important;
+    color: #FFFFFF;
+    border: unset;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 @media (max-width: 767px) {
     .login-page__image {
         width: 160px;
