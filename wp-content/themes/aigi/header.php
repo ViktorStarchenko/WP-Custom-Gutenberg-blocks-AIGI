@@ -85,7 +85,9 @@
                         <?php  $current_user = wp_get_current_user();
 
                         if( $current_user->exists() ){ ?>
-
+                                    <div class="main_menu_item">
+                                        <a href="<?php echo $bottom_menu['useraccount_link']['link']['url']; ?>" target="" class="main_menu_top account-dropdown__link" tabindex="0"><?php echo $bottom_menu['useraccount_link']['link']['title']; ?></a>
+                                    </div>
                             <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['logged'])) : ?>
 
                                 <?php foreach($bottom_menu['header_bottom_menu_right_copy']['logged'] as $item) : ?>
@@ -99,6 +101,13 @@
                                         <a class="main_menu_top" href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
                                     </div>
                                 <?php endforeach; endif; ?>
+
+                                <div class="main_menu_item">
+                                    <div class="main_menu_icon">
+
+                                    </div>
+                                    <a href="<?php echo wp_logout_url('/'); ?>" target="" class="main_menu_top" tabindex="0">Logout</a>
+                                </div>
 
                         <?php  } ?>
 

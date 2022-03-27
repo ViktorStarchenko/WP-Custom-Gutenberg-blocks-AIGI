@@ -352,7 +352,7 @@ p.image_description {
 }
 .account-dropdown__link:before {
 	content: '';
-	width: 34px;
+	width: 39px;
 	height: 21px;
 	background-image: url(/wp-content/themes/aigi/assets/images/account.svg);
 	background-size: contain;
@@ -377,6 +377,9 @@ p.image_description {
 	margin-left: 5px;
 	margin-bottom: 3px;
 	transition: all .3s;
+}
+#mobile_login-menu .account-dropdown__link:after {
+	display: none;
 }
 .account-dropdown__link.open:after {
 	transform: rotate(180deg);
@@ -563,6 +566,7 @@ p.image_description {
 }
 .mobile_login-menu .main_menu_item {
 	display: flex;
+	align-items: center;
 }
 .mobile_login-menu a {
 	font-weight: 700;
