@@ -16,7 +16,9 @@
                 <div class="search-page__header wrapper-1245 content-wrapper">
                     <div class="search-page__heading">
                         <div class="">
-                            <p class="search-page_title">Your Profiles</p>
+                            <?php if ($account_page['heading']) {?>
+                                <p class="search-page_title">Your Profiles</p>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="search-page__sorting">
