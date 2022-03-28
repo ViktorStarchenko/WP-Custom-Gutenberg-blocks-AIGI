@@ -401,6 +401,9 @@ body .rmagic .buttonarea input[type='submit'] {
     padding: 15px!important;
     margin: 0;
 }
+.wppb-user-forms textarea {
+    height: unset!important;
+}
 .wppb-user-forms ul li:before {
     display: none;
 }
