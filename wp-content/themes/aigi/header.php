@@ -242,9 +242,9 @@
                                </div>
                            </div>
 
-                     <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['logged'])) : ?>
+                     <?php if (!empty($bottom_menu['header_bottom_menu_right']['logged'])) : ?>
 
-                     <?php foreach($bottom_menu['header_bottom_menu_right_copy']['logged'] as $item) : ?>
+                     <?php foreach($bottom_menu['header_bottom_menu_right']['logged'] as $item) : ?>
                          <div class="header_bottom_menu_item">
                             <?php if (!empty($item['icon'])) : ?>
                             <img class="header_bottom_menu_icon" src="<?= $item['icon']['url'] ?>" alt="<?= $item['link']['title'] ?>">
@@ -257,8 +257,8 @@
 
                    <?php else : ?>
 
-                       <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['unlogged'])) :
-                           foreach($bottom_menu['header_bottom_menu_right_copy']['unlogged'] as $item) : ?>
+                       <?php if (!empty($bottom_menu['header_bottom_menu_right']['unlogged'])) :
+                           foreach($bottom_menu['header_bottom_menu_right']['unlogged'] as $item) : ?>
                                <div class="header_bottom_menu_item">
                                    <?php if (!empty($item['icon'])) : ?>
                                        <img class="header_bottom_menu_icon" src="<?= $item['icon']['url'] ?>" alt="<?= $item['link']['title'] ?>">
