@@ -17,7 +17,7 @@
                     <div class="search-page__heading">
                         <div class="">
                             <?php if ($account_page['heading']) {?>
-                                <p class="search-page_title">Your Profiles</p>
+                                <p class="search-page_title"><?php echo $account_page['heading']; ?></p>
                             <?php } ?>
                         </div>
                     </div>
