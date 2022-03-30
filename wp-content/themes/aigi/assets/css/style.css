@@ -703,6 +703,14 @@ strong {
         padding-bottom: 0;
     }
 
+    .single-partners .has-sidebar.sidebar-right .col-content,
+    .single-partners .has-sidebar.sidebar-left .col-content {
+        padding-bottom: 0;
+    }
+    .single-partners .col-sidebar {
+        padding-top: 0;
+    }
+
 
     .has-sidebar,
     .has-sidebar.sidebar-left {
