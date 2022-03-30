@@ -102,14 +102,16 @@ if ($slider): ?>
 
                     //content tags
                     $post_taxonomy = get_post_taxonomies($post);
-                    if($post->post_type == 'people' || $post->post_type == 'partners') {
-                        $terms =  get_the_terms( $post->ID, 'people_group');
+                    if($post->post_type == 'people') {
+                        $terms = get_the_terms($post->ID, 'people_group');
+                    } else if ($post->post_type == 'partners') {
+                        $terms = get_the_terms($post->ID, 'partners_group');
+
                     } else if ($post->post_type == 'event' || $post->post_type == 'news' || $post->post_type == 'resource'){
                         $terms =  get_the_terms( $post->ID, 'content_tags');
                     } else if ($post->post_type == 'post') {
                         $terms =  get_the_terms( $post->ID, 'category');
                     }
-
                 }
             } else if ($data['header_type'] == 'category_slider') {
                 $post = $slide;
