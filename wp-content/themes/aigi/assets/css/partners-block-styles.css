@@ -9,6 +9,15 @@
     max-width: 1125px;
     margin: auto;
 }
+.partners-block-section .rslider__header {
+    margin-bottom: 20px;
+}
+.partners-block-section .rslider__heading {
+    margin-bottom: 0;
+}
+.partners-block-section .rslider__header-top {
+    margin-bottom: 0;
+}
 .partners_item {
     width: 270px;
     height: 133px;

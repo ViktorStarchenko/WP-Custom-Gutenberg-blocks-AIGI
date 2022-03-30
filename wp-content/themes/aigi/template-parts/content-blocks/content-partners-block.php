@@ -133,9 +133,9 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                                         <div class="partners_item_wrapper">
                                             <div class="partners_item">
                                                 <?php $partner_info = get_field('post_info' , $post->ID); ?>
-                                                <img alt="<?php $title = get_the_title( $featured_post->ID ); ?>" src="<?php echo $partner_info['logo']['url']; ?>">
+                                                <img alt="<?php $title = get_the_title( $post->ID ); ?>" src="<?php echo $partner_info['logo']['url']; ?>">
                                             </div>
-                                            <?php $title = get_the_title( $featured_post->ID ); ?>
+                                            <?php $title = get_the_title( $post->ID ); ?>
 
                                             <div class="partners_item_popup_wrapper">
                                                 <div class="partners_item_popup_overlay"></div>
@@ -145,7 +145,7 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                                                         <!--                                        <div id="popup_close_button"></div>-->
                                                         <div class="partners_item_popup_header">
                                                             <div class="partners_item_popup_logo">
-                                                                <img alt="<?php $title = get_the_title( $featured_post->ID ); ?>" src="<?php echo $partner_info['logo']['url']; ?>">
+                                                                <img alt="<?php echo get_the_title( $post->ID ); ?>" src="<?php echo $partner_info['logo']['url']; ?>">
                                                             </div>
                                                             <div class="partners_item_popup_text">
                                                                 <p class="partners_item_popup_headline">Contact Details</p>
