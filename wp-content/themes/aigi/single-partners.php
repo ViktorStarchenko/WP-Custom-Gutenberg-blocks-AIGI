@@ -22,7 +22,7 @@
                                 </div>
                             <?php } ?>
                         </div>
-                    </div>
+
 
 
                         <div class="post-details__item centered">
@@ -49,6 +49,7 @@
                                         <?php foreach (get_field('post_info')['email'] as $email) { ?>
                                             <div>email:
                                                 <a href="mailto:<?= $email['item']; ?>"><?= $email['item']; ?></a>
+                                            </div>
                                         <?php } ?>
                                     </div>
                                 <?php } ?>
@@ -58,14 +59,28 @@
                                         <?php foreach (get_field('post_info')['website'] as $website) { ?>
                                             <div>
                                                 <a target="_blank" href="<?= $website['item']; ?>">visit their website</a>
+                                            </div>
                                         <?php } ?>
                                     </div>
                                 <?php } ?>
 
                             </div>
 
+                        <?php if (get_field('social_links')): ?>
+                            <div class="post-details__item centered">
+                                <div class="social-links__heading ">Sponsor's Social Links:</div>
+                                <div class="social-links">
+                                    <?php foreach (get_field('social_links') as $social_links) : ?>
+                                        <div class="social-links__item">
+                                            <a class="social-links__item-link" href="<?= $social_links['link'] ?>" target="_blank">
+                                                <i class="<?= $social_links['icon'] ?>"></i>
+                                            </a>
+                                        </div>
+                                    <?php endforeach ?>
+                                </div>
+                            </div>
+                        <?php endif ?>
 
-                        </div>
 
                         <?php if (get_field('share_download')) : ?>
                             <div class="post-technical-block bordered content-item post-details__item">
@@ -99,7 +114,6 @@
 
                             </div>
                         <?php endif ?>
-
 
                     </div>
                 </div>

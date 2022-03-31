@@ -173,6 +173,10 @@
     flex-direction: row;
     align-items: center;
 }
+.post-details__item.centered .social-links {
+    justify-content: center;
+}
+
 .social-links__item:not(:last-child) {
     margin-right: 25px;
 }
