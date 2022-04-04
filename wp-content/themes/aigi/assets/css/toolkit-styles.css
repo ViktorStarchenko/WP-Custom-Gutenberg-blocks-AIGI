@@ -1,0 +1,107 @@
+
+.toolkit-menu__item {
+    margin: 0;
+}
+.toolkit-menu__submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: var(--color-secondary-bg);
+    border-left: 3px solid var(--color-brand-m-blue-primary);
+    transition: all .2s;
+}
+.toolkit-menu__submenu.open {
+    /*padding: 6px 12px 12px 22px;*/
+    border-bottom: 1px solid var(--color-line-separator);
+}
+ul.toolkit-menu__list > li:before {
+    display: none;
+}
+.toolkit-menu__link {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15.78px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #231F20;
+    padding: 16px 24px 16px 8px;
+    border-bottom: 1px solid var(--color-line-separator);
+    text-decoration: none;
+    position: relative;
+
+}
+.toolkit-menu__link:before {
+    content: '';
+    background-image: url('/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg');
+    transform: rotate(90deg);
+    width: 14px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 6px;
+    top: 24px;
+    transition: all .2s;
+}
+.toolkit-menu__link.open:before {
+    transform: rotate(-90deg);
+    top: 16px;
+}
+.toolkit-menu__submenu-link {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.33px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    color: var(--color-main-text);
+    text-decoration: none;
+}
+.toolkit-menu__submenu-link:hover {
+    color: var(--color-brand-m-blue-primary);
+}
+.toolkit-menu__submenu-item {
+    margin: 12px 0;
+}
+
+
+
+/*SINGLE PAGE*/
+.toolkit-single__header {
+    min-height: 150px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--color-p-secondary-purple);
+    padding: 32px;
+    border-radius: 5px;
+    background-image: url(/wp-content/themes/aigi/assets/images/art-toolkit-header.svg);
+    background-size: cover;
+}
+.toolkit-single__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25.28px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+.toolkit-tag-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+@media (max-width: 767px) {
+    .toolkit-single__header {
+        min-height: 65px;
+        padding: 16px;
+    }
+    .toolkit-single__title {
+        font-size: 16.0091px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+    }
+}

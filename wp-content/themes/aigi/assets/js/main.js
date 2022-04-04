@@ -775,3 +775,19 @@ jQuery(document).ready(function(){
     })
 })
 
+
+
+///////////////////// Toolkit Menu
+jQuery('.toolkit-menu__link').on('click', function () {
+
+    let toolkit_dropdown = jQuery(this).siblings(".toolkit-menu__submenu");
+    if (toolkit_dropdown[0].style.maxHeight) {
+        toolkit_dropdown[0].classList.remove('open');
+        toolkit_dropdown[0].style.maxHeight = null;
+        jQuery(this).removeClass('open');
+    } else {
+        toolkit_dropdown[0].classList.add('open');
+        toolkit_dropdown[0].style.maxHeight = toolkit_dropdown[0].scrollHeight + "px";
+        jQuery(this).addClass('open');
+    }
+});

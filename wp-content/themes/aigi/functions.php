@@ -196,29 +196,6 @@ function aigi_get_filename_from_url( $file_url ) {
 
 
 
-
-/*** Header and footer settings code ***/
-if( function_exists('acf_add_options_page') ) {
-
-    acf_add_options_page(array(
-        'page_title'    => 'Header Settings',
-        'menu_title'    => 'Header Settings',
-        'menu_slug'     => 'header-settings',
-        'capability'    => 'edit_posts',
-        'redirect'      => false
-    ));
-
-    acf_add_options_page(array(
-        'page_title'    => 'Footer Settings',
-        'menu_title'    => 'Footer Settings',
-        'menu_slug'     => 'footer-settings',
-        'capability'    => 'edit_posts',
-        'redirect'      => false
-    ));
-
-}
-
-
 /*** Hide adminbar on frontend ***/
 add_filter( 'show_admin_bar', '__return_false' );
 
