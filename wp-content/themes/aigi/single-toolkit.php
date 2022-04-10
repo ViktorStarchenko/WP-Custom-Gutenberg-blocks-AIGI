@@ -33,8 +33,6 @@ get_header(); ?>
                             <div class="toolkit-menu__wrap">
                                 <div class="toolkit-menu__mobile-button">
                                     <?php the_title(); ?>
-<!--                                    <div class="toolkit-menu__mobile-button-text">menu button</div>-->
-<!--                                    <span class="toolkit-menu__btn"></span>-->
                                 </div>
 
                                 <ul class="toolkit-menu__list">
