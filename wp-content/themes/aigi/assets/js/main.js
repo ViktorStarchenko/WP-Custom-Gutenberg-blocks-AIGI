@@ -791,3 +791,78 @@ jQuery('.toolkit-menu__link').on('click', function () {
         jQuery(this).addClass('open');
     }
 });
+
+
+jQuery( window ).on('load resize', function() {
+    if (jQuery(window).width() < 768) {
+
+        jQuery('.toolkit-menu__mobile-button').on('click', function () {
+
+            let toolkit_dropdown = jQuery(this).siblings(".toolkit-menu__list");
+            if (toolkit_dropdown[0].style.maxHeight) {
+                toolkit_dropdown[0].classList.remove('open');
+                toolkit_dropdown[0].style.maxHeight = null;
+                jQuery(this).removeClass('open');
+            } else {
+                toolkit_dropdown[0].classList.add('open');
+                // toolkit_dropdown[0].style.maxHeight = toolkit_dropdown[0].scrollHeight + "px";
+                toolkit_dropdown[0].style.maxHeight = "2000px";
+                jQuery(this).addClass('open');
+            }
+        });
+
+    }
+
+})
+
+
+
+// Breadcrumb
+
+
+jQuery( window ).on('load resize', function() {
+    if (jQuery(window).width() < 768) {
+
+        let highlighted_img = jQuery('.highlighted-img');
+        if (highlighted_img.length > 0) {
+            let current_item = jQuery('.current-item').text();
+            var trimmedString = current_item.substring(0, 15);
+            trimmedString+= '...';
+            console.log(trimmedString);
+
+            jQuery('.current-item').text(trimmedString);
+        }
+
+    }
+
+})
+
+
+jQuery('.generate_pdf').on('click', function(){
+    let $data = jQuery('body').html();
+     $data = '';
+    // console.log($data);
+
+    $.ajax({
+        url: "/wp-admin/admin-ajax.php",
+        type: "POST",
+        // dataType: "JSON",
+        data: {
+            'action': 'aigi_create_pdf',
+            // 'data': $data
+        },
+        cache: false,
+        beforeSend: function(){
+
+        },
+        success: function(data) {
+            console.log(data);
+
+        },
+        error:function (xhr, ajaxOptions, thrownError){
+            console.log(xhr);
+            console.log(ajaxOptions);
+            console.log(thrownError);
+        }
+    });
+})
