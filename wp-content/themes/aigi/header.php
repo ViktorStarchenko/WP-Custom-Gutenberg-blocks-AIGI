@@ -275,11 +275,16 @@
                </div>
             </div>
          </div>
-          <div class="breadcrumb-container">
-              <div class="wrapper-1245">
-                  <?php bcn_display($return = false, $linked = true, $reverse = false, $force = false); ?>
+          <?php if(function_exists('bcn_display') && !is_front_page() &&!is_home()){ ?>
+              <div class="breadcrumb-container">
+                  <div class="wrapper-1245">
+                      <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+                          <?php bcn_display($return = false, $linked = true, $reverse = false, $force = false); ?>
+                      </div>
+                  </div>
               </div>
-          </div>
+          <?php } ?>
+
       </header>
 
           <?php if (get_field('header_slider')['enable'] == true): ?>
