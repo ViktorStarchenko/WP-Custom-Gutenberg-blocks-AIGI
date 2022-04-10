@@ -36,6 +36,7 @@
 @import 'login-page-styles.css';
 @import 'account-page-styles.css';
 @import 'toolkit-styles.css';
+@import 'breadcrumb-styles.css';
 
 
 
@@ -503,6 +504,11 @@ strong {
     max-width: 1245px;
     margin: auto;
 }
+.wrapper-1296 {
+    width: 100%;
+    max-width: 1296px;
+    margin: auto;
+}
 .wrapper-1110 {
     width: 100%;
     max-width: 1110px;
@@ -735,13 +741,16 @@ strong {
     .col-sidebar {
         max-width: unset;
         width: 100%;
-        padding: 32px 0;
+        padding: 32px 0 0;
     }
     .main-inner__contact-us .col-sidebar {
         padding: 24px 0;
     }
     .col-content {
         padding-top: 16px;
+    }
+    .header-slider-disabled .col-content {
+        /*padding-top: 80px;*/
     }
     .has-sidebar__inner.search {
         width: 100%;
@@ -1597,6 +1606,9 @@ input[type="submit"].btn-body {
 }
 .btn-body.before .btn-inner {
     margin-left: 20px;
+}
+.btn-body.before.topic .btn-inner {
+    margin-left: 40px;
 }
 .btn-body:before,
 .btn-body:after {

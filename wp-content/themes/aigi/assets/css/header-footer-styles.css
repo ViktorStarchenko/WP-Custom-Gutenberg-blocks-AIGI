@@ -305,6 +305,7 @@ p.image_description {
  }
  #header {
  	background: var(--color-brand-navy-primary);
+	 position: relative;
  }
  #header a {
     color: white;
@@ -549,10 +550,11 @@ p.image_description {
 .mobile_login-menu {
 	position: absolute;
 	width: 100%;
+	top: 100%;
 	margin: unset;
 	background: var(--color-brand-navy-primary);;
 	margin-left: -16px;
-	height: calc(100% - 172px);
+	height: calc(100vh - 172px);
 	bottom: 50px;
 	overflow-y: scroll;
 	z-index: 999;
@@ -652,10 +654,12 @@ p.image_description {
 	#menu {
    		position: absolute;
 	    width: 100%;
+		top: 100%;
 	    margin: unset;
 	    background: white;
 	    margin-left: -16px;
-	    height: calc(100% - 172px);
+	    /*height: calc(100% - 172px);*/
+	    height: calc(100vh - 172px);
 	    bottom: 0px;
 	    overflow-y: scroll;
 	    z-index: 999;

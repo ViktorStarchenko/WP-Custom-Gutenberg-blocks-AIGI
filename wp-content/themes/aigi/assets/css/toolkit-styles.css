@@ -1,4 +1,6 @@
 
+
+/*Toolkit menu*/
 .toolkit-menu__item {
     margin: 0;
 }
@@ -65,9 +67,53 @@ ul.toolkit-menu__list > li:before {
     margin: 12px 0;
 }
 
+.toolkit-menu__mobile-button {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15.78px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #231F20;
+    padding: 16px 24px 16px 8px;
+    text-decoration: none;
+    position: relative;
+    display: none
+}
+.toolkit-menu__mobile-button:before {
+    content: '';
+    background-image: url('/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg');
+    transform: rotate(90deg);
+    width: 14px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 6px;
+    top: 24px;
+    transition: all .2s;
+}
+.toolkit-menu__mobile-button.open:before {
+    transform: rotate(-90deg);
+    top: 16px;
+}
 
 
 /*SINGLE PAGE*/
+.main-toolkit-inner .search-page__top {
+    height: 146px;
+}
+.main-toolkit-inner .has-sidebar {
+    margin-top: -86px;
+    background: transparent;
+}
+.main-toolkit-inner .col-content {
+    padding-top: 22px;
+}
+.main-toolkit-inner .col-sidebar {
+    padding-top: 64px;
+}
 .toolkit-single__header {
     min-height: 150px;
     display: flex;
@@ -86,6 +132,7 @@ ul.toolkit-menu__list > li:before {
     line-height: 28px;
     letter-spacing: 0.02em;
     color: #FFFFFF;
+    text-align: left;
 }
 .toolkit-tag-container {
     display: flex;
@@ -93,15 +140,80 @@ ul.toolkit-menu__list > li:before {
     justify-content: space-between;
     margin-top: 12px;
 }
-
+.toolkit-tag__download {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding-right: 30px;
+    margin-top: 10px;
+}
+.toolkit-tag__download-btn {
+    margin-right: 8px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10.53px;
+    line-height: 12px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-brand-m-blue-primary);
+}
+.toolkit-tag__download .mwb-pgfw-pdf-generate-icon__wrapper-frontend img {
+    width: 20px!important;
+    height: 20px!important;
+    margin-top: -5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.toolkit-tag__download .pgfw-single-pdf-download-button {
+    width: 150px;
+    display: inline-block;
+    position: absolute;
+    height: 16px;
+    right: 0;
+    top: 0;
+}
 @media (max-width: 767px) {
     .toolkit-single__header {
         min-height: 65px;
         padding: 16px;
+        margin-bottom: 32px;
     }
     .toolkit-single__title {
         font-size: 16.0091px;
         line-height: 20px;
         letter-spacing: 0.02em;
+    }
+    .main-toolkit-inner .search-page__top {
+        height: 24px;
+    }
+    .main-toolkit-inner .has-sidebar {
+        margin-top: -50px;
+    }
+    .toolkit-tag-container {
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+    }
+    .toolkit-tag-container .post-tile__tags {
+        margin-bottom: 0;
+    }
+
+    /*toolkit menu*/
+    .toolkit-menu__wrap {
+        border: 1px solid var(--color-field-border);
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+    .toolkit-menu__list {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        transition: all .2s;
+        padding: 0;
+    }
+    .toolkit-menu__mobile-button {
+        display: block;
     }
 }

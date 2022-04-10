@@ -11,6 +11,7 @@ function show_resource($atts){
         array( "post_type" => "resource", // not "post-type" !
             "name" => $slug
         ) );
+    wp_reset_query();
     while ($query->have_posts()) : $query->the_post();
 
         if(has_term( 'link', 'resource_type')) {

@@ -18,9 +18,12 @@
    if (get_field('body_background')) {
        $bg_color =  get_field('body_background');
    }
-
+   $header_slider = '';
+   if (get_field('header_slider')['enable'] == false) {
+       $header_slider = 'header-slider-disabled';
+   }
    ?>
-   <body <?php body_class(array( $bg_color_preset )); ?> style="background-color: <?php  echo ($bg_color) ?  ' ' . $bg_color  . ' '  :''; ?>">
+   <body <?php body_class(array( $bg_color_preset, $header_slider )); ?> style="background-color: <?php  echo ($bg_color) ?  ' ' . $bg_color  . ' '  :''; ?>">
       <div id="aigi-preloader"><img class="preloader-logo" src="/wp-content/themes/aigi/assets/images/aigi-preloader-logo.svg" alt=""></div>
       <style type="text/css">
          #aigi-preloader
@@ -272,7 +275,13 @@
                </div>
             </div>
          </div>
+          <div class="breadcrumb-container">
+              <div class="wrapper-1245">
+                  <?php bcn_display($return = false, $linked = true, $reverse = false, $force = false); ?>
+              </div>
+          </div>
       </header>
+
           <?php if (get_field('header_slider')['enable'] == true): ?>
               <?php get_template_part('template-parts/content-blocks/content', 'header-slider'); ?>
           <?php endif; ?>

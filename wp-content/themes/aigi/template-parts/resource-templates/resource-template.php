@@ -152,4 +152,4 @@ $data_video_suf = '';
 </div>
 
 
-
+<?php wp_reset_query(); ?>

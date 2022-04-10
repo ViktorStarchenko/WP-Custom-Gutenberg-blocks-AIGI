@@ -1,0 +1,60 @@
+
+
+.breadcrumb-container {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11.85px;
+    line-height: 15px;
+    letter-spacing: 0.08em;
+    color: #fff;
+    padding: 16px 16px 5px;
+}
+.breadcrumb-container span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11.85px;
+    line-height: 15px;
+    letter-spacing: 0.08em;
+    color: #fff;
+}
+
+.single-toolkit .breadcrumb-container span,
+.single-toolkit .breadcrumb-container,
+.page-template-global-search .breadcrumb-container span,
+.page-template-global-search .breadcrumb-container,
+.page-template-account-page .breadcrumb-container span,
+.page-template-account-page .breadcrumb-container,
+.header-slider-disabled .breadcrumb-container,
+.header-slider-disabled .breadcrumb-container span  {
+    color: var(--color-brand-navy-primary);
+}
+
+
+.page-template-login-page .breadcrumb-container {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .header-slider-disabled .breadcrumb-container {
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        position: relative;
+        /* margin-bottom: 0px; */
+        background-color: #fff;
+        margin-top: 0px;
+        border: none;
+        box-shadow: none;
+        padding: 16px;
+    }
+
+    .page-template-account-page.header-slider-disabled .breadcrumb-container,
+    .single-toolkit.header-slider-disabled .breadcrumb-container,
+    .page-template-global-search.header-slider-disabled .breadcrumb-container {
+        background-color: var(--color-primary-bg);
+    }
+}
