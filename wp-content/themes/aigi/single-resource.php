@@ -41,6 +41,7 @@ get_header(); ?>
                                             <li class="toolkit-menu__item">
                                                 <?php if ($toolkits_menu_item['link']) {?>
                                                     <a class="toolkit-menu__link" href="<?php echo $toolkits_menu_item['link']['url'] ?>"><?php echo $toolkits_menu_item['link']['title'] ?></a>
+                                                    <span class="toolkit-menu__link-arrow"></span>
                                                 <?php } ?>
                                                 <?php if ($toolkits_menu_item['submenu']) {?>
                                                     <ul class="toolkit-menu__submenu rounded-list">
