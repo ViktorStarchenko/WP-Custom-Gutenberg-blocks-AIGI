@@ -178,7 +178,8 @@ ul.toolkit-menu__list > li:before {
     text-transform: uppercase;
     color: var(--color-brand-m-blue-primary);
 }
-.toolkit-tag__download .mwb-pgfw-pdf-generate-icon__wrapper-frontend img {
+.toolkit-tag__download .mwb-pgfw-pdf-generate-icon__wrapper-frontend img,
+.toolkit-tag__download .pgfw-single-pdf-download-button img {
     width: 20px!important;
     height: 20px!important;
     margin-top: -5px;
