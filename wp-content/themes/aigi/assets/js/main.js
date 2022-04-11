@@ -617,18 +617,6 @@ function initSpeakersSlider() {
 setTimeout(initSpeakersSlider, 1000);
 
 
-window.addeventasync = function(){
-    addeventatc.settings({
-        appleical  : {show:true, text:"Apple Calendar"},
-        google     : {show:true, text:"Google <em>(online)</em>"},
-        office365  : {show:true, text:"Office 365 <em>(online)</em>"},
-        outlook    : {show:true, text:"Outlook"},
-        outlookcom : {show:true, text:"Outlook.com <em>(online)</em>"},
-        yahoo      : {show:true, text:"Yahoo <em>(online)</em>"}
-    });
-};
-
-
 // // Sticky to right sliders
 //
 // $('.rslider').slick({
@@ -778,7 +766,7 @@ jQuery(document).ready(function(){
 
 
 ///////////////////// Toolkit Menu
-jQuery('.toolkit-menu__link').on('click', function () {
+jQuery('.toolkit-menu__link-arrow').on('click', function () {
 
     let toolkit_dropdown = jQuery(this).siblings(".toolkit-menu__submenu");
     if (toolkit_dropdown[0].style.maxHeight) {
@@ -790,6 +778,7 @@ jQuery('.toolkit-menu__link').on('click', function () {
         toolkit_dropdown[0].style.maxHeight = toolkit_dropdown[0].scrollHeight + "px";
         jQuery(this).addClass('open');
     }
+    return false;
 });
 
 

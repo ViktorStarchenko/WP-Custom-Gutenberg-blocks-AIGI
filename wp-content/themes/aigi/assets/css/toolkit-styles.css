@@ -32,8 +32,25 @@ ul.toolkit-menu__list > li:before {
     border-bottom: 1px solid var(--color-line-separator);
     text-decoration: none;
     position: relative;
-
 }
+.toolkit-menu__link-arrow {
+    background-image: url(/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg);
+    transform: rotate(90deg);
+    width: 24px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 6px;
+    top: 24px;
+    transition: all .2s;
+    cursor: pointer;
+}
+.toolkit-menu__link-arrow.open {
+    transform: rotate(-90deg);
+    top: 10px;
+}
+
 .toolkit-menu__link:before {
     content: '';
     background-image: url('/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg');
@@ -46,6 +63,7 @@ ul.toolkit-menu__list > li:before {
     right: 6px;
     top: 24px;
     transition: all .2s;
+    display: none;
 }
 .toolkit-menu__link.open:before {
     transform: rotate(-90deg);
@@ -81,12 +99,13 @@ ul.toolkit-menu__list > li:before {
     position: relative;
     display: none
 }
+
 .toolkit-menu__mobile-button:before {
     content: '';
     background-image: url('/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg');
     transform: rotate(90deg);
-    width: 14px;
-    height: 12px;
+    width: 24px;
+    height: 14px;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
@@ -96,7 +115,7 @@ ul.toolkit-menu__list > li:before {
 }
 .toolkit-menu__mobile-button.open:before {
     transform: rotate(-90deg);
-    top: 16px;
+    top: 10px;
 }
 
 
