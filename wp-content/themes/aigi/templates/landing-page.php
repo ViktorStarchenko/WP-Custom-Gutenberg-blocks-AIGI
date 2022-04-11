@@ -92,7 +92,7 @@ if ($post_type == 'news') {
 
                                 <?php if (get_field('landing_page')['filter_item']) : ?>
                                 <?php foreach (get_field('landing_page')['filter_item'] as $filter_item) : ?>
-                                <div class="landing__filter-item <?php echo $filter_item['filter_name']; ?>">
+                                <div class="landing__filter-item visible <?php echo $filter_item['filter_name']; ?>">
                                     <div class="landing__filter-title"><?= $filter_item['title']; ?></div>
                                     <div class="landing__filter-input"><?php echo do_shortcode('[facetwp facet="'. $filter_item['filter_name'] .'"]'); ?></div>
                                 </div>
@@ -137,6 +137,15 @@ if ($post_type == 'news') {
     </div>
 
 </main>
+    <script>
+        jQuery( window ).on('load resize', function() {
+
+            let landing__filter_width = jQuery('.landing__filter-item.visible').width();
+            jQuery('.landing__filter-item.visible').css('max-width', landing__filter_width + 'px' );
+
+        })
+
+    </script>
 <!--    <script>-->
 <!--        jQuery(document).ready(function(){-->
 <!--            let post_type = jQuery('.landing__filter-block').attr('data-post-type');-->
