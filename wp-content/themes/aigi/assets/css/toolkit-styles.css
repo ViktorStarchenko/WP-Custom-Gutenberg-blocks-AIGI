@@ -34,21 +34,33 @@ ul.toolkit-menu__list > li:before {
     position: relative;
 }
 .toolkit-menu__link-arrow {
-    background-image: url(/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg);
-    transform: rotate(90deg);
-    width: 24px;
-    height: 14px;
+    /*background-image: url(/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg);*/
+    /*transform: rotate(90deg);*/
+    width: 46px;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    right: 6px;
-    top: 24px;
+    right: 0;
+    top: 0;
     transition: all .2s;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.toolkit-menu__link-arrow.open {
+.toolkit-menu__link-arrow img {
+    transform: rotate(90deg);
+    width: 20px;
+    height: 12px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    transition: all .2s;
+}
+.toolkit-menu__link-arrow.open img {
     transform: rotate(-90deg);
-    top: 10px;
+    top: 19px;
 }
 
 .toolkit-menu__link:before {
