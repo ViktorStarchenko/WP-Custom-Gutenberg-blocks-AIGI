@@ -138,6 +138,7 @@ ul.toolkit-menu__list > li:before {
 .main-toolkit-inner .has-sidebar {
     margin-top: -86px;
     background: transparent;
+    padding-bottom: 48px;
 }
 .main-toolkit-inner .col-content {
     padding-top: 22px;
@@ -155,6 +156,14 @@ ul.toolkit-menu__list > li:before {
     border-radius: 5px;
     background-image: url(/wp-content/themes/aigi/assets/images/art-toolkit-header.svg);
     background-size: cover;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25.28px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    margin-bottom: 32px;
 }
 .toolkit-single__title {
     font-style: normal;
@@ -207,11 +216,123 @@ ul.toolkit-menu__list > li:before {
     right: 0;
     top: 0;
 }
+
+/*Toolkit landing*/
+.main-toolkit-landing-inner .search-page__top {
+    height: 60px;
+}
+.main-toolkit-landing-inner .has-sidebar {
+    margin-top: 0;
+}
+.main-toolkit-landing-inner .col-sidebar {
+    padding: 60px 16px 0;
+}
+.main-toolkit-landing-inner .col-content {
+    padding: 60px 0 46px;
+}
+.toolkit-landing__page-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30.35px;
+    line-height: 110%;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 18px;
+}
+.toolkit-landing__page-title h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30.35px;
+    line-height: 110%;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: var(--color-brand-navy-primary);
+}
+.toolkit-landing__page-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    margin-bottom: 50px;
+}
+.toolkit-landing__toc-heading {
+    font-weight: 700;
+    font-size: 22.44px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    color: var(--color-brand-navy-primary);
+    margin-bottom: 32px;
+}
+.table-of-content__description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
+}
+.toolkit-menu__list.toolkit-landing-page {
+    padding: 0;
+}
+.read-topic,
+.toolkit-download-topic {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-brand-m-blue-primary);
+    text-decoration: none;
+    position: relative;
+}
+.read-topic:before,
+.toolkit-download-topic:before {
+    content: '';
+    margin-right: 18px;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    display: inline-block;
+    margin-bottom: -3px;
+}
+.read-topic:before {
+    background-image: url('/wp-content/themes/aigi/assets/images/arrow-right-in-circle.svg');
+}
+.toolkit-download-topic:before {
+    background-image: url('/wp-content/themes/aigi/assets/images/download.svg');
+}
+.table-of-content__item {
+    margin-bottom: 80px;
+}
+.table-of-content__item .toolkit-tag-container {
+    margin-top: 32px;
+}
+
+
 @media (max-width: 767px) {
+    .main-toolkit-landing-inner .col-content {
+        padding: 30px 0;
+    }
+    .toolkit-landing__page-description {
+        margin-bottom: 30px;
+    }
+    .toolkit-landing__toc-heading {
+        margin-bottom: 24px;
+    }
     .toolkit-single__header {
         min-height: 65px;
         padding: 16px;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
+
+        font-size: 16.0091px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+    }
+    .main-toolkit-landing-inner .search-page__top {
+        display: none;
     }
     .toolkit-single__title {
         font-size: 16.0091px;
@@ -231,8 +352,24 @@ ul.toolkit-menu__list > li:before {
     .toolkit-tag-container .post-tile__tags {
         margin-bottom: 0;
     }
+    .toolkit-menu__list.toolkit-landing-page {
+        max-height: unset;
+    }
+    .table-of-content__item .toolkit-tag-container {
+        flex-direction: column;
+    }
+    .read-topic {
+        margin-bottom: 24px;
+    }
+    .table-of-content__item {
+        margin-bottom: 50px;
+    }
 
     /*toolkit menu*/
+    .main-toolkit-landing-inner .col-sidebar {
+        padding-left: 0;
+        padding-right: 0;
+    }
     .toolkit-menu__wrap {
         border: 1px solid var(--color-field-border);
         box-sizing: border-box;
