@@ -28,6 +28,25 @@ function show_resource($atts){
             return $return;
 
         }
+        elseif(has_term( 'publication', 'resource_type')) {
+            $type = 'video';
+            // get standard post data
+            $date = get_the_date();
+            $postid = get_the_ID();
+            $blog_info = get_bloginfo( 'template_url' );
+            $add_video = get_field('add_video');
+
+            $term_list = wp_get_post_terms($postid, 'resource_tag', array("fields" => "names"));
+            $the_tags = implode(", ", $term_list);
+            if(!empty($the_tags)) {
+                $tags = '<p class="resource-tags">' . $the_tags . '</p>';
+            }            ob_start();
+            get_template_part('template-parts/resource-templates/resource', 'template');
+            $return = ob_get_contents();
+            ob_get_clean();
+            return $return;
+
+        }
         elseif(has_term( 'video', 'resource_type')) {
             $type = 'video';
             // get standard post data
