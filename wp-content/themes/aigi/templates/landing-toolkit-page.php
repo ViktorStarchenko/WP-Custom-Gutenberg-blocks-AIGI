@@ -145,7 +145,7 @@ get_header(); ?>
                                                         <a href="<?php echo $table_of_contents['read_topic']['url'] ?>" class="read-topic">Read Topic</a>
                                                     <?php } ?>
                                                     <?php if ($table_of_contents['download_topic']) {?>
-                                                        <a href="<?php echo $table_of_contents['download_topic']['url'] ?>" class="toolkit-download-topic">Download Topic</a>
+                                                        <a   target="_blank" download href="<?php echo $table_of_contents['download_topic']['url'] ?> " class="toolkit-download-topic">Download Topic</a>
                                                     <?php } ?>
 
                                                 </div>
