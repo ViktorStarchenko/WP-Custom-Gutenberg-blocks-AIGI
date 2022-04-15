@@ -15,30 +15,34 @@ get_header(); ?>
                 <div class="has-sidebar  sidebar-left">
                     <div class="col-sidebar">
                         <div class="col-sidebar__inner">
-                            <?php if (get_field('toolkits_menu', 'option')) {
-                                $toolkits_menu = get_field('toolkits_menu', 'option');
+                            <?php
+
+                            if (get_field('sidebar_menu')['menu_type'] == 'Toolkit Menu') {
+                                $sidebar_menu = get_field('toolkits_menu', 'option');
+                            } else if (get_field('sidebar_menu')['menu_type'] == 'Custom Menu') {
+                                $sidebar_menu = get_field('sidebar_menu')['toolkits_menu'];
                             } ?>
-                            <?php if ($toolkits_menu['toolkits_menu_item']) {?>
+                            <?php if ($sidebar_menu['toolkits_menu_item']) {?>
                             <div class="toolkit-menu__wrap">
                                 <div class="toolkit-menu__mobile-button">
                                     <?php the_title(); ?>
                                 </div>
 
                                 <ul class="toolkit-menu__list">
-                                    <?php foreach ($toolkits_menu['toolkits_menu_item'] as $toolkits_menu_item) {?>
-                                        <?php if ($toolkits_menu_item) {?>
+                                    <?php foreach ($sidebar_menu['toolkits_menu_item'] as $sidebar_menu_item) {?>
+                                        <?php if ($sidebar_menu_item) {?>
                                             <li class="toolkit-menu__item">
-                                                <?php if ($toolkits_menu_item['link']) {?>
-                                                    <a class="toolkit-menu__link" href="<?php echo $toolkits_menu_item['link']['url'] ?>"><?php echo $toolkits_menu_item['link']['title'] ?></a>
-                                                    <?php if ($toolkits_menu_item['submenu']) {?>
+                                                <?php if ($sidebar_menu_item['link']) {?>
+                                                    <a class="toolkit-menu__link" href="<?php echo $sidebar_menu_item['link']['url'] ?>"><?php echo $sidebar_menu_item['link']['title'] ?></a>
+                                                    <?php if ($sidebar_menu_item['submenu']) {?>
                                                         <span class="toolkit-menu__link-arrow">
                                                             <img src="/wp-content/themes/aigi/assets/images/Triangle-p-blue.svg" alt="triangle">
                                                         </span>
                                                     <?php } ?>
                                                 <?php } ?>
-                                                <?php if ($toolkits_menu_item['submenu']) {?>
+                                                <?php if ($sidebar_menu_item['submenu']) {?>
                                                     <ul class="toolkit-menu__submenu rounded-list">
-                                                        <?php foreach($toolkits_menu_item['submenu'] as $submenu) {?>
+                                                        <?php foreach($sidebar_menu_item['submenu'] as $submenu) {?>
                                                             <li class="toolkit-menu__submenu-item">
                                                                 <a href="<?php echo $submenu['link']['url'];?>" class="toolkit-menu__submenu-link"><?php echo $submenu['link']['title'];?></a>
                                                             </li>
