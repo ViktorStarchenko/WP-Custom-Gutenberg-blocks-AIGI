@@ -243,6 +243,20 @@
     margin-bottom: -1px;
 }
 
+.content-item.video-block.disable_styling .single-resource__container.video {
+    border: unset;
+    padding: 0;
+}
+.content-item.video-block.disable_styling .single-resource__bg.extended {
+    display: none;
+}
+.content-item.video-block.disable_styling .single-resource__inner {
+    margin: 0;
+}
+.content-item.video-block.disable_styling .single-resource__header {
+    display: none;
+}
+
 
 @media (max-width: 1024px) {
     .single-resource__container {

@@ -53,7 +53,7 @@
         <!--Video-->
         <?php if ($content_item['item_type'] == 'Video') : ?>
             <?php $data_video_suf = $content_item['block_id']; ?>
-            <div class="content-item video-block">
+            <div class="content-item video-block <?php echo ($content_item['video_block']['disable_styling'] == true) ? 'disable_styling' : '' ?>">
                 <div class="single-resource__container video extended">
                     <div class="single-resource__bg extended"></div>
                     <div class="single-resource__inner">

@@ -92,7 +92,7 @@ if ($attributes['background']['bg_color_preset']) {
 <section class="text-media__section acf-section-<?php echo $attributes['uniq_id']; ?> <?php echo $classes ;?> <?php echo $background_texture; ?> <?= $padding; ?> <?= $bg_color_preset; ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> ">
     <div class="border-container wrapper-1245 <?= $border; ?>"></div>
     <div class="bg-overlay <?php  echo ($attributes['background']['enable_overlay'] == true ?  ' active ' : ''); ?>"></div>
-    <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?> text-media__content <?php echo $content['content_direction']; ?> <?php echo $content['content_direction_mobile']; ?> <?php echo ($content['media']['enable'] == true) ? ' media-enabled ' : '' ?>">
+    <div class="content-wrapper  <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?> text-media__content <?php echo $content['content_direction']; ?> <?php echo $content['content_direction_mobile']; ?> <?php echo ($content['media']['enable'] == true) ? ' media-enabled ' : '' ?>  <?php echo ($content['media']['media_fit_content'] == true) ? 'media_fit_content' : '' ?>">
 
         <div class="text-media__text-wrapper text-media__content-column text <?php echo $content['justify_content'];?>" data-height="<?php echo $attributes['uniq_id']; ?>">
             <?php if ($content['text']) : ?>
@@ -109,7 +109,7 @@ if ($attributes['background']['bg_color_preset']) {
         <div class="text-media__media-wrapper text-media__content-column" data-height="<?php echo $attributes['uniq_id']; ?>">
             <?php if ($content['media']['type'] == 'image') : ?>
                 <?php if ($content['media']['image']) : ?>
-                    <div class="text-media__media <?= $content['media']['type'] ?> <?= $content['media']['image_size'] ?>">
+                    <div class="text-media__media <?= $content['media']['type'] ?> <?= $content['media']['image_size'] ?>"  style="width: <?php echo $content['media']['media_width']; ?>">
                         <img src="<?php echo $content['media']['image']['url'] ?>" alt="<?php echo $content['media']['image']['title'] ?>">
                     </div>
                 <?php endif ?>
