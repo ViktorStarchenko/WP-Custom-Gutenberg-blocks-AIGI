@@ -88,12 +88,12 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
                     $query->the_post();
 
                     $bg_image = '';
-                    if (get_field('add_diagram')) {
-                        $bg_image = get_field('add_diagram');
-                    } else if (get_field('td_resource_image')) {
-                        $bg_image = get_field('td_resource_image')['url'];
+                    if (get_field('add_diagram', get_the_ID())) {
+                        $bg_image = get_field('add_diagram', get_the_ID());
+                    } else if (get_field('td_resource_image', get_the_ID())) {
+                        $bg_image = get_field('td_resource_image', get_the_ID())['url'];
                     } else {
-                        $bg_image = get_the_post_thumbnail_url('full' );
+                        $bg_image = get_the_post_thumbnail_url(get_the_ID(),'full' );
                     }
 
                     var_dump($bg_image);
