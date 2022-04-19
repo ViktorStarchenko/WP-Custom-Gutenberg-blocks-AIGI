@@ -96,8 +96,6 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
                         $bg_image = get_the_post_thumbnail_url(get_the_ID(),'full' );
                     }
 
-                    var_dump($bg_image);
-
                     if(get_post_type() == 'resource'){
                         $term_list = wp_get_post_terms( get_the_ID(), 'topic', array('fields' => 'all'));
                     }
