@@ -35,6 +35,7 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
         </div>
     </div>
 </div>
+<?php if(!empty($reading_list)){?>
 <div class="content-wrapper wrapper-1245">
     <div class="post-tile__list landing-page search-page__results favourites-page">
         <div class="facetwp-template" data-name="landing_page_result">
@@ -177,80 +178,9 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 <!--                --><?php //echo do_shortcode('[facetwp facet="pager_"]'); ?>
 
             </div>
-            <?
-//                foreach($reading_list as $single_post){
-//                    $bg_image = '';
-//                    if (get_field('add_diagram', $single_post)) {
-//                        $bg_image = get_field('add_diagram', $single_post);
-//                    } else if (get_field('td_resource_image', $single_post)) {
-//                        $bg_image = get_field('td_resource_image', $single_post)['url'];
-//                    } else {
-//                        $bg_image = get_the_post_thumbnail_url( $single_post, 'full' );
-//                    }
-//
-//                    if(get_post_type($single_post) == 'resource'){
-//                        $term_list = wp_get_post_terms($single_post, 'topic', array('fields' => 'all'));
-//                    }
-//
-//                    if (get_field('td_resource_teaser', $single_post)) {
-//                        $excerpt = get_field('td_resource_teaser', $single_post);
-//                    } else if (get_field('add_text', $single_post)) {
-//                        $excerpt = get_field('add_text', $single_post);
-//                    } else if (get_the_excerpt($single_post)){
-//                        $excerpt = get_the_excerpt($single_post);
-//                    } else if (get_the_content($single_post)) {
-//                        $excerpt = get_the_content($single_post);
-//                    } else {
-//                        $excerpt = '';
-//                    }
-//                    ?>
-<!--                        <div class="post-tile__wrap  resource image post---><?// echo $single_post;?><!-- mob-style-2">-->
-<!--                            <div class="post-tile__img-box">-->
-<!--                                <div class="post-tile__img">-->
-<!--                                    --><?php //if ($bg_image != '' || $bg_image != NULL) { ?>
-<!--                                        <img class="post-tile__thumb" src="--><?php //echo $bg_image ?><!--" alt="--><?php //echo get_the_title($single_post); ?><!--">-->
-<!--                                    --><?php //} ?>
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="post-tile__content">-->
-<!--                                <div class="post-tile__content-header">-->
-<!--                                    <div class="post-tile__left">-->
-<!--                                            <span class="post-tile__pub-date">-->
-<!--                                                --><?php //echo get_the_date('M d Y', $single_post);?>
-<!--                                            </span>-->
-<!--                                    </div>-->
-<!--                                    <div class="post-tile__right">-->
-<!--                                        --><?php //if (get_field('time_to_read', $single_post)): ?>
-<!--                                            <span class="post-tile__time">--><?php //echo get_field('time_to_read', $single_post); ?><!-- read</span>-->
-<!--                                        --><?php //endif ?>
-<!--                                        <span>--><?php //echo do_shortcode('[favorite_button]') ?><!--</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="post-tile__content-body">-->
-<!--                                    <div class="post-tile__tags">-->
-<!--                                        --><?php //foreach ($term_list as $term) : ?>
-<!--                                            <a class="content-tags__item" href="/search?_content_tags=--><?php //echo $term->slug ?><!--" data-tem-id="--><?php //echo  $term->term_id ?><!--">--><?php //echo $term->name ?><!--</a>-->
-<!--                                        --><?php //endforeach ?>
-<!--                                    </div>-->
-<!--                                    <div class="post-tile__title">-->
-<!--                                        <span>--><?// echo get_the_title($single_post);?><!--</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="post-tile__excerpt">-->
-<!--                                        <p>--><?php //echo get_custom_excerpt($excerpt, 213, true) ?><!--</p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="post-tile__content-footer">-->
-<!--                                    <a href="--><?//echo get_post_permalink($single_post) ?><!--" class="btn-body btn-transparent triangle after Between">-->
-<!--                                        <span class="btn-inner">READ MORE</span>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    var_dump($single_posts);-->
-<!--                --><?// }
-//            ?>
         </div>
     </div>
 </div>
+<?php } ?>
 
 <?php get_footer();?>
