@@ -134,10 +134,10 @@ function get_pdf_page_content($data) {
             //File
             if ($content_item['item_type'] == 'File') {
                 $html .= '<div class="content-item file" style="margin: 16px 0">';
-                $html .=    '<div class="single-resource__container file" style="max-width: 800px;background: #FFFFFF;box-sizing: border-box;border-radius: 4px;position: relative;margin: 24px auto;padding-bottom: 24px;border: 2px solid #131032;">';
+                $html .=    '<div class="single-resource__container file" style="max-width: 800px;background: #FFFFFF;box-sizing: border-box;border-radius: 4px;position: relative;margin: 24px auto;padding-bottom: 24px;border: 2px solid #97a93e;">';
                 $html .=        '<div class="single-resource__bg" style=""></div>';
                 $html .=        '<div class="single-resource__inner"style="display: flex;flex-direction: column;align-items: center;margin: auto;position: relative;">';
-                $html .=            '<div class="single-resource__header" style="background-color:#131032;width: 100%;padding: 20px 0;display: flex;flex-direction: row;align-items: center;justify-content: space-between;color:#fff;font-family: Proxima Nova;font-style: normal;font-weight: bold;font-size: 22.44px;line-height: 25px;letter-spacing: 0.02em;text-decoration: none;">';
+                $html .=            '<div class="single-resource__header" style="background-color:#97a93e;width: 100%;padding: 20px 0;display: flex;flex-direction: row;align-items: center;justify-content: space-between;color:#fff;font-family: Proxima Nova;font-style: normal;font-weight: bold;font-size: 22.44px;line-height: 25px;letter-spacing: 0.02em;text-decoration: none;">';
                 $html .=               '<div class="single-resource__title" style="margin-left: 20px;">';
                 $html .=                    '<span>'. $content_item["file_block"]["file_title"] .'</span>';
                 $html .=               '</div>';
@@ -166,10 +166,10 @@ function get_pdf_page_content($data) {
             }
             if ($content_item['item_type'] == 'Link') {
                 $html .= '<div class="content-item link"  style="margin: 16px 0">';
-                $html .=        '<div class="single-resource__container link" style="max-width: 800px;background: #FFFFFF;box-sizing: border-box;border-radius: 4px;position: relative;margin: 24px auto;padding-bottom: 24px;border: 2px solid #131032;">';
+                $html .=        '<div class="single-resource__container link" style="max-width: 800px;background: #FFFFFF;box-sizing: border-box;border-radius: 4px;position: relative;margin: 24px auto;padding-bottom: 24px;border: 2px solid #138dcd;">';
                 $html .=            '<div class="single-resource__bg"></div>';
                 $html .=           '<div class="single-resource__inner" style="display: flex;flex-direction: column;align-items: center;margin: auto;position: relative;">';
-                $html .=                '<div class="single-resource__header"  style="background-color:#131032;width: 100%;padding: 20px 0;display: flex;flex-direction: row;align-items: center;justify-content: space-between;color:#fff;font-family: Proxima Nova;font-style: normal;font-weight: bold;font-size: 22.44px;line-height: 25px;letter-spacing: 0.02em;text-decoration: none;">';
+                $html .=                '<div class="single-resource__header"  style="background-color:#138dcd;width: 100%;padding: 20px 0;display: flex;flex-direction: row;align-items: center;justify-content: space-between;color:#fff;font-family: Proxima Nova;font-style: normal;font-weight: bold;font-size: 22.44px;line-height: 25px;letter-spacing: 0.02em;text-decoration: none;">';
                 $html .=                    '<div class="single-resource__title"  style="margin-left: 20px;">';
                 $html .=                        '<span> ' . $content_item["link_block"]["link_title"] . '</span>';
                 $html .=                    '</div>';
