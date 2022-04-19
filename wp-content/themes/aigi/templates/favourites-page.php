@@ -9,6 +9,7 @@ Template Name: Reading list template
 <?php
 $user_id = get_current_user_id();
 $reading_list = get_user_favorites($user_id);
+var_dump($reading_list);
 $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 ?>
 <div class="wrapper-full-width content-wrapper search-page__top">
