@@ -292,3 +292,24 @@
           <?php endif; ?>
 
       <div id="container">
+
+          <div class="add-to-reading-list">
+              <div class="reading-header">
+                  <div class="reading-header-left">
+                      <img src="<?php echo get_template_directory_uri()?>/assets/images/star_full).png">
+                      <span>Reading list</span>
+                  </div>
+                  <div class="reading-header-right">
+                      <img src="<?php echo get_template_directory_uri()?>/assets/images/close_arrows.png" class="close-reading-add">
+                  </div>
+              </div>
+              <div class="reading-body">
+                  <div class="resource-message">
+                      This resources it has been added to your reading list.
+                  </div>
+                  <div class="resource-body">
+                      Indigenous Governance Training and the CATSI Act Review.
+                  </div>
+                  <a href="/reading-list/" class="reading-button">View your reading list</a>
+              </div>
+          </div>

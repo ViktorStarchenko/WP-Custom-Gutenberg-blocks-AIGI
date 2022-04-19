@@ -179,9 +179,15 @@ function custom_wp_custom_scripts(){
         wp_enqueue_style('slick', get_theme_file_uri() . '/assets/css/swiper.min.css');
         wp_enqueue_style('styles', get_theme_file_uri() . '/assets/css/style.css');
 
+        wp_enqueue_style('popup-favourite', get_theme_file_uri() . '/assets/css/favourite-popup.css');
+
 
         wp_enqueue_script('slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js', ['jquery'], false, false);
         wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/js/main.js', ['jquery'], false, true);
+
+        if(is_page_template('templates/favourites-page.php')){
+            wp_enqueue_script('reading-list', get_template_directory_uri() . '/assets/js/favourites.js', ['jquery'], false, true);
+        }
     }
 }
 
@@ -287,6 +293,133 @@ function custom_load_font_awesome() {
 
     wp_enqueue_style( 'font-awesome-free', '//use.fontawesome.com/releases/v5.2.0/css/all.css' );
 
+}
+
+add_action( 'wp_ajax_sort_favourites', 'sort_favourites' );
+add_action( 'wp_ajax_nopriv_sort_favourites', 'sort_favourites' );
+function sort_favourites(){
+    $paged = $_POST['page'];
+    $sorted = $_POST['value_by'];
+    $user_id = get_current_user_id();
+    $reading_list = get_user_favorites($user_id);
+
+    $whatever = array();
+
+    if($sorted == 'newes'){
+        $query = new WP_Query( [
+            'paged' => $paged,
+            'post_type' => array( 'post', 'page', 'resource' ),
+            'posts_per_page' => 5,
+            'post__in'  => $reading_list,
+            'orderby' => 'date',
+            'order'   => 'DESC',
+        ] );
+    } elseif ($sorted === 'oldest'){
+        $query = new WP_Query( [
+            'paged' => $paged,
+            'post_type' => array( 'post', 'page', 'resource' ),
+            'posts_per_page' => 5,
+            'post__in'  => $reading_list,
+            'orderby' => 'date',
+            'order'   => 'ASC',
+        ] );
+    } elseif($sorted === 'relevance'){
+        $query = new WP_Query( [
+            'paged' => $paged,
+            'post_type' => array( 'post', 'page', 'resource' ),
+            'posts_per_page' => 5,
+            'post__in'  => $reading_list,
+            'orderby' => 'post_views_count',
+            'order'   => 'DESC',
+        ] );
+    } else {
+        $query = new WP_Query( [
+            'paged' => $paged,
+            'post_type' => array( 'post', 'page', 'resource' ),
+            'posts_per_page' => 5,
+            'post__in'  => $reading_list,
+            'orderby' => 'date',
+            'order'   => 'DESC',
+        ] );
+    }
+
+    for($i=0; $i < count($query->posts); $i++){
+
+        $bg_image = '';
+        if (get_field('add_diagram', $query->posts[$i]->ID)) {
+            $bg_image = get_field('add_diagram', $query->posts[$i]->ID);
+        } else if (get_field('td_resource_image', $query->posts[$i]->ID)) {
+            $bg_image = get_field('td_resource_image', $query->posts[$i]->ID)['url'];
+        } else {
+            $bg_image = get_the_post_thumbnail_url($query->posts[$i]->ID, 'full' );
+        }
+
+        if(get_post_type($query->posts[$i]->ID) == 'resource'){
+            $term_list = wp_get_post_terms( $query->posts[$i]->ID, 'topic', array('fields' => 'all'));
+        }
+
+        if (get_field('td_resource_teaser', $query->posts[$i]->ID)) {
+            $excerpt = get_field('td_resource_teaser', $query->posts[$i]->ID);
+        } else if (get_field('add_text', $query->posts[$i]->ID)) {
+            $excerpt = get_field('add_text', $query->posts[$i]->ID);
+        } else if (get_the_excerpt()){
+            $excerpt = get_the_excerpt();
+        } else if (get_the_content()) {
+            $excerpt = get_the_content();
+        } else {
+            $excerpt = '';
+        }
+
+        $whatever['posts_new'] .= '
+                <div class="post-tile__wrap  resource image post-<? echo get_the_id();?> mob-style-2" data-date="'.strtotime(get_the_date('Y-m-d H:i:s', $query->posts[$i]->ID)).'" data-views="'.get_post_meta( $query->posts[$i]->ID, 'post_views_count', true ).'">
+                    <div class="post-tile__img-box">
+                            <div class="post-tile__img">';
+        if ($bg_image != '' || $bg_image != NULL) {
+            $whatever['posts_new'] .= '<img class="post-tile__thumb" src="'.$bg_image.'" alt="'.get_the_title($query->posts[$i]->ID).'">';
+        }
+        $whatever['posts_new'] .= '  
+                            </div>
+                    </div>
+                    <div class="post-tile__content">
+                        <div class="post-tile__content-header">
+                            <div class="post-tile__left">
+                                <span class="post-tile__pub-date">
+                                    '.get_the_date('M d Y', $query->posts[$i]->ID).'
+                                </span>
+                            </div>
+                            <div class="post-tile__right">';
+        if (get_field('time_to_read', $query->posts[$i]->ID)):
+            $whatever['posts_new'] .= '<span class="post-tile__time">'.get_field('time_to_read', $query->posts[$i]->ID).' read</span>';
+        endif;
+        $whatever['posts_new'] .= '<span>'.do_shortcode('[favorite_button]').'</span>
+                            </div>
+                        </div>
+                        <div class="post-tile__content-body">
+                            <div class="post-tile__tags">';
+        foreach ($term_list as $term){
+            $whatever['posts_new'] .= '<a class="content-tags__item" href="/search?_content_tags='.$term->slug.'" data-tem-id="'.$term->term_id.'"> '.$term->name.'</a>';
+        }
+        $whatever['posts_new'] .= '      
+                            </div>
+                            <div class="post-tile__title">
+                                <span>'.get_the_title($query->posts[$i]->ID).'</span>
+                            </div>
+                            <div class="post-tile__excerpt">
+                                <p>'.get_custom_excerpt($excerpt, 213, true).'</p>
+                            </div>
+                        </div>
+                        <div class="post-tile__content-footer">
+                            <a href="'.get_post_permalink($query->posts[$i]->ID).'" class="btn-body btn-transparent triangle after Between">
+                                <span class="btn-inner">READ MORE</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            ';
+    }
+
+    echo json_encode($whatever);
+    wp_die();
 }
 
 
