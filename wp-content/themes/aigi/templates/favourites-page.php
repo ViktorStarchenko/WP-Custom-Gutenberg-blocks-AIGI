@@ -96,6 +96,8 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
                         $bg_image = get_the_post_thumbnail_url('full' );
                     }
 
+                    var_dump($bg_image);
+
                     if(get_post_type() == 'resource'){
                         $term_list = wp_get_post_terms( get_the_ID(), 'topic', array('fields' => 'all'));
                     }
@@ -143,14 +145,14 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
                                     <?php endforeach ?>
                                 </div>
                                 <div class="post-tile__title">
-                                    <span><? echo get_the_title();?></span>
+                                    <span> <? echo get_the_title();?> </span>
                                 </div>
                                 <div class="post-tile__excerpt">
                                     <p><?php echo get_custom_excerpt($excerpt, 213, true) ?></p>
                                 </div>
                             </div>
                             <div class="post-tile__content-footer">
-                                <a href="<?echo get_post_permalink() ?>" class="btn-body btn-transparent triangle after Between">
+                                <a href="<? echo get_post_permalink(); ?>" class="btn-body btn-transparent triangle after Between">
                                     <span class="btn-inner">READ MORE</span>
                                 </a>
                             </div>
