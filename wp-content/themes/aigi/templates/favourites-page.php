@@ -145,14 +145,14 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
                                     <?php endforeach ?>
                                 </div>
                                 <div class="post-tile__title">
-                                    <span> <? echo get_the_title(get_the_ID());?> </span>
+                                    <span> <?php echo get_the_title(get_the_ID());?> </span>
                                 </div>
                                 <div class="post-tile__excerpt">
                                     <p><?php echo get_custom_excerpt($excerpt, 213, true) ?></p>
                                 </div>
                             </div>
                             <div class="post-tile__content-footer">
-                                <a href="<? echo get_post_permalink(get_the_ID()); ?>" class="btn-body btn-transparent triangle after Between">
+                                <a href="<?php echo get_post_permalink(get_the_ID()); ?>" class="btn-body btn-transparent triangle after Between">
                                     <span class="btn-inner">READ MORE</span>
                                 </a>
                             </div>
