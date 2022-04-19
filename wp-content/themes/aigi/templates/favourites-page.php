@@ -181,6 +181,12 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
         </div>
     </div>
 </div>
+<?php } else { ?>
+<div class="content-wrapper wrapper-1245">
+    <div class="post-tile__list landing-page search-page__results favourites-page">
+        You have no items in your reading list
+    </div>
+</div>
 <?php } ?>
 
 <?php get_footer();?>
