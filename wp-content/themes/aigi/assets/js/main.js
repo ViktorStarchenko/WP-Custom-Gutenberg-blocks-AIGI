@@ -860,7 +860,7 @@ $(document).ready(function(){
     $('.simplefavorite-button').on('click', function(){
         if(!$(this).hasClass('active')){
             $(".add-to-reading-list").fadeIn(1000);
-            $(".add-to-reading-list").delay(3500).fadeOut(1000);
+            $(".add-to-reading-list").delay(2500).fadeOut(1000);
             $(".add-to-reading-list").find('div.resource-body').html($(this).closest('div.post-tile__content').find('div.post-tile__title').text());
         }
     })
