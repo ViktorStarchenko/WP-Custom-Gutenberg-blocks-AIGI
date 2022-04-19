@@ -102,14 +102,14 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
                         $term_list = wp_get_post_terms( get_the_ID(), 'topic', array('fields' => 'all'));
                     }
 
-                    if (get_field('td_resource_teaser')) {
-                        $excerpt = get_field('td_resource_teaser');
-                    } else if (get_field('add_text')) {
-                        $excerpt = get_field('add_text');
-                    } else if (get_the_excerpt()){
-                        $excerpt = get_the_excerpt();
-                    } else if (get_the_content()) {
-                        $excerpt = get_the_content();
+                    if (get_field('td_resource_teaser', get_the_ID())) {
+                        $excerpt = get_field('td_resource_teaser', get_the_ID());
+                    } else if (get_field('add_text', get_the_ID())) {
+                        $excerpt = get_field('add_text', get_the_ID());
+                    } else if (get_the_excerpt(get_the_ID())){
+                        $excerpt = get_the_excerpt(get_the_ID());
+                    } else if (get_the_content(get_the_ID())) {
+                        $excerpt = get_the_content(get_the_ID());
                     } else {
                         $excerpt = '';
                     }
@@ -145,14 +145,14 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
                                     <?php endforeach ?>
                                 </div>
                                 <div class="post-tile__title">
-                                    <span> <? echo get_the_title();?> </span>
+                                    <span> <? echo get_the_title(get_the_ID());?> </span>
                                 </div>
                                 <div class="post-tile__excerpt">
                                     <p><?php echo get_custom_excerpt($excerpt, 213, true) ?></p>
                                 </div>
                             </div>
                             <div class="post-tile__content-footer">
-                                <a href="<? echo get_post_permalink(); ?>" class="btn-body btn-transparent triangle after Between">
+                                <a href="<? echo get_post_permalink(get_the_ID()); ?>" class="btn-body btn-transparent triangle after Between">
                                     <span class="btn-inner">READ MORE</span>
                                 </a>
                             </div>
