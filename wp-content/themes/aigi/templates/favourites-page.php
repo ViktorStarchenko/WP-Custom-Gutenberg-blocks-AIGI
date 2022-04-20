@@ -10,6 +10,7 @@ Template Name: Reading list template
 $user_id = get_current_user_id();
 $reading_list = get_user_favorites($user_id);
 $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+$sort_info = $_COOKIE["sortType"];
 ?>
 <div class="wrapper-full-width content-wrapper search-page__top">
     <div class="search-page__header wrapper-1245 ">
@@ -24,10 +25,27 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 <!--            --><?php //echo do_shortcode('[facetwp facet="sort_by_relevance"]'); ?>
             <div class="facetwp-facet" data-name="sort_by_relevance" data-type="sort">
                 <select class="sorting-wish-selector">
-                    <option value="">Sort by</option>
-                    <option value="newes" data-order="1">Newes</option>
-                    <option value="oldest" data-order="-1">Oldest</option>
-                    <option value="relevance">Relevance</option>
+                    <?php if($sort_info === 'newes'){
+                        echo '<option value="newes" data-order="1" selected>Newest</option>';
+                    } else {
+                        echo '<option value="newes" data-order="1">Newest</option>';
+                    }
+                    if($sort_info === 'oldest'){
+                        echo '<option value="oldest" data-order="-1" selected>Oldest</option>';
+                    } else {
+                        echo '<option value="oldest" data-order="-1">Oldest</option>';
+                    }
+                    if($sort_info === 'relevance'){
+                        echo '<option value="relevance" selected>Relevance</option>';
+                    } else{
+                        echo '<option value="relevance">Relevance</option>';
+                    }
+                    if($sort_info === '' || $sort_info === NULL){
+                        echo '<option value="" selected>Sort by</option>';
+                    } else {
+                        echo '<option value="">Sort by</option>';
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -40,7 +58,6 @@ $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
         <div class="facetwp-template" data-name="landing_page_result">
             <div class="favor-sorted-posts" data-paged="<? echo $paged;?>">
                 <?php
-                $sort_info = $_COOKIE["sortType"];
 
                 if($sort_info === 'newes'){
                     $query = new WP_Query( [
