@@ -1,5 +1,19 @@
 <?php
 
+function get_pdf_people_position($post) {
+    $people_info_get_position = get_field('people_info',$post)['position'];
+
+    $html = '';
+
+    if ($people_info_get_position) {
+    $html.=    '<div class="post-details__item" style="margin:8px 0">';
+    $html.=        '<div class="post-details__text">'.$people_info_get_position.'</div>';
+    $html.=    '</div>';
+    }
+
+    return $html;
+}
+
 function get_pdf_people_qualification($post) {
     $people_info_get_qualification = get_field('people_info',$post);
 

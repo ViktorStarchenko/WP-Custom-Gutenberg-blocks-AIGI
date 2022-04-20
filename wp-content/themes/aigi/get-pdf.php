@@ -56,13 +56,16 @@ $html .=                                    '<div class="pdf_title" style="font-
     }
 
     if (get_post_type($post) =='people') {
+
+        $pdf_people_position = get_pdf_people_position($post);
+        $html .= $pdf_people_position;
+
         $pdf_people_qualification = get_pdf_people_qualification($post);
         $html .= $pdf_people_qualification;
-    }
 
-    if (get_post_type($post) =='people') {
         $pdf_people_topics_of_expertis = get_pdf_people_topics_of_expertis($post);
         $html .= $pdf_people_topics_of_expertis;
+
     }
 
 
@@ -98,19 +101,19 @@ $html .= '</div>';
 
 $html .= '</div>'; //END PDF BODY
 
-print_r($html);
+//print_r($html);
 //// reference the Dompdf namespace
 use Dompdf\Dompdf;
 
 // instantiate and use the dompdf class
-//$dompdf = new Dompdf(array('enable_remote' => true));
-//$dompdf->loadHtml($html);
-//
-//// (Optional) Setup the paper size and orientation
-//$dompdf->setPaper('A4', 'landscape');
-//
-//// Render the HTML as PDF
-//$dompdf->render();
-//
-//// Output the generated PDF to Browser
-//$dompdf->stream($post_title . '.pdf');
+$dompdf = new Dompdf(array('enable_remote' => true));
+$dompdf->loadHtml($html);
+
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('A4', 'landscape');
+
+// Render the HTML as PDF
+$dompdf->render();
+
+// Output the generated PDF to Browser
+$dompdf->stream($post_title . '.pdf');
