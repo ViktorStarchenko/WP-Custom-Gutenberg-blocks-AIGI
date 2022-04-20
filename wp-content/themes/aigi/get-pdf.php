@@ -29,7 +29,7 @@ $html .=                       '<div class="pdf_header" style="width: 100%;paddi
 
 $html .=           '<div class="pdf-container" style="max-width:800px;margin:auto">';
 $html .=                                '<div class="pdf_header__bottom" style="margin: 48px 0">';
-$html .=                                        '<img src="http://aigi.loc/wp-content/uploads/2022/01/logo-navy.svg" alt="log">';
+$html .=                                        get_site_url().'/wp-content/uploads/2022/01/logo-navy.svg" alt="log">';
 $html .=                               ' </div>';
 
 $html .=                                '<div class="">';
@@ -102,7 +102,7 @@ $html .= '</div>'; //END PDF CONTAINER
 
 $html .= '<div class="footer" style="background-color: #131032; color:#fff">';
 $html .= '<div class="footer-inner" style="max-width: 800px;margin: auto;    padding: 32px">';
-$html .=      '<div class="footer_logo"><img src="http://aigi.loc/wp-content/uploads/2021/12/Frame-124.svg" alt="Indigenous Governance Toolkit" style ="width: 44px;height: 82px;"></div>';
+$html .=      '<div class="footer_logo"><img src='.get_site_url().'"/wp-content/uploads/2021/12/Frame-124.svg" alt="Indigenous Governance Toolkit" style ="width: 44px;height: 82px;"></div>';
 $html .= '</div>';
 
 
