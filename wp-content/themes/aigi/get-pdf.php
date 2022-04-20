@@ -29,7 +29,7 @@ $html .=                       '<div class="pdf_header" style="width: 100%;paddi
 
 $html .=           '<div class="pdf-container" style="max-width:800px;margin:auto">';
 $html .=                                '<div class="pdf_header__bottom" style="margin: 48px 0">';
-$html .=                                        get_site_url().'/wp-content/uploads/2022/01/logo-navy.svg" alt="log">';
+$html .=                                        '<img src="'.get_site_url().'/wp-content/uploads/2022/01/logo-navy.svg" alt="log">';
 $html .=                               ' </div>';
 
 $html .=                                '<div class="">';
