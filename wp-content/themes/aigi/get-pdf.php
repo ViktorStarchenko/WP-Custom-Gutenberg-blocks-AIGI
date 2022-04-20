@@ -7,17 +7,19 @@ include 'template-parts/pdf-parts/pdf-page-content.php';
 include 'template-parts/pdf-parts/pdf-event-info.php';
 include 'template-parts/pdf-parts/pdf-news-info.php';
 include 'template-parts/pdf-parts/pdf-case-studies-info.php';
+include 'template-parts/pdf-parts/pdf-people-info.php';
 
 $query = $_GET['post_id'];
 $post = get_post(intval($query));
 $post_title = $post->post_title;
 
+$date = date("d/m/Y");
 
 $html = '';
 $html .= '<div class="pdf-body" style="color:#4d4d4d;">';
 $html .=                       '<div class="pdf_header" style="width: 100%;padding:32px; color:#4d4d4d;">
                                     <div class="pdf_header__top" style="display: flex;flex-direction:row;align-items:center;justify-content:space-between;">
-                                        <div class="pdf_header__top-date" style="display: inline-block">30/03/2022</div>
+                                        <div class="pdf_header__top-date" style="display: inline-block">'.$date.'</div>
                                         <div class="pdf_header__top-brand" style="display: inline-block;margin-left:50px">Australian Indigenous Governance Institute</div>
                                     </div>
 
@@ -52,6 +54,17 @@ $html .=                                    '<div class="pdf_title" style="font-
         $pdf_case_studies_location = get_pdf_case_studies_location($post);
         $html .= $pdf_case_studies_location;
     }
+
+    if (get_post_type($post) =='people') {
+        $pdf_people_qualification = get_pdf_people_qualification($post);
+        $html .= $pdf_people_qualification;
+    }
+
+    if (get_post_type($post) =='people') {
+        $pdf_people_topics_of_expertis = get_pdf_people_topics_of_expertis($post);
+        $html .= $pdf_people_topics_of_expertis;
+    }
+
 
     $content_items = get_field('content_items', $post);
     $custom_page_content = get_pdf_page_content($content_items);
