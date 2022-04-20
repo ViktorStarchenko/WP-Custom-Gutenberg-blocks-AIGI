@@ -6,6 +6,7 @@ include 'lib/dompdf/autoload.inc.php';
 include 'template-parts/pdf-parts/pdf-page-content.php';
 include 'template-parts/pdf-parts/pdf-event-info.php';
 include 'template-parts/pdf-parts/pdf-news-info.php';
+include 'template-parts/pdf-parts/pdf-case-studies-info.php';
 
 $query = $_GET['post_id'];
 $post = get_post(intval($query));
@@ -40,6 +41,16 @@ $html .=                                    '<div class="pdf_title" style="font-
     if (get_post_type($post) =='news') {
         $pdf_news_info = get_pdf_news_info($post);
         $html .= $pdf_news_info;
+    }
+
+    if (get_post_type($post) =='case_studies') {
+        $pdf_case_studies_writer = get_pdf_case_studies_writer($post);
+        $html .= $pdf_case_studies_writer;
+    }
+
+    if (get_post_type($post) =='case_studies') {
+        $pdf_case_studies_location = get_pdf_case_studies_location($post);
+        $html .= $pdf_case_studies_location;
     }
 
     $content_items = get_field('content_items', $post);

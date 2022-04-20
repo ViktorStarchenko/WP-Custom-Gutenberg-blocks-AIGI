@@ -9,9 +9,9 @@ function get_pdf_news_info($post) {
 
         foreach (get_field('author') as $author) {
             $html.=    '<div class="post-details__text" style="font-weight: normal;font-size: 16px;line-height: 24px;letter-spacing: 0.05em;color: #4d4d4d;">';
-            $html.=         $author->post_title;
+            $html.=         $author->post_title . ': ';
             if (get_field ("author_title", $author->ID)) {
-                $html.=         '<p> '.get_field("author_title", $author->ID).'</p>';
+                $html.=         '<span> '.get_field("author_title", $author->ID).'</span>';
             }
             $html.=    '</div>';
         }
