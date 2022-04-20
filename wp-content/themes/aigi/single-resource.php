@@ -82,7 +82,7 @@ get_header(); ?>
                                     <?php endforeach ?>
                                 </div>
                                 <div class="toolkit-tag__download">
-                                    <span class="toolkit-tag__download-btn">Download</span> <?php echo do_shortcode('[WORDPRESS_PDF]'); ?>
+                                    <a href="/pdf-test?post_id=<?php echo get_the_ID();?>" class="toolkit-tag__download-btn">Download</a>
                                 </div>
 
                             </div>

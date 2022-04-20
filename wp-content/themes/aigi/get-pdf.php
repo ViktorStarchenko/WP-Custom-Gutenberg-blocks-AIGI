@@ -8,6 +8,7 @@ include 'template-parts/pdf-parts/pdf-event-info.php';
 include 'template-parts/pdf-parts/pdf-news-info.php';
 include 'template-parts/pdf-parts/pdf-case-studies-info.php';
 include 'template-parts/pdf-parts/pdf-people-info.php';
+include 'template-parts/pdf-parts/pdf-resource-info.php';
 
 $query = $_GET['post_id'];
 $post = get_post(intval($query));
@@ -35,6 +36,13 @@ $html .=                                '<div class="">';
 $html .=                                    '<div class="pdf_title" style="font-weight: 700;font-size: 32.38px;line-height: 110%;letter-spacing: 0.02em;color: #131032;">'.$post_title.'</div>';
 
 
+
+
+    if (get_post_type($post) =='resource') {
+        $pdf_resource = get_pdf_resource ($post);
+        $html .= $pdf_resource;
+    }
+
     if (get_post_type($post) =='event') {
         $pdf_event_info = get_pdf_event_info($post);
         $html .= $pdf_event_info;
@@ -48,12 +56,11 @@ $html .=                                    '<div class="pdf_title" style="font-
     if (get_post_type($post) =='case_studies') {
         $pdf_case_studies_writer = get_pdf_case_studies_writer($post);
         $html .= $pdf_case_studies_writer;
-    }
 
-    if (get_post_type($post) =='case_studies') {
         $pdf_case_studies_location = get_pdf_case_studies_location($post);
         $html .= $pdf_case_studies_location;
     }
+
 
     if (get_post_type($post) =='people') {
 
