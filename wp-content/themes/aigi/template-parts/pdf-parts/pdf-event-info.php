@@ -70,7 +70,7 @@ function get_pdf_event_info($post) {
     $html .=               '</div>';
     $html .=           '</div>';
                                 if ($ticket_link) {
-                                    $html .=                '<div class="single-event__pricing-list">';
+                                    $html .=                '<div class="single-event__pricing-list" style="margin: 16px 0 32px">';
 
                                     $html .=                 '<div class="single-event__pricing-item">';
                                     $html .=                     '<a href="'.$ticket_link.'" target="_blank" class="btn-body  btn-h-secondary-blue  enlarge  after  Between " tabindex="0" style="min-width: 217px;font-family: Proxima Nova;font-style: normal;font-weight: 800;font-size: 15px;line-height: 14px;display: flex;align-items: center;text-align: center;display: inline-block;letter-spacing: 0.08em;text-transform: uppercase;text-decoration: none;border-radius: 5px;padding: 17px 20px;transition: all .3s;box-sizing: border-box;position: relative;cursor: pointer;white-space: nowrap;color: #FFFFFF;background-color:#138dcd;border: 1px solid #138dcd;"><span class="btn-inner">Get tickets</span></a>';
