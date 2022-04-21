@@ -79,4 +79,12 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'      => false
     ));
 
+    acf_add_options_page(array(
+        'page_title'    => 'Download PDF Settings',
+        'menu_title'    => 'Download PDF Settings',
+        'menu_slug'     => 'download-pdf-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+
 }
