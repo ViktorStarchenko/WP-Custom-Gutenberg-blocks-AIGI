@@ -157,6 +157,14 @@ body .scholarship-open__wrapper .gfield_label {
     background-color: var(--color-h-secondary-blue);
     border: 1px solid var(--color-h-secondary-blue);
 }
+
+
+/*Download PDF*/
+.download-pdf__wrapper {
+    max-width: 600px;
+    padding: 16px;
+}
+
 /*Gallery*/
 .popup_content_wrapper.gallery {
     padding: 0;
