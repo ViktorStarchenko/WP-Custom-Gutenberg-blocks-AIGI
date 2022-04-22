@@ -99,15 +99,15 @@ get_header(); ?>
                                                                 <div class="scholarship-open-form__wrapper">
                                                                     <div class="form-heading">
                                                                         <?php if (get_field('modal_pdf_heading', 'option')) {?>
-                                                                        <div class="form-title"><?php echo get_field('modal_pdf_heading', 'option'); ?></div>
+                                                                            <div class="form-title"><?php echo get_field('download_button', 'option')['modal_pdf_heading']; ?></div>
                                                                         <?php } ?>
                                                                         <?php if (get_field('modal_pdf_description', 'option')) { ?>
-                                                                            <div class="form-desc"><?php echo get_field('modal_pdf_description', 'option'); ?></div>
+                                                                            <div class="form-desc"><?php echo get_field('download_button', 'option')['modal_pdf_description']; ?></div>
                                                                         <?php } ?>
                                                                     </div>
 
                                                                     <?php if (get_field('modal_pdf_form_id','option')) { ?>
-                                                                        <div class=""><?php echo do_shortcode('[gravityform id="'.get_field('modal_pdf_form_id','option').'" title="false" description="false" ajax="true" tabindex="49"]');?></div>
+                                                                        <div class=""><?php echo do_shortcode('[gravityform id="'.get_field('download_button', 'option')['modal_pdf_form_id'].'" title="false" description="false" ajax="true" tabindex="49"]');?></div>
                                                                     <?php } ?>
 
                                                                 </div>
@@ -117,6 +117,7 @@ get_header(); ?>
                                                         <div class="popup_content_footer">
                                                             <img src="/wp-content/themes/aigi/assets/images/group.svg" alt="">
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>

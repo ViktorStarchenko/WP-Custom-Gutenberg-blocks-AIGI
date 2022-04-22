@@ -21,6 +21,35 @@ ob_start();
 
 
 <style>
+    /********************************* FONTS *****************************/
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: normal;
+        font-display: swap;
+        src: url(<?php echo get_template_directory_uri(); ?>/assets/fonts/ProximaNova/ProximaNova-Regular.ttf);
+    }
+
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(<?php echo get_template_directory_uri(); ?>/assets/fonts/ProximaNova/ProximaNova-Semibold.ttf);
+    }
+
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: bold;
+        font-display: swap;
+        src: url(<?php echo get_template_directory_uri(); ?>/assets/fonts/ProximaNova/ProximaNova-Bold.ttf);
+    }
+
+
     html {
         margin: 0;
     }
@@ -33,7 +62,6 @@ ob_start();
         line-height: 24px;
         letter-spacing: 0.05em;
         color: #4d4d4d;
-
     }
     .pdf_fixed_header {
         position: fixed;
@@ -50,8 +78,19 @@ ob_start();
         position: absolute;
         left: 32px;
         font-size: 14px;
-
     }
+    <?php if (get_field('pdf_settings', 'option')['header_logo_width']) {?>
+    .pdf_header__logo {
+        width: <?php echo get_field('pdf_settings', 'option')['header_logo_width']; ?>
+    }
+    <?php } ?>
+
+    <?php if (get_field('pdf_settings', 'option')['footer_logo_width']) {?>
+    .footer_logo_image {
+        width: <?php echo get_field('pdf_settings', 'option')['footer_logo_width']; ?>
+    }
+    <?php } ?>
+
     .pdf_fixed_footer {
         position: fixed;
         bottom: 0;
@@ -78,7 +117,7 @@ ob_start();
         position: absolute;
         bottom: 60px;
         left: 0;
-        background-color: #131032;
+        /*background-color: #131032;*/
         color:#fff;
     }
     .footer_logo {
@@ -102,6 +141,40 @@ ob_start();
     th:nth-child(even),
     td:nth-child(even) {
         box-shadow: 0px 0px 0px #e0e0e0, -1px -1px 0px #e0e0e0;
+    }
+
+    .bg_color_navy {
+        background-color: #131032;
+    }
+    .bg_color_yelow {
+        background-color: #DC9C50;
+    }
+    .bg_color_orange {
+        background-color: #C45726;
+    }
+    .bg_color_purple {
+        background-color: #7B367C;
+    }
+    .bg_color_blue {
+        background-color: #138DCD;
+    }
+    .bg_color_m-blue {
+        background-color: #0762A4;
+    }
+    .bg_color_green {
+        background-color: #97A93E;
+    }
+    .bg_color_primary_green {
+        background-color: #8B8A33;
+    }
+    .bg_color_turquoise {
+        background-color: #00AF90;
+    }
+    .bg_primary_grey {
+        background-color: #F8F8F8;
+    }
+    .bg_color_white {
+        background-color: #ffffff;
     }
 
 </style>
@@ -134,15 +207,19 @@ ob_start();
     </script>
     <div class="pdf_fixed_header" style="display: flex;flex-direction:row;align-items:center;justify-content:space-between;">
         <div class="pdf_header__top-date" style="display: inline-block"><?php echo $date; ?></div>
-        <div class="pdf_header__top-brand" style="display: inline-block;margin-left:50px">Australian Indigenous Governance Institute</div>
+        <?php if (get_field('pdf_settings', 'option')['header_title']) {?>
+        <div class="pdf_header__top-brand" style="display: inline-block;margin-left:50px"><?php echo get_field('pdf_settings', 'option')['header_title'] ; ?></div>
+        <?php } ?>
+
     </div>
     <div class="wrapper">
         <div class="pdf-header">
-
             <div class="pdf_header__bottom" style="margin: 48px 0 32px">
-                <img src="<?php echo get_site_url();?>/wp-content/uploads/2022/01/logo-navy.svg" alt="log">
+            <?php if (get_field('pdf_settings', 'option')['header_logo']) {?>
+                <img class="pdf_header__logo" src="<?php echo get_field('pdf_settings', 'option')['header_logo']['url']; ?>" alt="logo">
+            <?php } ?>
             </div>
-            <div class="pdf_page_title" style="font-weight: 700;font-size: 32.38px;line-height: 110%;letter-spacing: 0.02em;color: #131032;"><?php echo $post_title ;?></div>
+            <div class="pdf_page_title" style="font-weight: 700;font-size: 32.38px;line-height: 110%;letter-spacing: 0.02em;color: #131032;margin-bottom: 32px;"><?php echo $post_title ;?></div>
         </div>
 
 
@@ -191,16 +268,22 @@ ob_start();
         ?>
 
 
-        <div class="pdf-footer">
-            <div class="footer_logo">
-                <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2021/12/Frame-124.svg" alt="Indigenous Governance Toolkit" style ="width: 44px;height: 82px;">
-            </div>
+        <div class="pdf-footer <?php echo get_field('pdf_settings', 'option')['footer_bg_color']; ?>">
+            <?php if (get_field('pdf_settings', 'option')['footer_logo']) {?>
+                <div class="footer_logo">
+                    <img class="footer_logo_image" src="<?php echo get_field('pdf_settings', 'option')['footer_logo']['url']; ?>" alt="footer logo" style ="width: 44px;height: 82px;">
+                </div>
+            <?php } ?>
+
         </div>
     </div>
 
-    <div class="pdf_fixed_footer">
-        <a class="pdf_fixed_footer__post_link" href="<?php echo get_the_permalink($post->ID) ; ?>"><?php echo get_the_permalink($post->ID) ; ?></a>
-    </div>
+    <?php if (get_field('pdf_settings', 'option')['enable_link_to_post_in_footer'] == true) { ?>
+        <div class="pdf_fixed_footer">
+            <a class="pdf_fixed_footer__post_link" href="<?php echo get_the_permalink($post->ID) ; ?>"><?php echo get_the_permalink($post->ID) ; ?></a>
+        </div>
+    <?php } ?>
+
     </body>
 </html>
 
