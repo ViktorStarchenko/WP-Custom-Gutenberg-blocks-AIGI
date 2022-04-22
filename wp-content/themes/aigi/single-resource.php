@@ -82,7 +82,47 @@ get_header(); ?>
                                     <?php endforeach ?>
                                 </div>
                                 <div class="toolkit-tag__download">
-                                    <a href="/pdf-test?post_id=<?php echo get_the_ID();?>" class="toolkit-tag__download-btn">Download</a>
+                                    <a href="/pdf-test?post_id=<?php echo get_the_ID();?>" class="toolkit-download-topic__after ">Download</a>
+                                    <div class="popup_item_wrapper" data-popup="">
+                                        <div href="" class="popup_button post-technical__button">
+                                            <span href="" class="toolkit-download-topic__after ">Download</span>
+                                        </div>
+
+                                        <div class="popup-main-wrapper" id="popup-main-wrapper">
+                                            <div class="item_popup_wrapper">
+                                                <div class="popup_overlay"></div>
+                                                <div class="popup_content_wrapper download-pdf">
+                                                    <div class="item_popup_content_inner">
+                                                        <div class="popup_close_button"></div>
+                                                        <div class="download-pdf__wrapper modal modal-content">
+                                                            <div class="post-content-form">
+                                                                <div class="scholarship-open-form__wrapper">
+                                                                    <div class="form-heading">
+                                                                        <?php if (get_field('modal_pdf_heading', 'option')) {?>
+                                                                        <div class="form-title"><?php echo get_field('modal_pdf_heading', 'option'); ?></div>
+                                                                        <?php } ?>
+                                                                        <?php if (get_field('modal_pdf_description', 'option')) { ?>
+                                                                            <div class="form-desc"><?php echo get_field('modal_pdf_description', 'option'); ?></div>
+                                                                        <?php } ?>
+                                                                    </div>
+
+                                                                    <?php if (get_field('modal_pdf_form_id','option')) { ?>
+                                                                        <div class=""><?php echo do_shortcode('[gravityform id="'.get_field('modal_pdf_form_id','option').'" title="false" description="false" ajax="true" tabindex="49"]');?></div>
+                                                                    <?php } ?>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="popup_content_footer">
+                                                            <img src="/wp-content/themes/aigi/assets/images/group.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
 
                             </div>
