@@ -259,6 +259,11 @@ ob_start();
         ?>
 
         <?php
+        if (get_post_type($post) =='toolkit') {
+            echo apply_filters("the_content", $post->post_content);
+        } ?>
+
+        <?php
         if (get_post_type($post) =='event') {
             get_template_part('template-parts/pdf-parts/pdf', 'event-info-speakers', $post);
             get_template_part('template-parts/pdf-parts/pdf', 'event-info-program', $post);
