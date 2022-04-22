@@ -133,7 +133,7 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                 </div>
                 <div class="partners-tiles__body">
                     <div class="partners-tiles__title" data-height="partnersTitle"><?= $post->post_title; ?></div>
-                    <div class="partners-tiles__description" data-height="partnersDescription"><?php echo get_custom_excerpt(get_field('post_info', $post->ID)['description'], 174, $add_ellipsis);?>s</div>
+                    <div class="partners-tiles__description" data-height="partnersDescription"><?php echo get_custom_excerpt(get_field('post_info', $post->ID)['description'], 174, true);?></div>
                     <a href="<?=  get_the_permalink($post->ID) ?>">Learn more</a>
                 </div>
             </div>
