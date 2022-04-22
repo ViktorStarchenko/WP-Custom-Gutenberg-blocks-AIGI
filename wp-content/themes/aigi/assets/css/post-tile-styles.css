@@ -81,6 +81,9 @@
     /*max-width: 490px;*/
     margin: auto;
 }
+.content-item .post-tile__content-body {
+    width: unset;
+}
 .post-tile__content-body {
     margin-top: 8px;
 }
