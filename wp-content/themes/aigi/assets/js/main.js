@@ -815,9 +815,11 @@ jQuery( window ).on('load resize', function() {
         let highlighted_img = jQuery('.highlighted-img');
         if (highlighted_img.length > 0) {
             let current_item = jQuery('.current-item').text();
-            var trimmedString = current_item.substring(0, 15);
-            trimmedString+= '...';
-            console.log(trimmedString);
+            console.log(current_item.length)
+            if (current_item.length > 20) {
+                var trimmedString = current_item.substring(0, 15);
+                trimmedString+= '...';
+            }
 
             jQuery('.current-item').text(trimmedString);
         }

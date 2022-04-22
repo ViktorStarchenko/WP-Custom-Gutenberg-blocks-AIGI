@@ -279,13 +279,16 @@
 @media (max-width: 610px) {
     .resource-video__wrap,
     .resource-image__wrap{
-        height: 280px
+        height: 280px;
     }
 }
 @media (max-width: 414px) {
     .resource-video__wrap,
     .resource-image__wrap{
-        height: 192px
+        height: 192px;
+    }
+    .resource-video__wrap iframe {
+        height: 192px;
     }
 }
 

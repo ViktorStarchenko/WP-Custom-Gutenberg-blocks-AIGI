@@ -69,7 +69,8 @@
 
                                 <?php if($content_item['video_block']['youtube_code']): ?>
                                     <div class="resource-video__wrap">
-                                        <object width="100%" height="100%"><param name="movie" value="https://www.youtube.com/v/<?php echo  $content_item['video_block']['youtube_code']; ?>?wmode=transparent&version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/<?php echo $content_item['video_block']['youtube_code']; ?>?version=1&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="460" height="264" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+<!--                                        <object width="100%" height="100%"><param name="movie" value="https://www.youtube.com/v/--><?php //echo  $content_item['video_block']['youtube_code']; ?><!--?wmode=transparent&version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/--><?php //echo $content_item['video_block']['youtube_code']; ?><!--?version=1&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="460" height="264" allowscriptaccess="always" allowfullscreen="true"></embed></object>-->
+                                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $content_item['video_block']['youtube_code']; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 <?php endif; ?>
 
