@@ -80,3 +80,19 @@ new GW_Minimum_Characters( array(
     'min_validation_message' => __( 'You need to enter at least %s characters.' ),
     'max_validation_message' => __( 'You can only enter %s characters.' )
 ) );
+
+
+/***
+ *
+ * Send Download PDF link
+ *
+ ***/
+function populate_fields( $value, $field, $name ) {
+    global $post;
+//    $file_url = get_field('share_download', $post->ID)['download_file']['url'];
+    $file_url = 'https://aigi.staging.overdose.digital/pdf-test?post_id='.$post->ID;
+
+    // Use the POSTed data if it's there
+    return $file_url;
+}
+add_filter('gform_field_value_pdf_download_file', 'populate_fields', 10, 3);

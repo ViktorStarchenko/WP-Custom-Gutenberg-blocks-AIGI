@@ -24,7 +24,7 @@
                             $term_list = wp_get_post_terms( get_the_ID(), 'event_group', array('fields' => 'all') );
                             ?>
                             <div class="single-event__pricing-block">
-                                <?php if ($term_list[0]->slug == 'event' || $term_list[0]->slug == 'masterclass') { ?>
+                                <?php if ($term_list[0]->slug == 'event' || $term_list[0]->slug == 'masterclass' || $term_list[0]->slug == 'indigenous-governance-award') { ?>
 
                                     <div class="single-event__pricing-title">
                                         Tickets
