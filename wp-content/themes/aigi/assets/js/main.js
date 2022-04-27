@@ -860,23 +860,12 @@ jQuery('.generate_pdf').on('click', function(){
 
 $(document).ready(function(){
     $('body').on('click', '.simplefavorite-button', function(){
-        console.log('Клик прошел');
         if(!$(this).hasClass('active')){
-            console.log('dont have active');
             $(".add-to-reading-list").fadeIn(1000);
             $(".add-to-reading-list").delay(2500).fadeOut(1000);
             $(".add-to-reading-list").find('div.resource-body').html($(this).closest('div.post-tile__content').find('div.post-tile__title').text());
         }
     })
-    // $('.simplefavorite-button').on('click', function(){
-    //     console.log('Клик прошел');
-    //     if(!$(this).hasClass('active')){
-    //         console.log('dont have active');
-    //         $(".add-to-reading-list").fadeIn(1000);
-    //         $(".add-to-reading-list").delay(2500).fadeOut(1000);
-    //         $(".add-to-reading-list").find('div.resource-body').html($(this).closest('div.post-tile__content').find('div.post-tile__title').text());
-    //     }
-    // })
     $('.close-reading-add').on('click', function(){
         $(".add-to-reading-list").fadeOut(1000);
     })
