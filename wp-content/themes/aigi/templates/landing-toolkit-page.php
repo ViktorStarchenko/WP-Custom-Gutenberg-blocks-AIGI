@@ -149,7 +149,7 @@ get_header(); ?>
                                                     <?php } ?>
                                                     <div class="popup_item_wrapper" data-popup="">
                                                         <div href="" class="popup_button post-technical__button">
-                                                            <span href="" class="toolkit-download-topic__after">Download</span>
+                                                            <span href="" class="toolkit-download-topic">Download Topic</span>
                                                         </div>
 
                                                         <div class="popup-main-wrapper" id="popup-main-wrapper">
