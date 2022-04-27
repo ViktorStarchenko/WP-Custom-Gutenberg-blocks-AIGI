@@ -16,7 +16,7 @@ $sort_info = $_COOKIE["sortType"];
     <div class="search-page__header wrapper-1245 ">
         <div class="search-page__heading">
             <p class="search-page_title">Reading list</p>
-            <p class="search-page_desc"><? echo count($reading_list)?> reading contents on your list</p>
+            <p class="search-page_desc"><? echo count($reading_list, COUNT_RECURSIVE);?> reading contents on your list</p>
         </div>
         <div class="search-page__sorting">
             <div class="filter-button">
