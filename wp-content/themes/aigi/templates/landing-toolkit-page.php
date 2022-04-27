@@ -147,6 +147,47 @@ get_header(); ?>
                                                     <?php if ($table_of_contents['download_topic']) {?>
                                                         <a   target="_blank" download href="<?php echo $table_of_contents['download_topic']['url'] ?> " class="toolkit-download-topic">Download Topic</a>
                                                     <?php } ?>
+                                                    <div class="popup_item_wrapper" data-popup="">
+                                                        <div href="" class="popup_button post-technical__button">
+                                                            <span href="" class="toolkit-download-topic__after">Download</span>
+                                                        </div>
+
+                                                        <div class="popup-main-wrapper" id="popup-main-wrapper">
+                                                            <div class="item_popup_wrapper">
+                                                                <div class="popup_overlay"></div>
+                                                                <div class="popup_content_wrapper download-pdf">
+                                                                    <div class="item_popup_content_inner">
+                                                                        <div class="popup_close_button"></div>
+                                                                        <div class="download-pdf__wrapper modal modal-content">
+                                                                            <div class="post-content-form">
+                                                                                <div class="scholarship-open-form__wrapper">
+                                                                                    <div class="form-heading">
+                                                                                        <?php if (get_field('download_button', 'option')['modal_pdf_heading']) {?>
+                                                                                            <div class="form-title"><?php echo get_field('download_button', 'option')['modal_pdf_heading']; ?></div>
+                                                                                        <?php } ?>
+                                                                                        <?php if (get_field('download_button', 'option')['modal_pdf_description']) { ?>
+                                                                                            <div class="form-desc"><?php echo get_field('download_button', 'option')['modal_pdf_description']; ?></div>
+                                                                                        <?php } ?>
+                                                                                    </div>
+
+                                                                                    <?php if (get_field('download_button', 'option')['modal_toolkit_topics_pdf_form_id']) { ?>
+                                                                                        <div class=""><?php echo do_shortcode('[gravityform id="'.get_field('download_button', 'option')['modal_toolkit_topics_pdf_form_id'].'" title="false" description="false" ajax="true" tabindex="49" field_values="'.get_field('download_button', 'option')['pdf_link_parameter'].'='.$table_of_contents['download_topic']['url'].'"]');?></div>
+                                                                                    <?php } ?>
+
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="popup_content_footer">
+                                                                            <img src="/wp-content/themes/aigi/assets/images/group.svg" alt="">
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
 
                                                 </div>
                                             </div>
