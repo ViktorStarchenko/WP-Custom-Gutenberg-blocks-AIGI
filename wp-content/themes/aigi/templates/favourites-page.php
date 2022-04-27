@@ -11,6 +11,9 @@ $user_id = get_current_user_id();
 $reading_list = get_user_favorites($user_id);
 $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 $sort_info = $_COOKIE["sortType"];
+$test = array('ascasc', 'sdvsdvsd', 'sdvfsdvsd');
+var_dump($reading_list);
+var_dump(count($test, COUNT_RECURSIVE));
 ?>
 <div class="wrapper-full-width content-wrapper search-page__top">
     <div class="search-page__header wrapper-1245 ">
