@@ -96,3 +96,13 @@ function populate_fields( $value, $field, $name ) {
     return $file_url;
 }
 add_filter('gform_field_value_pdf_download_file', 'populate_fields', 10, 3);
+
+//function populate_fields( $value, $field, $name ) {
+//    global $post;
+////    $file_url = get_field('share_download', $post->ID)['download_file']['url'];
+//    $file_url = 'https://aigi.staging.overdose.digital/pdf-test?post_id='.$post->ID;
+//
+//    // Use the POSTed data if it's there
+//    return $file_url;
+//}
+//add_filter('gform_field_value_toolkit_topic', 'populate_fields', 10, 3);
