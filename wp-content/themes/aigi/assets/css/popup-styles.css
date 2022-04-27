@@ -185,7 +185,22 @@ body .scholarship-open__wrapper .gfield_label {
     object-fit: cover;
 }
 
-
+/*Mailchimp*/
+.gform_body ul {
+    padding: 0;
+}
+.gform_body ul li:before {
+    display: none;
+}
+body .gform_wrapper.gravity-theme .gfield ul li {
+    display: flex;
+    align-items: center;
+    margin: 8px 0 12px;
+}
+body .gform_wrapper.gravity-theme .gfield ul li input,
+body .gform_wrapper.gravity-theme .gfield ul li select {
+    height: unset;
+}
 
 
 @media (max-width:  767px) {
