@@ -11,15 +11,17 @@ $user_id = get_current_user_id();
 $reading_list = get_user_favorites($user_id);
 $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 $sort_info = $_COOKIE["sortType"];
-if($reading_list){
-    echo(count($reading_list, COUNT_RECURSIVE));
-}
+//if($reading_list){
+//    echo(count($reading_list, COUNT_RECURSIVE));
+//}
 ?>
 <div class="wrapper-full-width content-wrapper search-page__top">
     <div class="search-page__header wrapper-1245 ">
         <div class="search-page__heading">
             <p class="search-page_title">Reading list</p>
-            <p class="search-page_desc"><? if($reading_list){var_dump(count($reading_list, COUNT_RECURSIVE));}?> reading contents on your list</p>
+            <p class="search-page_desc">
+                <? $reading_list_new = get_user_favorites($user_id);
+            if($reading_list_new){echo(count($reading_list_new, COUNT_RECURSIVE));}?> reading contents on your list</p>
         </div>
         <div class="search-page__sorting">
             <div class="filter-button">
