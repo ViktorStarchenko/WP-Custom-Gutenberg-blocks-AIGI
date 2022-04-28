@@ -1,3 +1,10 @@
 .landing-page .post-tile__wrap{
     margin-left: 0;
 }
+
+/* На мобильных устройствах (767px выбрано, чтобы работал пример) */
+@media screen and (max-width: 767px) {
+    .simplefavorite-button. span {
+        display: none;
+    }
+}
