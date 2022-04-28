@@ -15,7 +15,7 @@ $sort_info = $_COOKIE["sortType"];
 //    echo(count($reading_list, COUNT_RECURSIVE));
 //}
 ?>
-<div class="wrapper-full-width content-wrapper search-page__top">
+<div class="wrapper-full-width content-wrapper search-page__top landing__filter-block">
     <div class="search-page__header wrapper-1245 ">
         <div class="search-page__heading">
             <p class="search-page_title">Reading list</p>

@@ -4,7 +4,7 @@
 
 /* На мобильных устройствах (767px выбрано, чтобы работал пример) */
 @media screen and (max-width: 767px) {
-    .simplefavorite-button span {
+    .simplefavorite-button span, .filter-button {
         display: none;
     }
 }
