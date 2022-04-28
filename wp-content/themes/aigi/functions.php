@@ -190,6 +190,7 @@ function custom_wp_custom_scripts(){
 
         if(is_page_template('templates/favourites-page.php')){
             wp_enqueue_script('reading-list', get_template_directory_uri() . '/assets/js/favourites.js', ['jquery'], false, true);
+            wp_enqueue_style('reding-list-css', get_theme_file_uri() . '/assets/css/reding-list.css');
         }
     }
 }
