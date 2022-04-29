@@ -21,7 +21,7 @@ $sort_info = $_COOKIE["sortType"];
             <p class="search-page_title">Reading list</p>
             <p class="search-page_desc">
                 <? $reading_list_new = get_user_favorites($user_id);
-                echo(count($reading_list_new, COUNT_RECURSIVE).'reading contents on your list'); ?></p>
+                echo(count($reading_list_new, COUNT_RECURSIVE)); ?> reading contents on your list</p>
         </div>
         <div class="search-page__sorting">
             <div class="filter-button">
