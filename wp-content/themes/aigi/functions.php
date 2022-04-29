@@ -396,7 +396,7 @@ function sort_favourites(){
         if (get_field('time_to_read', $query->posts[$i]->ID)):
             $whatever['posts_new'] .= '<span class="post-tile__time">'.get_field('time_to_read', $query->posts[$i]->ID).' read</span>';
         endif;
-        $whatever['posts_new'] .= '<span><button class="simplefavorite-button active" data-postid="8208" data-siteid="1" data-groupid="1" data-favoritecount="1" style=""><i class="sf-icon-star-full"></i> <span>Remove to reading list</span></button></span>
+        $whatever['posts_new'] .= '<span><button class="simplefavorite-button active" data-postid="'.get_the_ID().'" data-siteid="1" data-groupid="1" data-favoritecount="1" style=""><i class="sf-icon-star-full"></i> <span>Remove to reading list</span></button></span>
                             </div>
                         </div>
                         <div class="post-tile__content-body">
