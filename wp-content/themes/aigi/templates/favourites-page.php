@@ -11,7 +11,7 @@ $user_id = get_current_user_id();
 $reading_list = get_user_favorites($user_id);
 $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 $sort_info = $_COOKIE["sortType"];
-var_dump($reading_list);
+//var_dump($reading_list);
 //if($reading_list){
 //    echo(count($reading_list, COUNT_RECURSIVE));
 //}
@@ -68,7 +68,7 @@ var_dump($reading_list);
                 if($sort_info === 'newes'){
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'date',
@@ -77,7 +77,7 @@ var_dump($reading_list);
                 } elseif ($sort_info === 'oldest'){
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'date',
@@ -86,7 +86,7 @@ var_dump($reading_list);
                 } elseif($sort_info === 'relevance'){
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'post_views_count',
@@ -95,7 +95,7 @@ var_dump($reading_list);
                 } else {
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'date',
