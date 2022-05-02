@@ -256,7 +256,7 @@
 }
 .subscribe-event-form__wrapper .gform_wrapper.gravity-theme .gform_footer,
 .subscribe-event-form__wrapper .gform_wrapper.gravity-theme .gform_page_footer {
-    padding: 9px 0;
+    padding: 16px 0 9px;
 }
 
 
