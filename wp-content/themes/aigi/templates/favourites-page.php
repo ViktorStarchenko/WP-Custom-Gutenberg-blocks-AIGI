@@ -11,6 +11,7 @@ $user_id = get_current_user_id();
 $reading_list = get_user_favorites($user_id);
 $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 $sort_info = $_COOKIE["sortType"];
+var_dump($reading_list);
 //if($reading_list){
 //    echo(count($reading_list, COUNT_RECURSIVE));
 //}
