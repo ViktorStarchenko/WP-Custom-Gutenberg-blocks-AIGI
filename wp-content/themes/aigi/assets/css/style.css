@@ -1296,7 +1296,9 @@ body .gfieldset-legend {
     color: var(--color-brand-navy-primary);
     margin-bottom: 16px;
 }
-
+.gf-hidden-field {
+    display: none;
+}
 /* Contact us form */
 .contact-us__form-wrapper input[type="submit"].gform_button {
     color: #FFFFFF;
