@@ -91,9 +91,9 @@
                                     <div class="main_menu_item">
                                         <a href="<?php echo $bottom_menu['useraccount_link']['link']['url']; ?>" target="" class="main_menu_top account-dropdown__link" tabindex="0"><?php echo $bottom_menu['useraccount_link']['link']['title']; ?></a>
                                     </div>
-                            <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['logged'])) : ?>
+                            <?php if (!empty($bottom_menu['header_bottom_menu_right']['logged'])) : ?>
 
-                                <?php foreach($bottom_menu['header_bottom_menu_right_copy']['logged'] as $item) : ?>
+                                <?php foreach($bottom_menu['header_bottom_menu_right']['logged'] as $item) : ?>
                                     <div class="main_menu_item">
                                         <div class="main_menu_icon">
                                             <?php if (!empty($item['icon'])) : ?>
@@ -116,8 +116,8 @@
 
                     <?php else : ?>
 
-                        <?php if (!empty($bottom_menu['header_bottom_menu_right_copy']['unlogged'])) :
-                            foreach($bottom_menu['header_bottom_menu_right_copy']['unlogged'] as $item) : ?>
+                        <?php if (!empty($bottom_menu['header_bottom_menu_right']['unlogged'])) :
+                            foreach($bottom_menu['header_bottom_menu_right']['unlogged'] as $item) : ?>
                                 <div class="main_menu_item">
                                     <div class="main_menu_icon">
                                         <?php if (!empty($item['icon'])) : ?>
