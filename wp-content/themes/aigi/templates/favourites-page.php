@@ -202,12 +202,18 @@ if ( is_user_logged_in() ) {
         </div>
     </div>
 </div>
-<?php } else { ?>
+<?php } elseif (empty($reading_list) && is_user_logged_in()) { ?>
 <div class="content-wrapper wrapper-1245">
     <div class="post-tile__list landing-page search-page__results favourites-page">
-        You have no items in your reading list, please login
+        You have no items in your reading list
     </div>
 </div>
+<?php } elseif(!is_user_logged_in()){ ?>
+    <div class="content-wrapper wrapper-1245">
+        <div class="post-tile__list landing-page search-page__results favourites-page">
+            Please login to add items in your Reading list
+        </div>
+    </div>
 <?php } ?>
 
 <!--<script src="https://donorbox.org/widget.js" paypalExpress="true"></script><iframe src="https://donorbox.org/embed/aladonaris" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important"></iframe>-->
