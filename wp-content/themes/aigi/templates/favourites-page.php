@@ -205,7 +205,7 @@ if ( is_user_logged_in() ) {
 <?php } else { ?>
 <div class="content-wrapper wrapper-1245">
     <div class="post-tile__list landing-page search-page__results favourites-page">
-        You have no items in your reading list
+        You have no items in your reading list, please login
     </div>
 </div>
 <?php } ?>
