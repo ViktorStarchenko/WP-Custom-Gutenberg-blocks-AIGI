@@ -87,7 +87,7 @@ foreach ($content_items as $content_item) {
             <!--                Image-->
             <?php if ($content_item['image_block']['add_image']) { ?>
                 <div class="resource-image__wrap">
-                    <img src="<?php echo $content_item["image_block"]["add_image"]["url"] ?>" alt="<?php echo $content_item["image_block"]["add_image"]["title"] ?>" style="max-width: 800px;"/>
+                    <img src="<?php echo $content_item["image_block"]["add_image"]["url"] ?>" alt="<?php echo $content_item["image_block"]["add_image"]["title"] ?>" style="max-width: 600px;"/>
                 </div>
             <?php } ?>
             <?php if($content_item['image_block']['add_text']) { ?>
