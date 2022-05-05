@@ -67,7 +67,7 @@ if ( is_user_logged_in() ) {
                 if($sort_info === 'newes'){
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit', 'case_studies' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'date',
@@ -76,7 +76,7 @@ if ( is_user_logged_in() ) {
                 } elseif ($sort_info === 'oldest'){
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit', 'case_studies' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'date',
@@ -85,7 +85,7 @@ if ( is_user_logged_in() ) {
                 } elseif($sort_info === 'relevance'){
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit', 'case_studies' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'post_views_count',
@@ -94,7 +94,7 @@ if ( is_user_logged_in() ) {
                 } else {
                     $query = new WP_Query( [
                         'paged' => $paged,
-                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
+                        'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit', 'case_studies' ),
                         'posts_per_page' => 5,
                         'post__in'  => $reading_list,
                         'orderby' => 'date',

@@ -313,7 +313,7 @@ function sort_favourites(){
     if($sorted == 'newes'){
         $query = new WP_Query( [
             'paged' => $paged,
-            'post_type' => array( 'post', 'page', 'resource', 'news','toolkit' ),
+            'post_type' => array( 'post', 'page', 'resource', 'news','toolkit', 'case_studies' ),
             'posts_per_page' => 5,
             'post__in'  => $reading_list,
             'orderby' => 'date',
@@ -322,7 +322,7 @@ function sort_favourites(){
     } elseif ($sorted === 'oldest'){
         $query = new WP_Query( [
             'paged' => $paged,
-            'post_type' => array( 'post', 'page', 'resource', 'news','toolkit' ),
+            'post_type' => array( 'post', 'page', 'resource', 'news','toolkit', 'case_studies' ),
             'posts_per_page' => 5,
             'post__in'  => $reading_list,
             'orderby' => 'date',
@@ -331,7 +331,7 @@ function sort_favourites(){
     } elseif($sorted === 'relevance'){
         $query = new WP_Query( [
             'paged' => $paged,
-            'post_type' => array( 'post', 'page', 'resource', 'news','toolkit' ),
+            'post_type' => array( 'post', 'page', 'resource', 'news','toolkit', 'case_studies' ),
             'posts_per_page' => 5,
             'post__in'  => $reading_list,
             'orderby' => 'post_views_count',
@@ -340,7 +340,7 @@ function sort_favourites(){
     } else {
         $query = new WP_Query( [
             'paged' => $paged,
-            'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit' ),
+            'post_type' => array( 'post', 'page', 'resource', 'news', 'toolkit', 'case_studies' ),
             'posts_per_page' => 5,
             'post__in'  => $reading_list,
             'orderby' => 'date',
