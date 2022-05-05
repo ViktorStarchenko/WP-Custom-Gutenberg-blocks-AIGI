@@ -7,14 +7,13 @@ Template Name: Reading list template
 <?php get_header();?>
 
 <?php
-$user_id = get_current_user_id();
-$reading_list = get_user_favorites($user_id);
-$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-$sort_info = $_COOKIE["sortType"];
-//var_dump($reading_list);
-//if($reading_list){
-//    echo(count($reading_list, COUNT_RECURSIVE));
-//}
+if ( is_user_logged_in() ) {
+    $user_id = get_current_user_id();
+    $reading_list = get_user_favorites($user_id);
+    $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+    $sort_info = $_COOKIE["sortType"];
+}
+
 ?>
 <div class="wrapper-full-width content-wrapper search-page__top landing__filter-block">
     <div class="search-page__header wrapper-1245 ">
@@ -58,7 +57,7 @@ $sort_info = $_COOKIE["sortType"];
         </div>
     </div>
 </div>
-<?php if(!empty($reading_list)){?>
+<?php if(!empty($reading_list) && is_user_logged_in()){?>
 <div class="content-wrapper wrapper-1245">
     <div class="post-tile__list landing-page search-page__results favourites-page">
         <div class="facetwp-template" data-name="landing_page_result">
