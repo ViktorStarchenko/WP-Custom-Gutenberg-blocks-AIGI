@@ -81,7 +81,7 @@ $ticket_link = '';
     <div class="single-event__pricing-list" style="margin: 16px 0 32px">
 
             <div class="single-event__pricing-item">
-                <a href="<?php echo $ticket_link ?>" target="_blank" class="btn-body  btn-h-secondary-blue  enlarge  after  Between " tabindex="0" style="min-width: 217px;font-family: Proxima Nova;font-style: normal;font-weight: 800;font-size: 15px;line-height: 14px;display: flex;align-items: center;text-align: center;display: inline-block;letter-spacing: 0.08em;text-transform: uppercase;text-decoration: none;border-radius: 5px;padding: 17px 20px;transition: all .3s;box-sizing: border-box;position: relative;cursor: pointer;white-space: nowrap;color: #FFFFFF;background-color:#138dcd;border: 1px solid #138dcd;"><span class="btn-inner">Get tickets</span></a>
+                <a href="<?php echo $ticket_link ?>" target="_blank" class="" tabindex="0" style="font-family: 'Proxima Nova';font-style: normal;font-weight: 700;line-height: 12px;letter-spacing: 2px;text-transform: uppercase;color: #0762A4;text-decoration: none;font-size: 14px;line-height: 22px;letter-spacing: 0.7px;text-decoration-line: underline;color:#0762a4;position: relative;word-break: break-all;">Get tickets</a>
             </div>
     </div>
     <?php } ?>

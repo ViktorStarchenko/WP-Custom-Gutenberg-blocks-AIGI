@@ -92,7 +92,7 @@
     .single-resource__header {
         width: 100%;
         /*min-height: 80px;*/
-        padding: 10px 0;
+        padding: 10px 0 0;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -121,6 +121,9 @@
         color: #4d4d4d;
         /*padding: 20px 0;*/
     }
+    .resource__text p {
+        margin-top: 0;
+    }
     .sub-heading {
         font-style: normal;
         font-weight: 600;
@@ -133,13 +136,13 @@
         color:#4d4d4d;
         font-size:16px;
     }
-    .content-item.text-block.text_item heading {
+    .content-item.text-block.text_item.heading {
         font-weight: bold;font-size: 30.35px;line-height: 36px;letter-spacing: 0.02em;color:#131032
     }
-    .content-item.text-block.text_item subheading {
+    .content-item.text-block.text_item.subheading {
         font-weight: bold;font-size: 19.98px;line-height: 22px;letter-spacing: 0.02em;color:#131032
     }
-    .content-item.text-block.text_item small-text {
+    .content-item.text-block.text_item.small-text {
         font-size: 14px;line-height: 24px;letter-spacing: 0.03em;color:#4d4d4d"
     }
     .content-item {
@@ -193,6 +196,9 @@
     }
     .btn-group {
         margin: -4px
+    }
+    .btn-group .coma:last-child {
+        display: none;
     }
     .btn-body {
         min-width: 217px;
@@ -420,9 +426,7 @@ if ($content_items)  {
                 <?php if($button_group['buttons']) { ?>
                     <div class="btn-group">
                         <?php foreach($button_group['buttons'] as $button) { ?>
-                            <a href="<?php echo  $button['button']['url'] ?>" target="_blank" class="btn-body">
-                                <span class="btn-inner"><?php echo $button["button"]["title"] ; ?></span>
-                            </a>
+                            <a href="<?php echo  $button['button']['url'] ?>" target="_blank" class=""><?php echo $button["button"]["title"] ; ?></a><span class="coma">, </span>
                         <?php } ?>
                     </div>
                 <?php } ?>
