@@ -54,7 +54,7 @@ ob_start();
         margin: 0;
     }
     body {
-        padding: 70px 0 200px;
+        padding: 90px 0 ;
         font-family: Proxima Nova;
         font-style: normal;
         font-weight: normal;
@@ -69,6 +69,7 @@ ob_start();
         left: 0;
         padding: 26px 12px;
         width: 100%;
+        font-size: 12px;
     }
     .pdf_header__top-brand {
         text-align: center;
@@ -77,7 +78,7 @@ ob_start();
     .pdf_header__top-date {
         position: absolute;
         left: 32px;
-        font-size: 14px;
+        font-size: 12px;
     }
     <?php if (get_field('pdf_settings', 'option')['header_logo_width']) {?>
     .pdf_header__logo {
@@ -99,7 +100,7 @@ ob_start();
         width: 100%;
     }
     .pdf_fixed_footer__post_link {
-        font-size: 14px;
+        font-size: 12px;
         text-decoration: none;
         color: #4d4d4d;
         /*position: absolute;*/
@@ -108,7 +109,7 @@ ob_start();
     }
 
     .wrapper {
-        max-width: 800px;
+        max-width: 600px;
         margin: auto;
     }
 
@@ -121,7 +122,7 @@ ob_start();
         color:#fff;
     }
     .footer_logo {
-        max-width: 800px;
+        max-width: 600px;
         margin: auto;
         padding: 40px 0;
     }
@@ -198,8 +199,8 @@ ob_start();
                 $textWidth = $fontMetrics->getTextWidth($text, $font, $size);
 
                 //$x = ($pdf->get_width() - $textWidth) / 2;
-                $x = $pdf->get_width() - 60;
-                $y = $pdf->get_height() - 24;
+                $x = $pdf->get_width() - 40;
+                $y = $pdf->get_height() - 30;
 
                 $pdf->text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
             '); // End of page_script
@@ -255,7 +256,7 @@ ob_start();
 
         <?php
         $content_items = get_field('content_items', $post);
-        get_template_part('template-parts/pdf-parts/pdf', 'page-content', $content_items);
+        get_template_part('template-parts/pdf-parts/pdf', 'page-content-unstyled', $content_items);
         ?>
 
         <?php
@@ -307,11 +308,11 @@ $dompdf->loadHtml($pdf_html);
 
 
 // (Optional) Setup the paper size and orientation
-$dompdf->setPaper('A4', 'landscape');
+$dompdf->setPaper('A4', 'portrait');
 
 // Render the HTML as PDF
 $dompdf->render();
 
  //Output the generated PDF to Browser
-//$dompdf->stream($post_title . '.pdf');
-$dompdf->stream($post_title . '.pdf', array('Attachment' => 0));
+$dompdf->stream($post_title . '.pdf');
+//$dompdf->stream($post_title . '.pdf', array('Attachment' => 0));
