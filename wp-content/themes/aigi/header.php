@@ -181,7 +181,7 @@
                <div id="header_button_wrapper">
                   <?php if (!empty($button)) : ?>
 <!--                  <a class="btn-body custom-dbox-popu" href="--><?//= $button['url'] ?><!--"><span class="btn-inner">--><?//= $button['title'] ?><!--</span></a>-->
-                      <a class="custom-dbox-popup btn-body" href="https://donorbox.org/aigi-dev-donations">Donate</a>
+                      <a class="custom-dbox-popup btn-body" href="<?= $button['url'] ?>">Donate</a>
                   <?php endif; ?>
                </div>
             </div>
