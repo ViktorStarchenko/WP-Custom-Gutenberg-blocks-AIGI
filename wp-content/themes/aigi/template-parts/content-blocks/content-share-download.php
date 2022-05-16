@@ -5,8 +5,9 @@
         <?php if ($share_download['enable_share']) : ?>
             <?php get_template_part('template-parts/content-blocks/content', 'social-share'); ?>
         <?php endif ?>
+
         <?php if ($share_download['enable_print']) : ?>
-            <div class="post-technical__item">
+            <div class="post-technical__item print">
                 <div class="post-technical__title">Print</div>
                 <a class="post-technical__button print-button" href="#">
                     <img src="/wp-content/themes/aigi/assets/images/print.svg" alt="print">
@@ -26,7 +27,7 @@
 
 
         <?php if ($share_download['enable_download']) : ?>
-            <div class="post-technical__item">
+            <div class="post-technical__item download">
                 <div class="post-technical__title">Download</div>
                 <div class="popup_item_wrapper" data-popup="">
                     <div href="" class="popup_button post-technical__button">
@@ -74,11 +75,12 @@
         <?php endif ?>
 
         <?php if ($share_download['enable_save']) : ?>
-            <div class="post-technical__item">
+            <div class="post-technical__item save">
                 <div class="post-technical__title">Save</div>
-                <a class="post-technical__button" href="">
-                    <img src="/wp-content/themes/aigi/assets/images/star-review.svg" alt="save">
-                </a>
+<!--                <a class="post-technical__button" href="">-->
+<!--                    <img src="/wp-content/themes/aigi/assets/images/star-review.svg" alt="save">-->
+<!--                </a>-->
+                <span><?php echo do_shortcode('[favorite_button]') ?></span>
             </div>
         <?php endif ?>
 

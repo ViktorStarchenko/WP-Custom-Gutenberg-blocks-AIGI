@@ -215,6 +215,24 @@
     margin-bottom: 12px;
 }
 
+.post-technical__item .simplefavorite-button {
+    width: auto;
+    height: auto;
+    font-size: 0;
+    position: relative;
+    top: unset;
+    right: unset;
+}
+.post-technical__item .simplefavorite-button i {
+    font-size: 24px;
+    color: #1F4274;
+}
+.post-technical__item.save {
+    margin-top: -5px;
+}
+.post-technical__item.save .post-technical__title {
+    margin-bottom: 14px;
+}
 /*subscribe form*/
 .subscribe-event-form__wrapper .accordion_content {
     padding: 0;
