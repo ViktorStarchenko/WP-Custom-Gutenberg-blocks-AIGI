@@ -14,22 +14,15 @@
             </div>
         <?php endif ?>
 
-<!--        --><?php //if ($share_download['enable_download']) : ?>
-<!--            <div class="post-technical__item">-->
-<!--                <div class="post-technical__title">Download</div>-->
-<!--                <a class="post-technical__button" href="/pdf-test?post_id=--><?php //echo get_the_ID();?><!--"  target="_blank">-->
-<!--                    <img src="/wp-content/themes/aigi/assets/images/download-big.svg" alt="download">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        --><?php //endif ?>
-                <?php if ($share_download['enable_download']) : ?>
-                    <div class="post-technical__item">
-                        <div class="post-technical__title">Download</div>
-                        <a class="post-technical__button" href="/pdf-test?post_id=<?php echo get_the_ID();?>"  target="_blank">
-                            <img src="/wp-content/themes/aigi/assets/images/download-big.svg" alt="download">
-                        </a>
-                    </div>
-                <?php endif ?>
+<!--        Direct PDF Dowmload-->
+<!--                --><?php //if ($share_download['enable_download']) : ?>
+<!--                    <div class="post-technical__item">-->
+<!--                        <div class="post-technical__title">Download</div>-->
+<!--                        <a class="post-technical__button" href="/pdf-test?post_id=--><?php //echo get_the_ID();?><!--"  target="_blank">-->
+<!--                            <img src="/wp-content/themes/aigi/assets/images/download-big.svg" alt="download">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                --><?php //endif ?>
 
 
         <?php if ($share_download['enable_download']) : ?>

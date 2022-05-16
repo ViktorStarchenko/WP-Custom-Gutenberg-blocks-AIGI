@@ -807,8 +807,6 @@ jQuery( window ).on('load resize', function() {
 
 
 // Breadcrumb
-
-
 jQuery( window ).on('load resize', function() {
     if (jQuery(window).width() < 768) {
 
