@@ -180,7 +180,8 @@
                </nav>
                <div id="header_button_wrapper">
                   <?php if (!empty($button)) : ?>
-                  <a class="btn-body" href="<?= $button['url'] ?>"><span class="btn-inner"><?= $button['title'] ?></span></a>
+                  <a class="btn-body custom-dbox-popu" href="<?= $button['url'] ?>"><span class="btn-inner"><?= $button['title'] ?></span></a>
+<!--                      <a class="custom-dbox-popup" href="https://donorbox.org/aigi-dev-donations">Donate Now</a>-->
                   <?php endif; ?>
                </div>
             </div>

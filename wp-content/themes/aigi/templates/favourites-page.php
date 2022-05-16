@@ -216,8 +216,6 @@ if ( is_user_logged_in() ) {
     </div>
 <?php } ?>
 
-<a class="custom-dbox-popup" href="https://donorbox.org/aigi-dev-donations">Donate Now</a>
-
 <!--<script src="https://donorbox.org/widget.js" paypalExpress="true"></script><iframe src="https://donorbox.org/embed/aladonaris" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important"></iframe>-->
 
 <?php get_footer();?>
