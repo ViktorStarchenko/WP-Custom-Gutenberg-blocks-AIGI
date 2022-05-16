@@ -74,15 +74,18 @@
             </div>
         <?php endif ?>
 
-        <?php if ($share_download['enable_save']) : ?>
-            <div class="post-technical__item save">
-                <div class="post-technical__title">Save</div>
-<!--                <a class="post-technical__button" href="">-->
-<!--                    <img src="/wp-content/themes/aigi/assets/images/star-review.svg" alt="save">-->
-<!--                </a>-->
-                <span><?php echo do_shortcode('[favorite_button]') ?></span>
-            </div>
-        <?php endif ?>
+        <?php if (is_user_logged_in()) { ?>
+            <?php if ($share_download['enable_save']) : ?>
+                <div class="post-technical__item save">
+                    <div class="post-technical__title">Save</div>
+                    <!--                <a class="post-technical__button" href="">-->
+                    <!--                    <img src="/wp-content/themes/aigi/assets/images/star-review.svg" alt="save">-->
+                    <!--                </a>-->
+                    <span><?php echo do_shortcode('[favorite_button]') ?></span>
+                </div>
+            <?php endif ?>
+        <?php } ?>
+
 
     </div>
 <?php endif ?>
