@@ -30,7 +30,7 @@ jQuery(document).ready(function () {
                 // console.log($(this).attr('data-issetSrc'))
                 var issetSrc = jQuery(this).attr('data-issetSrc')
                 if (issetSrc == 'false') {
-                    console.log(issetSrc)
+                    // console.log(issetSrc)
                     var src = jQuery(this).attr('data-src');
                     jQuery(this).attr('src', src);
                     jQuery(this).attr('data-issetSrc', true)
@@ -57,7 +57,7 @@ jQuery(document).ready(function () {
 
     jQuery('.video-pause-wrap').on('click', function () {
         var data = jQuery(this).attr('data-video');
-        console.log(data)
+        // console.log(data)
         var video_button_wrap = jQuery(this).siblings("div.video-button-wrap").get(0);
 
 
@@ -325,7 +325,7 @@ let tab = function () {
     }
 
     function selectTabContent(tabName) {
-        console.log(tabName)
+        // console.log(tabName)
 
         tabContent.forEach(item => {
             item.classList.contains(tabName) ? item.classList.add('is-active') : item.classList.remove('is-active');
@@ -338,25 +338,54 @@ tab();
 
 // GLOBAL SEARCH
 // FaceWP post type switch
+
+
+// FWP.auto_refresh = false;
+
 jQuery('.global-search-tab-nav').on('click', function (){
     let post_type = jQuery(this).attr('data-post-type')
+
     url = new URL(window.location.href);
 
-    if (!url.searchParams.get('_search_bar') && !url.searchParams.get('_content_tags')) {
+    if (!url.searchParams.get('_search_bar') && !url.searchParams.get('_content_tags') && !url.searchParams.get('_topics')) {
         resetFilter()
     } else if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
         jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox.checked').removeClass('checked')
-
-        if (post_type == 'all') {
-            jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox').click()
-        }
     }
 
     setTimeout(checkPostType, 2200, post_type);
 })
 function checkPostType(post_type) {
     console.log(post_type)
-    jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox[data-value="'+post_type+'"]').click();
+
+    if (post_type == 'all') {
+        let post_types_arr = new Array();
+        let post_types = jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox');
+        jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox').each(function(post_type_name){
+
+            post_types_arr.push(jQuery(this).data('value'))
+        })
+        console.log(post_types_arr)
+
+        // let url = new URL(window.location.href);
+        // let post_types_names = url.searchParams.get('_post_type').split(',')
+        document.addEventListener('facetwp-refresh', function() {
+            FWP.facets['post_type'] = post_types_arr; // force a specific value
+        });
+        FWP.refresh()
+        // jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox').click();
+    } else {
+        document.addEventListener('facetwp-refresh', function() {
+            FWP.facets['post_type'] = [post_type]; // force a specific value
+        });
+        FWP.refresh()
+    }
+
+    // let url = new URL(window.location.href);
+    // let post_types_names = url.searchParams.get('_post_type').split(',')
+
+
+    // jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox[data-value="'+post_type+'"]').click();
 }
 function refreshSearchPageCounter() {
 
@@ -368,9 +397,9 @@ function refreshSearchPageCounter() {
     if (posts_per_page < 10) {
         viewed_posts = total_rows;
     }
-    console.log('page ' + page)
-    console.log('posts_per_page ' + posts_per_page)
-    console.log('viewed_posts ' + viewed_posts)
+    // console.log('page ' + page)
+    // console.log('posts_per_page ' + posts_per_page)
+    // console.log('viewed_posts ' + viewed_posts)
     jQuery('.search-pagination__per-page').html(viewed_posts);
     jQuery('.search-pagination__total-rows').html(total_rows);
 
@@ -388,13 +417,13 @@ jQuery('body').on('click', function(e){
         setTimeout(initSpeakersSlider, 2000);
         url = new URL(window.location.href);
         if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
-            console.log(FWP.settings.pager.total_rows);
+            // console.log(FWP.settings.pager.total_rows);
             // Refresh post types count for search result
             jQuery('.global-search-tab-nav .posts-count').html(0);
             let posts = jQuery('.global-search-tab[data-post-type="all"] .facetwp-facet-post_type .facetwp-checkbox');
             let all_count = 0;
             posts.each(function(){
-                console.log(jQuery(this).attr('data-value'))
+                // console.log(jQuery(this).attr('data-value'))
                 let post_type = jQuery(this).attr('data-value');
                 let posts_count = parseInt(jQuery(this).find('.facetwp-counter').html().slice(1).slice(0,-1));
                 all_count+= posts_count;
@@ -430,7 +459,7 @@ jQuery('body').keypress(function(event) {
 
     if (event.target.matches('.facetwp-search')) {
         console.log('You pressed enter!');
-        console.log(event.target);
+        // console.log(event.target);
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
             jQuery( ".fwp-submit" ).trigger( "click" );
@@ -501,7 +530,7 @@ function customizeSelect() {
 // })
 jQuery('.dropdown-item').on('click', function(){
     let btn_text = jQuery(this).text();
-    console.log(jQuery(this).closest('.dropdown-content').siblings('.dropbtn'))
+    // console.log(jQuery(this).closest('.dropdown-content').siblings('.dropbtn'))
     jQuery(this).closest('.dropdown-content').siblings('.dropbtn').text(btn_text)
 })
 
@@ -509,7 +538,7 @@ jQuery('.dropdown-item').on('click', function(){
 
 jQuery('select').each(function(){
     let options = $(this).children('option')
-    console.log(options)
+    // console.log(options)
 })
 
 
@@ -813,7 +842,7 @@ jQuery( window ).on('load resize', function() {
         let highlighted_img = jQuery('.highlighted-img');
         if (highlighted_img.length > 0) {
             let current_item = jQuery('.current-item').text();
-            console.log(current_item.length)
+            // console.log(current_item.length)
             if (current_item.length > 20) {
                 var trimmedString = current_item.substring(0, 15);
                 trimmedString+= '...';
