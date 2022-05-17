@@ -164,16 +164,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="search__filter-item">
-                                        <div class="accordion_item">
-                                            <span class="search__filter-title accordion_btn">Topics</span>
-                                            <div  class="accordion_panel">
-                                                <div class="accordion_content">
-                                                    <?php echo do_shortcode('[facetwp facet="topics"]'); ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+<!--                                    <div class="search__filter-item">-->
+<!--                                        <div class="accordion_item">-->
+<!--                                            <span class="search__filter-title accordion_btn">Topics</span>-->
+<!--                                            <div  class="accordion_panel">-->
+<!--                                                <div class="accordion_content">-->
+<!--                                                    --><?php //echo do_shortcode('[facetwp facet="topics"]'); ?>
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
                                 </div>
                             </div>
