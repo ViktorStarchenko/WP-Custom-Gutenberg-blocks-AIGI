@@ -897,3 +897,16 @@ $(document).ready(function(){
         $(".add-to-reading-list").fadeOut(1000);
     })
 });
+// Add to list on Sare Download block
+$(document).ready(function(){
+    $('body').on('click', '.post-technical-block .simplefavorite-button', function(){
+        if(!$(this).hasClass('active')){
+            $(".add-to-reading-list").fadeIn(1000);
+            $(".add-to-reading-list").delay(2500).fadeOut(1000);
+            $(".add-to-reading-list").find('div.resource-body').html($('.breadcrumbs .current-item').text());
+        }
+    })
+    $('.close-reading-add').on('click', function(){
+        $(".add-to-reading-list").fadeOut(1000);
+    })
+});
