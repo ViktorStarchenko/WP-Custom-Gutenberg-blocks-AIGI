@@ -172,6 +172,11 @@ if ($content['form_type']) {
             jQuery(".login-page__wrapper.reset-password #rm_recovery_form-element-0").attr('placeholder', 'Type your email');
             jQuery(".login-page__wrapper.reset-password #rm_reset_password_form-element-0").attr('placeholder', 'Enter your password');
             jQuery(".login-page__wrapper.reset-password #rm_reset_password_form-element-1").attr('placeholder', 'Confirm Password');
+
+            if (jQuery('.wppb-error a').length) {
+                let pass_reset_link = jQuery('.reset-password').attr('href');
+                jQuery('.wppb-error a').attr('href', pass_reset_link);
+            }
         })
     </script>
 
