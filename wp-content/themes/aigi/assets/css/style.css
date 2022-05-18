@@ -167,7 +167,8 @@ body {
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.05em;
-    color: var(--color-main-text)
+    color: var(--color-main-text);
+    overflow: auto!important;
 }
 body.hidden {
     overflow: hidden;
