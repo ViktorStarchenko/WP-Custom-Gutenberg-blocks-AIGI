@@ -259,6 +259,12 @@ ob_start();
         get_template_part('template-parts/pdf-parts/pdf', 'page-content-unstyled', $content_items);
         ?>
 
+        <?php if (get_post_type($post) == 'page') {
+            if ( 'templates/toolkit-topic-page.php' == get_page_template_slug( $post->ID )) {
+                echo apply_filters("the_content", $post->post_content);
+            }
+        } ?>
+
         <?php
         if (get_post_type($post) =='toolkit') {
             echo apply_filters("the_content", $post->post_content);
