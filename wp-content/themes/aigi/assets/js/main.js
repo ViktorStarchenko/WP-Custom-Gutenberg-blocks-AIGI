@@ -349,7 +349,7 @@ jQuery('.global-search-tab-nav').on('click', function (){
 
     if (!url.searchParams.get('_search_bar') && !url.searchParams.get('_content_tags') && !url.searchParams.get('_topics')) {
         resetFilter()
-    } else if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
+    } else if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags') || url.searchParams.get('_topics')) {
         jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox.checked').removeClass('checked')
     }
 
@@ -416,7 +416,7 @@ jQuery('body').on('click', function(e){
     document.addEventListener('facetwp-loaded', function() {
         setTimeout(initSpeakersSlider, 2000);
         url = new URL(window.location.href);
-        if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
+        if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags') || url.searchParams.get('_topics') || url.searchParams.get('_events_group')  || url.searchParams.get('_search_event_type')) {
             // console.log(FWP.settings.pager.total_rows);
             // Refresh post types count for search result
             jQuery('.global-search-tab-nav .posts-count').html(0);
@@ -885,28 +885,33 @@ jQuery('.generate_pdf').on('click', function(){
     });
 })
 
-$(document).ready(function(){
-    $('body').on('click', '.simplefavorite-button', function(){
-        if(!$(this).hasClass('active')){
-            $(".add-to-reading-list").fadeIn(1000);
-            $(".add-to-reading-list").delay(2500).fadeOut(1000);
-            $(".add-to-reading-list").find('div.resource-body').html($(this).closest('div.post-tile__content').find('div.post-tile__title').text());
-        }
-    })
-    $('.close-reading-add').on('click', function(){
-        $(".add-to-reading-list").fadeOut(1000);
-    })
-});
 // Add to list on Sare Download block
 $(document).ready(function(){
-    $('body').on('click', '.post-technical-block .simplefavorite-button', function(){
-        if(!$(this).hasClass('active')){
-            $(".add-to-reading-list").fadeIn(1000);
-            $(".add-to-reading-list").delay(2500).fadeOut(1000);
-            $(".add-to-reading-list").find('div.resource-body').html($('.breadcrumbs .current-item').text());
-        }
-    })
-    $('.close-reading-add').on('click', function(){
-        $(".add-to-reading-list").fadeOut(1000);
-    })
+    if ($('div.post-technical-block').length) {
+        $('body').on('click', '.post-technical-block .simplefavorite-button', function(){
+            if(!$(this).hasClass('active')){
+                console.log('modal TWO')
+                $(".add-to-reading-list").fadeIn(1000);
+                $(".add-to-reading-list").delay(2500).fadeOut(1000);
+                $(".add-to-reading-list").find('div.resource-body').html($('.breadcrumbs .current-item').text());
+            }
+        })
+        $('.close-reading-add').on('click', function(){
+            $(".add-to-reading-list").fadeOut(1000);
+        })
+    } else {
+        $('body').on('click', '.simplefavorite-button', function(){
+            if(!$(this).hasClass('active')){
+                console.log('modal ONE')
+                $(".add-to-reading-list").fadeIn(1000);
+                $(".add-to-reading-list").delay(2500).fadeOut(1000);
+                $(".add-to-reading-list").find('div.resource-body').html($(this).closest('div.post-tile__content').find('div.post-tile__title').text());
+            }
+        })
+        $('.close-reading-add').on('click', function(){
+            $(".add-to-reading-list").fadeOut(1000);
+        })
+    }
+
+
 });
