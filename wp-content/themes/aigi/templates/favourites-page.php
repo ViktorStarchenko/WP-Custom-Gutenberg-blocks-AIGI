@@ -136,7 +136,7 @@ if ( is_user_logged_in() ) {
 
                     ?>
 
-                    <div class="post-tile__wrap  resource image post-<? echo get_the_id();?> mob-style-2" data-date="<?php echo strtotime(get_the_date('Y-m-d H:i:s'));?>" data-views="<?php echo get_post_meta( get_the_ID(), 'post_views_count', true ); ?>">
+                    <div class="post-tile__wrap  <?php echo get_post_type( get_the_ID() ) ?> image post-<? echo get_the_id();?> mob-style-2" data-date="<?php echo strtotime(get_the_date('Y-m-d H:i:s'));?>" data-views="<?php echo get_post_meta( get_the_ID(), 'post_views_count', true ); ?>">
                         <div class="post-tile__img-box">
                             <div class="post-tile__img">
                                 <?php if ($bg_image != '' || $bg_image != NULL) { ?>

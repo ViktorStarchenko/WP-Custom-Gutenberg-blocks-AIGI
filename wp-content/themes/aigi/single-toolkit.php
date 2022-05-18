@@ -83,7 +83,8 @@ get_header(); ?>
                                     <?php endforeach ?>
                                 </div>
                                 <div class="toolkit-tag__download">
-                                    <a href="/pdf-test?post_id=<?php echo get_the_ID();?>" class="toolkit-download-topic__after ">Download</a>
+                                    <!--        Direct PDF Dowmload-->
+<!--                                    <a href="/pdf-test?post_id=--><?php //echo get_the_ID();?><!--" class="toolkit-download-topic__after ">Download</a>-->
 <!--                                    <span class="toolkit-tag__download-btn">Download</span> --><?php //echo do_shortcode('[WORDPRESS_PDF]'); ?>
                                     <div class="popup_item_wrapper" data-popup="">
                                         <div href="" class="popup_button post-technical__button">

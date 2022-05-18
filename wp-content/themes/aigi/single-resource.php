@@ -82,7 +82,8 @@ get_header(); ?>
                                     <?php endforeach ?>
                                 </div>
                                 <div class="toolkit-tag__download">
-                                    <a href="/pdf-test?post_id=<?php echo get_the_ID();?>" class="toolkit-download-topic__after ">Download</a>
+                                    <!--        Direct PDF Download-->
+<!--                                    <a href="/pdf-test?post_id=--><?php //echo get_the_ID();?><!--" class="toolkit-download-topic__after ">Download</a>-->
                                     <div class="popup_item_wrapper" data-popup="">
                                         <div href="" class="popup_button post-technical__button">
                                             <span href="" class="toolkit-download-topic__after ">Download</span>
