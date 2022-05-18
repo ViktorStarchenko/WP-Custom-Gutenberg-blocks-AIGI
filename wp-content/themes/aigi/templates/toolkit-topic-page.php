@@ -86,7 +86,7 @@ get_header(); ?>
                                             <span href="" class="toolkit-download-topic__after ">Download</span>
                                         </div>
 
-                                        <div class=g"popup-main-wrapper" id="popup-main-wrapper">
+                                        <div class="popup-main-wrapper" id="popup-main-wrapper">
                                             <div class="item_popup_wrapper">
                                                 <div class="popup_overlay"></div>
                                                 <div class="popup_content_wrapper download-pdf">
