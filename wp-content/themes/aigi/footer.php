@@ -52,7 +52,7 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
 			<div class="footer_button">
                 <?php if (!empty($footer_button)) : ?>
 <!--                    <a class="btn-body" href="--><?//= $footer_button['url'] ?><!--"><span class="btn-inner">--><?//= $footer_button['title'] ?><!--</span></a>-->
-                    <a class="custom-dbox-popup btn-body" href="<?= $footer_button['url'] ?>"><?= $footer_button['title'] ?></a>
+                    <a class="custom-dbox-popup btn-body" href="<?= $footer_button['url'] ?>" target="_self"><?= $footer_button['title'] ?></a>
                 <?php endif; ?>
 			</div>
 		</div>
