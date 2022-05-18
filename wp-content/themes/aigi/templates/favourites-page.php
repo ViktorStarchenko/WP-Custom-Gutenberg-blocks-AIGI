@@ -118,8 +118,10 @@ if ( is_user_logged_in() ) {
                         $bg_image = get_the_post_thumbnail_url(get_the_ID(),'full' );
                     }
 
-                    if(get_post_type() == 'resource'){
+                    if(get_post_type() == 'resource' || get_post_type() == 'toolkit'){
                         $term_list = wp_get_post_terms( get_the_ID(), 'topic', array('fields' => 'all'));
+                    } else if (get_post_type() == 'news' || get_post_type() == 'case_studies'  || get_post_type() == 'event') {
+                        $term_list = wp_get_post_terms( get_the_ID(), 'content_tags', array('fields' => 'all'));
                     }
 
                     if (get_field('td_resource_teaser', get_the_ID())) {
@@ -161,7 +163,11 @@ if ( is_user_logged_in() ) {
                             <div class="post-tile__content-body">
                                 <div class="post-tile__tags">
                                     <?php foreach ($term_list as $term) : ?>
-                                        <a class="content-tags__item" href="/search?_content_tags=<?php echo $term->slug ?>" data-tem-id="<?php echo  $term->term_id ?>"><?php echo $term->name ?></a>
+                                    <?php if(get_post_type() == 'resource' || get_post_type() == 'toolkit'){ ?>
+                                            <a class="content-tags__item" href="/search?_topics=<?php echo $term->slug ?>" data-tem-id="<?php echo  $term->term_id ?>"><?php echo $term->name ?></a>
+                                        <?php } else if (get_post_type() == 'news' || get_post_type() == 'case_studies'  || get_post_type() == 'event') { ?>
+                                            <a class="content-tags__item" href="/search?_content_tags=<?php echo $term->slug ?>" data-tem-id="<?php echo  $term->term_id ?>"><?php echo $term->name ?></a>
+                                      <?php  } ?>
                                     <?php endforeach ?>
                                 </div>
                                 <div class="post-tile__title">

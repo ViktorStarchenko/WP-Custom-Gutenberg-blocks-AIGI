@@ -349,7 +349,7 @@ jQuery('.global-search-tab-nav').on('click', function (){
 
     if (!url.searchParams.get('_search_bar') && !url.searchParams.get('_content_tags') && !url.searchParams.get('_topics')) {
         resetFilter()
-    } else if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
+    } else if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags') || url.searchParams.get('_topics')) {
         jQuery('.global-search-tab[data-post-type="'+post_type+'"] .facetwp-facet-post_type .facetwp-checkbox.checked').removeClass('checked')
     }
 
@@ -416,7 +416,7 @@ jQuery('body').on('click', function(e){
     document.addEventListener('facetwp-loaded', function() {
         setTimeout(initSpeakersSlider, 2000);
         url = new URL(window.location.href);
-        if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags')) {
+        if (url.searchParams.get('_search_bar') || url.searchParams.get('_content_tags') || url.searchParams.get('_topics') || url.searchParams.get('_events_group')  || url.searchParams.get('_search_event_type')) {
             // console.log(FWP.settings.pager.total_rows);
             // Refresh post types count for search result
             jQuery('.global-search-tab-nav .posts-count').html(0);
