@@ -156,7 +156,7 @@ if ($content['form_type']) {
 
 
             // login
-            jQuery('.login-page__wrapper.login input[type="text"]').attr('placeholder', 'Email Address');
+            // jQuery('.login-page__wrapper.login input[type="text"]').attr('placeholder', 'Email Address');
             jQuery('.login-page__wrapper.login input[type="password"]').attr('placeholder', 'Password');
 
             jQuery('.login-page__wrapper.login .login-submit input[type="submit"]').attr('value','Sign In')
