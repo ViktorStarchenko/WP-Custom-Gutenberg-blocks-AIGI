@@ -73,5 +73,45 @@ if (!is_admin()) {
 
 
 
+/*
+Plugin Name: FacetWP Schedule Indexer
+Plugin URI: https://facetwp.com/
+Description: Runs indexer periodically by cron
+Version: 1.0
+Author: FacetWP, LLC
+*/
+
+add_action( 'fwp_scheduled_index', 'fwp_scheduled_index' );
+function fwp_scheduled_index() {
+    FWP()->indexer->index();
+}
+
+register_activation_hook( __FILE__, 'fwp_schedule_indexer_activation' );
+function fwp_schedule_indexer_activation() {
+    if ( ! wp_next_scheduled( 'fwp_scheduled_index' ) ) {
+        wp_schedule_event( time(), 'hourly', 'fwp_scheduled_index' );
+    }
+}
+
+//strtotime('16:20:00')
+register_deactivation_hook( __FILE__, 'fwp_schedule_indexer_deactivation' );
+function fwp_schedule_indexer_deactivation() {
+    wp_clear_scheduled_hook( 'fwp_scheduled_index' );
+}
+
+//var_dump(current_time('H:i:s'));
+
+
+
+add_filter( 'cron_schedules', 'wpshout_add_cron_interval' );
+function wpshout_add_cron_interval( $schedules ) {
+    $schedules['everyminute'] = array(
+        'interval'  => 60, // time in seconds
+        'display'   => 'Every Minute'
+    );
+    return $schedules;
+}
+wp_schedule_event( time(), 'everyminute', 'fwp_scheduled_index' );
+
 
 
