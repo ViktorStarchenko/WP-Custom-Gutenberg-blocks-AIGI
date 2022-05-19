@@ -187,7 +187,6 @@ if ( is_user_logged_in() ) {
 
                 <?php } ?>
             </div>
-<!--            <input type="button" value="Сортировать" data-order="1" />-->
             <div class="search-pagination">
                 <div class="search-pagination__info">
 <!--                    You've viewed <span class="search-pagination__per-page">--><?php //echo FWP()->facet->pager_args['per_page']; ?><!--</span> of <span class="search-pagination__total-rows">--><?php //echo FWP()->facet->pager_args['total_rows']; ?><!--</span> events-->
@@ -202,7 +201,6 @@ if ( is_user_logged_in() ) {
                         'next_text'    => __($next_text),
                     ) ); ?>
                 </div>
-<!--                --><?php //echo do_shortcode('[facetwp facet="pager_"]'); ?>
 
             </div>
         </div>

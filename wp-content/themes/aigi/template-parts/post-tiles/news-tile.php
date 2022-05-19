@@ -38,7 +38,10 @@ $appearance = get_field('appearance');
                 <?php if (get_field('time_to_read')): ?>
                 <span class="post-tile__time"><?php echo get_field('time_to_read'); ?> read</span>
                 <?php endif ?>
+
                 <span><?php echo do_shortcode('[favorite_button]') ?></span>
+
+                <button class="simplefavorite-button" data-postid="<?php echo get_the_ID(); ?>" data-siteid="1" data-groupid="1" data-favoritecount="0" style=""><i class="sf-icon-star-empty"></i> <span>Add to reading list</span></button>
 
             </div>
         </div>
