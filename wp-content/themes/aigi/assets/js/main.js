@@ -156,7 +156,7 @@ jQuery(document).ready(function(){
             let targetName = targetObj.attr("id"); //for console.log
             let targetFlag = false;
             let scrollTop = jQuery(window).scrollTop();
-            let scrollBottom = scrollTop + $(window).height();
+            let scrollBottom = scrollTop + jQuery(window).height();
             let targetTop = targetObj.offset().top;
             let targetBottom = targetTop + targetObj.height();
             // while loading
@@ -174,7 +174,7 @@ jQuery(document).ready(function(){
 
             jQuery(window).on('scroll', function () {
                 scrollTop = jQuery(window).scrollTop();
-                scrollBottom = scrollTop + $(window).height();
+                scrollBottom = scrollTop + jQuery(window).height();
                 targetTop = targetObj.offset().top;
                 targetBottom = targetTop + targetObj.height();
                 if (scrollBottom > targetTop && scrollTop < targetBottom) {
@@ -476,8 +476,8 @@ Reference: http://jsfiddle.net/BB3JK/47/
 */
 
 function customizeSelect() {
-    $('select').each(function(){
-        var $this = $(this), numberOfOptions = $(this).children('option').length;
+    jQuery('select').each(function(){
+        var $this = jQuery(this), numberOfOptions = jQuery(this).children('option').length;
 
         $this.addClass('select-hidden');
         $this.wrap('<div class="select"></div>');
@@ -486,12 +486,12 @@ function customizeSelect() {
         var $styledSelect = $this.next('div.select-styled');
         $styledSelect.text($this.children('option').eq(0).text());
 
-        var $list = $('<ul />', {
+        var $list = jQuery('<ul />', {
             'class': 'select-options'
         }).insertAfter($styledSelect);
 
         for (var i = 0; i < numberOfOptions; i++) {
-            $('<li />', {
+            jQuery('<li />', {
                 text: $this.children('option').eq(i).text(),
                 rel: $this.children('option').eq(i).val()
             }).appendTo($list);
@@ -504,21 +504,21 @@ function customizeSelect() {
 
         $styledSelect.click(function(e) {
             e.stopPropagation();
-            $('div.select-styled.active').not(this).each(function(){
-                $(this).removeClass('active').next('ul.select-options').hide();
+            jQuery('div.select-styled.active').not(this).each(function(){
+                jQuery(this).removeClass('active').next('ul.select-options').hide();
             });
-            $(this).toggleClass('active').next('ul.select-options').toggle();
+            jQuery(this).toggleClass('active').next('ul.select-options').toggle();
         });
 
         $listItems.click(function(e) {
             e.stopPropagation();
-            $styledSelect.text($(this).text()).removeClass('active');
-            $this.val($(this).attr('rel'));
+            $styledSelect.text(jQuery(this).text()).removeClass('active');
+            $this.val(jQuery(this).attr('rel'));
             $list.hide();
             //console.log($this.val());
         });
 
-        $(document).click(function() {
+        jQuery(document).click(function() {
             $styledSelect.removeClass('active');
             $list.hide();
         });
@@ -537,7 +537,7 @@ jQuery('.dropdown-item').on('click', function(){
 
 
 jQuery('select').each(function(){
-    let options = $(this).children('option')
+    let options = jQuery(this).children('option')
     // console.log(options)
 })
 
@@ -700,7 +700,7 @@ function normalizeHeigh(data) {
     let data_allHeight = [];
     data_height.each(function(elem){
         // console.log($(this).outerHeight())
-        data_allHeight.push(parseInt($(this).outerHeight()));
+        data_allHeight.push(parseInt(jQuery(this).outerHeight()));
     })
     slider1_maxHeight = Math.max.apply(Math, data_allHeight);
     jQuery('[data-height=' +  data + ']').css('min-height', slider1_maxHeight + 'px')
@@ -886,30 +886,30 @@ jQuery('.generate_pdf').on('click', function(){
 })
 
 // Add to list on Sare Download block
-$(document).ready(function(){
-    if ($('div.post-technical-block').length) {
-        $('body').on('click', '.post-technical-block .simplefavorite-button', function(){
-            if(!$(this).hasClass('active')){
+jQuery(document).ready(function(){
+    if (jQuery('div.post-technical-block').length) {
+        jQuery('body').on('click', '.post-technical-block .simplefavorite-button', function(){
+            if(!jQuery(this).hasClass('active')){
                 console.log('modal TWO')
-                $(".add-to-reading-list").fadeIn(1000);
-                $(".add-to-reading-list").delay(2500).fadeOut(1000);
-                $(".add-to-reading-list").find('div.resource-body').html($('.breadcrumbs .current-item').text());
+                jQuery(".add-to-reading-list").fadeIn(1000);
+                jQuery(".add-to-reading-list").delay(2500).fadeOut(1000);
+                jQuery(".add-to-reading-list").find('div.resource-body').html(jQuery('.breadcrumbs .current-item').text());
             }
         })
-        $('.close-reading-add').on('click', function(){
-            $(".add-to-reading-list").fadeOut(1000);
+        jQuery('.close-reading-add').on('click', function(){
+            jQuery(".add-to-reading-list").fadeOut(1000);
         })
     } else {
-        $('body').on('click', '.simplefavorite-button', function(){
-            if(!$(this).hasClass('active')){
+        jQuery('body').on('click', '.simplefavorite-button', function(){
+            if(!jQuery(this).hasClass('active')){
                 console.log('modal ONE')
-                $(".add-to-reading-list").fadeIn(1000);
-                $(".add-to-reading-list").delay(2500).fadeOut(1000);
-                $(".add-to-reading-list").find('div.resource-body').html($(this).closest('div.post-tile__content').find('div.post-tile__title').text());
+                jQuery(".add-to-reading-list").fadeIn(1000);
+                jQuery(".add-to-reading-list").delay(2500).fadeOut(1000);
+                jQuery(".add-to-reading-list").find('div.resource-body').html(jQuery(this).closest('div.post-tile__content').find('div.post-tile__title').text());
             }
         })
-        $('.close-reading-add').on('click', function(){
-            $(".add-to-reading-list").fadeOut(1000);
+        jQuery('.close-reading-add').on('click', function(){
+            jQuery(".add-to-reading-list").fadeOut(1000);
         })
     }
 
