@@ -27,7 +27,11 @@
                             <img class="filter-button__filter filter-button__img" src="/wp-content/themes/aigi/assets/images/filter.svg" alt="filter">
                             <img class="filter-button__close filter-button__img" src="/wp-content/themes/aigi/assets/images/close-blue.svg" alt="close">
                         </div>
-                        <?php echo do_shortcode('[facetwp facet="sort_by_relevance"]'); ?>
+
+                        <?php if (!isset($_GET['_search_bar'])) {
+                            echo do_shortcode('[facetwp facet="sort_by_relevance"]');
+                        }
+                         ?>
 
                     </div>
                 </div>
