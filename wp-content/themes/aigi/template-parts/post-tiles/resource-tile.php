@@ -125,7 +125,26 @@ if (get_field('add_diagram')) {
                 <?php if (get_field('time_to_read')): ?>
                     <span class="post-tile__time"><?php echo get_field('time_to_read'); ?> read</span>
                 <?php endif ?>
-                <?php echo do_shortcode('[favorite_button]') ?>
+<!--                --><?php //echo do_shortcode('[favorite_button]') ?>
+                <?php
+                $user_id = get_current_user_id();
+                $post_id = get_the_ID();
+                $reading_list = get_user_favorites($user_id);
+                if (in_array("Irix", $reading_list)) { ?>
+                    <span>
+                            <button class="simplefavorite-button active" data-postid="<?php echo $post_id; ?>" data-siteid="1" data-groupid="1" data-favoritecount="1" style="">
+                                <i class="sf-icon-star-full"></i>
+                                <span>Remove to reading list</span>
+                            </button>
+                        </span>
+                <?php } else { ?>
+                    <span>
+                            <button class="simplefavorite-button" data-postid="<?php echo $post_id; ?>" data-siteid="1" data-groupid="1" data-favoritecount="0" style="">
+                                <i class="sf-icon-star-empty"></i>
+                                <span>Add to reading list</span>
+                            </button>
+                        </span>
+                <?php }?>
             </div>
         </div>
         <div class="post-tile__content-body">
