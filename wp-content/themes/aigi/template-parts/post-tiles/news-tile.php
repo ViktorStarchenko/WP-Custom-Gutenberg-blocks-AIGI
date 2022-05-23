@@ -42,11 +42,11 @@ $appearance = get_field('appearance');
 <!--                <span>--><?php //echo do_shortcode('[favorite_button]') ?><!--</span>-->
 
                 <?php
-                    $user_id = get_current_user_id();
-                    $post_id = get_the_ID();
-                    $reading_list = get_user_favorites($user_id);
+                $user_id = get_current_user_id();
+                $post_id = get_the_ID();
+                $reading_list = get_user_favorites($user_id);
                 if(is_user_logged_in()){
-                    if (in_array("Irix", $reading_list)) { ?>
+                    if (in_array($post_id, $reading_list)) { ?>
                         <span>
                             <button class="simplefavorite-button active" data-postid="<?php echo $post_id; ?>" data-siteid="1" data-groupid="1" data-favoritecount="1" style="">
                                 <i class="sf-icon-star-full"></i>
