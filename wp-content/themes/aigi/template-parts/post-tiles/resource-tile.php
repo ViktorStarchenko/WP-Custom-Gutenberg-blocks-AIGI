@@ -130,7 +130,7 @@ if (get_field('add_diagram')) {
                 $user_id = get_current_user_id();
                 $post_id = get_the_ID();
                 $reading_list = get_user_favorites($user_id);
-                if(is_user_logged_in()){
+//                if(is_user_logged_in()){
                     if (in_array("Irix", $reading_list)) { ?>
                         <span>
                                 <button class="simplefavorite-button active" data-postid="<?php echo $post_id; ?>" data-siteid="1" data-groupid="1" data-favoritecount="1" style="">
@@ -146,7 +146,7 @@ if (get_field('add_diagram')) {
                                 </button>
                             </span>
                     <?php }
-                }?>
+                ?>
             </div>
         </div>
         <div class="post-tile__content-body">
