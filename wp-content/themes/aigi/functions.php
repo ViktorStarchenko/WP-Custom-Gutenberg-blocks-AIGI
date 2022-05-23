@@ -426,7 +426,6 @@ function sort_favourites(){
     echo json_encode($whatever);
     wp_die();
 }
-
-
-
-
+if(is_user_logged_in()){
+    setcookie("TestCookie", 'logged_in', time()+3600);
+}
