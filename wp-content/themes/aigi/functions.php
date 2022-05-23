@@ -427,5 +427,5 @@ function sort_favourites(){
     wp_die();
 }
 if(is_user_logged_in()){
-    setcookie("TestCookie", 'logged_in', time()+3600);
+    setcookie("Logged_in_cookie", 'logged_in', time()+3600);
 }

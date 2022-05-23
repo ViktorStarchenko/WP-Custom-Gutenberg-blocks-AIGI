@@ -46,9 +46,9 @@ $appearance = get_field('appearance');
                 $post_id = get_the_ID();
                 $reading_list = get_user_favorites($user_id);
                 $user = wp_get_current_user();
+                $logged_cookie = $_COOKIE["Logged_in_cookie"];
 
-                var_dump($user);
-                if($user->ID !== 0){
+                if($logged_cookie == 'logged_in'){
                     if (in_array($post_id, $reading_list)) { ?>
                         <span>
                             <button class="simplefavorite-button active" data-postid="<?php echo $post_id; ?>" data-siteid="1" data-groupid="1" data-favoritecount="1" style="">
