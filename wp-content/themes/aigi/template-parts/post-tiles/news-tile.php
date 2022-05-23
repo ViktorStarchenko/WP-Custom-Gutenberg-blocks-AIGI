@@ -45,6 +45,7 @@ $appearance = get_field('appearance');
                     $user_id = get_current_user_id();
                     $post_id = get_the_ID();
                     $reading_list = get_user_favorites($user_id);
+                if(is_user_logged_in()){
                     if (in_array("Irix", $reading_list)) { ?>
                         <span>
                             <button class="simplefavorite-button active" data-postid="<?php echo $post_id; ?>" data-siteid="1" data-groupid="1" data-favoritecount="1" style="">
@@ -52,14 +53,15 @@ $appearance = get_field('appearance');
                                 <span>Remove to reading list</span>
                             </button>
                         </span>
-                <?php } else { ?>
+                    <?php } else { ?>
                         <span>
                             <button class="simplefavorite-button" data-postid="<?php echo $post_id; ?>" data-siteid="1" data-groupid="1" data-favoritecount="0" style="">
                                 <i class="sf-icon-star-empty"></i>
                                 <span>Add to reading list</span>
                             </button>
                         </span>
-                <?php }?>
+                    <?php }
+                }?>
 
             </div>
         </div>
