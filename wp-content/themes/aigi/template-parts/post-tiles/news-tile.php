@@ -46,7 +46,7 @@ $appearance = get_field('appearance');
                 $post_id = get_the_ID();
                 $reading_list = get_user_favorites($user_id);
                 $user = wp_get_current_user();
-                var_dump($user);
+                var_dump($user->ID);
                 if(is_user_logged_in()){
                     if (in_array($post_id, $reading_list)) { ?>
                         <span>
