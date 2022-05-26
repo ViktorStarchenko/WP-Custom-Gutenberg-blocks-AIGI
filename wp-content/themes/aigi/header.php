@@ -139,6 +139,10 @@
                   <?php foreach($main_menu as $item) : ?>
                   <div class="main_menu_item <?php if (!empty($item['submenu'])) : ?>has_sub has_sub_mobile<?php endif; ?>">
                      <a class="main_menu_top <?php if (!empty($item['submenu'])) : ?>has_sub<?php endif; ?>" href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
+                      <?php if (!empty($item['submenu'])) {?>
+                          <span class="main-menu__link-arrow hide"><img src="/wp-content/themes/aigi/assets/images/Triangle-white.svg" alt="triangle"></span>
+                      <?php }?>
+
                      <?php if (!empty($item['submenu'])) : ?>
                      <div class="main_menu_submenu_overlay">
                         <div class="main_menu_submenu wrapper-1245">

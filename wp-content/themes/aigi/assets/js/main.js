@@ -267,13 +267,33 @@ jQuery(window).on("load resize", function() {
 
     } else {
 
-        jQuery(".main_menu_item.has_sub").hover(function() {
-            jQuery(this).children(".main_menu_submenu_overlay").show();
-            jQuery(this).addClass("submenu_opened");
-        }, function() {
-            jQuery(this).children(".main_menu_submenu_overlay").hide();
-            jQuery(this).removeClass("submenu_opened");
+        jQuery('.main-menu__link-arrow.hide').on('click', function () {
+            jQuery(".main_menu_submenu_overlay").hide();
+            if (jQuery(this).hasClass("open")) {
+                console.log('hide')
+                jQuery(this).siblings(".main_menu_submenu_overlay").hide();
+                jQuery(this).removeClass("submenu_opened")
+                jQuery(this).removeClass("open")
+                jQuery(this).addClass("hide")
+
+            } else {
+                console.log('show')
+                jQuery(this).siblings(".main_menu_submenu_overlay").show();
+                jQuery(this).addClass("submenu_opened")
+                jQuery(this).addClass("open")
+                jQuery(this).removeClass("hide")
+            }
+            return false;
         });
+
+
+        // jQuery(".main_menu_item.has_sub").hover(function() {
+        //     jQuery(this).children(".main_menu_submenu_overlay").show();
+        //     jQuery(this).addClass("submenu_opened");
+        // }, function() {
+        //     jQuery(this).children(".main_menu_submenu_overlay").hide();
+        //     jQuery(this).removeClass("submenu_opened");
+        // });
 
         jQuery('.account-dropdown__link').on('click', function() {
             jQuery(this).toggleClass('open');
