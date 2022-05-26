@@ -23,6 +23,7 @@ if ($slider): ?>
             $slides_counter = 1;
             $title = '';
             $short_text = '';
+            $char_limit = '';
             $image_credit = '';
             $small_image = '';
             $button_group = '';
@@ -218,7 +219,8 @@ if ($slider): ?>
 
                         <?php if ($short_text): ?>
                             <div class="header-slider__short-text">
-                                <p><?php echo get_custom_excerpt($short_text, 315, $add_ellipsis) ?></p>
+                                <p><?php echo $short_text; ?></p>
+<!--                                <p>--><?php //echo get_custom_excerpt($short_text, 315, $add_ellipsis) ?><!--</p>-->
                             </div>
                         <?php endif ?>
 
