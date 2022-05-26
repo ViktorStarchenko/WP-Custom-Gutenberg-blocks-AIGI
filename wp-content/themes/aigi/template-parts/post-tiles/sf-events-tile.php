@@ -26,7 +26,7 @@ $posts = $query_news->posts;
                     <?php if (get_the_post_thumbnail_url( $post->ID, 'full' )) { ?>
                         <img class="post-tile__thumb" src="<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ) ?>" alt="<?php echo $post->post_title; ?>">
                     <?php } else { ?>
-
+                        <a href="#">ascasascascascas</a>
                     <?php } ?>
                 </div>
 

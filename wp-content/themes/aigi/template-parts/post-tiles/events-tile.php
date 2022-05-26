@@ -23,7 +23,7 @@ $googleCalendarLink = googleCalendarLink()
             <?php if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
                 <img class="post-tile__thumb" src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ) ?>" alt="<?php the_title(); ?>">
             <?php } else { ?>
-                <a href="cacascasasc">Link</a>
+
             <?php } ?>
         </div>
 
