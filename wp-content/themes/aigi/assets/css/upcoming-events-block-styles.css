@@ -40,6 +40,11 @@
 .event-block-wrapper .landing-page .post-tile__wrap.event .post-tile__img-box .post-tile__img {
     height: 260px;
 }
+
+.event-block-wrapper .landing-page .post-tile__wrap.event .post-tile__img-box .post-tile__img a{
+    width: 100%;
+    height: 100%;
+}
 @media (max-width: 910px) {
     .event-block-wrapper .post-tile__wrap.event {
         max-width: unset;
