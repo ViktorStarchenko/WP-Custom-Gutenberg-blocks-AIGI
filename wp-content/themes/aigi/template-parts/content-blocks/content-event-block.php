@@ -119,9 +119,11 @@ $appearance = get_field('appearance');
     <div class="post-tile__img-box">
         <div class="post-tile__img">
             <?php if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
+            <a href="<?= get_the_permalink(get_the_ID()) ?>">
                 <img class="post-tile__thumb" src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ) ?>" alt="<?php the_title(); ?>">
+            </a>
             <?php } else { ?>
-
+                <a href="<?= get_the_permalink(get_the_ID()) ?>"></a>
             <?php } ?>
         </div>
 
