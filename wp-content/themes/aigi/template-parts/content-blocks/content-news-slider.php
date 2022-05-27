@@ -132,11 +132,14 @@ if ($attributes['background']['bg_color_preset']) {
                         <div>
                             <div class="rslider__item rslider__resource-item <?php echo $post_type; ?>">
                                 <div class="rslider__item-header">
+                                    <a class="rslider__item-header-link" href="<?=  get_the_permalink($post->ID) ?>">
+                                        <img src="/wp-content/themes/aigi/assets/images/elements-news.svg" alt="news">
+                                    </a>
                                     <div class="rslider__date"><?php echo date("M d Y", strtotime($post->post_date)); ?></div>
                                     <div class="rslider__type content-tags__item">News</div>
                                 </div>
                                 <div class="rslider__item-body">
-                                    <div class="rslider__title"><?= $post->post_title; ?></div>
+                                    <a class="rslider__title" href="<?=  get_the_permalink($post->ID) ?>"><?= $post->post_title; ?></a>
                                     <div class="rslider__excerpt"><?php echo get_custom_excerpt($post->post_excerpt, 94, true) ?></div>
                                     <div class="rslider__tags">
                                         <?php $term_list = wp_get_post_terms( $post->ID, 'content_tags', array('fields' => 'all') );

@@ -21,7 +21,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     overflow: hidden;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 .rslider__header {
     display: flex;
@@ -86,6 +86,15 @@
     align-items: flex-end;
     justify-content: center;
     padding-right: 22px;
+    position: relative;
+}
+.rslider__item-header-link {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.rslider__item-header-link img {
+    height: 100%;
 }
 .rslider__date {
     height: 19px;
@@ -105,6 +114,8 @@
     letter-spacing: 0.02em;
     color: var(--color-text-field-blue);
     margin-bottom: 10px;
+    display: inline-block;
+    text-decoration: none;
 }
 .rslider__excerpt {
     font-size: 15px;
@@ -192,18 +203,18 @@
 
 
 /*Resource*/
-.rslider__item.resource .rslider__item-header {
-    background-image: url(/wp-content/themes/aigi/assets/images/elements-resource.svg);
-}
+/*.rslider__item.resource .rslider__item-header {*/
+/*    background-image: url(/wp-content/themes/aigi/assets/images/elements-resource.svg);*/
+/*}*/
 
 /*Case Studies*/
-.rslider__item.case_studies .rslider__item-header {
-    background-image: url(/wp-content/themes/aigi/assets/images/elements-resource.svg);
-}
+/*.rslider__item.case_studies .rslider__item-header {*/
+/*    background-image: url(/wp-content/themes/aigi/assets/images/elements-resource.svg);*/
+/*}*/
 /*News*/
-.rslider__item.news .rslider__item-header {
-    background-image: url(/wp-content/themes/aigi/assets/images/elements-news.svg);
-}
+/*.rslider__item.news .rslider__item-header {*/
+/*    background-image: url(/wp-content/themes/aigi/assets/images/elements-news.svg);*/
+/*}*/
 .rslider__item.news .rslider__item-footer {
     display: none;
 }
@@ -230,6 +241,10 @@
     overflow: hidden;
     margin-right: 16px;
 }
+.speakers__image a {
+    width: 100%;
+    height: 100%;
+}
 .speakers__image img {
     width: 100%;
     height: 100%;
@@ -241,6 +256,8 @@
     line-height: 22px;
     letter-spacing: 0.02em;
     color: var(--color-brand-navy-primary);
+    text-decoration: none;
+    display: inline-block;
 }
 .speakers__position {
     font-size: 15px;
@@ -265,9 +282,9 @@
 }
 
 /*Conference*/
-.rslider__item.conference .rslider__item-header {
-    background-image: url(/wp-content/themes/aigi/assets/images/elements-conference.svg);
-}
+/*.rslider__item.conference .rslider__item-header {*/
+/*    background-image: url(/wp-content/themes/aigi/assets/images/elements-conference.svg);*/
+/*}*/
 @media (max-width: 1300px) {
     .rslider__item {
         width: 100%;

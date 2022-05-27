@@ -147,10 +147,13 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                                 <div class="rslider__item-body">
                                     <div class="speakers__bio">
                                         <div class="speakers__image">
-                                            <img src="<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ) ?>" alt="<?= $post->post_title; ?>">
+                                            <a href="<?=  get_the_permalink($post->ID) ?>">
+                                                <img src="<?php echo get_the_post_thumbnail_url( $post->ID, 'full' ) ?>" alt="<?= $post->post_title; ?>">
+                                            </a>
+
                                         </div>
                                         <div class="speakers__bio-text">
-                                            <div class="speakers__name"><?php echo $post->post_title; ?></div>
+                                            <a href="<?=  get_the_permalink($post->ID) ?>" class="speakers__name"><?php echo $post->post_title; ?></a>
                                             <div class="speakers__position"><?php echo get_field('people_info')['position']; ?></div>
                                         </div>
                                     </div>
@@ -173,9 +176,9 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                     <?php wp_reset_postdata(); ?>
                 </div>
             </div>
-            <?php if (get_sub_field('button_group')['buttons']) {
-                get_template_part('template-parts/content-blocks/content', 'button-group');
-            } ?>
+<!--            --><?php //if (get_sub_field('button_group')['buttons']) {
+//                get_template_part('template-parts/content-blocks/content', 'button-group');
+//            } ?>
 
         </div>
     </div>

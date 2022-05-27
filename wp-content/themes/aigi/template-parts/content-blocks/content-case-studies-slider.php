@@ -135,11 +135,14 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                         <div>
                             <div class="rslider__item rslider__resource-item  <?php echo $post_type; ?>">
                                 <div class="rslider__item-header">
+                                    <a class="rslider__item-header-link" href="<?=  get_the_permalink($post->ID) ?>">
+                                        <img src="/wp-content/themes/aigi/assets/images/elements-resource.svg" alt="elements-resource">
+                                    </a>
                                     <div class="rslider__date"><?php echo date("M d Y", strtotime($post->post_date)); ?></div>
                                     <div class="rslider__type content-tags__item">case studies</div>
                                 </div>
                                 <div class="rslider__item-body">
-                                    <div class="rslider__title"><?= $post->post_title; ?></div>
+                                    <a class="rslider__title" href="<?=  get_the_permalink($post->ID) ?>"><?= $post->post_title; ?></a>
 
                                     <?php
 
@@ -182,9 +185,6 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                     <?php wp_reset_postdata(); ?>
                 </div>
             </div>
-            <?php if (get_sub_field('button_group')['buttons']) {
-                get_template_part('template-parts/content-blocks/content', 'button-group');
-            } ?>
 
         </div>
     </div>

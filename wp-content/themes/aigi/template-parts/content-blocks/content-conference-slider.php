@@ -141,6 +141,9 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                         <div>
                             <div class="rslider__item rslider__resource-item  conference">
                                 <div class="rslider__item-header">
+                                    <a class="rslider__item-header-link" href="<?=  get_the_permalink($post->ID) ?>">
+                                        <img src="/wp-content/themes/aigi/assets/images/elements-conference.svg" alt="elements-conference">
+                                    </a>
                                     <div class="rslider__date">
                                         <?php
                                         if (get_field('events_details')['start_date'] && get_field('events_details')['end_date']) {
@@ -165,7 +168,7 @@ acf-section-<?php echo $attributes['uniq_id']. ' '; ?><?php echo $classes ?><?= 
                                     <div class="rslider__type content-tags__item">conference</div>
                                 </div>
                                 <div class="rslider__item-body">
-                                    <div class="rslider__title"><?= $post->post_title; ?></div>
+                                    <a class="rslider__title" href="<?=  get_the_permalink($post->ID) ?>"><?= $post->post_title; ?></a>
 
                                     <?php
 
