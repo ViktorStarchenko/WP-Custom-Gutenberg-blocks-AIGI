@@ -136,49 +136,49 @@ get_header(); ?>
                             </div>
 
 
-                            <?php if (get_field('provide_feedback')['enable'] == true) {?>
-                                <div class="provide-feedback">
-                                    <div class="popup_item_wrapper" data-popup="">
-                                        <div class="popup_button btn-body  btn-m-blue  topic  before  Between " tabindex="0">
-                                            <span class="btn-inner"><?php echo get_field('provide_feedback')['button_text']; ?></span>
-                                        </div>
-
-                                        <div class="popup-main-wrapper" id="popup-main-wrapper">
-                                            <div class="item_popup_wrapper">
-                                                <div class="popup_overlay"></div>
-                                                <div class="popup_content_wrapper scholarship w-1016">
-                                                    <div class="item_popup_content_inner">
-                                                        <div class="popup_close_button"></div>
-                                                        <div class="scholarship-open__wrapper modal modal-content">
-                                                            <div class="post-content-form">
-                                                                <div class="scholarship-open-form__wrapper">
-                                                                    <div class="form-heading">
-                                                                        <?php if (get_field('provide_feedback')['modal_heading']) : ?>
-                                                                            <div class="form-title"><?php echo get_field('provide_feedback')['modal_heading']; ?></div>
-                                                                        <?php endif ?>
-                                                                        <?php if (get_field('provide_feedback')['modal_description']) : ?>
-                                                                            <div class="form-desc"><?php echo get_field('provide_feedback')['modal_description']; ?></div>
-                                                                        <?php endif ?>
-                                                                    </div>
-
-                                                                    <?php if (get_field('provide_feedback')['form_id']) : ?>
-                                                                        <div class=""><?php echo do_shortcode('[gravityform id="'. get_field('provide_feedback')['form_id'] .'" title="false" description="false" ajax="true" tabindex="49"]');?></div>
-                                                                    <?php endif ?>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="popup_content_footer">
-                                                            <img src="/wp-content/themes/aigi/assets/images/group.svg" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            <?php } ?>
+<!--                            --><?php //if (get_field('provide_feedback')['enable'] == true) {?>
+<!--                                <div class="provide-feedback">-->
+<!--                                    <div class="popup_item_wrapper" data-popup="">-->
+<!--                                        <div class="popup_button btn-body  btn-m-blue  topic  before  Between " tabindex="0">-->
+<!--                                            <span class="btn-inner">--><?php //echo get_field('provide_feedback')['button_text']; ?><!--</span>-->
+<!--                                        </div>-->
+<!---->
+<!--                                        <div class="popup-main-wrapper" id="popup-main-wrapper">-->
+<!--                                            <div class="item_popup_wrapper">-->
+<!--                                                <div class="popup_overlay"></div>-->
+<!--                                                <div class="popup_content_wrapper scholarship w-1016">-->
+<!--                                                    <div class="item_popup_content_inner">-->
+<!--                                                        <div class="popup_close_button"></div>-->
+<!--                                                        <div class="scholarship-open__wrapper modal modal-content">-->
+<!--                                                            <div class="post-content-form">-->
+<!--                                                                <div class="scholarship-open-form__wrapper">-->
+<!--                                                                    <div class="form-heading">-->
+<!--                                                                        --><?php //if (get_field('provide_feedback')['modal_heading']) : ?>
+<!--                                                                            <div class="form-title">--><?php //echo get_field('provide_feedback')['modal_heading']; ?><!--</div>-->
+<!--                                                                        --><?php //endif ?>
+<!--                                                                        --><?php //if (get_field('provide_feedback')['modal_description']) : ?>
+<!--                                                                            <div class="form-desc">--><?php //echo get_field('provide_feedback')['modal_description']; ?><!--</div>-->
+<!--                                                                        --><?php //endif ?>
+<!--                                                                    </div>-->
+<!---->
+<!--                                                                    --><?php //if (get_field('provide_feedback')['form_id']) : ?>
+<!--                                                                        <div class="">--><?php //echo do_shortcode('[gravityform id="'. get_field('provide_feedback')['form_id'] .'" title="false" description="false" ajax="true" tabindex="49"]');?><!--</div>-->
+<!--                                                                    --><?php //endif ?>
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!---->
+<!--                                                        </div>-->
+<!--                                                        <div class="popup_content_footer">-->
+<!--                                                            <img src="/wp-content/themes/aigi/assets/images/group.svg" alt="">-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!---->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            --><?php //} ?>
 
                             <?php get_template_part( 'nav', 'below-single' ); ?>
                         </div>
