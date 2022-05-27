@@ -19,13 +19,13 @@ $googleCalendarLink = googleCalendarLink()
         <a href="<?php echo $googleCalendarLink ?>" class="add-to-calendar" target="_blank"></a>
     </div>
     <div class="post-tile__img-box">
-        <div class="post-tile__img">
+        <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__img">
             <?php if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
                 <img class="post-tile__thumb" src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ) ?>" alt="<?php the_title(); ?>">
             <?php } else { ?>
 
             <?php } ?>
-        </div>
+        </a>
 
         <div class="btn-group f-start m-center">
             <a href="<?php echo $googleCalendarLink ?>" target="_blank" class="btn-body  btn-transparent  calendar  after  Between " tabindex="0">
@@ -67,9 +67,9 @@ $googleCalendarLink = googleCalendarLink()
                 <?php endforeach ?>
             </div>
 
-            <div class="post-tile__title">
+            <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__title">
                 <span><?php the_title(); ?>  ( <?php echo get_post_meta( get_the_ID(), 'post_views_count', true ); ?> )</span>
-            </div>
+            </a>
             <div class="post-tile__excerpt"><p><?php echo get_custom_excerpt(get_the_excerpt(), 213, true) ?></p></div>
         </div>
         <div class="post-tile__content-footer">

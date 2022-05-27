@@ -15,7 +15,7 @@ $appearance = get_field('appearance');
 <!--        <a href="#" class="add-to-calendar"></a>-->
     </div>
     <div class="post-tile__img-box">
-        <div class="post-tile__img">
+        <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__img">
             <?php if (get_the_post_thumbnail_url( get_the_ID(), 'full' )) { ?>
 
                 <img class="post-tile__thumb" src="<?= get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>" alt="<?php the_title(); ?>">
@@ -25,7 +25,7 @@ $appearance = get_field('appearance');
                     <img class="post-tile__type-text" src="/wp-content/themes/aigi/assets/images/case-studies.svg" alt="<?php the_title(); ?>">
                 </picture>
             <?php } ?>
-        </div>
+        </a>
     </div>
 
     <div class="post-tile__content">
@@ -53,9 +53,9 @@ $appearance = get_field('appearance');
                 <?php endforeach ?>
             </div>
 
-            <div class="post-tile__title">
+            <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__title">
                 <span><?php the_title(); ?>   ( <?php echo get_post_meta( get_the_ID(), 'post_views_count', true ); ?> )</span>
-            </div>
+            </a>
             <div class="post-tile__excerpt"><p><?php echo get_custom_excerpt(get_the_excerpt(), 313, true) ?></p></div>
         </div>
         <div class="post-tile__content-footer">

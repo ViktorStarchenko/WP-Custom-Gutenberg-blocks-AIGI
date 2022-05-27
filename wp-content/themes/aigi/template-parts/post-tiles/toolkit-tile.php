@@ -22,11 +22,11 @@ if (get_field('upload_toolkit_pdf', get_the_ID())) {
         <!--        <a href="#" class="add-to-calendar"></a>-->
     </div>
     <div class="post-tile__img-box">
-        <div class="post-tile__img">
+        <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__img">
             <picture>
                 <img class="post-tile__type-text" src="/wp-content/themes/aigi/assets/images/toolkit.svg" alt="<?php the_title(); ?>">
             </picture>
-        </div>
+        </a>
     </div>
 
     <div class="post-tile__content">
@@ -73,9 +73,9 @@ if (get_field('upload_toolkit_pdf', get_the_ID())) {
                 <?php endforeach ?>
             </div>
 
-            <div class="post-tile__title">
+            <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__title">
                 <span><?php the_title(); ?></span>
-            </div>
+            </a>
             <div class="post-tile__excerpt"><p><?php echo get_custom_excerpt(get_the_excerpt(), 213, true) ?></p></div>
         </div>
         <div class="post-tile__content-footer">

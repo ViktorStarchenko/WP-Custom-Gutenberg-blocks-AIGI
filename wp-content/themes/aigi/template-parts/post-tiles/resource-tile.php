@@ -74,7 +74,7 @@ if (get_field('add_diagram')) {
         <!--        <a href="#" class="add-to-calendar"></a>-->
     </div>
     <div class="post-tile__img-box">
-        <div class="post-tile__img">
+        <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__img">
             <?php if (!empty($bg_image)) { ?>
 
                 <img class="post-tile__thumb" src="<?= $bg_image; ?>" alt="<?php the_title(); ?>">
@@ -112,7 +112,7 @@ if (get_field('add_diagram')) {
                 <?php } ?>
 
             <?php } ?>
-        </div>
+        </a>
     </div>
 
     <div class="post-tile__content">
@@ -159,9 +159,9 @@ if (get_field('add_diagram')) {
                 <?php endforeach ?>
             </div>
 
-            <div class="post-tile__title">
+            <a href="<?=  get_the_permalink(get_the_ID()) ?>" class="post-tile__title">
                 <span><?php the_title(); ?></span>
-            </div>
+            </a>
             <div class="post-tile__excerpt"><p><?php echo get_custom_excerpt($excerpt, 213, true) ?></p></div>
         </div>
         <div class="post-tile__content-footer">
