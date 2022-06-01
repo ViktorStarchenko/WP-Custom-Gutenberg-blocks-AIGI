@@ -49,6 +49,9 @@ ul.toolkit-menu__list > li:before {
     align-items: center;
     justify-content: center;
 }
+.toolkit-menu__wrap .toolkit-menu__link-arrow {
+    width: 100%;
+}
 .toolkit-menu__link-arrow img {
     transform: rotate(90deg);
     width: 20px;
