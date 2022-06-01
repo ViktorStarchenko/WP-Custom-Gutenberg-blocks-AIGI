@@ -8,7 +8,7 @@ get_header(); ?>
 <main id="content" role="main">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-        <div class="main-inner toolkit-inner main-toolkit-inner  <?php  echo ((get_field('header_slider')['enable'] == true) ? ' top-of-hero ' :''); ?>">
+        <div class="main-inner toolkit-landing-inner main-toolkit-landing-inner  <?php  echo ((get_field('header_slider')['enable'] == true) ? ' top-of-hero ' :''); ?>">
             <div class="wrapper-full-width content-wrapper search-page__top">
                 <div class="search-page__header wrapper-1245 content-wrapper">
                     <div class="search-page__heading">

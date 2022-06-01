@@ -54,8 +54,7 @@
 
     .page-template-account-page.header-slider-disabled .breadcrumb-container,
     .single-toolkit.header-slider-disabled .breadcrumb-container,
-    .page-template-global-search.header-slider-disabled .breadcrumb-container,
-    .page-template-landing-toolkit-page.header-slider-disabled .breadcrumb-container {
+    .page-template-global-search.header-slider-disabled .breadcrumb-container, {
         background-color: var(--color-primary-bg);
     }
 }
