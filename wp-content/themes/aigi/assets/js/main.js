@@ -267,31 +267,54 @@ jQuery(window).on("load resize", function() {
 
     } else {
 
-        jQuery('.main-menu__link-arrow.hide').on('click', function () {
-            jQuery(".main_menu_submenu_overlay").hide();
-            if (jQuery(this).hasClass("open")) {
-                console.log('hide')
-                jQuery(this).siblings(".main_menu_submenu_overlay").hide();
-                jQuery(this).removeClass("submenu_opened")
-                jQuery(this).removeClass("open")
-                jQuery(this).addClass("hide")
+        // jQuery('.main-menu__link-arrow.hide').on('click', function () {
+        //     jQuery(".main_menu_submenu_overlay").hide();
+        //     if (jQuery(this).hasClass("open")) {
+        //         console.log('hide')
+        //         jQuery(this).siblings(".main_menu_submenu_overlay").hide();
+        //         jQuery(this).removeClass("submenu_opened")
+        //         jQuery(this).removeClass("open")
+        //         jQuery(this).addClass("hide")
+        //
+        //     } else {
+        //         console.log('show')
+        //         jQuery(this).siblings(".main_menu_submenu_overlay").show();
+        //         jQuery(this).addClass("submenu_opened")
+        //         jQuery(this).addClass("open")
+        //         jQuery(this).removeClass("hide")
+        //     }
+        //     return false;
+        // });
 
-            } else {
-                console.log('show')
-                jQuery(this).siblings(".main_menu_submenu_overlay").show();
-                jQuery(this).addClass("submenu_opened")
-                jQuery(this).addClass("open")
-                jQuery(this).removeClass("hide")
-            }
-            return false;
+
+        function showdr(data) {
+            jQuery(data).children(".main_menu_submenu_overlay").show();
+            jQuery(data).addClass("submenu_opened");
+        }
+
+        $(".main_menu_item.has_sub").mouseenter(function() {
+            console.log(this)
+            let data = jQuery(this)
+
+            timer = setTimeout(showdr,400, this);
+
+        }).mouseleave(function() {
+            console.log('mouseleave')
+            jQuery(this).children(".main_menu_submenu_overlay").hide();
+                // jQuery(this).children(".main_menu_submenu_overlay").fadeOut(1000);
+            jQuery(this).removeClass("submenu_opened");
+            clearTimeout(timer);
         });
 
 
         // jQuery(".main_menu_item.has_sub").hover(function() {
+        //
+        //     // jQuery(this).children(".main_menu_submenu_overlay").show(2000);
         //     jQuery(this).children(".main_menu_submenu_overlay").show();
         //     jQuery(this).addClass("submenu_opened");
         // }, function() {
-        //     jQuery(this).children(".main_menu_submenu_overlay").hide();
+        //     // jQuery(this).children(".main_menu_submenu_overlay").hide();
+        //     // jQuery(this).children(".main_menu_submenu_overlay").fadeOut(1000);
         //     jQuery(this).removeClass("submenu_opened");
         // });
 

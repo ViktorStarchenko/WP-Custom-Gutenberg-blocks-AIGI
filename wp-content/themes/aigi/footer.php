@@ -56,6 +56,9 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
                 <?php endif; ?>
 			</div>
 		</div>
+<!--        <button id="Zoomout" style="">Zoom Out</button>-->
+<!--        <button id="Zoomin" style="">Zoom In</button>-->
+
 		<div class="footer_bottom_block">
 			<div class="copyright">
 				<?= $footer_copyright ?>
@@ -73,5 +76,31 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
 
 <!--partner popup-->
 <div id="partner-popup-main-wrapper"></div>
+
+<script>
+jQuery('#checkZoom').on('click', function(){
+    // zoomin()
+    toggleZoomScreen()
+})
+
+    let zoom = 100;
+    jQuery('#Zoomin').on('click', function() {
+        zoom = zoom+10;
+        document.body.style.zoom = zoom+'%';
+        console.log(zoom)
+    })
+    jQuery('#Zoomout').on('click', function() {
+        zoom = zoom-10;
+        document.body.style.zoom = zoom+'%';
+        console.log(zoom)
+    })
+
+</script>
+
+<script>
+    function toggleZoomScreen() {
+
+    }
+</script>
 </body>
 </html>
