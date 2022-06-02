@@ -9,11 +9,21 @@ $data = get_field('header_slider');
     $slider = $data['category_slider']['category'];
 }
 
+$section_classes = '';
+
+if ($data['section_class']) {
+    $section_classes = $data['section_class'];
+}
+$section_id = '';
+if ($data['section_id']) {
+    $section_id = $data['section_id'];
+}
+
 ?>
 <?php
 if ($slider): ?>
 
-<div class="header-slider__section">
+<div class="header-slider__section <?php echo $section_classes; ?>"  id="<?php echo $section_id = $data['section_id']?>">
 
 
     <div class="header-slider slider" id="header-slider" data-init="true">
