@@ -17,10 +17,10 @@ $wpb_all_query = new WP_Query( [
     'order'   => 'DESC',
 ] );
 ?>
-<div class="main-inner top-of-hero">
+<div class="main-inner">
     <div class="content-wrapper wrapper-1245">
-        <h1><?php echo get_the_title(); ?></h1>
         <div class="post-tile__list landing-page">
+            <h1><?php echo get_the_title(); ?></h1>
             <?php if ( $wpb_all_query->have_posts() ) : ?>
                 <ul>
                     <!-- the loop -->
