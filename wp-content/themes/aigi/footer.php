@@ -56,6 +56,7 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
                 <?php endif; ?>
 			</div>
 		</div>
+        <button id="checkZoom" style="display: none">get Zoom</button>
 		<div class="footer_bottom_block">
 			<div class="copyright">
 				<?= $footer_copyright ?>
@@ -73,5 +74,37 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
 
 <!--partner popup-->
 <div id="partner-popup-main-wrapper"></div>
+
+<script>
+jQuery('#checkZoom').on('click', function(){
+    // zoomin()
+    toggleZoomScreen()
+})
+    function zoomin() {
+        var factor = 1.2;
+        var all = document.getElementsByTagName("*");
+        for (var i=0, max=all.length; i < max; i++) {
+            var style = window.getComputedStyle(all[i]);
+            var fontSize = style.getPropertyValue('font-size');
+
+            if(fontSize){
+                all[i].style.fontSize=(parseFloat(fontSize)*factor)+"px";
+            }
+            // if(all[i].nodeName === "IMG"){
+            //     var width=style.getPropertyValue('width');
+            //     var height=style.getPropertyValue('height');
+            //     all[i].style.height = (parseFloat(height)*factor)+"px";
+            //     all[i].style.width = (parseFloat(width)*factor)+"px";
+            // }
+        }
+    }
+
+</script>
+
+<script>
+    function toggleZoomScreen() {
+        document.body.style.zoom = "150%";
+    }
+</script>
 </body>
 </html>
