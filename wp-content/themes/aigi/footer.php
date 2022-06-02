@@ -56,8 +56,8 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
                 <?php endif; ?>
 			</div>
 		</div>
-        <button id="Zoomout" style="">Zoom Out</button>
-        <button id="Zoomin" style="">Zoom In</button>
+<!--        <button id="Zoomout" style="">Zoom Out</button>-->
+<!--        <button id="Zoomin" style="">Zoom In</button>-->
 
 		<div class="footer_bottom_block">
 			<div class="copyright">
