@@ -8,7 +8,7 @@ Template Name: Sitemap
 
 <?php
 // запрос
-$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>
+$wpb_all_query = new WP_Query(array('post_type'=>'post, toolkit, page, resource, events, people, staff, partners', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>
 <?php if ( $wpb_all_query->have_posts() ) : ?>
     <ul>
         <!-- the loop -->
