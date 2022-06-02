@@ -23,7 +23,7 @@ $footer_bottom_menu = get_field('footer_bottom_menu', 'option');
 					</div>
 				</div>
 				<div class="footer_location_block footer_contacts_col">
-                    <a href="https://maps.google.com/?q=<?php echo $footer_contacts['adress'];?>"><?= $footer_contacts['adress'] ?></a>
+                    <a href="https://maps.google.com/?q=<?php echo $footer_contacts['adress'];?>" target="_blank"><?= $footer_contacts['adress'] ?></a>
 				</div>
 				<div class="footer_social_block footer_contacts_col">
 					<?php if (!empty($footer_contacts['mail']['url'])) : ?>
