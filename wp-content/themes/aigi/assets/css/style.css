@@ -687,6 +687,9 @@ strong {
     max-width: 306px;
     padding-left: 0;
 }
+.centered-content-section {
+    padding: 112px 0;
+}
 @media (max-width: 1144px) {
     .has-sidebar__inner {
         padding: 0 16px;
@@ -766,6 +769,9 @@ strong {
     }
     .no-sidebar .col-content {
         padding: 40px 0;
+    }
+    .centered-content-section {
+        padding: 64px 0;
     }
 }
 
