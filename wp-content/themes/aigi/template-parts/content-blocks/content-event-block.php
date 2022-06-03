@@ -80,7 +80,7 @@ if ($attributes['background']['bg_color_preset']) {
 <?php endif // end padding styles ?>
 
 <section class="event-block-section acf-section-<?php echo get_row_index() . ' '; ?> acf-section-<?php echo $attributes['uniq_id']. ' '; ?> <?php echo $classes ?> <?= $background_texture; ?><?= $padding; ?> <?= $bg_color_preset; ?>" id="<?php  echo ($attributes['section_id'] ? $attributes['section_id'] :''); ?>" style="background-image: url(<?php echo $attributes['background']['background_image']['url']; ?>); <?php  echo ($bg_color ?  'background-color: ' . $bg_color . ';' :''); ?> color: <?php echo $attributes['background']['text_color']; ?>; ">
-    <div class="event-block-wrapper content-wrapper <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
+    <div class="event-block-wrapper <?php  echo ($attributes['wrappers']['content_wrapper'] ?  ' ' . $attributes['wrappers']['content_wrapper'] . ' ' :''); ?>">
 <div class="wrapper-1245 content-wrapper">
     <div class="event-heading-wrapper">
         <div class="event-block-title"><?= $content['heading']; ?></div>
