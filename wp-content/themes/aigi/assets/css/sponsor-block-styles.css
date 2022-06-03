@@ -1,3 +1,6 @@
+.sponsor-block-section {
+    padding: 90px 0;
+}
 .sponsor-block-wrapper {
     display: flex;
         justify-content: center;
@@ -39,6 +42,9 @@
     }
 }
 @media (max-width: 767px) {
+    .sponsor-block-section {
+        padding: 44px 0;
+    }
     .sponsor-block-wrapper {
         flex-wrap: wrap;
     }
