@@ -19,7 +19,7 @@ $wpb_all_query = new WP_Query( [
 ?>
 <div class="main-inner">
     <div class="content-wrapper wrapper-1245">
-        <div class="post-tile__list landing-page">
+        <div class="post-tile__list landing-page sitemap-page">
             <h1><?php echo get_the_title(); ?></h1>
             <?php if ( $wpb_all_query->have_posts() ) : ?>
                 <ul>
