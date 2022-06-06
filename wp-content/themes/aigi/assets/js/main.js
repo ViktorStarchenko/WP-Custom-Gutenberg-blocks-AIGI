@@ -296,7 +296,7 @@ jQuery(window).on("load resize", function() {
             console.log(this)
             let data = jQuery(this)
 
-            timer = setTimeout(showdr,400, this);
+            timer = setTimeout(showdr,200, this);
 
         }).mouseleave(function() {
             console.log('mouseleave')
