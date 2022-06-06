@@ -690,6 +690,9 @@ strong {
 .centered-content-section {
     padding: 112px 0;
 }
+.accordion-block-section {
+    padding: 90px 0;
+}
 @media (max-width: 1144px) {
     .has-sidebar__inner {
         padding: 0 16px;
@@ -772,6 +775,9 @@ strong {
     }
     .centered-content-section {
         padding: 64px 0;
+    }
+    .accordion-block-section {
+        padding: 45px 0;
     }
 }
 
