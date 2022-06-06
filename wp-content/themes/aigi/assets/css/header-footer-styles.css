@@ -655,6 +655,7 @@ p.image_description {
 	background-repeat: no-repeat;
 	background-position: center;
 }
+
  @media (min-width: 1350px) {
 	.submenu_items_wrapper .submenu_item_blocks_wrapper .submenu_item_block:nth-child(-n+4) {
 		border-bottom: 1px solid #DFDFDF;
@@ -897,6 +898,10 @@ p.image_description {
 	}
 	#header #menu a.btn-m-blue {
 		color: white;
+	}
+	/*Page scaling*/
+	.page_scaling {
+		display: none;
 	}
 }
 @media (max-width: 1000px) {
