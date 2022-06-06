@@ -958,3 +958,26 @@ jQuery(document).ready(function(){
 
 
 });
+
+
+// Changing Page scale
+
+jQuery(document).ready(function(){
+    let zoom = 100;
+    jQuery('.page_scaling__btn_plus').on('click', function() {
+        zoom = zoom+10;
+        document.body.style.zoom = zoom+'%';
+        // console.log(zoom)
+    })
+    jQuery('.page_scaling__btn_minus').on('click', function() {
+        zoom = zoom-10;
+        document.body.style.zoom = zoom+'%';
+        // console.log(zoom)
+    })
+    jQuery('.page_scaling__btn_default').on('click', function() {
+        zoom = 100;
+        document.body.style.zoom = zoom+'%';
+        // console.log(zoom)
+    })
+})
+

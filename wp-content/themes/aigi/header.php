@@ -215,6 +215,18 @@
                        <button class="fwp-submit btn-body btn-m-blue" data-href="/search/">Search</button>
                    </div>
                </div>
+
+                <div class="page_scaling">
+                    <div class="page_scaling__img">
+                        <img class="page_scaling__btn_default" src="/wp-content/themes/aigi/assets/images/font-size.svg" alt="font-size">
+                    </div>
+                    <div class="page_scaling__buttons">
+                        <div class="page_scaling__btn page_scaling__btn_minus">-</div>
+                        <div class="page_scaling__btn page_scaling__btn_plus">+</div>
+                    </div>
+
+                </div>
+
                <div class="header_bottom_menu" id="header_login_menu">
 <!--                  --><?php //if (!empty($bottom_menu['header_bottom_menu_right'])) :
 //                     foreach($bottom_menu['header_bottom_menu_right'] as $item) : ?>
