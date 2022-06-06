@@ -457,6 +457,41 @@ p.image_description {
 	letter-spacing: 0.03em;
 	margin-bottom: 24px;
 }
+
+.page_scaling {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid rgba(255, 255, 255, 0.2);;
+	border-radius: 5px;
+	padding: 5px;
+	margin-left: 16px;
+}
+.page_scaling__img {
+	border-right: 1px solid rgba(255, 255, 255, 0.2);;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.page_scaling__buttons {
+	display: flex;
+	align-items: center;
+}
+.page_scaling__btn {
+	padding: 0 3px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.page_scaling__btn:hover {
+	color: #fff;
+}
+.page_scaling__btn_minus {
+	margin-top: -4px;
+	padding-left: 6px;
+}
+.page_scaling__btn_default {
+	cursor: pointer;
+}
  /**** FOOTER *****/
 
  #footer {
