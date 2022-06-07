@@ -962,22 +962,75 @@ jQuery(document).ready(function(){
 
 // Changing Page scale
 
+$.fn.scale = function(x) {
+    if(!$(this).filter(':visible').length && x!=1)return $(this);
+    if(!$(this).parent().hasClass('scaleContainer')){
+        $(this).wrap($('<div class="scaleContainer">').css('position','relative'));
+        $(this).data({
+            'originalWidth':$(this).width(),
+            'originalHeight':$(this).height()});
+    }
+    $(this).css({
+        'transform': 'scale('+x+')',
+        '-ms-transform': 'scale('+x+')',
+        '-moz-transform': 'scale('+x+')',
+        '-webkit-transform': 'scale('+x+')',
+        'transform-origin': 'right bottom',
+        '-ms-transform-origin': 'right bottom',
+        '-moz-transform-origin': 'right bottom',
+        '-webkit-transform-origin': 'right bottom',
+        'position': 'absolute',
+        'bottom': '0',
+        'right': '0',
+    });
+    if(x==1)
+        $(this).unwrap().css('position','static');else
+        $(this).parent()
+            .width($(this).data('originalWidth')*x)
+            .height($(this).data('originalHeight')*x);
+    return $(this);
+};
+
 jQuery(document).ready(function(){
     let zoom = 100;
+    let currFFZoom = 1;
     jQuery('.page_scaling__btn_plus').on('click', function() {
         zoom = zoom+10;
-        document.body.style.zoom = zoom+'%';
-        // console.log(zoom)
+        if (navigator.userAgent.indexOf('Firefox') != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Firefox') + 8)) >= 3.6) { //Firefox)
+            // document.body.style.MozTransform = "scale(1.1)";
+            var step = 0.05;
+            currFFZoom += step;
+            jQuery('body').css('MozTransform', 'scale('+currFFZoom+')');
+            jQuery('body').css('-moz-transform-origin', 'left top');
+
+        } else {
+            document.body.style.zoom = zoom+'%';
+        }
+
     })
     jQuery('.page_scaling__btn_minus').on('click', function() {
         zoom = zoom-10;
-        document.body.style.zoom = zoom+'%';
+
+        if (navigator.userAgent.indexOf('Firefox') != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Firefox') + 8)) >= 3.6) { //Firefox)
+            var step = 0.05;
+            currFFZoom -= step;
+            jQuery('body').css('MozTransform', 'scale('+currFFZoom+')');
+            jQuery('body').css('-moz-transform-origin', 'left top');
+        } else {
+            document.body.style.zoom = zoom+'%';
+        }
         // console.log(zoom)
     })
     jQuery('.page_scaling__btn_default').on('click', function() {
         zoom = 100;
-        document.body.style.zoom = zoom+'%';
+        if (navigator.userAgent.indexOf('Firefox') != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Firefox') + 8)) >= 3.6) { //Firefox)
+            currFFZoom = 1
+            document.body.style.MozTransform = "scale("+currFFZoom+")";
+            jQuery('body').css('-moz-transform-origin', 'left top');
+        } else {
+            document.body.style.zoom = zoom+'%';
+        }
+
         // console.log(zoom)
     })
 })
-
