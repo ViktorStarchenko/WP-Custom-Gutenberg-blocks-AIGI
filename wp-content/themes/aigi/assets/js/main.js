@@ -930,6 +930,7 @@ jQuery('.generate_pdf').on('click', function(){
 
 // Add to list on Sare Download block
 jQuery(document).ready(function(){
+
     if (jQuery('div.post-technical-block').length) {
         jQuery('body').on('click', '.post-technical-block .simplefavorite-button', function(){
             if(!jQuery(this).hasClass('active')){
@@ -948,7 +949,7 @@ jQuery(document).ready(function(){
                 console.log('modal ONE')
                 jQuery(".add-to-reading-list").fadeIn(1000);
                 jQuery(".add-to-reading-list").delay(2500).fadeOut(1000);
-                jQuery(".add-to-reading-list").find('div.resource-body').html(jQuery(this).closest('div.post-tile__content').find('div.post-tile__title').text());
+                jQuery(".add-to-reading-list").find('div.resource-body').html(jQuery(this).closest('.post-tile__content').find('.post-tile__title').text());
             }
         })
         jQuery('.close-reading-add').on('click', function(){
