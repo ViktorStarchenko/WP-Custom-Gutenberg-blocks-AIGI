@@ -90,7 +90,7 @@ new GW_Minimum_Characters( array(
 function populate_fields( $value, $field, $name ) {
     global $post;
 //    $file_url = get_field('share_download', $post->ID)['download_file']['url'];
-    $file_url = 'https://aigi.staging.overdose.digital/pdf-test?post_id='.$post->ID;
+    $file_url = get_site_url() . '/pdf-test?post_id='.$post->ID;
 
     // Use the POSTed data if it's there
     return $file_url;
