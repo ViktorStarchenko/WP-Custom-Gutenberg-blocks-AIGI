@@ -10,6 +10,29 @@
     padding-bottom: 24px;
 }
 
+.single-resource__container h1:not(:last-child),
+.single-resource__container h2:not(:last-child),
+.single-resource__container h3:not(:last-child),
+.single-resource__container h4:not(:last-child),
+.single-resource__container h5:not(:last-child),
+.single-resource__container h6:not(:last-child),
+.single-resource__container ul:not(:last-child),
+.single-resource__container address:not(:last-child),
+.single-resource__container p:not(:last-child) {
+    margin-bottom: 32px;
+}
+.single-resource__container h1:last-child,
+.single-resource__container h2:last-child,
+.single-resource__container h3:last-child,
+.single-resource__container h4:last-child,
+.single-resource__container h5:last-child,
+.single-resource__container h6:last-child,
+.single-resource__container ul:last-child,
+.single-resource__container address:last-child,
+.single-resource__container p:last-child {
+    margin-bottom: 0px;
+}
+
 /*resource header background*/
 .single-resource__bg {
     position: absolute;
@@ -274,6 +297,20 @@
     }
     .single-resource__bg.extended {
         height: 186px;
+    }
+
+    .single-resource__container h1:not(:last-child),
+    .single-resource__container h2:not(:last-child),
+    .single-resource__container h3:not(:last-child),
+    .single-resource__container h4:not(:last-child),
+    .single-resource__container h5:not(:last-child),
+    .single-resource__container h6:not(:last-child) {
+        margin-bottom: 16px;
+    }
+    .single-resource__container address:not(:last-child),
+    .single-resource__container ul:not(:last-child),
+    .single-resource__container p:not(:last-child) {
+        margin-bottom: 24px;
     }
 }
 @media (max-width: 610px) {

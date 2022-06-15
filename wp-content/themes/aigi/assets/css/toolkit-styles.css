@@ -220,6 +220,29 @@ ul.toolkit-menu__list > li:before {
     top: 0;
 }
 
+.toolkit-single__content h1,
+.toolkit-single__content h2,
+.toolkit-single__content h3,
+.toolkit-single__content h4,
+.toolkit-single__content h5,
+.toolkit-single__content h6,
+.toolkit-single__content ul,
+.toolkit-single__content address,
+.toolkit-single__content p {
+    margin-bottom: 32px;
+}
+
+/*.toolkit-single__content .single-resource__container h1,*/
+/*.toolkit-single__content .single-resource__container h2,*/
+/*.toolkit-single__content .single-resource__container h3,*/
+/*.toolkit-single__content .single-resource__container h4,*/
+/*.toolkit-single__content .single-resource__container h5,*/
+/*.toolkit-single__content .single-resource__container h6,*/
+/*.toolkit-single__content .single-resource__container ul,*/
+/*.toolkit-single__content .single-resource__container p {*/
+/*    margin-bottom: unset;*/
+/*}*/
+
 /*Toolkit landing*/
 .main-toolkit-landing-inner .search-page__top {
     height: 60px;
@@ -413,5 +436,20 @@ ul.toolkit-menu__list > li:before {
     }
     .toolkit-menu__mobile-button {
         display: block;
+    }
+
+    .toolkit-single__content h1,
+    .toolkit-single__content h2,
+    .toolkit-single__content h3,
+    .toolkit-single__content h4,
+    .toolkit-single__content h5,
+    .toolkit-single__content h6 {
+        margin-bottom: 16px;
+    }
+
+    .toolkit-single__content ul,
+    .toolkit-single__content address,
+    .toolkit-single__content p {
+        margin-bottom: 24px;
     }
 }

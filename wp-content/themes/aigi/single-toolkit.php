@@ -131,8 +131,9 @@ get_header(); ?>
 
                             </div>
 
-                            <?php the_content() ?>
-
+                            <div class="toolkit-single__content">
+                                <?php the_content() ?>
+                            </div>
 
                             <?php if (get_field('provide_feedback')['enable'] == true) {?>
                                 <div class="provide-feedback">
