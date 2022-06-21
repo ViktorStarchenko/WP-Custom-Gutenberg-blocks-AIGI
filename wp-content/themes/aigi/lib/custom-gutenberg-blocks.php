@@ -51,3 +51,20 @@ function acf_register_block_type_video() {
         )
     );
 }
+
+if (function_exists('acf_register_block_type_gallery')) {
+    add_action('acf/init', 'acf_register_block_type_gallery');
+}
+
+function acf_register_block_type_gallery() {
+    acf_register_block_type(
+        array(
+            'name' => 'custom_gallery',
+            'title' => __('Custom Gallery'),
+            'description' => __('Custom Gallery Block'),
+            'render_template' => 'template-parts/gt-blocks/gt-gallery.php',
+            'icon' => 'editor-paste-text',
+            'keywords' => array('custom_gallery', 'product', 'post'),
+        )
+    );
+}

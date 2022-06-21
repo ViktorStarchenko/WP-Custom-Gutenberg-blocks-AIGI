@@ -2,6 +2,7 @@
 @import 'single-page-styles.css';
 @import 'toolkit-styles.css';
 @import 'resources-styles.css';
+/*@import 'slider-styles.css';*/
 
 .wp-admin .after-content-blocks,
 .wp-admin #acf-group_61cddcf356b31 {
@@ -19,3 +20,12 @@
     /*color: #fff!important;*/
 }
 
+
+/*Block Gallery*/
+.gallery-inner .slider {
+    display: flex;
+    flex-wrap: wrap;
+}
+.gallery-inner .slider>div {
+    flex-basis: 30%;
+}
