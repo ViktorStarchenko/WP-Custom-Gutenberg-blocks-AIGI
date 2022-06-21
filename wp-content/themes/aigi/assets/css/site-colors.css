@@ -1,0 +1,70 @@
+/************************ VARIBLES *************************/
+:root {
+
+    --color-main-text: #4D4D4D;
+    /*Brand Colours [theme]*/
+    --color-brand-navy-primary: #131032;
+    --color-brand-m-blue-primary: #0762A4;
+    --color-brand-orange-primary: #F79533;
+    --color-brand-earth-primary: #A74F39;
+
+    /*Secondary Colours*/
+    --color-h-primary-blue: #1F4274;
+    --color-h-primary-green: #8B8A33;
+    --color-h-primary-orange: #F5AE15;
+
+    --color-h-secondary-blue: #138DCD;
+    --color-h-secondary-green: #97A93E;
+    --color-h-secondary-pink: #F69E96;
+
+    --color-p-primary-blue: #96DAF8;
+    --color-p-primary-orange: #C45726;
+
+    --color-p-secondary-green: #00AF90;
+    --color-p-secondary-purple: #7B367C;
+
+    --color-text-button-green: #40BB99;
+    --color-text-button-purple: #864C90;
+
+    --color-text-field-blue: #131032;
+    --color-text-field-grey: #636363;
+
+    /*System Colors*/
+    --color-primary-button: #F79533;
+    --color-secondary-button: #A74F39;
+    --color-field-border: #E0E0E0;
+    --color-field-inactive: #F5F5F5;
+
+    /*Background Colors*/
+    --color-page-bg: #FFFFFF;
+    --color-product-bg: #FFFFFF;
+    --color-primary-bg: #F8F8F8;
+    --color-secondary-bg: #F4F7F6;
+    --color-tertiary-bg: #F5F6FB;
+    --color-line-separator: #DFDFDF;
+    --color-overlay-bg: #131032CC;
+
+    /*State Colors*/
+    --color-success: #C1E000;
+    --color-error: #D4003F;
+    --color-inactive: #F8F8F8;
+    --color-active: #D2D6D9;
+
+    /*Grayscale Colours*/
+    --color-black: #000000;
+    --color-charcoal: #3F4245;
+    --color-dk-mid-grey: #BCBEC0;
+    --color-lt-mid-grey: #DFDFDF;
+    --color-white: #FFFFFF;
+
+    /*Other Colours*/
+    --color-discount: #532E63;
+
+    /*Order-status Colours*/
+    --color-status-progress: #DC9C50;
+    --color-status-pending: #9B002E;
+    --color-status-complete: #81CB9F;
+    --color-status-closed: #DCDCDC;
+
+
+}

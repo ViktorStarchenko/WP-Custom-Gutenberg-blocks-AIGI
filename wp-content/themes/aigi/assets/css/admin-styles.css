@@ -1,3 +1,7 @@
+@import 'site-colors.css';
+@import 'single-page-styles.css';
+@import 'toolkit-styles.css';
+@import 'resources-styles.css';
 
 .wp-admin .after-content-blocks,
 .wp-admin #acf-group_61cddcf356b31 {

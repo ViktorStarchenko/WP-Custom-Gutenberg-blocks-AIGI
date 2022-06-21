@@ -36,7 +36,7 @@ jQuery(document).ready(function () {
                     jQuery(this).attr('data-issetSrc', true)
                 }
 
-                jQuery('.video-poster[data-video=' + data + ']').hide()
+                jQuery('.video-poster[data-video="' + data + '"]').hide()
                 jQuery(this).removeClass('paused');
                 jQuery(this).get(0).play();
                 jQuery(this).prop("controls",true)
@@ -47,7 +47,7 @@ jQuery(document).ready(function () {
             }
 
         })
-        jQuery('.video-poster[data-video=' + data + ']').hide()
+        jQuery('.video-poster[data-video="' + data + '"]').hide()
         jQuery(video_button_wrap).hide()
 
         jQuery(video_pause_wrap).addClass('visible')
@@ -292,7 +292,7 @@ jQuery(window).on("load resize", function() {
             jQuery(data).addClass("submenu_opened");
         }
 
-        $(".main_menu_item.has_sub").mouseenter(function() {
+        jQuery(".main_menu_item.has_sub").mouseenter(function() {
             console.log(this)
             let data = jQuery(this)
 
@@ -962,35 +962,6 @@ jQuery(document).ready(function(){
 
 
 // Changing Page scale
-
-$.fn.scale = function(x) {
-    if(!$(this).filter(':visible').length && x!=1)return $(this);
-    if(!$(this).parent().hasClass('scaleContainer')){
-        $(this).wrap($('<div class="scaleContainer">').css('position','relative'));
-        $(this).data({
-            'originalWidth':$(this).width(),
-            'originalHeight':$(this).height()});
-    }
-    $(this).css({
-        'transform': 'scale('+x+')',
-        '-ms-transform': 'scale('+x+')',
-        '-moz-transform': 'scale('+x+')',
-        '-webkit-transform': 'scale('+x+')',
-        'transform-origin': 'right bottom',
-        '-ms-transform-origin': 'right bottom',
-        '-moz-transform-origin': 'right bottom',
-        '-webkit-transform-origin': 'right bottom',
-        'position': 'absolute',
-        'bottom': '0',
-        'right': '0',
-    });
-    if(x==1)
-        $(this).unwrap().css('position','static');else
-        $(this).parent()
-            .width($(this).data('originalWidth')*x)
-            .height($(this).data('originalHeight')*x);
-    return $(this);
-};
 
 jQuery(document).ready(function(){
     let zoom = 100;
