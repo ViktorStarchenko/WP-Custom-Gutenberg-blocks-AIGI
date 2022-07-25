@@ -8,7 +8,7 @@
  * Domain Path: /languages
  * License: GPL2
  * Requires at least: 3.0.1
- * Version: 3.7.0
+ * Version: 3.7.4
  *
  * @package insert-pages
  */
@@ -438,6 +438,17 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				$inserted_page = null;
 			}
 
+			// Integration: if Simple Membership plugin is used, check that the
+			// current user has permission to see the inserted post.
+			// See: https://simple-membership-plugin.com/simple-membership-miscellaneous-php-tweaks/
+			if ( class_exists( 'SwpmAccessControl' ) ) {
+				$access_ctrl = SwpmAccessControl::get_instance();
+				if ( ! $access_ctrl->can_i_read_post( $inserted_page ) && ! current_user_can( 'edit_files' ) ) {
+					$inserted_page = null;
+					$content = wp_kses_post( $access_ctrl->why() );
+				}
+			}
+
 			// Loop detection: check if the page we are inserting has already been
 			// inserted; if so, short circuit here.
 			if ( ! is_array( $this->inserted_page_ids ) ) {
@@ -492,6 +503,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 				// Note: Temporarily set the global $post->ID to the inserted page ID,
 				// since both builders rely on the id to load the appropriate styles.
 				if (
+					class_exists( 'UAGB_Post_Assets' ) ||
 					class_exists( 'FLBuilder' ) ||
 					class_exists( 'SiteOrigin_Panels' ) ||
 					class_exists( '\Elementor\Post_CSS_File' ) ||
@@ -510,6 +522,13 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 						$post->ID = $inserted_page->ID;
 					}
 
+					// Enqueue assets for Ultimate Addons for Gutenberg.
+					// See: https://ultimategutenberg.com/docs/assets-api-third-party-plugins/.
+					if ( class_exists( 'UAGB_Post_Assets' ) ) {
+						$post_assets_instance = new UAGB_Post_Assets( $inserted_page->ID );
+						$post_assets_instance->enqueue_scripts();
+					}
+
 					if ( class_exists( 'FLBuilder' ) ) {
 						FLBuilder::enqueue_layout_styles_scripts( $inserted_page->ID );
 					}
@@ -526,6 +545,10 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 
 					// Enqueue custom style from WPBakery Page Builder (Visual Composer).
 					if ( defined( 'VCV_VERSION' ) ) {
+						wp_enqueue_style( 'vcv:assets:front:style' );
+						wp_enqueue_script( 'vcv:assets:runtime:script' );
+						wp_enqueue_script( 'vcv:assets:front:script' );
+
 						$bundle_url = get_post_meta( $inserted_page->ID, 'vcvSourceCssFileUrl', true );
 						if ( $bundle_url ) {
 							$version = get_post_meta( $inserted_page->ID, 'vcvSourceCssFileHash', true );
@@ -747,9 +770,11 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 					$can_read = true;
 					$parent_post_author_id = intval( get_the_author_meta( 'ID' ) );
 					foreach ( $posts as $post ) {
-						$post_type = get_post_type_object( $post->post_type );
-						if ( ! user_can( $parent_post_author_id, $post_type->cap->read_post, $post->ID ) ) {
-							$can_read = false;
+						if ( is_object( $post ) && 'publish' !== $post->post_status ) {
+							$post_type = get_post_type_object( $post->post_type );
+							if ( ! user_can( $parent_post_author_id, $post_type->cap->read_post, $post->ID ) ) {
+								$can_read = false;
+							}
 						}
 					}
 					if ( ! $can_read ) {
@@ -768,6 +793,7 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 					// Note: Temporarily set the global $post->ID to the inserted page ID,
 					// since both builders rely on the id to load the appropriate styles.
 					if (
+						class_exists( 'UAGB_Post_Assets' ) ||
 						class_exists( 'FLBuilder' ) ||
 						class_exists( 'SiteOrigin_Panels' ) ||
 						class_exists( '\Elementor\Post_CSS_File' ) ||
@@ -786,6 +812,13 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 							$post->ID = $inserted_page->ID;
 						}
 
+						// Enqueue assets for Ultimate Addons for Gutenberg.
+						// See: https://ultimategutenberg.com/docs/assets-api-third-party-plugins/.
+						if ( class_exists( 'UAGB_Post_Assets' ) ) {
+							$post_assets_instance = new UAGB_Post_Assets( $inserted_page->ID );
+							$post_assets_instance->enqueue_scripts();
+						}
+
 						if ( class_exists( 'FLBuilder' ) ) {
 							FLBuilder::enqueue_layout_styles_scripts( $inserted_page->ID );
 						}
@@ -802,6 +835,10 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 
 						// Enqueue custom style from WPBakery Page Builder (Visual Composer).
 						if ( defined( 'VCV_VERSION' ) ) {
+							wp_enqueue_style( 'vcv:assets:front:style' );
+							wp_enqueue_script( 'vcv:assets:runtime:script' );
+							wp_enqueue_script( 'vcv:assets:front:script' );
+
 							$bundle_url = get_post_meta( $inserted_page->ID, 'vcvSourceCssFileUrl', true );
 							if ( $bundle_url ) {
 								$version = get_post_meta( $inserted_page->ID, 'vcvSourceCssFileHash', true );
@@ -1489,12 +1526,16 @@ if ( ! class_exists( 'InsertPagesPlugin' ) ) {
 		/**
 		 * Add Insert Page quicktag button to Text editor.
 		 *
+		 * @hook admin_print_footer_scripts
+		 *
 		 * @return void
 		 */
 		public function insert_pages_add_quicktags() {
 			if ( wp_script_is( 'quicktags' ) ) : ?>
 				<script type="text/javascript">
-					QTags.addButton( 'ed_insert_page', '[insert page]', "[insert page='your-page-slug' display='title|link|excerpt|excerpt-only|content|post-thumbnail|all']\n", '', '', 'Insert Page', 999 );
+					window.onload = function() {
+						QTags.addButton( 'ed_insert_page', '[insert page]', "[insert page='your-page-slug' display='title|link|excerpt|excerpt-only|content|post-thumbnail|all']\n", '', '', 'Insert Page', 999 );
+					}
 				</script>
 				<?php
 			endif;

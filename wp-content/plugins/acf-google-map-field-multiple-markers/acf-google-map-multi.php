@@ -4,7 +4,7 @@
 Plugin Name: ACF: Google Maps Field (Multiple Markers)
 Plugin URI: https://wordpress.org/plugins/acf-google-map-field-multiple-markers/
 Description: A Google Map field that allows you to add multiple markers to it.
-Version: 1.0.2
+Version: 1.0.5
 Author: Rajiv Lodhia
 Author URI: https://rajivlodhia.com
 License: GPLv2 or later
@@ -48,7 +48,7 @@ if( !class_exists('gmm_acf_plugin_google_map_multi') ) {
 			// settings
 			// - these will be passed into the field class.
 			$this->settings = array(
-				'version' => '1.0.2',
+				'version' => '1.0.5',
 				'url'     => GMM_PLUGIN_URL,
 				'path'    => GMM_PLUGIN_PATH,
 			);

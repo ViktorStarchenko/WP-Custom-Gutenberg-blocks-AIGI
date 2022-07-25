@@ -8,19 +8,19 @@ import classnames from 'classnames';
  */
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { createElement } from '@wordpress/element';
-import { BlockControls } from '@wordpress/editor';
-import { InspectorControls, URLInput } from '@wordpress/block-editor';
-import { addQueryArgs } from '@wordpress/url';
 import {
-	Dashicon,
+	BlockControls,
+	InspectorControls,
+	URLInput,
+} from '@wordpress/block-editor';
+import {
+	Panel,
 	PanelBody,
 	TextControl,
 	ToggleControl,
 	SelectControl,
 	Toolbar,
 } from '@wordpress/components';
-import apiFetch from '@wordpress/api-fetch';
 import ServerSideRender from '@wordpress/server-side-render';
 
 /**
@@ -104,7 +104,7 @@ export default registerBlockType( 'insert-pages/block', {
 			),
 			!! props.isSelected && (
 				<BlockControls key="controls">
-					<Toolbar className="components-toolbar">
+					<Toolbar label={ __( 'Insert page', 'insert-page' ) } className="components-toolbar">
 						<InsertPageButton
 							url={ props.attributes.url }
 							onChange={ onChangeLink }
@@ -114,145 +114,147 @@ export default registerBlockType( 'insert-pages/block', {
 			),
 			!! props.isSelected && (
 				<InspectorControls key="inspector">
-					<PanelBody title={ __( 'Insert Page', 'insert-page' ) }>
-						<URLInput
-							value={ props.attributes.url }
-							onChange={ onChangeLink }
-							autoFocus={ false }
-							className="width-100"
-						/>
-					</PanelBody>
-					<PanelBody title={ __( 'Settings', 'insert-page' ) }>
-						<SelectControl
-							label={ __( 'Display', 'insert-page' ) }
-							value={ props.attributes.display }
-							options={ [
-								{
-									label: __( 'Title', 'insert-page' ),
-									value: 'title',
-								},
-								{
-									label: __( 'Link', 'insert-page' ),
-									value: 'link',
-								},
-								{
-									label: __(
-										'Excerpt with title',
-										'insert-page'
-									),
-									value: 'excerpt',
-								},
-								{
-									label: __(
-										'Excerpt only (no title)',
-										'insert-page'
-									),
-									value: 'excerpt-only',
-								},
-								{
-									label: __( 'Content', 'insert-page' ),
-									value: 'content',
-								},
-								{
-									label: __(
-										'Post Thumbnail',
-										'insert-page'
-									),
-									value: 'post-thumbnail',
-								},
-								{
-									label: __(
-										'All (includes custom fields)',
-										'insert-page'
-									),
-									value: 'all',
-								},
-								{
-									label: __(
-										'Use a custom template »',
-										'insert-page'
-									),
-									value: 'custom',
-								}, //TODOTODO
-							] }
-							onChange={ ( value ) =>
-								props.setAttributes( { display: value } )
-							}
-						/>
-						<TextControl
-							label={ __(
-								'Custom Template Filename',
-								'insert-page'
-							) }
-							value={ props.attributes.template }
-							onChange={ ( value ) =>
-								props.setAttributes( { template: value } )
-							}
-							className={ classnames( 'custom-template', {
-								hidden: props.attributes.display !== 'custom',
-							} ) }
-						/>
-						<TextControl
-							label={ __( 'Custom CSS Class', 'insert-page' ) }
-							value={ props.attributes.class }
-							onChange={ ( value ) =>
-								props.setAttributes( { class: value } )
-							}
-						/>
-						<TextControl
-							label={ __( 'Custom Element ID', 'insert-page' ) }
-							value={ props.attributes.id }
-							onChange={ ( value ) =>
-								props.setAttributes( { id: value } )
-							}
-						/>
-						<TextControl
-							label={ __( 'Custom Querystring', 'insert-page' ) }
-							value={ props.attributes.querystring }
-							onChange={ ( value ) =>
-								props.setAttributes( { querystring: value } )
-							}
-						/>
-						<ToggleControl
-							label={ __( 'Inline?', 'insert-page' ) }
-							help={
-								props.attributes.inline
-									? __(
-											'Inserted page rendered in a <span>',
+					<Panel className="wp-block-insert-pages-block__inspector-controls">
+						<PanelBody title={ __( 'Insert Page', 'insert-page' ) }>
+							<URLInput
+								value={ props.attributes.url }
+								onChange={ onChangeLink }
+								autoFocus={ false }
+								className="width-100"
+							/>
+						</PanelBody>
+						<PanelBody title={ __( 'Settings', 'insert-page' ) }>
+							<SelectControl
+								label={ __( 'Display', 'insert-page' ) }
+								value={ props.attributes.display }
+								options={ [
+									{
+										label: __( 'Title', 'insert-page' ),
+										value: 'title',
+									},
+									{
+										label: __( 'Link', 'insert-page' ),
+										value: 'link',
+									},
+									{
+										label: __(
+											'Excerpt with title',
 											'insert-page'
-									  )
-									: __(
-											'Inserted page rendered in a <div>',
+										),
+										value: 'excerpt',
+									},
+									{
+										label: __(
+											'Excerpt only (no title)',
 											'insert-page'
-									  )
-							}
-							checked={ props.attributes.inline }
-							onChange={ ( value ) =>
-								props.setAttributes( { inline: value } )
-							}
-						/>
-						<ToggleControl
-							label={ __(
-								'Reveal Private Pages?',
-								'insert-page'
-							) }
-							help={
-								props.attributes.public
-									? __(
-											'Anonymous users can see this inserted even if its status is private',
+										),
+										value: 'excerpt-only',
+									},
+									{
+										label: __( 'Content', 'insert-page' ),
+										value: 'content',
+									},
+									{
+										label: __(
+											'Post Thumbnail',
 											'insert-page'
-									  )
-									: __(
-											'If this page is private, only users with permission can see it',
+										),
+										value: 'post-thumbnail',
+									},
+									{
+										label: __(
+											'All (includes custom fields)',
 											'insert-page'
-									  )
-							}
-							checked={ props.attributes.public }
-							onChange={ ( value ) =>
-								props.setAttributes( { public: value } )
-							}
-						/>
-					</PanelBody>
+										),
+										value: 'all',
+									},
+									{
+										label: __(
+											'Use a custom template »',
+											'insert-page'
+										),
+										value: 'custom',
+									}, //TODOTODO
+								] }
+								onChange={ ( value ) =>
+									props.setAttributes( { display: value } )
+								}
+							/>
+							<TextControl
+								label={ __(
+									'Custom Template Filename',
+									'insert-page'
+								) }
+								value={ props.attributes.template }
+								onChange={ ( value ) =>
+									props.setAttributes( { template: value } )
+								}
+								className={ classnames( 'custom-template', {
+									hidden: props.attributes.display !== 'custom',
+								} ) }
+							/>
+							<TextControl
+								label={ __( 'Custom CSS Class', 'insert-page' ) }
+								value={ props.attributes.class }
+								onChange={ ( value ) =>
+									props.setAttributes( { class: value } )
+								}
+							/>
+							<TextControl
+								label={ __( 'Custom Element ID', 'insert-page' ) }
+								value={ props.attributes.id }
+								onChange={ ( value ) =>
+									props.setAttributes( { id: value } )
+								}
+							/>
+							<TextControl
+								label={ __( 'Custom Querystring', 'insert-page' ) }
+								value={ props.attributes.querystring }
+								onChange={ ( value ) =>
+									props.setAttributes( { querystring: value } )
+								}
+							/>
+							<ToggleControl
+								label={ __( 'Inline?', 'insert-page' ) }
+								help={
+									props.attributes.inline
+										? __(
+												'Inserted page rendered in a <span>',
+												'insert-page'
+											)
+										: __(
+												'Inserted page rendered in a <div>',
+												'insert-page'
+											)
+								}
+								checked={ props.attributes.inline }
+								onChange={ ( value ) =>
+									props.setAttributes( { inline: value } )
+								}
+							/>
+							<ToggleControl
+								label={ __(
+									'Reveal Private Pages?',
+									'insert-page'
+								) }
+								help={
+									props.attributes.public
+										? __(
+												'Anonymous users can see this inserted even if its status is private',
+												'insert-page'
+											)
+										: __(
+												'If this page is private, only users with permission can see it',
+												'insert-page'
+											)
+								}
+								checked={ props.attributes.public }
+								onChange={ ( value ) =>
+									props.setAttributes( { public: value } )
+								}
+							/>
+						</PanelBody>
+					</Panel>
 				</InspectorControls>
 			),
 		];

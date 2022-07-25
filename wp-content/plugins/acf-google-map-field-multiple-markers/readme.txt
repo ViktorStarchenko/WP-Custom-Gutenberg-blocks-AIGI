@@ -1,14 +1,14 @@
 === ACF: Google Maps Field (Multiple Markers) ===
 Contributors: Rajiv Lodhia
-Tags: acf, custom fields, advanced custom fields, google maps, maps, markers
+Tags: acf, custom fields, advanced custom fields, acf addon, google maps, maps, markers, pins
 Requires at least: 4.7
-Tested up to: 5.8
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.0.2
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A Google Maps field for ACF that allows you to add multiple markers to one single map.
+An advanced Google Maps field for ACF that allows you to add multiple markers/pins to a single map field.
 
 == Description ==
 
@@ -27,8 +27,7 @@ This ACF field type is compatible with:
 1. Copy the `acf-google-map-multi` folder into your `wp-content/plugins` folder
 2. Activate the Google Map (Multiple Markers) plugin via the plugins admin page
 3. Register your Google Maps API key in your theme by following the instructions here: https://www.advancedcustomfields.com/resources/google-map/#requirements
-4. Create a new field via ACF and select the Google Map (Multiple Markers) type under the jQuery category
-5. Read below for usage instructions
+4. Create a new field in ACF and select the Google Map (Multiple Markers) type under the jQuery category
 
 == Usage Instructions ==
 
@@ -68,3 +67,13 @@ This is a modified/enhanced version of the standard ACF Google Map plugin, so so
 = 1.0.2 =
 * Fixed bug where the field value wouldn't properly reset when adding a new marker.
 * Changed name from "Google Map" to "Google Maps"
+
+= 1.0.3 =
+* Bumped WordPress tested version to 5.9
+* Adjusted text in readme.txt
+
+= 1.0.4 =
+* JS set to strict mode with "use strict";
+
+= 1.0.5 =
+* Retested with WordPress 6.0

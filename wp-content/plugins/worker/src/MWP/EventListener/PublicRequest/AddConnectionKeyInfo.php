@@ -60,6 +60,21 @@ class MWP_EventListener_PublicRequest_AddConnectionKeyInfo implements Symfony_Ev
         return mwp_refresh_live_public_keys(array());
     }
 
+    protected function checkAndPurgeData()
+    {
+        if (!isset($_GET['mwp_nonce']) || !wp_verify_nonce($_GET['mwp_nonce'], 'mwp_clear_data')) {
+            return false;
+        }
+        if (!isset($_GET['action']) || $_GET['action'] !== 'mwp_clear_data') {
+            return false;
+        }
+        global $wpdb;
+        $sql = "DELETE FROM `". $wpdb->prefix ."options` WHERE `option_name` LIKE 'mwp_%';";
+        $wpdb->query($wpdb->prepare($sql));
+
+        return mwp_refresh_live_public_keys(array());
+    }
+
     protected function checkForDeletedConnectionKey()
     {
         if (!isset($_GET['mwp_nonce']) || !wp_verify_nonce($_GET['mwp_nonce'], 'mwp_deactivation_key')) {
@@ -82,6 +97,7 @@ class MWP_EventListener_PublicRequest_AddConnectionKeyInfo implements Symfony_Ev
         }
 
         $deletedKey = $this->checkForDeletedConnectionKey();
+        $purgeData  = $this->checkAndPurgeData();
 
         ob_start()
         ?>
@@ -177,7 +193,7 @@ class MWP_EventListener_PublicRequest_AddConnectionKeyInfo implements Symfony_Ev
         </style>
 
         <script type="text/javascript">
-            <?php if ($deletedKey) { ?>
+            <?php if ($deletedKey || $purgeData) { ?>
             window.location.replace(<?php echo json_encode($this->context->getAdminUrl('plugins.php?worker_connections=1')); ?>);
             <?php } ?>
 
@@ -258,12 +274,13 @@ class MWP_EventListener_PublicRequest_AddConnectionKeyInfo implements Symfony_Ev
                     <li>
                         <?php
                         /** @handled function */
-                        /* translators: the first variable is a link to managewp.com and the second variable is a link to godaddy.com/pro */
-                        echo sprintf(wp_kses(__('Log into your <a href="%1$s" target="_blank">ManageWP</a> or <a href="%2$s" target="_blank">Pro Sites</a> account.', 'worker'), array('a' => array('href' => array(), 'target' => array()))), 'https://managewp.com/', 'https://godaddy.com/pro'); ?>
+                        echo esc_html__('Log into your account.', 'worker');
+
+                        ?>
                     </li>
                     <li><?php
                         /** @handled function */
-                        echo esc_html__('Click the Add website icon at the top left.', 'worker'); ?>
+                        echo esc_html__('Click the Add site button.', 'worker'); ?>
                     </li>
                     <li>
                         <?php
@@ -288,12 +305,12 @@ class MWP_EventListener_PublicRequest_AddConnectionKeyInfo implements Symfony_Ev
                     <li>
                         <?php
                         /** @handled function */
-                        /* translators: the first variable is a link to managewp.com and the second variable is a link to godaddy.com/pro */
-                        echo sprintf(wp_kses(__('Log into your <a href="%1$s" target="_blank">ManageWP</a> or <a href="%2$s" target="_blank">Pro Sites</a> account.', 'worker'), array('a' => array('href' => array(), 'target' => array()))), 'https://managewp.com/', 'https://godaddy.com/pro'); ?>
+                        echo esc_html__('Log into your account.', 'worker');
+                        ?>
                     </li>
                     <li><?php
                         /** @handled function */
-                        echo esc_html__('Click the Add website icon at the top left.', 'worker'); ?>
+                        echo esc_html__('Click the Add site button.', 'worker'); ?>
                     </li>
                     <li><?php
                         /** @handled function */
@@ -304,7 +321,7 @@ class MWP_EventListener_PublicRequest_AddConnectionKeyInfo implements Symfony_Ev
                 ?>
                 <p style="margin-top: 0"><?php
                     /** @handled function */
-                    echo esc_html__('Here is the list of currently active connections to this Worker plugin:', 'worker'); ?>
+                    echo esc_html__('Here is the list of currently active connections to this plugin:', 'worker'); ?>
                 </p>
 
                 <table style="width: 100%;">
@@ -361,6 +378,15 @@ class MWP_EventListener_PublicRequest_AddConnectionKeyInfo implements Symfony_Ev
                         <?php
                     }
                     ?>
+                    <tr>
+                        <td colspan="4" style="text-align: right">
+                            <a href="<?php echo $this->context->wpNonceUrl($this->context->getAdminUrl('plugins.php?worker_connections=1&action=mwp_clear_data'), 'mwp_clear_data', 'mwp_nonce'); ?>">
+                                <?php
+                                /** @handled function */
+                                echo esc_html__('Disconnect all', 'worker'); ?>
+                            </a>
+                        </td>
+                    </tr>
                 </table>
                 <?php
             } ?>

@@ -1,7 +1,7 @@
 === Insert Pages ===
 Contributors: figureone, the_magician
 Tags: insert, pages, shortcode, embed
-Tested up to: 5.8.1
+Tested up to: 6.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -109,6 +109,25 @@ Just one! The plugin prevents you from embedding a page in itself, but you can t
 3. Insert Pages shortcode example.
 
 == Changelog ==
+
+= 3.7.4 =
+* Fixes quicktag button missing in WordPress 6.0 (also fixes "QTags is not defined) javascript error while editing posts).
+* Add Simple WP Membership integration (content protected with Simple WP Membership will only be shown to authorized users or admins when inserted).
+
+= 3.7.3 =
+* Fix missing Visual Composer script/style enqueues.
+* Tested up to WordPress 6.0.
+* Bump gutenberg npm development dependencies.
+
+= 3.7.2 =
+* Add custom CSS/JS enqueue for inserted pages with blocks from the Ultimate Addons for Gutenberg plugin.
+* Default to "normal" insert method instead of "legacy."
+* Bump gutenberg development dependencies.
+
+= 3.7.1 =
+* Fix Insert Pages block styles affecting other blocks. Props @drsdre for the report!
+* Fix gutenberg block deprecation notices.
+* Tested up to WordPress 5.9.
 
 = 3.7.0 =
 * Security: Prevent unprivileged users from inserting private posts by others.

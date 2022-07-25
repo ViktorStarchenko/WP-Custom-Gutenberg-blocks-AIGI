@@ -47,6 +47,7 @@ class MWP_EventListener_MasterRequest_AuthenticateServiceRequest implements Symf
         $keyName          = $request->getKeyName();
 
         if (empty($serviceSignature) || empty($keyName)) {
+            $this->context->optionSet('mwp_last_communication_error', 'Unexpected: service signature or key name are empty. Key name: '.$keyName.', Signature: '.$serviceSignature);
             return;
         }
 
@@ -61,6 +62,11 @@ class MWP_EventListener_MasterRequest_AuthenticateServiceRequest implements Symf
 
         $communicationKey = $this->configuration->getCommunicationStringByKeyName($keyName);
         $messageToCheck   = '';
+
+        if (empty($communicationKey)) {
+            $this->context->optionSet('mwp_last_communication_error', 'Unexpected: communication key is empty. Key name: '.$keyName);
+            return;
+        }
 
         if (empty($noHostSignature)) {
             $messageToCheck = $request->server['HTTP_HOST'];

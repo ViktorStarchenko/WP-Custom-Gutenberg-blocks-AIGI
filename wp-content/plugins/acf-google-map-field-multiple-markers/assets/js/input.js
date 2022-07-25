@@ -1,5 +1,6 @@
 (function($){
-	
+
+	"use strict";
 	
 	/**
 	*  initialize_field
