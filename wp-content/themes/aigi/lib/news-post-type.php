@@ -20,7 +20,7 @@ function register_cpt_news() {
         'not_found' => _x( 'No News found', 'news' ),
         'not_found_in_trash' => _x( 'No News found in Trash', 'news' ),
         'parent_item_colon' => _x( 'Parent News:', 'news' ),
-        'menu_name' => _x( 'News', 'partners' ),
+        'menu_name' => _x( 'News', 'news' ),
     );
 
     $args = array(
@@ -33,6 +33,7 @@ function register_cpt_news() {
         'show_ui' => true,
         'show_in_menu' => true,
         'menu_position' => 10,
+        'show_in_rest' => true,
 
         'show_in_nav_menus' => true,
         'publicly_queryable' => true,

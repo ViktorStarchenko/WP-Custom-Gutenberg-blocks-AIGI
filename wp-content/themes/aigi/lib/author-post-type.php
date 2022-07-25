@@ -32,6 +32,7 @@ function register_cpt_author() {
         'show_ui' => true,
         'show_in_menu' => true,
         'menu_position' => 10,
+        'show_in_rest' => true,
 
         'show_in_nav_menus' => true,
         'publicly_queryable' => true,
